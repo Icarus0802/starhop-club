@@ -19,12 +19,20 @@
       if(side.blocked.length){const risk=document.createElement('div');risk.className='analysis-blocked';risk.textContent='无向前落点：'+side.blocked.join('、');$('analysis-details').append(risk);}}
     const anchors=D.bridges(state,perspective);if(anchors.length){const line=document.createElement('div');line.className='analysis-side';line.textContent='当前关键桥梁：'+anchors.slice(0,3).map(x=>x.coordinate+' 支持 '+x.dependencies.map(d=>d.coordinate).join('、')).join('；')+'。撤走桥子时需另搭跳路。';$('analysis-details').append(line);}
     $('risk-pieces').textContent=own.risk.length?'需照顾的后子 / 孤子：'+own.risk.map(x=>x.coordinate+'（'+(x.stranded?'后子借力不足':'孤子')+'）').join('、'):'当前视角没有触发后子 / 孤子风险标记。';
-    const chart=$('trend-chart');chart.replaceChildren();const rows=states.map(s=>resultFor(s,perspective));
+    const chart=$('trend-chart'),restoreFocus=!!document.activeElement&&chart.contains(document.activeElement);chart.replaceChildren();const rows=states.map(s=>resultFor(s,perspective));
     const limit=Math.max(100,...rows.filter(r=>!r.terminal).map(r=>Math.abs(r.score)));const y=v=>75-Math.max(-limit,Math.min(limit,v))/limit*58,x=i=>20+i/Math.max(1,rows.length-1)*480;
-    node('line',{x1:20,x2:500,y1:75,y2:75,stroke:'#d9e2d2','stroke-dasharray':'4 4'},chart);
-    node('polyline',{points:rows.map((r,i)=>x(i)+','+y(r.score)).join(' '),fill:'none',stroke:'#397e67','stroke-width':2},chart);
-    rows.forEach((r,i)=>{const c=node('circle',{cx:x(i),cy:y(r.score),r:i===cursor?5:3,fill:i===cursor?'#ae8740':'#397e67',tabindex:0,role:'button','aria-label':'复盘第 '+i+' 手，评分 '+r.score.toFixed(1)},chart);c.addEventListener('click',()=>onReview(i));c.addEventListener('keydown',ev=>{if(ev.key==='Enter')onReview(i);});});
-    node('text',{x:20,y:147,'font-size':10,fill:'#85917c'},chart).textContent='开局';node('text',{x:440,y:147,'font-size':10,fill:'#85917c'},chart).textContent='第 '+(rows.length-1)+' 手';
+    node('line',{x1:20,x2:500,y1:75,y2:75,stroke:'var(--line)','stroke-dasharray':'4 4'},chart);
+    node('polyline',{points:rows.map((r,i)=>x(i)+','+y(r.score)).join(' '),fill:'none',stroke:'var(--green)','stroke-width':2.5},chart);
+    rows.forEach((r,i)=>{
+      const c=node('circle',{cx:x(i),cy:y(r.score),r:i===cursor?5:3,fill:i===cursor?'var(--accent)':'var(--green)',tabindex:i===cursor?0:-1,'data-ply':i,role:'button','aria-label':'复盘第 '+i+' 手，评分 '+r.score.toFixed(1)},chart);
+      c.addEventListener('click',()=>onReview(i));
+      c.addEventListener('keydown',ev=>{
+        const next=ev.key==='ArrowLeft'?Math.max(0,i-1):ev.key==='ArrowRight'?Math.min(rows.length-1,i+1):ev.key==='Home'?0:ev.key==='End'?rows.length-1:ev.key==='Enter'||ev.key===' '?i:null;
+        if(next!==null){ev.preventDefault();onReview(next);chart.querySelector('[data-ply="'+next+'"]')?.focus();}
+      });
+    });
+    node('text',{x:20,y:147,'font-size':11,fill:'var(--muted)'},chart).textContent='开局';node('text',{x:435,y:147,'font-size':11,fill:'var(--muted)'},chart).textContent='第 '+(rows.length-1)+' 手';
+    if(restoreFocus)chart.querySelector('[data-ply="'+cursor+'"]')?.focus();
     $('compare-levels').disabled=!!worker||state.winner!==null||!!state.draw;$('analysis-formula').textContent=data.formula;
   }
   $('compare-levels').onclick=()=>{

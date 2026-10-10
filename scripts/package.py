@@ -20,7 +20,7 @@ with zipfile.ZipFile(output / 'source.zip', 'w', zipfile.ZIP_DEFLATED, compressl
         info = zipfile.ZipInfo(name, (2026, 10, 10, 0, 0, 0))
         info.compress_type = zipfile.ZIP_DEFLATED
         data = p.read_bytes()
-        if p.suffix != '.png':
+        if p.suffix.lower() not in {'.png', '.jpg', '.jpeg', '.webp', '.gif', '.ico', '.woff', '.woff2'}:
             data = data.replace(b'\r\n', b'\n')
         archive.writestr(info, data)
 digest = hashlib.sha256((output / 'source.zip').read_bytes()).hexdigest()
