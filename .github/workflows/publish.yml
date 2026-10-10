@@ -1,0 +1,79 @@
+name: Test and publish Starhop 1.0
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Expand reviewed source package on first publication
+        id: bootstrap
+        shell: bash
+        run: |
+          if [ ! -f index.html ]; then
+            echo '9dc7de6f27854fa7c87ec7f81e8ba99d59109ac3e6f8cd9cf709146738d3c000  source.zip' | sha256sum --check
+            python3 - <<'PY'
+          import zipfile
+          from pathlib import PurePosixPath
+          with zipfile.ZipFile('source.zip') as archive:
+              for item in archive.infolist():
+                  path = PurePosixPath(item.filename)
+                  if path.is_absolute() or '..' in path.parts:
+                      raise RuntimeError('Invalid source path')
+                  if not item.filename.startswith('.github/'):
+                      archive.extract(item, '.')
+          PY
+            echo 'created=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Verify rules, analysis and offline worker
+        run: node --test tests/*.test.cjs
+      - name: Verify reproducible worker bundle
+        run: |
+          cp js/worker-bundle.js /tmp/starhop-worker-before.js
+          node scripts/build.cjs
+          cmp js/worker-bundle.js /tmp/starhop-worker-before.js
+      - name: Publish expanded source and version tag
+        if: steps.bootstrap.outputs.created == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m 'Release tested Chinese checkers 1.0 beta source'
+          git push origin HEAD:main
+          git tag -a v1.0.0-beta.1 -m '星跃棋社 · 测试版 1.0'
+          git push origin v1.0.0-beta.1
+      - name: Create downloadable beta release
+        if: steps.bootstrap.outputs.created == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create v1.0.0-beta.1 source.zip
+          --title '星跃棋社 · 测试版 1.0'
+          --prerelease
+          --notes '中国跳棋开源测试版：人机与多人对战、五档搜索、局势趋势、后子与孤子诊断、三级 AI 建议对照、棋谱复盘。15 项自动测试通过。当前尚未达到经过验证的人类冠军棋力。'
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+      - name: Prepare static app
+        run: |
+          mkdir -p _site
+          cp index.html style.css LICENSE .nojekyll _site/
+          cp -R assets js _site/
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
