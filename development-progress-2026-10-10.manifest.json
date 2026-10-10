@@ -1,0 +1,2975 @@
+{
+  "format": "starhop-development-progress-v1",
+  "date": "2026-10-10",
+  "sourcePackageSha256": "337caaa83cf55083313e81327aefd3f71a90bcf6d35f31a6b5afa271feb23ad3",
+  "note": "Original bytes retained. Archived trials include historical, exploratory and incomplete runs; archive presence is not evidence of engine strength or a completed experiment.",
+  "files": [
+    {
+      "path": "arena-results/adversary-vs-planner-4/game-1.json",
+      "bytes": 5993,
+      "sha256": "69c1da84d0f50c66e8174c060c603031c5615bb39df3a2d7c869856cdf864888"
+    },
+    {
+      "path": "arena-results/adversary-vs-planner-4/game-2.json",
+      "bytes": 5587,
+      "sha256": "c68a87dd0b63fcb1671b41edd4412ba3e55b94eac52128087c5bf8d10d97a2c0"
+    },
+    {
+      "path": "arena-results/adversary-vs-planner-4/game-3.json",
+      "bytes": 5215,
+      "sha256": "7d9585ba5dd0ca559e3c8adb0ea1091f99d275bd03ba5af26ea8bb6ed32fa550"
+    },
+    {
+      "path": "arena-results/adversary-vs-planner-4/game-4.json",
+      "bytes": 5320,
+      "sha256": "ea2d04ab4dc520ce59102d5c42ce635015dc9c5c20da4ef758033dddc6857fe4"
+    },
+    {
+      "path": "arena-results/adversary-vs-planner-4/summary.json",
+      "bytes": 2355,
+      "sha256": "03d0d99b0bc14f4580428725ee89c005b8b4f9613e00731164a0d64cbf1c6a87"
+    },
+    {
+      "path": "arena-results/adversary-vs-v11-4/game-1.json",
+      "bytes": 5162,
+      "sha256": "80f4cd6b7529fd84f5ede3879ea3cf84f94005e3eb022b91fabbdfb467e6457c"
+    },
+    {
+      "path": "arena-results/adversary-vs-v11-4/game-2.json",
+      "bytes": 5668,
+      "sha256": "8dc3666e469845266aed1f763735114639996f77d9b7327f500638fc3cce6535"
+    },
+    {
+      "path": "arena-results/adversary-vs-v11-4/game-3.json",
+      "bytes": 5672,
+      "sha256": "a34073dab4e780ea4e9bb27d4b07ae6b52b918a70dd7466d97972547af92ba85"
+    },
+    {
+      "path": "arena-results/adversary-vs-v11-4/game-4.json",
+      "bytes": 5178,
+      "sha256": "f6327a12b975d2d829774cc1a4939d2e3cab4d300a2d00f29313467044837aed"
+    },
+    {
+      "path": "arena-results/adversary-vs-v11-4/summary.json",
+      "bytes": 2329,
+      "sha256": "7a3b100dd99631dc69f1e8495e4d0877abcb6501c4cc65c71eaba01fd1a3049c"
+    },
+    {
+      "path": "arena-results/adversary350-v11-900/game-1.json",
+      "bytes": 6063,
+      "sha256": "6f17e83e82b8dd0056a0024afd9e0a99bffae8da0998ec1c2276a3fca640ace0"
+    },
+    {
+      "path": "arena-results/adversary350-v11-900/game-2.json",
+      "bytes": 5616,
+      "sha256": "03fa3bcf2fac2f90a6469145f4e829bad58d38e723f406fd53ce0a4b104c8c11"
+    },
+    {
+      "path": "arena-results/adversary350-v11-900/game-3.json",
+      "bytes": 6156,
+      "sha256": "f3dbcd37081d3feccb36c77d8d1506146867c6ebf2a8f2f4e61e07ea0a5b7498"
+    },
+    {
+      "path": "arena-results/adversary350-v11-900/game-4.json",
+      "bytes": 6273,
+      "sha256": "a0f4085a3af6bdd33c214804b710a0b5a0419a6d2cbdb6e1088c3ca6f1c4b473"
+    },
+    {
+      "path": "arena-results/adversary350-v11-900/summary.json",
+      "bytes": 4452,
+      "sha256": "99000c7b638cc3e985bcea5b7b52fab4977f3618eecbe2376fa6027b334d90a2"
+    },
+    {
+      "path": "arena-results/blockade-base-eval.json",
+      "bytes": 5433,
+      "sha256": "02ed0928800e4b5d398a35e0158e4e7358c77ba0f060d001d798727512fa4ad4"
+    },
+    {
+      "path": "arena-results/blockade350-v11-900/game-1.json",
+      "bytes": 5959,
+      "sha256": "a25b16cb26ad053b3a6856be87ca00637a860b844e33eea9c289c82d0a37f5f9"
+    },
+    {
+      "path": "arena-results/blockade350-v11-900/game-2.json",
+      "bytes": 5618,
+      "sha256": "83f712e15e22d90157f5849613903a439a70cc508f0a5fef07154fff6daa545d"
+    },
+    {
+      "path": "arena-results/blockade350-v11-900/game-3.json",
+      "bytes": 5970,
+      "sha256": "254105898a22e7e9dcf7bbbca5695e78d5ddb8701d64b69cad18826e5f7ec341"
+    },
+    {
+      "path": "arena-results/blockade350-v11-900/game-4.json",
+      "bytes": 5703,
+      "sha256": "07feb05d5873f710342dff4c1bf09cd75ad47caebcd71300cc55b95c1fe302ef"
+    },
+    {
+      "path": "arena-results/blockade350-v11-900/summary.json",
+      "bytes": 4518,
+      "sha256": "a66a2a9cc72bb9a5696c82ed0ee75f39ddd2c2673741bb5c3fc70379a16ebaf7"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/game-1.json",
+      "bytes": 30521,
+      "sha256": "6870fa8c3b42acdbe4237652f3b7cfb7213922e971c8e3e24ef37e460f8f9228"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/game-2.json",
+      "bytes": 31703,
+      "sha256": "fd203ddecd25996bc71c8c07b71445cbdfc4dd060c3b7b533c77ebd81df2d06c"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/game-3.json",
+      "bytes": 31411,
+      "sha256": "1afb329613d0bca48b3c306ef9f2d9f4d2872e9a9814c1f3bcdc14d911d271cc"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/game-4.json",
+      "bytes": 32667,
+      "sha256": "d770b2010d49555517adf66ac823f0ceea583c778ae17dcaf13aeea487988beb"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/game-5.json",
+      "bytes": 28428,
+      "sha256": "ef81c53b907013a820c114a1840e0ce834b1b2f702e00a487423e6a32054a7ec"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/game-6.json",
+      "bytes": 36609,
+      "sha256": "67528d39464e5cf73399bcc53098520f7dbd5820f6b3076e9b29998491f50946"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/game-7.json",
+      "bytes": 33586,
+      "sha256": "8c4ae909a7968e745fcc91d942d0616a3c19306aa41aadcaaf6ba8f54016ac11"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/game-8.json",
+      "bytes": 29660,
+      "sha256": "290265ce41b2230b17703882dce02c812cc14e284325a96152af8ebe489e8cfd"
+    },
+    {
+      "path": "arena-results/candidate-a-equal350/summary.json",
+      "bytes": 19252,
+      "sha256": "b38bad5f70191808ae0ff94d660dfe2b57f3edba9474d018e6fcb1192c3536b9"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/game-1.json",
+      "bytes": 36585,
+      "sha256": "7f53644aeb942d0600a758135e28dd3ef5437594438036dac105086ba25f9340"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/game-2.json",
+      "bytes": 35161,
+      "sha256": "7a1edede5eb03ed56d481bde359b45c8f091277161e814ef48527a4d73486dfb"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/game-3.json",
+      "bytes": 32901,
+      "sha256": "8af482daa74e4509247f8f1fb88ebde89c3af5f295bce7134c7cc75669de7d27"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/game-4.json",
+      "bytes": 38541,
+      "sha256": "ae1b149b29362f9739345ef8f6b6a4b48bff570d47ede80e669091dc5779b2ed"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/game-5.json",
+      "bytes": 35888,
+      "sha256": "a49839b1de080d4538cb654d9cc3c76d38e532c7aca599e1112bdff2e4b2b3fb"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/game-6.json",
+      "bytes": 33456,
+      "sha256": "d292f9557c5098a22e4073ce6e5f4b9e66666ec124e70a1a5ece1857e406c2f0"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/game-7.json",
+      "bytes": 36685,
+      "sha256": "e9f42dcb05c651d27eea1c962dfbef3844c1f059c30a7f5c529395bd43323d63"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/game-8.json",
+      "bytes": 35480,
+      "sha256": "14c08826f714a72939b241c38f26bfbcb6c57c13d6f20d7e070a8494a1e57bc3"
+    },
+    {
+      "path": "arena-results/candidate-b-heldout350/summary.json",
+      "bytes": 20550,
+      "sha256": "89bee3a2d02ae74eea4ca7e9d95a8dc00c030b46f8c8fd7eadf7a69e6b7d809f"
+    },
+    {
+      "path": "arena-results/candidate-b-screen100/game-1.json",
+      "bytes": 39499,
+      "sha256": "40204a577d9ff9354adacd055b3f4283f8cce4d9b49b304392d41f482da19b32"
+    },
+    {
+      "path": "arena-results/candidate-b-screen100/game-2.json",
+      "bytes": 35984,
+      "sha256": "a51cc0b2d065b7f2f7e3d02da1cb3c7b7cae260e5d4c1c3a54c179405080a26b"
+    },
+    {
+      "path": "arena-results/candidate-b-screen100/game-3.json",
+      "bytes": 35235,
+      "sha256": "579f26075305c7f98f9c1ed49045cc7534d77916373e8533fe2e4d969dfba0f5"
+    },
+    {
+      "path": "arena-results/candidate-b-screen100/game-4.json",
+      "bytes": 37354,
+      "sha256": "ee0255c0d1d55352a3a5c3905babb02c96bf7e12432602177ce72af624508b90"
+    },
+    {
+      "path": "arena-results/candidate-b-screen100/summary.json",
+      "bytes": 12206,
+      "sha256": "ece26bcf847817babc269d6a3b155a10efd2b89675949f73145cc5d87dcb0c52"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/game-1.json",
+      "bytes": 32758,
+      "sha256": "419c18a0b04ab80470cb4b2a4928b25c540f0f90bc942d3049b86ad37ae1896d"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/game-2.json",
+      "bytes": 32060,
+      "sha256": "a6eafc93088a7857480b02b01fbd5b7b7ef6d2f187fb7c202177350c9f9cece0"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/game-3.json",
+      "bytes": 39462,
+      "sha256": "55e660df4bf4cb5827d07b42f23cf68ff0f5629d7f5c21a7ee2ac5edc1c705ae"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/game-4.json",
+      "bytes": 38582,
+      "sha256": "b292c5ebff70c493cb5e76d020a1b17afb1615e4ce19421bad778a5b2c91516d"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/game-5.json",
+      "bytes": 34932,
+      "sha256": "0f5e4822d4f7964a5452621b6fa999f1460414fb1798a6b9d31fe2874576e69e"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/game-6.json",
+      "bytes": 35320,
+      "sha256": "6fc05b4cde088f54829aa4f6d513f0726f08cef2c2a4bf01009af10a5b418429"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/game-7.json",
+      "bytes": 30550,
+      "sha256": "b2afb72f77d84b267c94e6a6a46d394624466b34e1adce4d01663c207796c5b8"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/game-8.json",
+      "bytes": 33453,
+      "sha256": "3c337d847e60a4a8fc14880d2de10654028a3b7268dea0ff1aa9dd7ba400cc63"
+    },
+    {
+      "path": "arena-results/candidate-c-heldout350/summary.json",
+      "bytes": 20308,
+      "sha256": "9abc796fda69f4ddff12b3d4d9b14e9f4e924d111ed01347e5cb407622bb4831"
+    },
+    {
+      "path": "arena-results/candidate-c-screen100/game-1.json",
+      "bytes": 41904,
+      "sha256": "891c547f38845362286196ed2cb5b877ea1b8174eae1fede0c6f371ec5657353"
+    },
+    {
+      "path": "arena-results/candidate-c-screen100/game-2.json",
+      "bytes": 37826,
+      "sha256": "4aa865ac5d50347d4ec1c3918887d5584d578faa9d4fbc531d835b03df0f91f5"
+    },
+    {
+      "path": "arena-results/candidate-c-screen100/game-3.json",
+      "bytes": 34351,
+      "sha256": "7e3d03ff24b1f0e06adcb0cb7ac37aad75e28f6869464db591462e4d2e7de2d4"
+    },
+    {
+      "path": "arena-results/candidate-c-screen100/game-4.json",
+      "bytes": 36341,
+      "sha256": "ff592c5c70a3c52f39c0a9e88f3d0998cd02a153293a5196062817b05f4139af"
+    },
+    {
+      "path": "arena-results/candidate-c-screen100/summary.json",
+      "bytes": 11990,
+      "sha256": "856be734018db733465c101625b01111c7be4b85c60024c767bdcd1edde9f8ab"
+    },
+    {
+      "path": "arena-results/candidate-d-screen100/game-1.json",
+      "bytes": 40324,
+      "sha256": "168da7720f078100155cbd35dfddb736ce51be215fd4ef76a0463afb85e1be84"
+    },
+    {
+      "path": "arena-results/candidate-d-screen100/game-2.json",
+      "bytes": 35631,
+      "sha256": "17e3063e5770bed2aa899489ca257b6a500a63f3f146491cea49e8ae42573327"
+    },
+    {
+      "path": "arena-results/candidate-d-screen100/game-3.json",
+      "bytes": 34599,
+      "sha256": "e44b5d7581597a8ff4adfc85590c2d0670a997202b66b813d486eca952e34b25"
+    },
+    {
+      "path": "arena-results/candidate-d-screen100/game-4.json",
+      "bytes": 35393,
+      "sha256": "bce2d4bcc4bc3b5028f5634ab6a8e3eb26187dd88e24a89bd9c9b93cda1587e0"
+    },
+    {
+      "path": "arena-results/candidate-d-screen100/summary.json",
+      "bytes": 11852,
+      "sha256": "431e0831322ff69590f87cf8dea0f25e6f764bf14f1190816d5688a12ef0c57c"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/game-1.json",
+      "bytes": 31981,
+      "sha256": "9b9b7f3c0e356adf2d05a349cec5b243bd0f04e9761de2f968f5f03f107b425e"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/game-2.json",
+      "bytes": 111097,
+      "sha256": "a75e52ad731f29a9d5834129e7148dbc139f5d826388a1a83eafbf5ed37456c2"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/game-3.json",
+      "bytes": 31604,
+      "sha256": "4acae73d863a8e7f3a58af9faec197a5ac94a317b0ff45be697147cd7893073e"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/game-4.json",
+      "bytes": 32230,
+      "sha256": "0a61ee923b24cbea9e795a61053d4e7bff859aff055e721a8de1c383f6d53054"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/game-5.json",
+      "bytes": 34251,
+      "sha256": "a3e012e7895a54e75f8842c47528af7caff81cda9f793fe9fd1684c9ef0ff786"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/game-6.json",
+      "bytes": 35014,
+      "sha256": "daf31f2745ff25a04adb82bc0826f7617b3323bb681189857af55cac7eb08074"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/game-7.json",
+      "bytes": 35782,
+      "sha256": "d9ac7f364a17a6b4e45209b98d7010bed16badc6622dfb600b8541a23686f774"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/game-8.json",
+      "bytes": 31965,
+      "sha256": "70459833f74161c56d8088cfcf7fa5b48e80927e96958778230eff5a3ba04189"
+    },
+    {
+      "path": "arena-results/candidate-e-confirm350/summary.json",
+      "bytes": 20198,
+      "sha256": "562e016951c5fbc7d60ad8f13df944b397506a8a574f840e143f464eac975fdf"
+    },
+    {
+      "path": "arena-results/candidate-e-screen100/game-1.json",
+      "bytes": 36494,
+      "sha256": "fcaf33aff4b5d11af923fa65703186b6a7624f40b2e47176d6c3f1b4a897813d"
+    },
+    {
+      "path": "arena-results/candidate-e-screen100/game-2.json",
+      "bytes": 38040,
+      "sha256": "d16ca2f1dedf65fea551ed10d64d57908495ab63ca74e656d5146ce46860d714"
+    },
+    {
+      "path": "arena-results/candidate-e-screen100/game-3.json",
+      "bytes": 36933,
+      "sha256": "797da37dc3d823a050dc9cf1edf1affb13391bb987543a65ab4530450acf11fd"
+    },
+    {
+      "path": "arena-results/candidate-e-screen100/game-4.json",
+      "bytes": 35716,
+      "sha256": "9ce871f1c574cd8351149f776fe28ed51479483d3b0726ae7935f7f47837fa32"
+    },
+    {
+      "path": "arena-results/candidate-e-screen100/summary.json",
+      "bytes": 12087,
+      "sha256": "670cdf23e1e4e4f83943b2e6e9ce372409c66f03dfd8f1f4d3dafa8d143dce7d"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/game-1.json",
+      "bytes": 6837,
+      "sha256": "886efb3c1e87a7767675a6f5fc40ac21df77d131bdfb6f8936c7921d1a0b312b"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/game-2.json",
+      "bytes": 5450,
+      "sha256": "7302ed86ab5ccef12262a451b559e7561eeb6f9a9e3dc06d4973cdd8e2cbe2e3"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/game-3.json",
+      "bytes": 5102,
+      "sha256": "0b297f2417f9c147af24463d4253bfa002ae8821bd91d881b5f38690bbd0af37"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/game-4.json",
+      "bytes": 5450,
+      "sha256": "f055c875f31f79ff7ffb017b78d9fa3629cce9e1dcba8ae921348abad8ce5e93"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/game-5.json",
+      "bytes": 5113,
+      "sha256": "5f4397c1335adea48321b17bbfc51d05b25705b3e4c890c46580df97fc42f350"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/game-6.json",
+      "bytes": 5447,
+      "sha256": "c47616e489e35d2636bd0075f3569e14d45d90751edf576ba4f2ada85bff771d"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/game-7.json",
+      "bytes": 5114,
+      "sha256": "f1667627d629add13f0eabdb23d3ab54b19f511961d5681af7ced60db5649bc7"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/game-8.json",
+      "bytes": 5446,
+      "sha256": "691e5418be36af23667fe1cca8ba1f880d346ca9df43c5bb05a2f0b76a949e1f"
+    },
+    {
+      "path": "arena-results/candidate-escape-pvs/summary.json",
+      "bytes": 7678,
+      "sha256": "30e9af186b039651fec84269f659064f7a2bfdbdb70d0b88d3bce7b517db439b"
+    },
+    {
+      "path": "arena-results/candidate-h-screen100/game-1.json",
+      "bytes": 40201,
+      "sha256": "b9a3bc4014c230eab332f6a052ad44a2db31bc6265b9a82d91b5e6736128975f"
+    },
+    {
+      "path": "arena-results/candidate-h-screen100/game-2.json",
+      "bytes": 111333,
+      "sha256": "c76b09269ce2681fafd411e6ce77221f2bd22e8b36d4a4a04c870778a703ab4f"
+    },
+    {
+      "path": "arena-results/candidate-h-screen100/game-3.json",
+      "bytes": 38969,
+      "sha256": "4ea1b98debaed6f3b8f9e8120fce077c636b38b1b4f1c6609ef15f16a594f284"
+    },
+    {
+      "path": "arena-results/candidate-h-screen100/game-4.json",
+      "bytes": 39093,
+      "sha256": "8ac5f18e45dbf44ba9f46ed70fede29565af35f335c22931315e6ae9dcca0ae2"
+    },
+    {
+      "path": "arena-results/candidate-h-screen100/summary.json",
+      "bytes": 11683,
+      "sha256": "1f802bcac80d5c5213e7e8e14f1087a870d2d2cbfd14b302c19139a32c2e5759"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/game-1.json",
+      "bytes": 111193,
+      "sha256": "aae2296307d9dabaf050cf5862a39b8fcc69e21929fc6b0fde5b8a99c4580f0b"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/game-2.json",
+      "bytes": 35502,
+      "sha256": "a03df6b0488f932fd326db39b694aa6edc222c7d8391f0b63029dc6d9f053c00"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/game-3.json",
+      "bytes": 37307,
+      "sha256": "eb8b80f2fe595a9b3693bc2a1878a8d10e1282eb3259fde9cdb6a12e431bb548"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/game-4.json",
+      "bytes": 33488,
+      "sha256": "7d3ba185219901d127633f08802a61ca25ddd5e259b7cfca4e8b0d3fe893e907"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/game-5.json",
+      "bytes": 103122,
+      "sha256": "48ca421f52912e6177c37944766cce6d8e278fad3ca775c4139fd4a6108c876f"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/game-6.json",
+      "bytes": 33465,
+      "sha256": "b3a0399666100f4194c62a1a6eb8a3afce57da4a457febb0e1282cf2887609a0"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/game-7.json",
+      "bytes": 31467,
+      "sha256": "b2ae2e973b0a167012b9e031c090c759119f3abbf3b375c98f4357acebb631b9"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/game-8.json",
+      "bytes": 30448,
+      "sha256": "748054a1080425d9199c95481cfa5fb4d560cd8955f01432e2edd21cdf62705a"
+    },
+    {
+      "path": "arena-results/candidate-i-confirm350/summary.json",
+      "bytes": 19880,
+      "sha256": "cb6adb1becbe95966be6ac5ff4c3d2784a7329a3526417345479f289df24194a"
+    },
+    {
+      "path": "arena-results/candidate-i-screen100/game-1.json",
+      "bytes": 36350,
+      "sha256": "0c7ebcba06527ebe4f13050bdd5ae236315373afd3bbb8bb35743dfcdf50fccf"
+    },
+    {
+      "path": "arena-results/candidate-i-screen100/game-2.json",
+      "bytes": 40467,
+      "sha256": "842b632633776e587a24594d83eb4d4cc814bd98139378cef5229cf7762aacb8"
+    },
+    {
+      "path": "arena-results/candidate-i-screen100/game-3.json",
+      "bytes": 31392,
+      "sha256": "920e6bd553e1956dd85e64e7cd8055572da8c14169b307eca3bc573ac5115c87"
+    },
+    {
+      "path": "arena-results/candidate-i-screen100/game-4.json",
+      "bytes": 38871,
+      "sha256": "c7440a38de0913a0e0a6623e0e73b955971b698c5d683bfa79d1ccda97200878"
+    },
+    {
+      "path": "arena-results/candidate-i-screen100/summary.json",
+      "bytes": 12107,
+      "sha256": "0989bba02ae37637b5935f84d11e1b9e8297a4447820a87f300479459cbf8c48"
+    },
+    {
+      "path": "arena-results/cohesion-vs-escape/game-1.json",
+      "bytes": 5897,
+      "sha256": "d91f826ec360d3855a95c53ee81a7a511b4325f15bba7ea3e90907a43585a328"
+    },
+    {
+      "path": "arena-results/cohesion-vs-escape/game-2.json",
+      "bytes": 6006,
+      "sha256": "ccc2270015f59b541ff14c1cebde1b24dba79fc0de2110fef8797356a3a0a2d9"
+    },
+    {
+      "path": "arena-results/cohesion-vs-escape/game-3.json",
+      "bytes": 6066,
+      "sha256": "6a34312de57aea0128264bf812cd29c3b311ece7acb4a188384af0248509d05f"
+    },
+    {
+      "path": "arena-results/cohesion-vs-escape/game-4.json",
+      "bytes": 5234,
+      "sha256": "8a31cc750e6cb535b4ed536567b3334a759e8916564523cd6cc9a11016738db5"
+    },
+    {
+      "path": "arena-results/cohesion-vs-escape/game-5.json",
+      "bytes": 5306,
+      "sha256": "e95808f25243ef88cc7a7a51b9e51fc4313616d3d923b8f79737e9a813df1d04"
+    },
+    {
+      "path": "arena-results/cohesion-vs-escape/game-6.json",
+      "bytes": 5783,
+      "sha256": "db58eab29f4c0c83c88484fe402f23401d941d7e2fa75fc90cf9cb789a57da84"
+    },
+    {
+      "path": "arena-results/cohesion-vs-escape/summary.json",
+      "bytes": 6077,
+      "sha256": "fb58ac211240f8eca27ed45a5dfa9d021789c8a8696a2704c5a12eada13630cd"
+    },
+    {
+      "path": "arena-results/CPU.20261010.125452.38820.0.001.cpuprofile",
+      "bytes": 43789,
+      "sha256": "bfe231688c94bec6601972d69be7e306d9f6a0580e72b3e77b9116c88c5ed3c7"
+    },
+    {
+      "path": "arena-results/current350-v11-900/game-1.json",
+      "bytes": 5996,
+      "sha256": "149553d4e30bbe2fa4ba13cfce74e728cee017461af442cca96e9b26b52f5538"
+    },
+    {
+      "path": "arena-results/current350-v11-900/game-2.json",
+      "bytes": 6337,
+      "sha256": "d2ef51bec7390ec379bf8e12d5bc2640397882b3683e4d23b61dc001499c361e"
+    },
+    {
+      "path": "arena-results/current350-v11-900/game-3.json",
+      "bytes": 5745,
+      "sha256": "69791c632e81a8af2c18acc9891d6e5932140b00e99afe56f643b708266f5ceb"
+    },
+    {
+      "path": "arena-results/current350-v11-900/game-4.json",
+      "bytes": 5888,
+      "sha256": "b648ea826497b7f05085f2837c0086234aca8ae557d4e5d930a25724ee614313"
+    },
+    {
+      "path": "arena-results/current350-v11-900/summary.json",
+      "bytes": 4350,
+      "sha256": "190529b938190c218699e11cdc9329a4d9092c5f5a7baec9d1540803b8df38da"
+    },
+    {
+      "path": "arena-results/design-1.3-alpha-preview.png",
+      "bytes": 1093547,
+      "sha256": "5f2da3c21a25708aa7239b636f9a06068b69f0832836aa79e266c1a7599a4b8f"
+    },
+    {
+      "path": "arena-results/diverse-long-180/game-1.json",
+      "bytes": 3798,
+      "sha256": "79e8839147130f45182f56219474fc86899d8fa0c5f88031113c890ae1f73ecb"
+    },
+    {
+      "path": "arena-results/diverse-long-180/game-2.json",
+      "bytes": 5399,
+      "sha256": "1d88468018ebf7f6377b786840159b4f232e21be98a346017dbbded9c3b0937e"
+    },
+    {
+      "path": "arena-results/diverse-long-180/game-3.json",
+      "bytes": 4803,
+      "sha256": "03f4827cf4a888a1c26f2b10928fb53eb5ae97971c82d6b897328dfc70b3ea18"
+    },
+    {
+      "path": "arena-results/diverse-long-180/game-4.json",
+      "bytes": 4954,
+      "sha256": "293a2953e22cbf4c15373fdcdb9c6738002f777c89eb43be47fb1c43da92d87e"
+    },
+    {
+      "path": "arena-results/diverse-long-180/summary.json",
+      "bytes": 4097,
+      "sha256": "dc379e369d124f41bf3a250e6845e2d7c1e1edc850462bc638d9c92873a9b6af"
+    },
+    {
+      "path": "arena-results/diverse-short-250/game-1.json",
+      "bytes": 5721,
+      "sha256": "e80153ff725509200e4e4823e28d92f952350f9b43b1ec6851ea9723200d869d"
+    },
+    {
+      "path": "arena-results/diverse-short-250/game-2.json",
+      "bytes": 6050,
+      "sha256": "024e09ad4939d9e80d471baf55cf36bc1589183a4913594124b2029cc2d21a5a"
+    },
+    {
+      "path": "arena-results/diverse-short-250/game-3.json",
+      "bytes": 6237,
+      "sha256": "7147589f5971491b331ddbd60855051e27b3d25fa1c9490d491fea07661c2601"
+    },
+    {
+      "path": "arena-results/diverse-short-250/game-4.json",
+      "bytes": 6981,
+      "sha256": "901f2ff502b508dcbf6e1617e7b80f600745a7d2de30bccbcce476fb0445eb2a"
+    },
+    {
+      "path": "arena-results/diverse-short-250/game-5.json",
+      "bytes": 5994,
+      "sha256": "8b5f16fdb0e62a753deebe93bddf8aa8b854edc650103413c9248b3fd849052c"
+    },
+    {
+      "path": "arena-results/diverse-short-250/game-6.json",
+      "bytes": 6373,
+      "sha256": "34a5bc2b4edde95f2d35b230f8f19ff7dfd316ce42ab26a983335103d860bff2"
+    },
+    {
+      "path": "arena-results/diverse-short-250/game-7.json",
+      "bytes": 6279,
+      "sha256": "f96d4b36ead53a6f51fb17989d2bec9058ceab1dbecc35bb9ccdaca9706133ba"
+    },
+    {
+      "path": "arena-results/diverse-short-250/game-8.json",
+      "bytes": 5807,
+      "sha256": "8ed910f315fae46813efe2c72c03f9a1fda075ee09ba2ef6c0658dc18f2d9fbd"
+    },
+    {
+      "path": "arena-results/diverse-short-250/summary.json",
+      "bytes": 8123,
+      "sha256": "5ae388f55cc94f6ffe76bba6ea051f6c53e3074415e81da701939b2ce0700263"
+    },
+    {
+      "path": "arena-results/endgame-corpus/cycle-long.json",
+      "bytes": 4219,
+      "sha256": "5926b5fb221a4c68c09b00a275e3a824a0b85262fa0c19379e4ad92d66f06d2b"
+    },
+    {
+      "path": "arena-results/endgame-corpus/cycle-short.json",
+      "bytes": 5882,
+      "sha256": "bc1c419e3a21c1877f43f770241ca64d401416df645375cb224de0a6687238a9"
+    },
+    {
+      "path": "arena-results/endgame-corpus/positions.json",
+      "bytes": 127138,
+      "sha256": "35aa4225e6ef8d5cbb55128ef5dc0ff16503651b9d32b3ede0c9deb7121db9b1"
+    },
+    {
+      "path": "arena-results/endgame-corpus/results.json",
+      "bytes": 26858,
+      "sha256": "62cc57689b6eda80870bd0e1abc1658c32465dc633cc03692a1fb872c486d760"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-long-120ms/game-1.json",
+      "bytes": 4605,
+      "sha256": "fb45ace6e26c9f0385a1783297ee7968982ed524c82ddabb012996382dacfd66"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-long-120ms/game-2.json",
+      "bytes": 4674,
+      "sha256": "94de43d4fd1f69030cc20c376b2e24961f6e75774d9991b6009fadd5b992a772"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-long-120ms/game-3.json",
+      "bytes": 5236,
+      "sha256": "c55d5b5dda6a6d0363af143fdeb4fe5c81cad48689496b4c8428b4f31fa8f64f"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-long-120ms/game-4.json",
+      "bytes": 4647,
+      "sha256": "d073db7522c9aa1576a3a10a446eb50698c1026542905473c552eafd44ffc9ed"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-long-120ms/game-5.json",
+      "bytes": 4676,
+      "sha256": "18ab99f30ee2bce371c79d212f6ca5b02074755ef4a74b7d101a76d65816865d"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-long-120ms/game-6.json",
+      "bytes": 4601,
+      "sha256": "8e1d9da4bda2f4ab5098c9fededd22baf122facd49c2c8749c6dbd89b21edde2"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-long-120ms/summary.json",
+      "bytes": 7311,
+      "sha256": "8adff96be024667f73a8edaeeab35af94be18ac152fd16a6aebdeaedd45ff475"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-short-120ms/game-1.json",
+      "bytes": 6083,
+      "sha256": "219e6af6d40d7a2d46d8d914c2b71d039e1159d3b437ea5560a00d7457467008"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-short-120ms/game-2.json",
+      "bytes": 6464,
+      "sha256": "4fe64b85591ddafd592feec94f2c38d1c38fabff515716ca5ab1ff9e21399dc9"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-short-120ms/game-3.json",
+      "bytes": 6210,
+      "sha256": "e55ba28c009217662c56434e7475f29192060866dbd2ca555ee3fe64c7be3cd8"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-short-120ms/game-4.json",
+      "bytes": 6742,
+      "sha256": "22dbc8141e4174994835526769df853e71e667222938004c93b97b181e2c5301"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-short-120ms/game-5.json",
+      "bytes": 6858,
+      "sha256": "3b8bfb112db1d61935030ea84fcb5a0ad6926abed75eac47d958538ce2c3cac8"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-short-120ms/game-6.json",
+      "bytes": 6866,
+      "sha256": "2b5d94e73564a3dbbb7fd8c4460e5fe6a030d44445cd883dc13762e7f12925b2"
+    },
+    {
+      "path": "arena-results/endgame-vs-team-short-120ms/summary.json",
+      "bytes": 7337,
+      "sha256": "ef00b2f0c64b68ca11bc3afc4b4c0b700c1e379a6e3d6104a1eb508cd40f35a9"
+    },
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20170210.recognition.json",
+      "bytes": 42236,
+      "sha256": "fce3f5a42842d63dad0678551ab978416ee2de4ca07a0279af7b160228632347"
+    },
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20190422.recognition.json",
+      "bytes": 49881,
+      "sha256": "2930eb8e04412ebddca35dda76021efecf8382ae0706ac7269a49effb096662e"
+    },
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20190422.verified.json",
+      "bytes": 12633,
+      "sha256": "4758e3a6089518d638f5602736b5c5426ef21623949e59212ed6b1e1d8de2b3d"
+    },
+    {
+      "path": "arena-results/fast-prototype-60ms/game-1.json",
+      "bytes": 5932,
+      "sha256": "90d80bc45d30a075edd43afe5424d327b6387cbea8fb82c9439c2f874d166381"
+    },
+    {
+      "path": "arena-results/fast-prototype-60ms/game-2.json",
+      "bytes": 6590,
+      "sha256": "55f185ec0cc1f688b33b82137382997d490d485785ee02a6c8e08625dfa0459f"
+    },
+    {
+      "path": "arena-results/fast-prototype-60ms/summary.json",
+      "bytes": 2110,
+      "sha256": "fb4fb37552c02de8a728b30f7aa9f2ddd6d1fd7924716f3bce2f682be7356118"
+    },
+    {
+      "path": "arena-results/fast-strategic-weights-60ms/game-1.json",
+      "bytes": 6411,
+      "sha256": "81501e84f597e4570de01c8e484f1d362cfbba797dd08fded180b2c6ac50a79f"
+    },
+    {
+      "path": "arena-results/fast-strategic-weights-60ms/game-2.json",
+      "bytes": 5948,
+      "sha256": "897522bf4019e19eef60991ee83e26c20f4dedbd625e0c8005b29c22bc25b101"
+    },
+    {
+      "path": "arena-results/fast-strategic-weights-60ms/game-3.json",
+      "bytes": 6225,
+      "sha256": "266d55aa2efda9f7bdc5f963929f9b22278a2b30c1ae126a5da7a46ca5551ae3"
+    },
+    {
+      "path": "arena-results/fast-strategic-weights-60ms/game-4.json",
+      "bytes": 6038,
+      "sha256": "b25f7d63bd89fcd476f6e4fe50fe6db2d341aa21c1f41808922ce526f65ad470"
+    },
+    {
+      "path": "arena-results/fast-strategic-weights-60ms/game-5.json",
+      "bytes": 6647,
+      "sha256": "59a58c3b8a52187ddc171ee7547fdabb367a030dd4ea90a82381d86a068af65d"
+    },
+    {
+      "path": "arena-results/fast-strategic-weights-60ms/game-6.json",
+      "bytes": 6230,
+      "sha256": "85cd3f977492c6f229b7f21658731a896859294cc19f1a6f524f6d776cae31a4"
+    },
+    {
+      "path": "arena-results/fast-strategic-weights-60ms/summary.json",
+      "bytes": 5989,
+      "sha256": "5b3ca5298218c64a8b6019fbe9a784afa24ac5e7bfdbc084f7967e23adce9117"
+    },
+    {
+      "path": "arena-results/fast-v11-250/game-1.json",
+      "bytes": 5509,
+      "sha256": "5096877e4c56b8159adbb6965911a4b5210a0ab96c1b27f4a36acade0a74be54"
+    },
+    {
+      "path": "arena-results/fast-v11-250/game-2.json",
+      "bytes": 5596,
+      "sha256": "5bbb88240241bcdc96a686164ad95f74c208f0b01154c8fae54bb3397742a62e"
+    },
+    {
+      "path": "arena-results/fast-v11-250/game-3.json",
+      "bytes": 5041,
+      "sha256": "0795c6139b37442b8044cc4818056fe7acc244b3ad8df8ac572dd27aa2698808"
+    },
+    {
+      "path": "arena-results/fast-v11-250/game-4.json",
+      "bytes": 5176,
+      "sha256": "8c8187b13251b5d599dfc1b57ae69cf4e00eebd3a1087d5288cf73b9d45055ed"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/game-1.json",
+      "bytes": 5821,
+      "sha256": "9a4b0d9eea312137df2a019e1683b5b48f1905d0a6826e73b27a855326538650"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/game-2.json",
+      "bytes": 6087,
+      "sha256": "eb6475164d4004ef9713f506fd6356a41f433cd8c0e3e5e81f53c83a6d8aa999"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/game-3.json",
+      "bytes": 5445,
+      "sha256": "d6fc0c1d0f7c0d4b8a29ae5c06d64b749231cf925711d6d8455e28cb39f0f09c"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/game-4.json",
+      "bytes": 5574,
+      "sha256": "eaca25b54977a0131383251f6944584eb012e1eadef7dfc5e51916924615e18a"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/game-5.json",
+      "bytes": 5234,
+      "sha256": "ddfe5e592ba8f771ca430d733f131af950d0e2c0d9d0636f2df8271510f732a9"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/game-6.json",
+      "bytes": 5540,
+      "sha256": "a1cb0ffa975b96a81fec82ba6a2e7c82793239fa92300d8b38e8311835b87ed0"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/game-7.json",
+      "bytes": 5545,
+      "sha256": "c5b39438f8609f0dd8368b0384b2d01b85c0f4c1407af79c34cd94d1b40b9069"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/game-8.json",
+      "bytes": 7067,
+      "sha256": "fb4c0267ce0ceb20cc6ac05bcb21aadb72257a30dc11ad13554753c7594f76b5"
+    },
+    {
+      "path": "arena-results/fast-v11-strong-250/summary.json",
+      "bytes": 8047,
+      "sha256": "3de339c85b055ed7175601e198ea4060d90a80bc94bc9d2dacf831c42fbdb772"
+    },
+    {
+      "path": "arena-results/fast-vs-team-350/game-1.json",
+      "bytes": 5739,
+      "sha256": "4d7e13b2a57d136cd34a740beb26bdda8e6a64f9e493bad54033ce10c2a77e53"
+    },
+    {
+      "path": "arena-results/fast-vs-team-350/game-2.json",
+      "bytes": 5168,
+      "sha256": "703d50b19fe295da71ffb86a5a6c48d5667818cd6f197e9664547b3cf06db8fc"
+    },
+    {
+      "path": "arena-results/fast-vs-team-350/game-3.json",
+      "bytes": 5485,
+      "sha256": "b22673ac8b0c7e0d8c4ae4418bbf95a9acc25f27ebdcc59f97e8bee25cdb0d78"
+    },
+    {
+      "path": "arena-results/fast-vs-team-350/game-4.json",
+      "bytes": 6374,
+      "sha256": "9aef5eb6f0619fabc91952745419b626b210b7adfc1777b6919acca2b937bdb1"
+    },
+    {
+      "path": "arena-results/fast-vs-team-350/summary.json",
+      "bytes": 2527,
+      "sha256": "833b62b193c494463cdb46b3662a6ce6be89d5c37fccc7d3e4485ae37da0bd7f"
+    },
+    {
+      "path": "arena-results/fast-weights-vs-planner-100ms/game-1.json",
+      "bytes": 6993,
+      "sha256": "3ca6ba41ffe9ea61592b9f9abd7539c1e3e016dfff25a94b5d6ab285e0572455"
+    },
+    {
+      "path": "arena-results/fast-weights-vs-planner-100ms/game-2.json",
+      "bytes": 6448,
+      "sha256": "7fa6d25a98414d1e55e04d92c0ac0e1e42d529ce1dd0dce60ce23d87b0041229"
+    },
+    {
+      "path": "arena-results/fast-weights-vs-planner-100ms/game-3.json",
+      "bytes": 6356,
+      "sha256": "9cf688a66005805d13659f728b919d8c8a3e3566c4651fc1d8b6120368e3959f"
+    },
+    {
+      "path": "arena-results/fast-weights-vs-planner-100ms/game-4.json",
+      "bytes": 6578,
+      "sha256": "a1afc7e80eed3da861dbde407d67c27fa926da5244143de97c84e55af069aa5d"
+    },
+    {
+      "path": "arena-results/fast-weights-vs-planner-100ms/game-5.json",
+      "bytes": 6300,
+      "sha256": "2af7eecdc5c616b20aafb75584922afb251e08fb665f2bca1a3c2e5cf4765e31"
+    },
+    {
+      "path": "arena-results/fast-weights-vs-planner-100ms/game-6.json",
+      "bytes": 6034,
+      "sha256": "f4529325ed8dbf6b97b7b902be0f1bbb2105331045615d100ebd47568f3f341f"
+    },
+    {
+      "path": "arena-results/fast-weights-vs-planner-100ms/summary.json",
+      "bytes": 6893,
+      "sha256": "aa5acc8ff84fbb7cad92a238eb76bd0f65e022c0e021c5cc574b1338a7551314"
+    },
+    {
+      "path": "arena-results/fast350-v11-900/game-1.json",
+      "bytes": 6392,
+      "sha256": "fd269a350e604c58bc8deb6086a907c3602f63076c2b6e05ebc5154288e77375"
+    },
+    {
+      "path": "arena-results/fast350-v11-900/game-2.json",
+      "bytes": 6038,
+      "sha256": "1d9ed315fc5fbe98c03dae0e6f37064cc947a1d9ae255b89e80a5db63bc25f1c"
+    },
+    {
+      "path": "arena-results/fast350-v11-900/game-3.json",
+      "bytes": 5976,
+      "sha256": "007e6f99e1f1e62a477fca9a01db91b7e3d8545fdd771b3f06d8427bf7fbc27f"
+    },
+    {
+      "path": "arena-results/fast350-v11-900/game-4.json",
+      "bytes": 6818,
+      "sha256": "5b404090a9bab602931fbb757d3315dff5264d888a0c24b6d33af0f420b73f88"
+    },
+    {
+      "path": "arena-results/fast350-v11-900/summary.json",
+      "bytes": 4369,
+      "sha256": "9f3bed582761c03084aefe43d8d5189ae40b136b9277b371dcaae25f8fb41a95"
+    },
+    {
+      "path": "arena-results/game-1.json",
+      "bytes": 6039,
+      "sha256": "2da0417c56b8dfbafe36ac7bd8f0db78399dd147d448c915d684601d359cd539"
+    },
+    {
+      "path": "arena-results/game-2.json",
+      "bytes": 5858,
+      "sha256": "6a43abc2f5c8d58c0570761f80e3f25b79209210f6397b54c8b200799b8af736"
+    },
+    {
+      "path": "arena-results/guarded-vs-plain-planner-100ms/game-1.json",
+      "bytes": 6326,
+      "sha256": "247209abfc44c1b6f5de00749eaf4d7b3c5d9b27299f61e70bf8b2cef92110ce"
+    },
+    {
+      "path": "arena-results/guarded-vs-plain-planner-100ms/game-2.json",
+      "bytes": 5802,
+      "sha256": "2479380dfb62de3111191f3b05cc4660a62ce1036cd33c2df3d0cbda7e35462e"
+    },
+    {
+      "path": "arena-results/guarded-vs-plain-planner-100ms/game-3.json",
+      "bytes": 6749,
+      "sha256": "43e2e1f58ba3a4402911071c95fc8f05daf293179b75c61396a3cc8ec98cb06e"
+    },
+    {
+      "path": "arena-results/guarded-vs-plain-planner-100ms/game-4.json",
+      "bytes": 6363,
+      "sha256": "832df1e9e0c3da58ec7d9e081e4241061621f47160033b47b725c66c8f160b60"
+    },
+    {
+      "path": "arena-results/guarded-vs-plain-planner-100ms/game-5.json",
+      "bytes": 6200,
+      "sha256": "b9a44d23be5b814499b8cb18eae0cbb684e945aac348eb443cfb4e9ddac2ea8e"
+    },
+    {
+      "path": "arena-results/guarded-vs-plain-planner-100ms/game-6.json",
+      "bytes": 6259,
+      "sha256": "59bcfc3e27c17a38376e09ec2d2f37ad7c4f9cd7e7a883bdb4cae5606be77be6"
+    },
+    {
+      "path": "arena-results/guarded-vs-plain-planner-100ms/summary.json",
+      "bytes": 7176,
+      "sha256": "46b8892ba36c141c545a96bde7872fe53eeb224e33839471542b18506a35a153"
+    },
+    {
+      "path": "arena-results/human-challenge-2026-10-10.json",
+      "bytes": 4995,
+      "sha256": "1334e008676335d6e94d37483cc365e3924703be35ab100432596e3b5ec2ee86"
+    },
+    {
+      "path": "arena-results/human-challenge-analysis.json",
+      "bytes": 273246,
+      "sha256": "c6525093bdd98ae90bb796660e81827e3486dd5e045b33798ea085870ba164c3"
+    },
+    {
+      "path": "arena-results/human-challenge-frozen-finish.cjs",
+      "bytes": 5490,
+      "sha256": "8daeb6e451407998d37bf4c4f64e7e46458c3561763ce461a4d963f208ab120d"
+    },
+    {
+      "path": "arena-results/human-challenge-frozen-finish.json",
+      "bytes": 2264,
+      "sha256": "8a6962d8d1ae857d3275a7b95ebdebdde7e06895ff39339628127a027e1924c9"
+    },
+    {
+      "path": "arena-results/human-challenge-readonly-review.md",
+      "bytes": 5571,
+      "sha256": "c74160938dcd999c6669f360bd7e9614dc16af2e2136a20075481cd5a1f782aa"
+    },
+    {
+      "path": "arena-results/human-challenge-transport-review.cjs",
+      "bytes": 5468,
+      "sha256": "d319d181eb62da9840ec3b616e22f475a4d4e44cd4c9c30c432648dca6817b34"
+    },
+    {
+      "path": "arena-results/human-challenge-transport-review.json",
+      "bytes": 31994,
+      "sha256": "d9262ea22ee30a35d95ec16b991547c5cd0d5d3dc890fe4f05002ef737e53604"
+    },
+    {
+      "path": "arena-results/human-win-95.jpg",
+      "bytes": 22765,
+      "sha256": "fa6734e0d74ecaef1f921f6d3a3f512d6b5ef3b4b42cb819b4cd82fc099c8889"
+    },
+    {
+      "path": "arena-results/learned-private173.json",
+      "bytes": 102164,
+      "sha256": "859cf6276148bdffd74aa3f26cec22f49e00b3e2943ebc9e89b0740378daef57"
+    },
+    {
+      "path": "arena-results/lock-current350-v11-350/game-1.json",
+      "bytes": 5723,
+      "sha256": "7edb96eb8b4b87383eb74598c24cca4cf0eb2d9608522a950def5241c27ca12a"
+    },
+    {
+      "path": "arena-results/lock-current350-v11-350/game-2.json",
+      "bytes": 5515,
+      "sha256": "7aba6cd36c9f592cab1f89a0bcfd8213e0bd18d6f377039ddc4c691457060179"
+    },
+    {
+      "path": "arena-results/lock-current350-v11-350/game-3.json",
+      "bytes": 6506,
+      "sha256": "6f625791757eb32ffb69fdd00735664e3621bf9a3bd9f8c44a8f10c7b61fe03f"
+    },
+    {
+      "path": "arena-results/lock-current350-v11-350/game-4.json",
+      "bytes": 5311,
+      "sha256": "0b2916ad81ab6e77d120d9e79f42aa7b40c9c854f030d34377a8e5edb87b6bd8"
+    },
+    {
+      "path": "arena-results/lock-current350-v11-350/summary.json",
+      "bytes": 4318,
+      "sha256": "cb24415bdcc6b386bd2387d49db4a546b85745ae14b055b343720cc231ccb344"
+    },
+    {
+      "path": "arena-results/lock-fast350-v11-350/game-1.json",
+      "bytes": 7173,
+      "sha256": "8c752a36501d86ebbe6afeed7fea64ef82de7f08f6b0ae2e74a6ae2909e8478e"
+    },
+    {
+      "path": "arena-results/lock-fast350-v11-350/game-2.json",
+      "bytes": 6039,
+      "sha256": "1d868d86d76499c53621db95a88552bd938f0fd4997b31f11e6a7e03333301f0"
+    },
+    {
+      "path": "arena-results/lock-fast350-v11-350/game-3.json",
+      "bytes": 6835,
+      "sha256": "e9ac517d62c25d33343474b709b16d89a30c2fb4cc11a0c0e4886e1ec8c7aa35"
+    },
+    {
+      "path": "arena-results/lock-fast350-v11-350/game-4.json",
+      "bytes": 6026,
+      "sha256": "5f21f392fb004d507624431c46ab57063ba80d053e7063857b182d502185460a"
+    },
+    {
+      "path": "arena-results/lock-fast350-v11-350/summary.json",
+      "bytes": 4396,
+      "sha256": "5a463b9e60fb0673aeb86a0214fa5fb258775359c0a611a8969327deabae2e9d"
+    },
+    {
+      "path": "arena-results/long-current350-v11-350/game-1.json",
+      "bytes": 4281,
+      "sha256": "9e572672b5097ff1ddd4d8546756e14a1aaa3aea082c06045198f50333561d4c"
+    },
+    {
+      "path": "arena-results/long-current350-v11-350/game-2.json",
+      "bytes": 4645,
+      "sha256": "362a120b30cd67bca9c8bd64101c7e1cbba913f1b6a2b5dcec641f8aedd0accf"
+    },
+    {
+      "path": "arena-results/long-current350-v11-350/game-3.json",
+      "bytes": 4940,
+      "sha256": "54198750e01c9755a773c08c70ca6e9709f653ed9c28dd5e5d6ee09c3b19fbfd"
+    },
+    {
+      "path": "arena-results/long-current350-v11-350/game-4.json",
+      "bytes": 4038,
+      "sha256": "3bb2d84e9b68098a04cff50f8140c2df832eb25e1be5024b0387b48b1a1aaf00"
+    },
+    {
+      "path": "arena-results/long-current350-v11-350/summary.json",
+      "bytes": 4374,
+      "sha256": "74b8ff36e95402d7a51ee80a4712ff956dce9cc1115e21b7e52aa48478a8f42e"
+    },
+    {
+      "path": "arena-results/long-fast350-v11-350/game-1.json",
+      "bytes": 4319,
+      "sha256": "62ae0009566623bcc68df4c486c05df812b00a91e1078665d31b7b318920c349"
+    },
+    {
+      "path": "arena-results/long-fast350-v11-350/game-2.json",
+      "bytes": 4731,
+      "sha256": "413c9a522b23f6788ebb656db27d0868fe6b997a8ce7d39c98142fb365eebfc1"
+    },
+    {
+      "path": "arena-results/long-fast350-v11-350/game-3.json",
+      "bytes": 4697,
+      "sha256": "aebc3c8f1849565fba984bcf4d48268c9220039fb0131320f1edeb0eedf7b394"
+    },
+    {
+      "path": "arena-results/long-fast350-v11-350/game-4.json",
+      "bytes": 4844,
+      "sha256": "5e7f530f3b7f29269035a5029c5059a076d4438d1823e6b97bf6e01deb06d280"
+    },
+    {
+      "path": "arena-results/long-fast350-v11-350/summary.json",
+      "bytes": 4378,
+      "sha256": "ccdff158302550d25c720347786acb260d747691ef58c2590031ebbcce82b82d"
+    },
+    {
+      "path": "arena-results/master-holdout.json",
+      "bytes": 48825,
+      "sha256": "d6ff7acedc83941d7fd3ed3a40b599e7e9c2eabba7bd603008985f07242f441c"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-1.json",
+      "bytes": 5532,
+      "sha256": "30d0a0f3ab94ccbbe758f257a2628e62341b50d7f8bb1694c1d5a644dbc7739c"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-10.json",
+      "bytes": 6080,
+      "sha256": "e52e7891f07b0ea08b67c1abc75bef2a758602836fa8af0366f288d8bd518883"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-11.json",
+      "bytes": 5670,
+      "sha256": "fc5bb0995632cc6e20dbf7f9889eb4cf119d71cefdc59797bbddf94668c09d73"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-12.json",
+      "bytes": 5890,
+      "sha256": "7e1512e03fdc2d1fd8365ae10b5cc2fec70e79331c3fb4df52444dafb46f07b5"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-2.json",
+      "bytes": 5767,
+      "sha256": "1d3df5c0c8bba7ebc2d3f148369efecd7c472afa1e48c4b8a851591648f63d04"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-3.json",
+      "bytes": 6256,
+      "sha256": "b7b7327fc7d4e1546ce263b54c14a95f3777e67b4de47131eacd717361d4e624"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-4.json",
+      "bytes": 6503,
+      "sha256": "899b03b8c00785435f9a9fb6138413390e325f4d70d08c530351f0e17d5a0a41"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-5.json",
+      "bytes": 5522,
+      "sha256": "6ad19469f6e9c7d349f62d889530fb6a8370d1e6580ee0ae1f1a0a47264e178a"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-6.json",
+      "bytes": 5431,
+      "sha256": "3bd546b1c813ff2187055e5d1b3b0ad42d2ea91f4c0404f44a2e8e215e0590d8"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-7.json",
+      "bytes": 5716,
+      "sha256": "f4d31ac999487e007fe8761d823dac483b48f4ff3450eaeacc85e6e40f282e2f"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-8.json",
+      "bytes": 5966,
+      "sha256": "401c67dbda75e35f2a27dd8362ac4c2247dd9550d1facb35e4a3de922f254a6e"
+    },
+    {
+      "path": "arena-results/planner-12-openings/game-9.json",
+      "bytes": 5957,
+      "sha256": "3fac1a0ea544b25f461ca2b493999a72ae93a5130c95a59f97a4fef17c3db5f0"
+    },
+    {
+      "path": "arena-results/planner-12-openings/summary.json",
+      "bytes": 11869,
+      "sha256": "bb439ba476df97516b23b625dc8164e06347eae42ff9d0169be09ca6ce415add"
+    },
+    {
+      "path": "arena-results/planner-initial/game-1.json",
+      "bytes": 6277,
+      "sha256": "26fef77f836d473d83b4764a71cc36ecb422855f36fab0a38a750693bc48e77c"
+    },
+    {
+      "path": "arena-results/planner-initial/game-2.json",
+      "bytes": 6061,
+      "sha256": "602c658fe60da1282cb268b64532f5006830afbca4e293fc1bd1da7b481bad28"
+    },
+    {
+      "path": "arena-results/planner-initial/summary.json",
+      "bytes": 2168,
+      "sha256": "9bda8b7cce4e15202f165bd0f1aa2d31770de006b1986de089e6a0f5cdf907a5"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/game-1.json",
+      "bytes": 5817,
+      "sha256": "440b054d10ac6275e10ac64380134767f10b57bd2155c4cdb5fe550095dfd280"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/game-2.json",
+      "bytes": 6184,
+      "sha256": "95bfeefa92be1df05e8cfd302d36dcaa3c2d457005383d8c99fece6b055f54ef"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/game-3.json",
+      "bytes": 5639,
+      "sha256": "cf15e41465107c6906eac7767805b9b79e48a0560e7c2858cf988bcbafd08690"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/game-4.json",
+      "bytes": 5601,
+      "sha256": "cf325723bd9c5543ec7cd91ec6a1482afe5d8ba1b3d8f1f434f5d59009b7a755"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/game-5.json",
+      "bytes": 6003,
+      "sha256": "44f39d6494aa1f0c03baade033016e8a0a14527ac9410bc14813d03e0d0620bb"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/game-6.json",
+      "bytes": 5803,
+      "sha256": "ca9dfb21b9e2d99bb6ac73e1d6e43dd5754b6959ecc589d45cce31a030528c81"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/game-7.json",
+      "bytes": 5815,
+      "sha256": "71718f5ea4fb5a08b896288e31520e9af6a2096e5e5b2950f1ee9c50588caaf9"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/game-8.json",
+      "bytes": 5956,
+      "sha256": "9718e9cf9e798460ecf3503b48eb1eab1081707820c2e6c2aa8a1ee55110b8af"
+    },
+    {
+      "path": "arena-results/planner-v11-strong-250/summary.json",
+      "bytes": 8613,
+      "sha256": "a1c4656ac94cd48dfc17b8236fd0d16c71584707c7718e397b7fb86e8735daeb"
+    },
+    {
+      "path": "arena-results/review-user-game.cjs",
+      "bytes": 2509,
+      "sha256": "f2e4313c21cc96f8eed908e6acba840e7bdffdbf6a1f48c3a51fa41da3653c5d"
+    },
+    {
+      "path": "arena-results/scenarios-vs-adversary-4/game-1.json",
+      "bytes": 5574,
+      "sha256": "0c9fe72fadc8a55405dcf4f7fdeef220f51c2575d3f5733e2e9cc35f9858c9a9"
+    },
+    {
+      "path": "arena-results/scenarios-vs-adversary-4/game-2.json",
+      "bytes": 5205,
+      "sha256": "11d9afb9a79256758e16d0fc7baaf08222862bbe6d43fe6cd3fe73c6125b8a08"
+    },
+    {
+      "path": "arena-results/scenarios-vs-adversary-4/game-3.json",
+      "bytes": 5671,
+      "sha256": "cf69a5c5e5b1c2e68f2c91e4aabeca6b7e17e1316e66c0d6512faf63a13aeafe"
+    },
+    {
+      "path": "arena-results/scenarios-vs-adversary-4/game-4.json",
+      "bytes": 5307,
+      "sha256": "bfd973e4d9e9fba5f15200e3780931c330810a86f4a4072f42a37db4d12caf92"
+    },
+    {
+      "path": "arena-results/scenarios-vs-adversary-4/summary.json",
+      "bytes": 2545,
+      "sha256": "301a176395fba3a1207e3e9463e724bed868d3b91aed914a7211c974dacbb5f7"
+    },
+    {
+      "path": "arena-results/step-completion-human-smoke/summary.json",
+      "bytes": 13259,
+      "sha256": "615b0933c20a955111444efbf360b4945e5ce8f788b67318ba94acee5c811eda"
+    },
+    {
+      "path": "arena-results/step-json-loader-patch.cjs",
+      "bytes": 1861,
+      "sha256": "026872771a677b1119f3eb7426edc9e8e37269ee7aa2f03c55f108b95c871981"
+    },
+    {
+      "path": "arena-results/step-match-fast-smoke/game-1.json",
+      "bytes": 4538,
+      "sha256": "09ad02e237f555ebd5a79b3aad4512791a96aafb55c30203d0f6e86ca863d8b7"
+    },
+    {
+      "path": "arena-results/step-match-fast-smoke/game-2.json",
+      "bytes": 4550,
+      "sha256": "a99f9403383fefd7b54d3920084f6872be2e4b351f7c00420690aa6f813c2a56"
+    },
+    {
+      "path": "arena-results/step-match-fast-smoke/summary.json",
+      "bytes": 6984,
+      "sha256": "4a7c4a7842a08a6089e6c9605c446db3d4b3079b83abf42e28bce87399f46793"
+    },
+    {
+      "path": "arena-results/step-match-smoke/game-1.json",
+      "bytes": 4568,
+      "sha256": "c6713ba87c0b7b624ab5dcc595d6204153fe98ed6c981234a25adc180816e00a"
+    },
+    {
+      "path": "arena-results/step-match-smoke/game-2.json",
+      "bytes": 4608,
+      "sha256": "a6b63f55a8fc3641a0af1d91e171415789df0c21bbe1cc9823b10bb3948341b1"
+    },
+    {
+      "path": "arena-results/step-match-smoke/summary.json",
+      "bytes": 6737,
+      "sha256": "117989ba640391135b136fb1867a130eebfa8cd2ebb42d300f5e03c5aaeed0c9"
+    },
+    {
+      "path": "arena-results/styles-vs-adversary-4/game-1.json",
+      "bytes": 5389,
+      "sha256": "de93f84a547c8cb9cd8a82eb6a892e29eb6c4ee21f930e3532feb34949fe1a48"
+    },
+    {
+      "path": "arena-results/styles-vs-adversary-4/game-2.json",
+      "bytes": 5202,
+      "sha256": "a8da8b816e35055e6c228e19160c33be0fd56842cfb71a64b6fefbbc377e0ca4"
+    },
+    {
+      "path": "arena-results/styles-vs-adversary-4/game-3.json",
+      "bytes": 5109,
+      "sha256": "37841da258ee3f1563cdcbf85678f1615efa1edc2110d2b1eeebfcc13db9c8b5"
+    },
+    {
+      "path": "arena-results/styles-vs-adversary-4/game-4.json",
+      "bytes": 5810,
+      "sha256": "4440b67de68b2b3d143be6e5fd9fbe5d829a2988259955bf81d61ef1fe577792"
+    },
+    {
+      "path": "arena-results/styles-vs-adversary-4/summary.json",
+      "bytes": 2531,
+      "sha256": "4f1a37859d16085a75b763a2aba02591f1a83d1c8021c6bb4081d95c6dc7f06f"
+    },
+    {
+      "path": "arena-results/summary.json",
+      "bytes": 1053,
+      "sha256": "8edc59702f75c7253f5737a3bc63835a5e865d4eb2c02030755cc5a676df1a4e"
+    },
+    {
+      "path": "arena-results/transport-root-user28-v11-900/game-1.json",
+      "bytes": 4953,
+      "sha256": "8813439380bbaaeb487c6e3f6af46390f302297495499cbd3a3ff886e21faff3"
+    },
+    {
+      "path": "arena-results/transport-root-user28-v11-900/game-2.json",
+      "bytes": 5043,
+      "sha256": "e23900ad81e3ee388bf3cb4cce46df012c6c2e1db1280f17623c6e5ed88ae19d"
+    },
+    {
+      "path": "arena-results/transport-root-user28-v11-900/summary.json",
+      "bytes": 1339,
+      "sha256": "a8b6995a67c7eeb9e0c98f0b6bf5f678fdef0e47ae07e0ee4af8b655a2a0595d"
+    },
+    {
+      "path": "arena-results/transport-root-vs-adversary-4/game-1.json",
+      "bytes": 5630,
+      "sha256": "930f66a6cdb9554a9dc5fcd291252549d66446574772637a6c5fdbecdef0b99b"
+    },
+    {
+      "path": "arena-results/transport-root-vs-adversary-4/game-2.json",
+      "bytes": 5854,
+      "sha256": "42e9fbe9d082b2ef9546f1b0d7bef358a74d953892ebc409f87539dbf6b9338c"
+    },
+    {
+      "path": "arena-results/transport-root-vs-adversary-4/game-3.json",
+      "bytes": 5086,
+      "sha256": "01715292fff395aa4eb9e911415da5cf7d3663d6804d8c861b4eb26a94a71d92"
+    },
+    {
+      "path": "arena-results/transport-root-vs-adversary-4/game-4.json",
+      "bytes": 5495,
+      "sha256": "a2b7097f6c41ba73d138cb9a6c54dc3d84801a423a6ceb6b25db114afa192a36"
+    },
+    {
+      "path": "arena-results/transport-root-vs-adversary-4/summary.json",
+      "bytes": 2564,
+      "sha256": "49c37e978c13e233988ba15a48397695779d73a90e550efeecafc9e922e1fcf1"
+    },
+    {
+      "path": "arena-results/wide-blockade350-v11-900/game-1.json",
+      "bytes": 5745,
+      "sha256": "14337dc34fc58c147e6a465e1880202ae30d562af2c4bc6047862da4a47c0c54"
+    },
+    {
+      "path": "arena-results/wide-blockade350-v11-900/game-2.json",
+      "bytes": 5208,
+      "sha256": "31d51b225742f843a0e39b6fe17e1884abc651ddc92bd449a791cec5b36b6977"
+    },
+    {
+      "path": "arena-results/wide-blockade350-v11-900/summary.json",
+      "bytes": 1345,
+      "sha256": "afdcce9fd35b2715f550659636bbe1498524dce5101ad345fdca3122bd6c36a7"
+    },
+    {
+      "path": "arena-results/wide-user28-v11-900/game-1.json",
+      "bytes": 4931,
+      "sha256": "5be2c18ce1610708506c08914cbd56ffc0984082808d7df01d0d881054d05e3b"
+    },
+    {
+      "path": "arena-results/wide-user28-v11-900/game-2.json",
+      "bytes": 5126,
+      "sha256": "7b2689335ace1587000a9e0ebdd2d71b856b06681b11e4a2e5b3503e1c4da7e0"
+    },
+    {
+      "path": "arena-results/wide-user28-v11-900/summary.json",
+      "bytes": 1353,
+      "sha256": "28c1971be9f8ae6a1211c8fdfbfde2c9d4f22a7dad08fc6706a8b42bd3841af0"
+    },
+    {
+      "path": "release-package/formal-1.1-ui.jpg",
+      "bytes": 24571,
+      "sha256": "c97c903bd60bab840064f4627c2eae890bbd96a280f1c5a2ff7076cb09f4714e"
+    },
+    {
+      "path": "release-package/formal-1.2-ui.jpg",
+      "bytes": 72015,
+      "sha256": "ea4e8edc245b2526e9898a20978cb51d2b59b591ad874a307749ac5e4182670a"
+    },
+    {
+      "path": "release-package/github-1.3-about.jpg",
+      "bytes": 90520,
+      "sha256": "cf7b5163cfea3582c9b108a1db1f1c60a6ea4a2a4525b98487449c911ce9288f"
+    },
+    {
+      "path": "release-package/package-handoff.py",
+      "bytes": 3416,
+      "sha256": "c283dfc309245ba83c16921ca648a558765a90f5bda73fc392dc8c5824879bd4"
+    },
+    {
+      "path": "release-package/redesign.py",
+      "bytes": 10183,
+      "sha256": "24dd930dd181de0aa3f0ff1afbbb98c826bd8b2c130c7b4961ceaa24ab735051"
+    },
+    {
+      "path": "release-package/ui-1.2-before.jpg",
+      "bytes": 24438,
+      "sha256": "3ea5c5157bacb3d38afe3a9ee42b579c854a0bfc231180420cd53810cbb46b31"
+    },
+    {
+      "path": "release-package/ui-1.3-1280x720-fixed.jpg",
+      "bytes": 86315,
+      "sha256": "b561f8b38e42909f70ac20a5b0f33dc1e287368fe5bf52b05a61bc752f70b27f"
+    },
+    {
+      "path": "release-package/ui-1.3-1280x720.jpg",
+      "bytes": 69923,
+      "sha256": "616056c901a11da98f3651c789868845c40a13697047c95dd43fe303734718be"
+    },
+    {
+      "path": "release-package/ui-1.3-780x800.jpg",
+      "bytes": 52372,
+      "sha256": "135d7033e98d24b762b7ab33334a707cd8f2d5d19e68efb2173913171efb7de0"
+    },
+    {
+      "path": "release-package/ui-1.3-960x720.jpg",
+      "bytes": 81150,
+      "sha256": "330db01e1d8cab080f88f5015450ef1a8873bd996fce27b96e4eb780a4dd7ae0"
+    },
+    {
+      "path": "release-package/ui-1.3-archive.jpg",
+      "bytes": 64025,
+      "sha256": "ff664acc17c22a16303f66a5e7fe844c1b329119afaa094206ab3374efdcda3a"
+    },
+    {
+      "path": "release-package/ui-1.3-desktop-dark.jpg",
+      "bytes": 112521,
+      "sha256": "261a6a88477eb1ba4fd5d201bc9cfa15e1bcac6f8dca78b5c2b3a5c346799282"
+    },
+    {
+      "path": "release-package/ui-1.3-desktop-draft.jpg",
+      "bytes": 103563,
+      "sha256": "3ace3f44cbe8e5d43b378ba6f7f38196f7d88d28e88e095e77d13a15dea5458e"
+    },
+    {
+      "path": "release-package/ui-1.3-desktop-light.jpg",
+      "bytes": 109512,
+      "sha256": "a01d53bf590a396b74455c547c06a2c702ade54263d1a64ed91b8064c48ee330"
+    },
+    {
+      "path": "release-package/ui-1.3-dialog320.jpg",
+      "bytes": 22895,
+      "sha256": "196019b2568939d22de6b3bcb8c998bab80779706f073352ad89e0865f45bacf"
+    },
+    {
+      "path": "release-package/ui-1.3-lab.jpg",
+      "bytes": 105048,
+      "sha256": "08236b8a4d7c268204815dc3a7d4beb87e967c05d34a3e22ba0816766ca6faaa"
+    },
+    {
+      "path": "release-package/ui-1.3-mobile-draft.jpg",
+      "bytes": 5389,
+      "sha256": "16337cfe184e13873b61ae9280d275b9c12df57829c11aee1035f8ed1c7ea3da"
+    },
+    {
+      "path": "release-package/ui-1.3-mobile-full.jpg",
+      "bytes": 57518,
+      "sha256": "fa5777b5a1e3adafcfd99e82d8bb2bc5efec035f37b93bbefa9ab55a81900f61"
+    },
+    {
+      "path": "release-package/ui-1.3-mobile-paused.jpg",
+      "bytes": 31905,
+      "sha256": "b834654f878dc985df5c9cc12c82dc177c0cc8b97b2cc997865ef07baebbc843"
+    },
+    {
+      "path": "release-package/ui-1.3-official.jpg",
+      "bytes": 32208,
+      "sha256": "489fd1e5be531aca68c2081cf178106a0b47fed351c3a00d95cb3fc5936fb7de"
+    },
+    {
+      "path": "release-package/ui-1.3-phone-dark-full.jpg",
+      "bytes": 63904,
+      "sha256": "e76d01a6e526b002e7dfeff1c08d1c5d22b639bd04a7fc4adb68b5fa0185d241"
+    },
+    {
+      "path": "release-package/ui-1.3-phone-dark.jpg",
+      "bytes": 32373,
+      "sha256": "285a131410748cc50f262bce237c57f1d659c6b47827d5400d0ebcbbf9cec2c5"
+    },
+    {
+      "path": "release-package/ui-1.3-phone-focus.jpg",
+      "bytes": 31815,
+      "sha256": "437307570df5b16affb584d4584c354b9fcde0a3222b8d02f7de5e0e1aab8b86"
+    },
+    {
+      "path": "release-package/ui-1.3-phone-light.jpg",
+      "bytes": 33525,
+      "sha256": "7a33d851ada1b42113d8465b653a4e24b783d42caabf5ebb880ffadef987c2e8"
+    },
+    {
+      "path": "release-package/ui-1.3-small320-fixed.jpg",
+      "bytes": 26807,
+      "sha256": "fe89202286c6dab264aa13005f0feb7fa6bf87f9b3677b25ba2e80302daa02e0"
+    },
+    {
+      "path": "release-package/ui-1.3-small320.jpg",
+      "bytes": 58214,
+      "sha256": "d9e1eb47d5a2c5fea189b744440a86716a6695a6d283d03749375703f49b0203"
+    },
+    {
+      "path": "release-package/ui-tests.log",
+      "bytes": 5263,
+      "sha256": "fb5c0691d02085fc57290a96a84322274a552b91efa00a16b68e05dd4181e534"
+    },
+    {
+      "path": "release-package/user-new-game.jpg",
+      "bytes": 28105,
+      "sha256": "10af4e80a6d8fc0bb8d04fb0c839e756a1f23624d36619a9cf0d15b0ca39ccaf"
+    },
+    {
+      "path": "release-package/verify-1.3-tests.log",
+      "bytes": 5460,
+      "sha256": "7be57c2999aec63e4177a209600186e732c7ee19ab2ea0f6e9113fa4d06aa460"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20170210.gif",
+      "bytes": 922642,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20190422.1.png",
+      "bytes": 58903,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20190422.25.png",
+      "bytes": 79474,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20190422.97.png",
+      "bytes": 61969,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20190422.first.png",
+      "bytes": 58044,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/hanzi-langchao-20190422.gif",
+      "bytes": 1135191,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/amazons.exe",
+      "bytes": 1952256,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/ataxx7x7.exe",
+      "bytes": 1951232,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/breakthrough8x8.exe",
+      "bytes": 1951232,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/engine.cfg",
+      "bytes": 2946,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/jvm.dll",
+      "bytes": 11591680,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/libz.dll",
+      "bytes": 87552,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/libzip.dll",
+      "bytes": 145408,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/msvcp140.dll",
+      "bytes": 627440,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/msvcp140_1.dll",
+      "bytes": 30960,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/msvcp140_2.dll",
+      "bytes": 205552,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/msvcr110.dll",
+      "bytes": 849360,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/OpenCL.dll",
+      "bytes": 107520,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/tiaoqi9x9.bin.gz",
+      "bytes": 86980327,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/tiaoqi9x9.exe",
+      "bytes": 1953792,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/vcruntime140.dll",
+      "bytes": 85232,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/vcruntime140_1.dll",
+      "bytes": 45032,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/zip.dll",
+      "bytes": 80896,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/kata-native/zlib.dll",
+      "bytes": 81408,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/engine-research/Kata_MoveStoneGames_20220526.zip",
+      "bytes": 662550439,
+      "reason": "External download or original media; provenance, URLs and hashes retained in project research docs."
+    },
+    {
+      "path": "arena-results/research-package-check/.gitattributes",
+      "bytes": 39,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/.gitignore",
+      "bytes": 46,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/.nojekyll",
+      "bytes": 0,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/assets/icon.svg",
+      "bytes": 231,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/assets/starhop-strategist.webp",
+      "bytes": 283688,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/assets/ui-icons.svg",
+      "bytes": 1914,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-cohesion.cjs",
+      "bytes": 13124,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-escape.cjs",
+      "bytes": 13124,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-history-e.cjs",
+      "bytes": 21949,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-history-order-g.cjs",
+      "bytes": 22924,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-history-order-h.cjs",
+      "bytes": 23410,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-learned-i.cjs",
+      "bytes": 25804,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-learned-j.cjs",
+      "bytes": 26209,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-root-order-f.cjs",
+      "bytes": 23687,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-transport-a.cjs",
+      "bytes": 22860,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-transport-b.cjs",
+      "bytes": 23487,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-transport-c.cjs",
+      "bytes": 19993,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/candidate-transport-d.cjs",
+      "bytes": 19993,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/endgame-planner.cjs",
+      "bytes": 5827,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/experimental-transport.cjs",
+      "bytes": 14210,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/fast-strategy.cjs",
+      "bytes": 260,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/guarded-planner.cjs",
+      "bytes": 1394,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/learned-value-v1.json",
+      "bytes": 31364,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/learned-value-v2.json",
+      "bytes": 32422,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/learned-value.schema.json",
+      "bytes": 1521,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/legacy-ai.cjs",
+      "bytes": 10986,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/master-holdout.cjs",
+      "bytes": 3788,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/planner-adversary.cjs",
+      "bytes": 11134,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/planner-scenarios.cjs",
+      "bytes": 11566,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/planner-styles.cjs",
+      "bytes": 12016,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/planner-transport-root.cjs",
+      "bytes": 13514,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/planner-wide.cjs",
+      "bytes": 167,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/run-planner-pair.cjs",
+      "bytes": 2798,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/strategic-planner-v1.cjs",
+      "bytes": 8497,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/strategic-planner.cjs",
+      "bytes": 63,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/v1-ai.cjs",
+      "bytes": 11306,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/v11-ai.cjs",
+      "bytes": 13145,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/v13-fast.cjs",
+      "bytes": 16112,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/value-features-v2.cjs",
+      "bytes": 2398,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/value-features.cjs",
+      "bytes": 6978,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/benchmarks/verify-complete-routes.cjs",
+      "bytes": 11769,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/CHANGELOG.md",
+      "bytes": 2605,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/AI_RESEARCH.md",
+      "bytes": 2854,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/adversary350-v11-900/game-1.json",
+      "bytes": 6063,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/adversary350-v11-900/game-2.json",
+      "bytes": 5616,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/adversary350-v11-900/game-3.json",
+      "bytes": 6156,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/adversary350-v11-900/game-4.json",
+      "bytes": 6273,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/adversary350-v11-900/summary.json",
+      "bytes": 4452,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/current350-v11-900/game-1.json",
+      "bytes": 5996,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/current350-v11-900/game-2.json",
+      "bytes": 6337,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/current350-v11-900/game-3.json",
+      "bytes": 5745,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/current350-v11-900/game-4.json",
+      "bytes": 5888,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/current350-v11-900/summary.json",
+      "bytes": 4350,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast-vs-team-350/game-1.json",
+      "bytes": 5739,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast-vs-team-350/game-2.json",
+      "bytes": 5168,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast-vs-team-350/game-3.json",
+      "bytes": 5485,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast-vs-team-350/game-4.json",
+      "bytes": 6374,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast-vs-team-350/summary.json",
+      "bytes": 2527,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast350-v11-900/game-1.json",
+      "bytes": 6392,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast350-v11-900/game-2.json",
+      "bytes": 6038,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast350-v11-900/game-3.json",
+      "bytes": 5976,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast350-v11-900/game-4.json",
+      "bytes": 6818,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/fast350-v11-900/summary.json",
+      "bytes": 4369,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/master-holdout.json",
+      "bytes": 48825,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/game-1.json",
+      "bytes": 5817,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/game-2.json",
+      "bytes": 6184,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/game-3.json",
+      "bytes": 5639,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/game-4.json",
+      "bytes": 5601,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/game-5.json",
+      "bytes": 6003,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/game-6.json",
+      "bytes": 5803,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/game-7.json",
+      "bytes": 5815,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/game-8.json",
+      "bytes": 5956,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/1.2/planner-v11-strong-250/summary.json",
+      "bytes": 8613,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/game-1.json",
+      "bytes": 30521,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/game-2.json",
+      "bytes": 31703,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/game-3.json",
+      "bytes": 31411,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/game-4.json",
+      "bytes": 32667,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/game-5.json",
+      "bytes": 28428,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/game-6.json",
+      "bytes": 36609,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/game-7.json",
+      "bytes": 33586,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/game-8.json",
+      "bytes": 29660,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-a-equal350/summary.json",
+      "bytes": 19252,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/game-1.json",
+      "bytes": 36585,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/game-2.json",
+      "bytes": 35161,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/game-3.json",
+      "bytes": 32901,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/game-4.json",
+      "bytes": 38541,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/game-5.json",
+      "bytes": 35888,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/game-6.json",
+      "bytes": 33456,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/game-7.json",
+      "bytes": 36685,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/game-8.json",
+      "bytes": 35480,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-heldout350/summary.json",
+      "bytes": 20550,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-screen100/game-1.json",
+      "bytes": 39499,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-screen100/game-2.json",
+      "bytes": 35984,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-screen100/game-3.json",
+      "bytes": 35235,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-screen100/game-4.json",
+      "bytes": 37354,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-b-screen100/summary.json",
+      "bytes": 12206,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/game-1.json",
+      "bytes": 32758,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/game-2.json",
+      "bytes": 32060,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/game-3.json",
+      "bytes": 39462,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/game-4.json",
+      "bytes": 38582,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/game-5.json",
+      "bytes": 34932,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/game-6.json",
+      "bytes": 35320,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/game-7.json",
+      "bytes": 30550,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/game-8.json",
+      "bytes": 33453,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-heldout350/summary.json",
+      "bytes": 20308,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-screen100/game-1.json",
+      "bytes": 41904,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-screen100/game-2.json",
+      "bytes": 37826,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-screen100/game-3.json",
+      "bytes": 34351,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-screen100/game-4.json",
+      "bytes": 36341,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-c-screen100/summary.json",
+      "bytes": 11990,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-d-screen100/game-1.json",
+      "bytes": 40324,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-d-screen100/game-2.json",
+      "bytes": 35631,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-d-screen100/game-3.json",
+      "bytes": 34599,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-d-screen100/game-4.json",
+      "bytes": 35393,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-d-screen100/summary.json",
+      "bytes": 11852,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/game-1.json",
+      "bytes": 31981,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/game-2.json",
+      "bytes": 111097,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/game-3.json",
+      "bytes": 31604,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/game-4.json",
+      "bytes": 32230,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/game-5.json",
+      "bytes": 34251,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/game-6.json",
+      "bytes": 35014,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/game-7.json",
+      "bytes": 35782,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/game-8.json",
+      "bytes": 31965,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-confirm350/summary.json",
+      "bytes": 20198,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-screen100/game-1.json",
+      "bytes": 36494,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-screen100/game-2.json",
+      "bytes": 38040,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-screen100/game-3.json",
+      "bytes": 36933,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-screen100/game-4.json",
+      "bytes": 35716,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-e-screen100/summary.json",
+      "bytes": 12087,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-h-screen100/game-1.json",
+      "bytes": 40201,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-h-screen100/game-2.json",
+      "bytes": 111333,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-h-screen100/game-3.json",
+      "bytes": 38969,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-h-screen100/game-4.json",
+      "bytes": 39093,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-h-screen100/summary.json",
+      "bytes": 11683,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/game-1.json",
+      "bytes": 111193,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/game-2.json",
+      "bytes": 35502,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/game-3.json",
+      "bytes": 37307,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/game-4.json",
+      "bytes": 33488,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/game-5.json",
+      "bytes": 103122,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/game-6.json",
+      "bytes": 33465,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/game-7.json",
+      "bytes": 31467,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/game-8.json",
+      "bytes": 30448,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-confirm350/summary.json",
+      "bytes": 19880,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-screen100/game-1.json",
+      "bytes": 36350,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-screen100/game-2.json",
+      "bytes": 40467,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-screen100/game-3.json",
+      "bytes": 31392,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-screen100/game-4.json",
+      "bytes": 38871,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/candidate-i-screen100/summary.json",
+      "bytes": 12107,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/2026-10-10/manifest.json",
+      "bytes": 14027,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/game-1.json",
+      "bytes": 6837,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/game-2.json",
+      "bytes": 5450,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/game-3.json",
+      "bytes": 5102,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/game-4.json",
+      "bytes": 5450,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/game-5.json",
+      "bytes": 5113,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/game-6.json",
+      "bytes": 5447,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/game-7.json",
+      "bytes": 5114,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/game-8.json",
+      "bytes": 5446,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/candidate-escape-pvs/summary.json",
+      "bytes": 7678,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/cohesion-vs-escape/game-1.json",
+      "bytes": 5897,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/cohesion-vs-escape/game-2.json",
+      "bytes": 6006,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/cohesion-vs-escape/game-3.json",
+      "bytes": 6066,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/cohesion-vs-escape/game-4.json",
+      "bytes": 5234,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/cohesion-vs-escape/game-5.json",
+      "bytes": 5306,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/cohesion-vs-escape/game-6.json",
+      "bytes": 5783,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/cohesion-vs-escape/summary.json",
+      "bytes": 6077,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-long-180/game-1.json",
+      "bytes": 3798,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-long-180/game-2.json",
+      "bytes": 5399,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-long-180/game-3.json",
+      "bytes": 4803,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-long-180/game-4.json",
+      "bytes": 4954,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-long-180/summary.json",
+      "bytes": 4097,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/game-1.json",
+      "bytes": 5721,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/game-2.json",
+      "bytes": 6050,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/game-3.json",
+      "bytes": 6237,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/game-4.json",
+      "bytes": 6981,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/game-5.json",
+      "bytes": 5994,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/game-6.json",
+      "bytes": 6373,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/game-7.json",
+      "bytes": 6279,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/game-8.json",
+      "bytes": 5807,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/diverse-short-250/summary.json",
+      "bytes": 8123,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/LEARNED_VALUE_REVIEW.md",
+      "bytes": 4672,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/PLANNER_1_2.md",
+      "bytes": 5370,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/PR_REVIEW.md",
+      "bytes": 3260,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/SELF_PLAY_2026_10_10.md",
+      "bytes": 37359,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/STEP_ACCEPTANCE.md",
+      "bytes": 3116,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/benchmarks/USER_GAME_95.md",
+      "bytes": 4016,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/DESIGN_1_3.md",
+      "bytes": 4737,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/ENGINE_OPTIONS_1_2.md",
+      "bytes": 11933,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/MASTERS_RESEARCH.md",
+      "bytes": 10892,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/RELEASE_NOTES.md",
+      "bytes": 1446,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/screenshots/chess-room-1.3.jpg",
+      "bytes": 112521,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/TRAINING_PLAN.md",
+      "bytes": 18988,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/docs/VALIDATION.md",
+      "bytes": 8373,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/index.html",
+      "bytes": 19942,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/ai.js",
+      "bytes": 13966,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/analysis-ui.js",
+      "bytes": 7244,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/analysis.js",
+      "bytes": 4014,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/app.js",
+      "bytes": 35775,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/engine.js",
+      "bytes": 6516,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/fast-search.js",
+      "bytes": 16104,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/master-games.js",
+      "bytes": 21309,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/presentation.js",
+      "bytes": 1675,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/team-planner.js",
+      "bytes": 10947,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/worker-bundle.js",
+      "bytes": 48942,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/js/worker.js",
+      "bytes": 630,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/LICENSE",
+      "bytes": 1065,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/package.json",
+      "bytes": 462,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/README.md",
+      "bytes": 5049,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/arena.cjs",
+      "bytes": 4957,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/build.cjs",
+      "bytes": 601,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/frozen-completion.cjs",
+      "bytes": 5642,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/package.py",
+      "bytes": 1484,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/profile.cjs",
+      "bytes": 722,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/report-step-match.cjs",
+      "bytes": 44212,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/step-match.cjs",
+      "bytes": 29901,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/train-value-v2.cjs",
+      "bytes": 7439,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/scripts/train-value.cjs",
+      "bytes": 12816,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/server.cjs",
+      "bytes": 1360,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/style.css",
+      "bytes": 41667,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/analysis.test.cjs",
+      "bytes": 4418,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/endgame-planner.test.cjs",
+      "bytes": 2931,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/engine.test.cjs",
+      "bytes": 5832,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/fast-search.test.cjs",
+      "bytes": 3867,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/fixtures/master-huaxia-jiuxiao-2017.json",
+      "bytes": 8914,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/fixtures/master-huaxia-jiuxiao-2019.json",
+      "bytes": 10072,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/fixtures/user-blockade-28.json",
+      "bytes": 1459,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/fixtures/user-challenge-95.json",
+      "bytes": 4995,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/fixtures/user-game.json",
+      "bytes": 2285,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/frozen-completion.test.cjs",
+      "bytes": 4580,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/learned-value-v2.test.cjs",
+      "bytes": 6256,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/learned-value.test.cjs",
+      "bytes": 7185,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/master-fixture.test.cjs",
+      "bytes": 2676,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/report-step-match.test.cjs",
+      "bytes": 3247,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/root-ordering.test.cjs",
+      "bytes": 7581,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/search-history.test.cjs",
+      "bytes": 4798,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/step-dependencies.test.cjs",
+      "bytes": 4352,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/step-match.test.cjs",
+      "bytes": 10961,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/team-planner.test.cjs",
+      "bytes": 7311,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/transport-research.test.cjs",
+      "bytes": 9097,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/ui-presentation.test.cjs",
+      "bytes": 20218,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/ui-session-flow.test.cjs",
+      "bytes": 7209,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/tests/zobrist-signature.test.cjs",
+      "bytes": 7614,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/THIRD_PARTY.md",
+      "bytes": 714,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/vendor/upstream/ai.ts",
+      "bytes": 8504,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/vendor/upstream/game-logic.ts",
+      "bytes": 13093,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/vendor/upstream/README.md",
+      "bytes": 7184,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/启动服务.ps1",
+      "bytes": 126,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    },
+    {
+      "path": "arena-results/research-package-check/启动跳棋.cmd",
+      "bytes": 37,
+      "reason": "Duplicate extracted historical source validation checkout; source is preserved in Git versions."
+    }
+  ]
+}
