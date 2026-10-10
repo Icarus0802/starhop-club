@@ -1,0 +1,907 @@
+{
+  "format": "starhop-linear-value-v1",
+  "trained": true,
+  "license": "MIT",
+  "featureVersion": "h-transport-phase-v1",
+  "featureNames": [
+    "early.assignment",
+    "early.lagSquared",
+    "early.homeRemaining",
+    "early.arrived",
+    "early.ownBridges",
+    "early.jumpTransport",
+    "late.assignment",
+    "late.lagSquared",
+    "late.homeRemaining",
+    "late.arrived",
+    "late.ownBridges",
+    "late.jumpTransport"
+  ],
+  "featureScales": [
+    100,
+    500,
+    10,
+    10,
+    16,
+    30,
+    100,
+    500,
+    10,
+    10,
+    16,
+    30
+  ],
+  "phase": "clamp((max(arrivedOwn,arrivedOpponent)-4)/6,0,1)",
+  "bias": 0,
+  "theta": [
+    0.2986843970129697,
+    0.29822284137782884,
+    0.2929055601307508,
+    0.2987127600904501,
+    0.2962324091980292,
+    0.29483008697582963,
+    0.2979844572397014,
+    0.29763126824784875,
+    0.1856354582411338,
+    0.29838424846629635,
+    0.2965587511292718,
+    0.2948469636891065
+  ],
+  "scoreScale": 100,
+  "scoreWeights": [
+    0.2986843970129697,
+    0.059644568275565774,
+    2.929055601307508,
+    2.987127600904501,
+    1.8514525574876823,
+    0.9827669565860987,
+    0.2979844572397014,
+    0.05952625364956975,
+    1.8563545824113383,
+    2.9838424846629636,
+    1.853492194557949,
+    0.9828232122970216
+  ],
+  "training": {
+    "method": "full-batch Adam logistic outcome regression with L2, zero initialization, validation checkpoint",
+    "seed": 20261010,
+    "epochs": 400,
+    "rate": 0.03,
+    "ridge": 0.001,
+    "stride": 3,
+    "minPly": 8,
+    "bestEpoch": 10,
+    "outcomeLabels": "Legal replay winner from current side perspective; genuine rule draws target 0.5; capped/incomplete records excluded",
+    "gameWeighting": "Every unique game has total weight one",
+    "splitPolicy": "Entire paired opening board plus rules kept together; no position-level split",
+    "dataPolicy": "Only local benchmark ai-ai records; fixture-derived/human records excluded. Frozen continuations, step gaps and engine search scores are never training inputs or labels.",
+    "inputFiles": 52,
+    "uniqueGames": 50,
+    "duplicateFiles": 0,
+    "excludedFiles": 2,
+    "groups": {
+      "train": 10,
+      "validation": 2,
+      "test": 2
+    },
+    "sampleCounts": {
+      "train": 1171,
+      "validation": 358,
+      "test": 120
+    },
+    "extractionMs": 98.2375,
+    "optimizationMs": 33.52109999999999
+  },
+  "metrics": {
+    "initialTrain": {
+      "gamesEquivalent": 35.00000000000015,
+      "positions": 1171,
+      "logLoss": 0.6931471805599352,
+      "brier": 0.22857142857142979,
+      "outcomeAccuracy": 0.503353212046895
+    },
+    "train": {
+      "gamesEquivalent": 35.00000000000015,
+      "positions": 1171,
+      "logLoss": 0.6705867421724544,
+      "brier": 0.21732407155504116,
+      "outcomeAccuracy": 0.7180024135978917
+    },
+    "initialValidation": {
+      "gamesEquivalent": 11.000000000000034,
+      "positions": 358,
+      "logLoss": 0.6931471805599436,
+      "brier": 0.22727272727272677,
+      "outcomeAccuracy": 0.5061830123899076
+    },
+    "validation": {
+      "gamesEquivalent": 11.000000000000034,
+      "positions": 358,
+      "logLoss": 0.6894641178097514,
+      "brier": 0.22543928315918577,
+      "outcomeAccuracy": 0.575548177203937
+    },
+    "test": {
+      "gamesEquivalent": 3.9999999999999916,
+      "positions": 120,
+      "logLoss": 0.6862509074195906,
+      "brier": 0.18405563171032302,
+      "outcomeAccuracy": 0.6558115719406054
+    }
+  },
+  "provenance": {
+    "trainerSha256": "78c4684866a809b051cbfbfa6da6aa6f7465316d008cec05101df0574754e2e8",
+    "featureSourceSha256": "be127ac029fa7603a6a4d9153648bee5ab675786c57e3f5c3bcc5051bf8cb74a",
+    "featureKernelSha256": "cb51ec99a8319efc70171fdf3d4f3f6e0089cb2f58c9b42563570fc478fb9733",
+    "rulesSha256": "81c0d0af574455256e99eada46a5533f304634390219d235b8587ae1f890a082",
+    "datasetSha256": "cc044e95f0dc6a53d30bccb8d3bc20fbb82d4dfe73537d1e094a0e802599b4ae",
+    "games": [
+      {
+        "id": "375b908feb0670b6f96e12a6a882fb3ccce43cb6fa4cc33b8c7d2fa37d42d9ed",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 90,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-a-equal350/game-1.json",
+            "sha256": "6870fa8c3b42acdbe4237652f3b7cfb7213922e971c8e3e24ef37e460f8f9228"
+          }
+        ]
+      },
+      {
+        "id": "56f992e9a9d14e1be1dcbf4b9dd2ef70cd660f69a2b83e3785fe2c84cbf2dbea",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 90,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-a-equal350/game-2.json",
+            "sha256": "fd203ddecd25996bc71c8c07b71445cbdfc4dd060c3b7b533c77ebd81df2d06c"
+          }
+        ]
+      },
+      {
+        "id": "fb456f54704a7bd9d2528d1962095ad9c0bb7b761623b780c6b1db4bb449cd08",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": null,
+        "draw": "三次重复局面",
+        "plies": 108,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-a-equal350/game-3.json",
+            "sha256": "1afb329613d0bca48b3c306ef9f2d9f4d2872e9a9814c1f3bcdc14d911d271cc"
+          }
+        ]
+      },
+      {
+        "id": "14d414d014c5c9bcdd7609633ae107b622e5628d50b20b7c64ca92293bda9047",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 3,
+        "draw": null,
+        "plies": 95,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-a-equal350/game-4.json",
+            "sha256": "d770b2010d49555517adf66ac823f0ceea583c778ae17dcaf13aeea487988beb"
+          }
+        ]
+      },
+      {
+        "id": "b7badcf19b1db85c47d07727fcc323bef207654c1063fe21fa60de250f497c08",
+        "group": "798577373e0c5476dadd5750f6fad2814379e996a290eca229d3f61f3153f417",
+        "split": "train",
+        "winner": null,
+        "draw": "三次重复局面",
+        "plies": 97,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-a-equal350/game-5.json",
+            "sha256": "ef81c53b907013a820c114a1840e0ce834b1b2f702e00a487423e6a32054a7ec"
+          }
+        ]
+      },
+      {
+        "id": "a38f2d071aac7cd652e78e836c1f222e14153e6aecf146934d99c8af89363660",
+        "group": "798577373e0c5476dadd5750f6fad2814379e996a290eca229d3f61f3153f417",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 113,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-a-equal350/game-6.json",
+            "sha256": "67528d39464e5cf73399bcc53098520f7dbd5820f6b3076e9b29998491f50946"
+          }
+        ]
+      },
+      {
+        "id": "95dbd26d5863bb48c4d7d7379805840e4b5e466051bd5388ad57d9d84de02510",
+        "group": "128df8a9f08bab7db8c0cbd04e4aaff65f27a4f1e9daf3c7564a82355fe20e32",
+        "split": "test",
+        "winner": 0,
+        "draw": null,
+        "plies": 100,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-a-equal350/game-7.json",
+            "sha256": "8c4ae909a7968e745fcc91d942d0616a3c19306aa41aadcaaf6ba8f54016ac11"
+          }
+        ]
+      },
+      {
+        "id": "e423c1a035a6c6f885488a094229b45ce7afa2635bcc73148453029785b793d4",
+        "group": "128df8a9f08bab7db8c0cbd04e4aaff65f27a4f1e9daf3c7564a82355fe20e32",
+        "split": "test",
+        "winner": null,
+        "draw": "三次重复局面",
+        "plies": 101,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-a-equal350/game-8.json",
+            "sha256": "290265ce41b2230b17703882dce02c812cc14e284325a96152af8ebe489e8cfd"
+          }
+        ]
+      },
+      {
+        "id": "57f7133736292bdd2c33f37e3c4f60691bf3b3f296f0136e2f4feab2ccfdc363",
+        "group": "6093da884b46297f20b94aee19682bcb114aeb5708d8a9809086bc2699d2cfa1",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 113,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-heldout350/game-1.json",
+            "sha256": "7f53644aeb942d0600a758135e28dd3ef5437594438036dac105086ba25f9340"
+          }
+        ]
+      },
+      {
+        "id": "328b219599b5973f4c7f8e6f7d692f30c36b1912f51a1750c4ae86e2d73fb964",
+        "group": "6093da884b46297f20b94aee19682bcb114aeb5708d8a9809086bc2699d2cfa1",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 101,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-heldout350/game-2.json",
+            "sha256": "7a1edede5eb03ed56d481bde359b45c8f091277161e814ef48527a4d73486dfb"
+          }
+        ]
+      },
+      {
+        "id": "fa4894363f4696959ea3f9d8c7d48fda15f41144babe24b1aea592107aea43bf",
+        "group": "17e34d4fe0d6e81b40a8a7220d201e8450fb82a86479747c079b66ed3735596d",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 94,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-heldout350/game-3.json",
+            "sha256": "8af482daa74e4509247f8f1fb88ebde89c3af5f295bce7134c7cc75669de7d27"
+          }
+        ]
+      },
+      {
+        "id": "ea0e70c452fb3c1b6e77b3bf4280b43ea2a790c61dfcc33bb9a71cfbcdef4156",
+        "group": "17e34d4fe0d6e81b40a8a7220d201e8450fb82a86479747c079b66ed3735596d",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 115,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-heldout350/game-4.json",
+            "sha256": "ae1b149b29362f9739345ef8f6b6a4b48bff570d47ede80e669091dc5779b2ed"
+          }
+        ]
+      },
+      {
+        "id": "7dacc7661a9edfa7855b4578d0c636981a131a5c757f6b62ccaf6a46b87ae33a",
+        "group": "43599df5ab199ab6518df2cc662041533b3c7d1f675850bcb6fd038e3567e1a8",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 110,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-heldout350/game-5.json",
+            "sha256": "a49839b1de080d4538cb654d9cc3c76d38e532c7aca599e1112bdff2e4b2b3fb"
+          }
+        ]
+      },
+      {
+        "id": "abe7889a25c474b2433ade760436bb48ae2d10cc2b6e295826a1b5a8a0a4a5ce",
+        "group": "43599df5ab199ab6518df2cc662041533b3c7d1f675850bcb6fd038e3567e1a8",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 93,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-heldout350/game-6.json",
+            "sha256": "d292f9557c5098a22e4073ce6e5f4b9e66666ec124e70a1a5ece1857e406c2f0"
+          }
+        ]
+      },
+      {
+        "id": "81143aaa377ca486bf8967c51af5c7e4ccfbb87e15eb29f803f320764a6d37cf",
+        "group": "17fb79f8ae3e1653517afedfc97080c3ce67e9fc78206fd26b0e6feab4d18e51",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 107,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-heldout350/game-7.json",
+            "sha256": "e9f42dcb05c651d27eea1c962dfbef3844c1f059c30a7f5c529395bd43323d63"
+          }
+        ]
+      },
+      {
+        "id": "8f1f7742e54347e8a9eb4cb2bd3a827e9d097b40147d254ba1281b9a265f7bd2",
+        "group": "17fb79f8ae3e1653517afedfc97080c3ce67e9fc78206fd26b0e6feab4d18e51",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 108,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-heldout350/game-8.json",
+            "sha256": "14c08826f714a72939b241c38f26bfbcb6c57c13d6f20d7e070a8494a1e57bc3"
+          }
+        ]
+      },
+      {
+        "id": "da15fa817888c5fe10d9d3081517c0f42879c281322cdf5074f5b9a64ccc458b",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 121,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-screen100/game-1.json",
+            "sha256": "40204a577d9ff9354adacd055b3f4283f8cce4d9b49b304392d41f482da19b32"
+          }
+        ]
+      },
+      {
+        "id": "f4ad39c6d86dde24c452737facb009ce58442ac856f5071fe9475bde35171efb",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 109,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-screen100/game-2.json",
+            "sha256": "a51cc0b2d065b7f2f7e3d02da1cb3c7b7cae260e5d4c1c3a54c179405080a26b"
+          }
+        ]
+      },
+      {
+        "id": "67fb2a85150c170b2b766d1d1239e6d69b408b2ccd7671e111345420d06fec5a",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 3,
+        "draw": null,
+        "plies": 109,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-screen100/game-3.json",
+            "sha256": "579f26075305c7f98f9c1ed49045cc7534d77916373e8533fe2e4d969dfba0f5"
+          }
+        ]
+      },
+      {
+        "id": "088612caac6e6ddae42e285eb2ca4f8fae5a978f8f4d32d2572ff6dd61fd0bbc",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 0,
+        "draw": null,
+        "plies": 116,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-b-screen100/game-4.json",
+            "sha256": "ee0255c0d1d55352a3a5c3905babb02c96bf7e12432602177ce72af624508b90"
+          }
+        ]
+      },
+      {
+        "id": "ce5870e9622f7f1561533ab6cdc6eed6e27c0b6ecce4e22973ab9a07ebc82a2c",
+        "group": "6093da884b46297f20b94aee19682bcb114aeb5708d8a9809086bc2699d2cfa1",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 93,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-heldout350/game-1.json",
+            "sha256": "419c18a0b04ab80470cb4b2a4928b25c540f0f90bc942d3049b86ad37ae1896d"
+          }
+        ]
+      },
+      {
+        "id": "bec92ef866439330f3d5def50e37000b2a570c053ebe01d0607309c96faea78e",
+        "group": "6093da884b46297f20b94aee19682bcb114aeb5708d8a9809086bc2699d2cfa1",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 90,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-heldout350/game-2.json",
+            "sha256": "a6eafc93088a7857480b02b01fbd5b7b7ef6d2f187fb7c202177350c9f9cece0"
+          }
+        ]
+      },
+      {
+        "id": "660a1df6f841bc433eb3e1489d37acf59ea7559b951a35398ea46d197d94489f",
+        "group": "17e34d4fe0d6e81b40a8a7220d201e8450fb82a86479747c079b66ed3735596d",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 111,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-heldout350/game-3.json",
+            "sha256": "55e660df4bf4cb5827d07b42f23cf68ff0f5629d7f5c21a7ee2ac5edc1c705ae"
+          }
+        ]
+      },
+      {
+        "id": "29476b944ae2caf4f790a371bbdb77ffdd81dd32e75d1e9447658313efaab511",
+        "group": "17e34d4fe0d6e81b40a8a7220d201e8450fb82a86479747c079b66ed3735596d",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 119,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-heldout350/game-4.json",
+            "sha256": "b292c5ebff70c493cb5e76d020a1b17afb1615e4ce19421bad778a5b2c91516d"
+          }
+        ]
+      },
+      {
+        "id": "d2286ff3e38e150cb365055e7027d27186c94d84fa59997e9dc2f6e609c51ca6",
+        "group": "43599df5ab199ab6518df2cc662041533b3c7d1f675850bcb6fd038e3567e1a8",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 103,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-heldout350/game-5.json",
+            "sha256": "0f5e4822d4f7964a5452621b6fa999f1460414fb1798a6b9d31fe2874576e69e"
+          }
+        ]
+      },
+      {
+        "id": "87f1e4585377550a86ca3df675be51f9cfb8d2b7c449e2046c5f104258ac6945",
+        "group": "43599df5ab199ab6518df2cc662041533b3c7d1f675850bcb6fd038e3567e1a8",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 103,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-heldout350/game-6.json",
+            "sha256": "6fc05b4cde088f54829aa4f6d513f0726f08cef2c2a4bf01009af10a5b418429"
+          }
+        ]
+      },
+      {
+        "id": "09ca93e2a510363462745a5066d7a168388d7935198e9d32e5ec16cc5a5bffbe",
+        "group": "17fb79f8ae3e1653517afedfc97080c3ce67e9fc78206fd26b0e6feab4d18e51",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 86,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-heldout350/game-7.json",
+            "sha256": "b2afb72f77d84b267c94e6a6a46d394624466b34e1adce4d01663c207796c5b8"
+          }
+        ]
+      },
+      {
+        "id": "be5e41b72ec25847ec09d24277b16d23ff382256e06028962e3fe3bc67a07d1f",
+        "group": "17fb79f8ae3e1653517afedfc97080c3ce67e9fc78206fd26b0e6feab4d18e51",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 90,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-heldout350/game-8.json",
+            "sha256": "3c337d847e60a4a8fc14880d2de10654028a3b7268dea0ff1aa9dd7ba400cc63"
+          }
+        ]
+      },
+      {
+        "id": "ca9ef1bb02824c6b1bcde32c69fbd20ff4db91dc194244c52f5393001ee3452a",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": null,
+        "draw": "三次重复局面",
+        "plies": 148,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-screen100/game-1.json",
+            "sha256": "891c547f38845362286196ed2cb5b877ea1b8174eae1fede0c6f371ec5657353"
+          }
+        ]
+      },
+      {
+        "id": "dc629126959ca2fc036fce8b8b81a4b1d6cda550390d934406a1d9eba3d70560",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 114,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-screen100/game-2.json",
+            "sha256": "4aa865ac5d50347d4ec1c3918887d5584d578faa9d4fbc531d835b03df0f91f5"
+          }
+        ]
+      },
+      {
+        "id": "988035fc702bc7c5756fab7664760ff7c147d2f9a161e5c1eb3e0dbcf4663fb4",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 3,
+        "draw": null,
+        "plies": 99,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-screen100/game-3.json",
+            "sha256": "7e3d03ff24b1f0e06adcb0cb7ac37aad75e28f6869464db591462e4d2e7de2d4"
+          }
+        ]
+      },
+      {
+        "id": "38118663e613ec0ab47b34f1ebf53de64f9c0ba649a5f1ea9ffd4077bf9a2136",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 3,
+        "draw": null,
+        "plies": 113,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-c-screen100/game-4.json",
+            "sha256": "ff592c5c70a3c52f39c0a9e88f3d0998cd02a153293a5196062817b05f4139af"
+          }
+        ]
+      },
+      {
+        "id": "e0911d202c79d5faef305faed0b3554be94defec55c105bd6b441ad1611f4b4a",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": null,
+        "draw": "三次重复局面",
+        "plies": 142,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-d-screen100/game-1.json",
+            "sha256": "168da7720f078100155cbd35dfddb736ce51be215fd4ef76a0463afb85e1be84"
+          }
+        ]
+      },
+      {
+        "id": "6e57939c1111314ffa403bf79881603487fe1a165ceb05b1c2d61ce449f33954",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 107,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-d-screen100/game-2.json",
+            "sha256": "17e3063e5770bed2aa899489ca257b6a500a63f3f146491cea49e8ae42573327"
+          }
+        ]
+      },
+      {
+        "id": "ff0e2a35fb86a3ea4a4a0a161463536fd73190ba11a51f3e1ca5d8657604473d",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 0,
+        "draw": null,
+        "plies": 100,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-d-screen100/game-3.json",
+            "sha256": "e44b5d7581597a8ff4adfc85590c2d0670a997202b66b813d486eca952e34b25"
+          }
+        ]
+      },
+      {
+        "id": "7ccefe78b907e6612456c9437c6f537478a2afba5f6fa89e1536cd12a1681fb7",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 3,
+        "draw": null,
+        "plies": 105,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-d-screen100/game-4.json",
+            "sha256": "bce2d4bcc4bc3b5028f5634ab6a8e3eb26187dd88e24a89bd9c9b93cda1587e0"
+          }
+        ]
+      },
+      {
+        "id": "cde1574bbc54c7496a8d1d732bef0c97cc76a62cdad3f97fd2b39fb2ef1b4981",
+        "group": "2d0f036537f44750664d4cd335bfb94625e3a0d3bd182825c1229e04b934b75d",
+        "split": "validation",
+        "winner": 0,
+        "draw": null,
+        "plies": 92,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-confirm350/game-1.json",
+            "sha256": "9b9b7f3c0e356adf2d05a349cec5b243bd0f04e9761de2f968f5f03f107b425e"
+          }
+        ]
+      },
+      {
+        "id": "ebf2ff003580589341687d903233fdbe72a06c5aa3671b83371a017b5f90fab0",
+        "group": "6abc7b948bc0cd6e8c4efcb21ccfa061f25af26381444c3e4e3b2ca4eb6e2eb1",
+        "split": "test",
+        "winner": 0,
+        "draw": null,
+        "plies": 90,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-confirm350/game-3.json",
+            "sha256": "4acae73d863a8e7f3a58af9faec197a5ac94a317b0ff45be697147cd7893073e"
+          }
+        ]
+      },
+      {
+        "id": "79bd72865f719f0693233a6ac042caebc8a74632f61a52938558acee3fa92055",
+        "group": "6abc7b948bc0cd6e8c4efcb21ccfa061f25af26381444c3e4e3b2ca4eb6e2eb1",
+        "split": "test",
+        "winner": 0,
+        "draw": null,
+        "plies": 96,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-confirm350/game-4.json",
+            "sha256": "0a61ee923b24cbea9e795a61053d4e7bff859aff055e721a8de1c383f6d53054"
+          }
+        ]
+      },
+      {
+        "id": "4c0b75bb838efd436adcc162d8614f7c91b5abf0ade8c3899095db28fcaf4827",
+        "group": "89e67eb55ff1f5cbe1ccc248ee6fb7a15f7561afc61f68dc4051927c9fe10b4b",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 102,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-confirm350/game-5.json",
+            "sha256": "a3e012e7895a54e75f8842c47528af7caff81cda9f793fe9fd1684c9ef0ff786"
+          }
+        ]
+      },
+      {
+        "id": "dc8f38a05e31c9ce7b52513cc21918f140465fdc5f3ddaa2233feee0db1852c0",
+        "group": "89e67eb55ff1f5cbe1ccc248ee6fb7a15f7561afc61f68dc4051927c9fe10b4b",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 102,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-confirm350/game-6.json",
+            "sha256": "daf31f2745ff25a04adb82bc0826f7617b3323bb681189857af55cac7eb08074"
+          }
+        ]
+      },
+      {
+        "id": "a6fbb5487e0c9d8716e42eec13c8187a30220930e4786c1c9ba2e387199795b8",
+        "group": "f3148a36d764c4a16b4f12be6121c71cee5134b68c57498c79686b9dd274057f",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 102,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-confirm350/game-7.json",
+            "sha256": "d9ac7f364a17a6b4e45209b98d7010bed16badc6622dfb600b8541a23686f774"
+          }
+        ]
+      },
+      {
+        "id": "978980a910c80f24d114096b4c2b54b6ca8ee3b9f8ee73c2f4811906038329ce",
+        "group": "f3148a36d764c4a16b4f12be6121c71cee5134b68c57498c79686b9dd274057f",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 91,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-confirm350/game-8.json",
+            "sha256": "70459833f74161c56d8088cfcf7fa5b48e80927e96958778230eff5a3ba04189"
+          }
+        ]
+      },
+      {
+        "id": "72d1e23056459ed327b8f2af4ac3bcfd4c760a983dcec980f78547699af49d8e",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 111,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-screen100/game-1.json",
+            "sha256": "fcaf33aff4b5d11af923fa65703186b6a7624f40b2e47176d6c3f1b4a897813d"
+          }
+        ]
+      },
+      {
+        "id": "afaf48f61712b340ada58507af8dfee91d395d959fe8de8b8b882890bb9556be",
+        "group": "414a8e5d3d33c385718a570ee9ac190d6749c7ec5617e2b9a3873e071ebb1fe2",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 118,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-screen100/game-2.json",
+            "sha256": "d16ca2f1dedf65fea551ed10d64d57908495ab63ca74e656d5146ce46860d714"
+          }
+        ]
+      },
+      {
+        "id": "f49de72159516baa5d729ff5064f2eae446d2930894c7209f1e8574ac4e43de2",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 3,
+        "draw": null,
+        "plies": 109,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-screen100/game-3.json",
+            "sha256": "797da37dc3d823a050dc9cf1edf1affb13391bb987543a65ab4530450acf11fd"
+          }
+        ]
+      },
+      {
+        "id": "81951ab4bccb9c0596aaf40963003d07c94b566bdb75fdfc7aa29abfbc653280",
+        "group": "f4bd4c093b0a7cf0210c620e08fa3ab882767aa938ccfda84feaa8ff0086be2b",
+        "split": "validation",
+        "winner": 3,
+        "draw": null,
+        "plies": 105,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-e-screen100/game-4.json",
+            "sha256": "9ce871f1c574cd8351149f776fe28ed51479483d3b0726ae7935f7f47837fa32"
+          }
+        ]
+      },
+      {
+        "id": "38f396338d6acf80d90b1afb1b51e9ae0b5da8621088eb8d40a24da8d6af602d",
+        "group": "2a579f6370999a7027acd84ca186789e5506a4377847266658f8ebe02c76549e",
+        "split": "train",
+        "winner": 3,
+        "draw": null,
+        "plies": 121,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-h-screen100/game-1.json",
+            "sha256": "b9a3bc4014c230eab332f6a052ad44a2db31bc6265b9a82d91b5e6736128975f"
+          }
+        ]
+      },
+      {
+        "id": "4bbd6de1762f7beeeb9ee3884ef361c9428e5683d373e1b9d2a86a576b3e2755",
+        "group": "765f4ffe3151a6098311842b1b5d23addf466772df4e46a40e0ae9c1fb8ab434",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 118,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-h-screen100/game-3.json",
+            "sha256": "4ea1b98debaed6f3b8f9e8120fce077c636b38b1b4f1c6609ef15f16a594f284"
+          }
+        ]
+      },
+      {
+        "id": "26ece57a0b5c1cc0012eed9183a1e8a5074ce93ad6e05ef3845df08ac1f03c90",
+        "group": "765f4ffe3151a6098311842b1b5d23addf466772df4e46a40e0ae9c1fb8ab434",
+        "split": "train",
+        "winner": 0,
+        "draw": null,
+        "plies": 122,
+        "openingPlies": 8,
+        "sources": [
+          {
+            "file": "docs/benchmarks/2026-10-10/candidate-h-screen100/game-4.json",
+            "sha256": "8ac5f18e45dbf44ba9f46ed70fede29565af35f335c22931315e6ae9dcca0ae2"
+          }
+        ]
+      }
+    ],
+    "excluded": [
+      {
+        "source": "docs\\benchmarks\\2026-10-10\\candidate-e-confirm350\\game-2.json",
+        "sourceSha256": "a75e52ad731f29a9d5834129e7148dbc139f5d826388a1a83eafbf5ed37456c2",
+        "reason": "unfinished-or-censored"
+      },
+      {
+        "source": "docs\\benchmarks\\2026-10-10\\candidate-h-screen100\\game-2.json",
+        "sourceSha256": "c76b09269ce2681fafd411e6ce77221f2bd22e8b36d4a4a04c870778a703ab4f",
+        "reason": "unfinished-or-censored"
+      }
+    ]
+  },
+  "strengthValidation": {
+    "status": "not-evaluated",
+    "note": "Fitted parameters and held-out prediction metrics do not demonstrate improved playing strength. Require fresh paired equal-budget matches and the requested stable five-own-turn lead."
+  }
+}

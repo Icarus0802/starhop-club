@@ -34,7 +34,7 @@ class Element{
   scrollIntoView(){}
 }
 function surface(initialStorage={},options={}){
-  const nodes=[],ids=new Map(),storage=new Map(Object.entries(initialStorage)),writes=[],workers=[],timers=[],listeners={};
+  const nodes=[],ids=new Map(),storage=new Map(Object.entries(initialStorage)),writes=[],workers=[],timers=[],listeners={},frames=new Map();let clock=0,frameId=0;
   const document={activeElement:null,getElementById:id=>ids.get(id)??null,querySelectorAll:selector=>nodes.filter(x=>x.matches(selector)),querySelector:selector=>nodes.find(x=>x.matches(selector))??null,createElement:tag=>new Element(tag,document),createElementNS:(_,tag)=>new Element(tag,document),addEventListener:(type,callback)=>{(listeners[type]??=[]).push(callback);},dispatchEvent:event=>{for(const f of listeners[event.type]??[])f(event);}};
   document.documentElement=new Element('html',document);document.body=new Element('body',document);nodes.push(document.documentElement,document.body);
   const html=fs.readFileSync(require.resolve('../index.html'),'utf8');
@@ -43,10 +43,10 @@ function surface(initialStorage={},options={}){
     el.hidden=el.getAttribute('hidden')!==null;el.open=el.getAttribute('open')!==null;if(el.id)ids.set(el.id,el);nodes.push(el);
   }
   class Worker{constructor(){workers.push(this);}postMessage(message){this.request=message;}terminate(){this.terminated=true;}}
-  const window={location:{hash:'#play'},matchMedia:()=>({matches:!!options.reducedMotion,addEventListener(){}}),addEventListener(){}};
-  const context={window,location:window.location,document,Starhop:E,StarhopAI:A,Worker,performance,console,URL:{createObjectURL:()=> 'blob:presentation-test',revokeObjectURL(){}},Blob:class{},setTimeout:callback=>{timers.push(callback);return timers.length;},clearTimeout(){},localStorage:{getItem:key=>{if(options.blockStorage)throw Error('storage unavailable');return storage.get(key)??null;},setItem:(key,value)=>{if(options.blockStorage)throw Error('storage unavailable');storage.set(key,String(value));writes.push(key);}},MutationObserver:class{observe(){}disconnect(){}}};
+  const window={location:{hash:'#play'},matchMedia:()=>({matches:!!options.reducedMotion,addEventListener(){}}),addEventListener(){},requestAnimationFrame:callback=>{const id=++frameId;frames.set(id,callback);return id;},cancelAnimationFrame:id=>frames.delete(id)};
+  const context={window,location:window.location,document,Starhop:E,StarhopAI:A,Worker,performance:{now:()=>clock},console,URL:{createObjectURL:()=> 'blob:presentation-test',revokeObjectURL(){}},Blob:class{},setTimeout:callback=>{timers.push(callback);return timers.length;},clearTimeout(){},localStorage:{getItem:key=>{if(options.blockStorage)throw Error('storage unavailable');return storage.get(key)??null;},setItem:(key,value)=>{if(options.blockStorage)throw Error('storage unavailable');storage.set(key,String(value));writes.push(key);}},MutationObserver:class{observe(){}disconnect(){}}};
   vm.createContext(context);
-  return {context,document,storage,writes,workers,timers,get:id=>document.getElementById(id),run:file=>vm.runInContext(fs.readFileSync(require.resolve('../'+file),'utf8'),context,{filename:file}),head:()=>{const script=html.match(/<head>[\s\S]*?<script>([\s\S]*?)<\/script>/i)?.[1];assert.ok(script,'early appearance initializer exists');vm.runInContext(script,context,{filename:'index-head-appearance.js'});}};
+  return {context,document,storage,writes,workers,timers,frames,advanceFrame(ms){clock+=ms;const pending=[...frames.values()];frames.clear();for(const callback of pending)callback(clock);},get:id=>document.getElementById(id),run:file=>vm.runInContext(fs.readFileSync(require.resolve('../'+file),'utf8'),context,{filename:file}),head:()=>{const script=html.match(/<head>[\s\S]*?<script>([\s\S]*?)<\/script>/i)?.[1];assert.ok(script,'early appearance initializer exists');vm.runInContext(script,context,{filename:'index-head-appearance.js'});}};
 }
 
 test('appearance changes preserve an active AI request, saved record, source, and visible last move',()=>{
@@ -148,4 +148,93 @@ test('theme controls reference the existing inline sun and moon symbols on both 
     }
     assert.equal(ui.workers.length,0);
   }
+});
+
+test('the captured 95-ply game shows each player own steps, and replay uses the displayed position',()=>{
+  const record=require('./fixtures/user-challenge-95.json'),ui=surface({'starhop-session':JSON.stringify({record,preferences:{}})});
+  ui.run('js/app.js');
+  assert.match(ui.get('human-strip').textContent,/48 步/);
+  assert.match(ui.get('human-strip').textContent,/10 \/ 10 到达/);
+  assert.match(ui.get('opponent-strip').textContent,/47 步/);
+  assert.match(ui.get('opponent-strip').textContent,/8 \/ 10 到达/);
+  assert.match(ui.get('turn-message').textContent,/用 48 步全部到达/);
+  const saved=ui.storage.get('starhop-session');ui.get('prev-move').click();
+  assert.match(ui.get('human-strip').textContent,/47 步/);
+  assert.match(ui.get('opponent-strip').textContent,/47 步/);
+  assert.equal(ui.storage.get('starhop-session'),saved);
+  assert.equal(ui.workers.length,0);
+});
+
+test('jade belongs to the human seat and amber to its opponent without recoloring rule IDs or saved records',()=>{
+  for(const humanSeat of [0,1]){
+    const original=require('./fixtures/user-blockade-28.json'),record={...original,options:{...original.options,mode:'human-ai',humanSeat,level:4}},session=JSON.stringify({record,preferences:{}}),ui=surface({'starhop-session':session});
+    ui.run('js/app.js');const players=E.replay(record).state.players,human=players[humanSeat],other=players[humanSeat^1],presentation=ui.context.window.StarhopPresentation;
+    assert.equal(presentation.playerName(human),'青玉');assert.equal(presentation.playerMaterial(other),'amber');assert.equal(presentation.playerName(other),'暖金');
+    assert.match(ui.get('human-strip').textContent,/你 · 青玉/);assert.match(ui.get('opponent-strip').textContent,/AI/);
+    const occupied=ui.get('board').querySelectorAll('.marble-static');assert.equal(occupied.length,20);assert.equal(occupied.filter(g=>g.dataset.material==='jade').length,10);assert.equal(occupied.filter(g=>g.dataset.material==='amber').length,10);
+    for(const g of occupied)assert.equal(g.dataset.material,Number(g.dataset.player)===human?'jade':'amber');
+    assert.equal(ui.storage.get('starhop-session'),session);assert.equal(ui.workers.length,0);
+  }
+});
+
+test('archive winner material comes from that saved game rather than the currently open seat',()=>{
+  const source=require('./fixtures/user-blockade-28.json'),record={...source,options:{...source.options,mode:'human-ai',humanSeat:0}},archive=[{...record,id:'other-seat',options:{...record.options,humanSeat:1},savedAt:'2026-10-10T00:00:00Z',result:{winner:0,draw:null}}],session=JSON.stringify({record,preferences:{}}),ui=surface({'starhop-session':session,'starhop-archive':JSON.stringify(archive)});
+  ui.run('js/app.js');
+  const archiveNav=ui.document.querySelectorAll('.nav-item').find(x=>x.dataset.view==='archive');archiveNav.click();
+  assert.match(ui.get('archive-list').children.find(x=>x.textContent.includes('青玉胜')).textContent,/青玉胜/);assert.equal(ui.storage.get('starhop-session'),session);
+});
+
+test('full multi-hop replay visits every segment, hides the destination duplicate and never changes the record',()=>{
+  const source=require('./fixtures/user-challenge-95.json'),record={...source,options:{...source.options,mode:'human'},moves:source.moves.slice(0,71),result:{winner:null,draw:null}},live=E.replay(record),move=live.moves.at(-1),session=JSON.stringify({record,preferences:{}}),ui=surface({'starhop-session':session});
+  assert.ok(move.path.length>=4);ui.run('js/app.js');ui.get('replay-last').click();
+  const board=ui.get('board'),ghost=board.querySelector('.replay-marble'),landed=board.querySelector('[data-i="'+move.to+'"] .marble-static')||board.querySelector('[data-i="'+move.to+'"]')?.querySelector('.marble-static');
+  assert.equal(ghost.dataset.path,move.path.join('.'));assert.equal(landed.getAttribute('visibility'),'hidden');assert.equal(board.getAttribute('data-moving'),'true');
+  const segmentMs=Math.min(1050,Math.max(230,210*(move.path.length-1)))/(move.path.length-1),segments=[];
+  ui.advanceFrame(segmentMs/2);segments.push(Number(ghost.dataset.segment));
+  for(let i=1;i<move.path.length-1;i++){ui.advanceFrame(segmentMs);segments.push(Number(ghost.dataset.segment));}
+  assert.deepEqual(segments,Array.from({length:move.path.length-1},(_,i)=>i));ui.advanceFrame(segmentMs);
+  assert.equal(board.querySelector('.replay-marble'),null);assert.equal(landed.getAttribute('visibility'),'visible');assert.equal(board.getAttribute('data-moving'),null);
+  assert.equal(ui.storage.get('starhop-session'),session);assert.equal(ui.workers.length,0);assert.equal(ui.frames.size,0);assert.ok(board.querySelector('.last-route'));assert.match(ui.get('last-action-path').textContent,/完整路径/);
+});
+
+test('reduced motion keeps the complete last path visible without animation or automatic human moves',()=>{
+  const record=require('./fixtures/user-blockade-28.json'),session=JSON.stringify({record,preferences:{}}),ui=surface({'starhop-session':session},{reducedMotion:true});ui.run('js/app.js');
+  const path=ui.get('last-action-path').textContent;ui.get('replay-last').click();ui.advanceFrame(2000);
+  assert.equal(ui.get('board').querySelector('.replay-marble'),null);assert.equal(ui.frames.size,0);assert.ok(ui.get('board').querySelector('.last-route'));assert.equal(ui.get('last-action-path').textContent,path);assert.equal(ui.storage.get('starhop-session'),session);assert.equal(ui.workers.length,0);
+});
+
+test('a quick AI result waits for the full human motion and replay cannot lose the queued reply',()=>{
+  const source=require('./fixtures/user-blockade-28.json'),record={...source,options:{...source.options,mode:'human-ai',humanSeat:0,level:4}},ui=surface({'starhop-session':JSON.stringify({record,preferences:{}})});ui.run('js/app.js');ui.get('pause').click();
+  const initial=E.replay(record).state,move=E.legalMoves(initial.board,initial.players[initial.turn],initial.rules)[0];
+  for(const i of [move.from,move.to])ui.get('board').dispatchEvent({type:'click',target:ui.get('board').querySelector('[data-i="'+i+'"]')});
+  ui.timers.at(-1)();const worker=ui.workers[0],request=worker.request,reply=E.legalMoves(request.state.board,request.state.players[request.state.turn],request.state.rules)[0];
+  worker.onmessage({data:{id:request.id,result:{move:reply,algorithm:'test legal reply',depth:1,nodes:1,time:1,score:0,candidates:[]}}});
+  const saved=()=>JSON.parse(ui.storage.get('starhop-session')).record;assert.equal(saved().moves.length,29);assert.ok(ui.get('board').querySelector('.replay-marble'));ui.get('replay-last').click();
+  ui.advanceFrame(1200);assert.equal(saved().moves.length,30);assert.ok(ui.get('board').querySelector('.replay-marble'));ui.advanceFrame(1200);
+  assert.equal(saved().moves.length,30);assert.equal(ui.get('board').querySelector('.replay-marble'),null);assert.equal(ui.workers.length,1);assert.equal(E.replay(saved()).state.turn,0);assert.match(ui.get('turn-message').textContent,/轮到 你 · 青玉/);
+});
+
+test('undo cancels pending motion and stale animation frames cannot apply an AI reply',()=>{
+  const source=require('./fixtures/user-blockade-28.json'),record={...source,options:{...source.options,mode:'human-ai',humanSeat:0,level:4}},ui=surface({'starhop-session':JSON.stringify({record,preferences:{}})});ui.run('js/app.js');ui.get('pause').click();
+  const initial=E.replay(record).state,move=E.legalMoves(initial.board,initial.players[initial.turn],initial.rules)[0];for(const i of [move.from,move.to])ui.get('board').dispatchEvent({type:'click',target:ui.get('board').querySelector('[data-i="'+i+'"]')});
+  ui.timers.at(-1)();const worker=ui.workers[0],request=worker.request,reply=E.legalMoves(request.state.board,0,request.state.rules)[0];worker.onmessage({data:{id:request.id,result:{move:reply,algorithm:'test',score:0,depth:1,nodes:1,candidates:[]}}});
+  ui.get('undo').click();const before=ui.storage.get('starhop-session');ui.advanceFrame(2000);
+  assert.equal(ui.storage.get('starhop-session'),before);assert.equal(JSON.parse(before).record.moves.length,28);assert.equal(ui.get('board').querySelector('.replay-marble'),null);assert.equal(ui.frames.size,0);
+});
+
+test('model estimate and trend share the human jade perspective while stating half-draw and calibration limits',()=>{
+  const source=require('./fixtures/user-blockade-28.json'),record={...source,options:{...source.options,mode:'human-ai',humanSeat:1}},session=JSON.stringify({record,preferences:{}}),ui=surface({'starhop-session':session}),D=require('../js/analysis.js');
+  ui.context.StarhopAnalysis=D;ui.run('js/analysis-ui.js');ui.context.StarhopAnalysisUI=ui.context.window.StarhopAnalysisUI;ui.run('js/app.js');
+  const state=E.replay(record).state,human=state.players[1],estimate=D.analyze(state,human).probability,presentation=ui.context.window.StarhopPresentation;
+  const analysis=D.analyze(state,human);
+  assert.equal(ui.get('position-score').textContent,(analysis.score>=0?'+':'')+analysis.score.toFixed(1));
+  assert.ok(ui.get('position-verdict').textContent.includes((estimate.value*100).toFixed(1)+'%'));assert.match(ui.get('position-verdict').textContent,/和棋计半，未校准/);assert.match(ui.get('analysis-perspective').textContent,/青玉/);
+  assert.match(ui.get('analysis-details').textContent,/35局训练、11局验证、4局测试/);assert.match(ui.get('analysis-details').textContent,/不代表对真人或特定对手的胜率/);assert.match(ui.get('trend-chart').getAttribute('aria-label'),/结构评分走势，非胜率/);
+  assert.equal(ui.get('trend-chart').querySelector('polyline').getAttribute('stroke'),presentation.playerColor(human));assert.equal(ui.storage.get('starhop-session'),session);assert.equal(ui.workers.length,0);
+});
+
+test('unsupported long-jump rules retain structural diagnostics without displaying a trained percentage',()=>{
+  const record={format:'starhop-v1',options:{players:2,jump:'long',goalLock:false,mode:'human-ai',humanSeat:0,level:4},moves:[],result:{winner:null,draw:null}},session=JSON.stringify({record,preferences:{}}),ui=surface({'starhop-session':session});
+  ui.context.StarhopAnalysis=require('../js/analysis.js');ui.run('js/analysis-ui.js');ui.context.StarhopAnalysisUI=ui.context.window.StarhopAnalysisUI;ui.run('js/app.js');
+  assert.doesNotMatch(ui.get('position-score').textContent,/%/);assert.match(ui.get('position-verdict').textContent,/结构评分/);assert.match(ui.get('trend-chart').getAttribute('aria-label'),/结构评分走势，非胜率/);assert.match(ui.get('analysis-details').textContent,/未填孔|匹配距离/);assert.equal(ui.storage.get('starhop-session'),session);assert.equal(ui.workers.length,0);
 });

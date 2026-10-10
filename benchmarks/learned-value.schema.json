@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Starhop outcome-supervised stage-linear evaluation weights",
+  "type": "object",
+  "required": ["format", "trained", "license", "featureVersion", "featureNames", "featureScales", "phase", "bias", "theta", "scoreScale", "scoreWeights", "training", "metrics", "provenance", "strengthValidation"],
+  "properties": {
+    "format": {"const": "starhop-linear-value-v1"},
+    "trained": {"const": true},
+    "license": {"const": "MIT"},
+    "featureVersion": {"const": "h-transport-phase-v1"},
+    "featureNames": {"type": "array", "minItems": 12, "maxItems": 12, "items": {"type": "string"}},
+    "featureScales": {"type": "array", "minItems": 12, "maxItems": 12, "items": {"type": "number", "exclusiveMinimum": 0}},
+    "phase": {"type": "string"},
+    "bias": {"const": 0},
+    "theta": {"type": "array", "minItems": 12, "maxItems": 12, "items": {"type": "number"}},
+    "scoreScale": {"const": 100},
+    "scoreWeights": {"type": "array", "minItems": 12, "maxItems": 12, "items": {"type": "number"}},
+    "training": {"type": "object"},
+    "metrics": {"type": "object", "required": ["train", "validation", "test"]},
+    "provenance": {"type": "object", "required": ["trainerSha256", "featureSourceSha256", "featureKernelSha256", "rulesSha256", "datasetSha256", "games", "excluded"]},
+    "strengthValidation": {"type": "object", "required": ["status", "note"], "properties": {"status": {"const": "not-evaluated"}, "note": {"type": "string"}}}
+  }
+}
