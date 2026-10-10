@@ -1,0 +1,505 @@
+{
+  "format": "starhop-v1",
+  "options": {
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "mode": "ai-ai",
+    "humanSeat": 0,
+    "level": 4,
+    "secondLevel": 4
+  },
+  "moves": [
+    {
+      "from": 115,
+      "to": 102
+    },
+    {
+      "from": 3,
+      "to": 14
+    },
+    {
+      "from": 117,
+      "to": 106
+    },
+    {
+      "from": 0,
+      "to": 16
+    },
+    {
+      "from": 120,
+      "to": 104
+    },
+    {
+      "from": 5,
+      "to": 18
+    },
+    {
+      "from": 116,
+      "to": 105
+    },
+    {
+      "from": 4,
+      "to": 13
+    },
+    {
+      "from": 119,
+      "to": 116
+    },
+    {
+      "from": 7,
+      "to": 29
+    },
+    {
+      "from": 113,
+      "to": 93
+    },
+    {
+      "from": 13,
+      "to": 40
+    },
+    {
+      "from": 118,
+      "to": 91
+    },
+    {
+      "from": 8,
+      "to": 51
+    },
+    {
+      "from": 116,
+      "to": 80
+    },
+    {
+      "from": 6,
+      "to": 26
+    },
+    {
+      "from": 112,
+      "to": 69
+    },
+    {
+      "from": 16,
+      "to": 79
+    },
+    {
+      "from": 105,
+      "to": 82
+    },
+    {
+      "from": 9,
+      "to": 17
+    },
+    {
+      "from": 114,
+      "to": 71
+    },
+    {
+      "from": 2,
+      "to": 4
+    },
+    {
+      "from": 106,
+      "to": 62
+    },
+    {
+      "from": 1,
+      "to": 30
+    },
+    {
+      "from": 93,
+      "to": 50
+    },
+    {
+      "from": 18,
+      "to": 60
+    },
+    {
+      "from": 82,
+      "to": 61
+    },
+    {
+      "from": 60,
+      "to": 70
+    },
+    {
+      "from": 62,
+      "to": 18
+    },
+    {
+      "from": 17,
+      "to": 16
+    },
+    {
+      "from": 61,
+      "to": 60
+    },
+    {
+      "from": 4,
+      "to": 8
+    },
+    {
+      "from": 111,
+      "to": 89
+    },
+    {
+      "from": 8,
+      "to": 28
+    },
+    {
+      "from": 102,
+      "to": 77
+    },
+    {
+      "from": 30,
+      "to": 41
+    },
+    {
+      "from": 71,
+      "to": 61
+    },
+    {
+      "from": 16,
+      "to": 39
+    },
+    {
+      "from": 89,
+      "to": 66
+    },
+    {
+      "from": 51,
+      "to": 71
+    },
+    {
+      "from": 50,
+      "to": 49
+    },
+    {
+      "from": 39,
+      "to": 38
+    },
+    {
+      "from": 80,
+      "to": 59
+    },
+    {
+      "from": 29,
+      "to": 68
+    },
+    {
+      "from": 49,
+      "to": 39
+    },
+    {
+      "from": 28,
+      "to": 51
+    },
+    {
+      "from": 104,
+      "to": 103
+    },
+    {
+      "from": 79,
+      "to": 104
+    },
+    {
+      "from": 59,
+      "to": 57
+    },
+    {
+      "from": 71,
+      "to": 81
+    },
+    {
+      "from": 66,
+      "to": 27
+    },
+    {
+      "from": 51,
+      "to": 112
+    },
+    {
+      "from": 103,
+      "to": 59
+    },
+    {
+      "from": 14,
+      "to": 37
+    },
+    {
+      "from": 39,
+      "to": 28
+    },
+    {
+      "from": 26,
+      "to": 88
+    },
+    {
+      "from": 27,
+      "to": 14
+    },
+    {
+      "from": 38,
+      "to": 48
+    },
+    {
+      "from": 69,
+      "to": 6
+    },
+    {
+      "from": 112,
+      "to": 116
+    },
+    {
+      "from": 57,
+      "to": 67
+    },
+    {
+      "from": 68,
+      "to": 89
+    },
+    {
+      "from": 77,
+      "to": 58
+    },
+    {
+      "from": 88,
+      "to": 119
+    },
+    {
+      "from": 67,
+      "to": 30
+    },
+    {
+      "from": 41,
+      "to": 51
+    },
+    {
+      "from": 60,
+      "to": 16
+    },
+    {
+      "from": 51,
+      "to": 112
+    },
+    {
+      "from": 28,
+      "to": 8
+    },
+    {
+      "from": 104,
+      "to": 120
+    },
+    {
+      "from": 14,
+      "to": 3
+    },
+    {
+      "from": 48,
+      "to": 68
+    },
+    {
+      "from": 91,
+      "to": 79
+    },
+    {
+      "from": 68,
+      "to": 91
+    },
+    {
+      "from": 79,
+      "to": 69
+    },
+    {
+      "from": 81,
+      "to": 115
+    },
+    {
+      "from": 69,
+      "to": 51
+    },
+    {
+      "from": 37,
+      "to": 48
+    },
+    {
+      "from": 58,
+      "to": 41
+    },
+    {
+      "from": 70,
+      "to": 80
+    },
+    {
+      "from": 51,
+      "to": 52
+    },
+    {
+      "from": 48,
+      "to": 49
+    },
+    {
+      "from": 59,
+      "to": 38
+    },
+    {
+      "from": 40,
+      "to": 50
+    },
+    {
+      "from": 61,
+      "to": 4
+    },
+    {
+      "from": 50,
+      "to": 59
+    },
+    {
+      "from": 52,
+      "to": 2
+    },
+    {
+      "from": 49,
+      "to": 92
+    },
+    {
+      "from": 18,
+      "to": 9
+    },
+    {
+      "from": 80,
+      "to": 105
+    },
+    {
+      "from": 41,
+      "to": 0
+    },
+    {
+      "from": 91,
+      "to": 118
+    },
+    {
+      "from": 16,
+      "to": 5
+    },
+    {
+      "from": 92,
+      "to": 114
+    },
+    {
+      "from": 8,
+      "to": 1
+    },
+    {
+      "from": 59,
+      "to": 69
+    },
+    {
+      "from": 38,
+      "to": 27
+    },
+    {
+      "from": 69,
+      "to": 79
+    },
+    {
+      "from": 27,
+      "to": 15
+    },
+    {
+      "from": 105,
+      "to": 113
+    },
+    {
+      "from": 15,
+      "to": 7
+    },
+    {
+      "from": 79,
+      "to": 91
+    },
+    {
+      "from": 30,
+      "to": 17
+    },
+    {
+      "from": 89,
+      "to": 102
+    },
+    {
+      "from": 17,
+      "to": 8
+    }
+  ],
+  "result": {
+    "winner": 3,
+    "draw": null
+  },
+  "benchmark": {
+    "game": 4,
+    "seed": 2026131101,
+    "openingSeed": 2026111101,
+    "openingPlies": 8,
+    "fixture": null,
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "sideA": 1,
+    "levelA": 4,
+    "levelB": 4,
+    "challenger": "fast",
+    "baseline": "benchmarks/v15-corridor-fast.cjs",
+    "budgetMs": 350,
+    "budgetBMs": 350,
+    "winner": "B",
+    "draw": null,
+    "plies": 105,
+    "goalCounts": [
+      10,
+      8
+    ],
+    "margin": {
+      "definition": "Minimum own turns for the loser to fill its camp with the winning army frozen; measured after play, outside either engine budget.",
+      "player": 0,
+      "status": "found",
+      "ownTurns": 3,
+      "lowerBound": 3,
+      "exact": true,
+      "plan": [
+        {
+          "from": 91,
+          "to": 103
+        },
+        {
+          "from": 102,
+          "to": 117
+        },
+        {
+          "from": 103,
+          "to": 111
+        }
+      ],
+      "timeMs": 1.1045999999914784
+    },
+    "stats": {
+      "A": {
+        "moves": 48,
+        "meanMs": 334.41112708333304,
+        "maxMs": 354.14640000001236,
+        "meanDepth": 4.708333333333333,
+        "meanNodes": 71207.25
+      },
+      "B": {
+        "moves": 49,
+        "meanMs": 329.85425714285697,
+        "maxMs": 352.704899999997,
+        "meanDepth": 4.673469387755102,
+        "meanNodes": 74105.71428571429
+      }
+    },
+    "meanMs": 332.1092030927833,
+    "maxMs": 354.14640000001236,
+    "meanDepth": 4.690721649484536,
+    "elapsedSeconds": 32.223303400000006
+  }
+}

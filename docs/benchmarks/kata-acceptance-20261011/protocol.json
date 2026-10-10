@@ -1,0 +1,80 @@
+{
+  "games": 10,
+  "budgetMs": 350,
+  "budgetBMs": 350,
+  "openingPlies": 8,
+  "seed": 2026101102,
+  "maxPlies": 220,
+  "requiredWins": 10,
+  "requiredMeanSignedMargin": 2,
+  "engine": "benchmarks/kata-native.cjs",
+  "baseline": "benchmarks/v15-corridor-fast.cjs",
+  "frozenAt": "2026-10-10T16:36:00.361Z",
+  "sha256": {
+    "benchmarks/kata-native.cjs": "9b3e84ba6533b0d6b803b35a649004d1affe1c58d5b2ea24b1702fd1dc780d4f",
+    "benchmarks/v15-corridor-fast.cjs": "f920c6c7225796f2315abefbb96624505582383b0f1e5165dc87775d02d4f38f",
+    "scripts/arena-native.cjs": "903d81593478c8678af8a8dfcf6e297a5c729ce3db6e83a256be11744dc35c55",
+    "scripts/acceptance.cjs": "15b4b4bedd92d1eeb9072364bbdf00e3bf3404bf8718471ab61999de95a5c197",
+    "js/fast-search.js": "53561bf8baeda8de18e0356fb6efa86788429f647a76a1bee9725cdc7cbbc6f1",
+    "js/race-finish.js": "0c22e7e33b8198b6ed30d773c98af9dba59be33abf67a91149eae8d7775826de"
+  },
+  "nativeFiles": [
+    {
+      "file": "engine.cfg",
+      "bytes": 2946,
+      "sha256": "a0fd00820c341b866824fc16f68b2a1e4da4c7118531e5010fcf9ccfd695e878"
+    },
+    {
+      "file": "libz.dll",
+      "bytes": 87552,
+      "sha256": "c88f26b5f95332b78e37f95e4e0577340ef92d31b8bbb5a20cd69ac699445f3f"
+    },
+    {
+      "file": "msvcp140.dll",
+      "bytes": 627440,
+      "sha256": "86881a7054532019291c162f0a8177980c1c2b45490f7e88543f22915d08d9ff"
+    },
+    {
+      "file": "msvcp140_1.dll",
+      "bytes": 30960,
+      "sha256": "af589d441cd97638b1a0b9192a4014c52b64b35ecf5437caa65f27b3583e07aa"
+    },
+    {
+      "file": "msvcp140_2.dll",
+      "bytes": 205552,
+      "sha256": "16e3048f14be7656f684a6c452077d49b7d97ffaa46d5e5d806a1925a014d635"
+    },
+    {
+      "file": "OpenCL.dll",
+      "bytes": 107520,
+      "sha256": "0c835106eafe5b4816b90a73b613c34b9542d076813df541d65f04f03b012033"
+    },
+    {
+      "file": "vcruntime140.dll",
+      "bytes": 85232,
+      "sha256": "6cadb4fef773c23b511acc8b715a084815c6e41dd8c694bc70090a97b3b03fb9"
+    },
+    {
+      "file": "vcruntime140_1.dll",
+      "bytes": 45032,
+      "sha256": "09c0876a9422c6fdb1796d61198a2ed0494b2190cfe63ebc04450f3ded2c3a57"
+    },
+    {
+      "file": "yizitiao.bin.gz",
+      "bytes": 86980327,
+      "sha256": "7498b378217461d296fda4d21be6ad860713bad95724550b4e5d97deb8de981a"
+    },
+    {
+      "file": "yizitiao.exe",
+      "bytes": 1953792,
+      "sha256": "28e2397deca2c0416b782d3b0028f1276e8af36a7b0e1c700021679c77003091"
+    },
+    {
+      "file": "zlib.dll",
+      "bytes": 81408,
+      "sha256": "d1d55c35f5b6ab333f1f09f908cdb5745f6e7d8d47259a84ca9eb302fffb3fcd"
+    }
+  ],
+  "device": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "note": "One local engine. No pondering. Startup/GPU tuning excluded, every complete from/to decision measured with wall clock. All game moves validated by js/engine.js; unsupported side occupancy and deadline failures use the JS fallback and are counted."
+}

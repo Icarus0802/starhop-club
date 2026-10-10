@@ -1,0 +1,95 @@
+{
+  "engineVersion": "1.2.0",
+  "generatedAt": "2026-10-10T15:04:29.340Z",
+  "note": "Internal engine benchmark; not a human rating or proof of champion strength.",
+  "results": [
+    {
+      "game": 1,
+      "seed": 20270118,
+      "openingSeed": 20270118,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 0,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "benchmarks/corridor-fast.cjs",
+      "baseline": "benchmarks/v14-rear-fast.cjs",
+      "budgetMs": 350,
+      "budgetBMs": 350,
+      "winner": "B",
+      "draw": null,
+      "plies": 98,
+      "goalCounts": [
+        8,
+        10
+      ],
+      "stats": {
+        "A": {
+          "moves": 45,
+          "meanMs": 329.57627333333295,
+          "maxMs": 351.5743000000002,
+          "meanDepth": 5.222222222222222,
+          "meanNodes": 104135.04444444444
+        },
+        "B": {
+          "moves": 45,
+          "meanMs": 327.43100666666635,
+          "maxMs": 352.33290000000125,
+          "meanDepth": 4.977777777777778,
+          "meanNodes": 100523.64444444445
+        }
+      },
+      "meanMs": 328.5036399999996,
+      "maxMs": 352.33290000000125,
+      "meanDepth": 5.1,
+      "elapsedSeconds": 29.5788461
+    },
+    {
+      "game": 2,
+      "seed": 20280118,
+      "openingSeed": 20270118,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 1,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "benchmarks/corridor-fast.cjs",
+      "baseline": "benchmarks/v14-rear-fast.cjs",
+      "budgetMs": 350,
+      "budgetBMs": 350,
+      "winner": "A",
+      "draw": null,
+      "plies": 86,
+      "goalCounts": [
+        8,
+        10
+      ],
+      "stats": {
+        "A": {
+          "moves": 39,
+          "meanMs": 323.7529794871797,
+          "maxMs": 351.99099999999453,
+          "meanDepth": 4.923076923076923,
+          "meanNodes": 108765.48717948717
+        },
+        "B": {
+          "moves": 39,
+          "meanMs": 332.7895538461537,
+          "maxMs": 352.40780000000086,
+          "meanDepth": 5.205128205128205,
+          "meanNodes": 114581.58974358975
+        }
+      },
+      "meanMs": 328.2712666666667,
+      "maxMs": 352.40780000000086,
+      "meanDepth": 5.064102564102564,
+      "elapsedSeconds": 25.6114247
+    }
+  ]
+}

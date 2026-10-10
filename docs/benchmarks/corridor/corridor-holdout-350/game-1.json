@@ -1,0 +1,454 @@
+{
+  "format": "starhop-v1",
+  "options": {
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "mode": "ai-ai",
+    "humanSeat": 0,
+    "level": 4,
+    "secondLevel": 4
+  },
+  "moves": [
+    {
+      "from": 111,
+      "to": 103
+    },
+    {
+      "from": 6,
+      "to": 15
+    },
+    {
+      "from": 118,
+      "to": 91
+    },
+    {
+      "from": 8,
+      "to": 28
+    },
+    {
+      "from": 115,
+      "to": 104
+    },
+    {
+      "from": 3,
+      "to": 16
+    },
+    {
+      "from": 116,
+      "to": 105
+    },
+    {
+      "from": 5,
+      "to": 18
+    },
+    {
+      "from": 104,
+      "to": 92
+    },
+    {
+      "from": 18,
+      "to": 30
+    },
+    {
+      "from": 117,
+      "to": 79
+    },
+    {
+      "from": 0,
+      "to": 41
+    },
+    {
+      "from": 120,
+      "to": 81
+    },
+    {
+      "from": 15,
+      "to": 40
+    },
+    {
+      "from": 113,
+      "to": 70
+    },
+    {
+      "from": 7,
+      "to": 50
+    },
+    {
+      "from": 112,
+      "to": 71
+    },
+    {
+      "from": 30,
+      "to": 51
+    },
+    {
+      "from": 119,
+      "to": 117
+    },
+    {
+      "from": 40,
+      "to": 80
+    },
+    {
+      "from": 81,
+      "to": 60
+    },
+    {
+      "from": 1,
+      "to": 8
+    },
+    {
+      "from": 71,
+      "to": 61
+    },
+    {
+      "from": 2,
+      "to": 52
+    },
+    {
+      "from": 61,
+      "to": 17
+    },
+    {
+      "from": 9,
+      "to": 7
+    },
+    {
+      "from": 70,
+      "to": 61
+    },
+    {
+      "from": 4,
+      "to": 40
+    },
+    {
+      "from": 79,
+      "to": 68
+    },
+    {
+      "from": 16,
+      "to": 39
+    },
+    {
+      "from": 92,
+      "to": 69
+    },
+    {
+      "from": 7,
+      "to": 29
+    },
+    {
+      "from": 117,
+      "to": 58
+    },
+    {
+      "from": 28,
+      "to": 67
+    },
+    {
+      "from": 17,
+      "to": 4
+    },
+    {
+      "from": 40,
+      "to": 78
+    },
+    {
+      "from": 114,
+      "to": 92
+    },
+    {
+      "from": 8,
+      "to": 17
+    },
+    {
+      "from": 68,
+      "to": 59
+    },
+    {
+      "from": 39,
+      "to": 49
+    },
+    {
+      "from": 61,
+      "to": 40
+    },
+    {
+      "from": 52,
+      "to": 61
+    },
+    {
+      "from": 40,
+      "to": 28
+    },
+    {
+      "from": 50,
+      "to": 70
+    },
+    {
+      "from": 58,
+      "to": 16
+    },
+    {
+      "from": 17,
+      "to": 40
+    },
+    {
+      "from": 103,
+      "to": 104
+    },
+    {
+      "from": 41,
+      "to": 81
+    },
+    {
+      "from": 16,
+      "to": 7
+    },
+    {
+      "from": 49,
+      "to": 58
+    },
+    {
+      "from": 59,
+      "to": 50
+    },
+    {
+      "from": 58,
+      "to": 79
+    },
+    {
+      "from": 60,
+      "to": 5
+    },
+    {
+      "from": 40,
+      "to": 59
+    },
+    {
+      "from": 69,
+      "to": 60
+    },
+    {
+      "from": 80,
+      "to": 103
+    },
+    {
+      "from": 60,
+      "to": 3
+    },
+    {
+      "from": 70,
+      "to": 113
+    },
+    {
+      "from": 91,
+      "to": 52
+    },
+    {
+      "from": 67,
+      "to": 114
+    },
+    {
+      "from": 105,
+      "to": 80
+    },
+    {
+      "from": 51,
+      "to": 112
+    },
+    {
+      "from": 92,
+      "to": 49
+    },
+    {
+      "from": 29,
+      "to": 40
+    },
+    {
+      "from": 52,
+      "to": 41
+    },
+    {
+      "from": 61,
+      "to": 70
+    },
+    {
+      "from": 3,
+      "to": 1
+    },
+    {
+      "from": 70,
+      "to": 111
+    },
+    {
+      "from": 49,
+      "to": 30
+    },
+    {
+      "from": 78,
+      "to": 90
+    },
+    {
+      "from": 41,
+      "to": 0
+    },
+    {
+      "from": 103,
+      "to": 116
+    },
+    {
+      "from": 50,
+      "to": 39
+    },
+    {
+      "from": 40,
+      "to": 50
+    },
+    {
+      "from": 39,
+      "to": 3
+    },
+    {
+      "from": 50,
+      "to": 93
+    },
+    {
+      "from": 104,
+      "to": 92
+    },
+    {
+      "from": 112,
+      "to": 119
+    },
+    {
+      "from": 92,
+      "to": 49
+    },
+    {
+      "from": 81,
+      "to": 120
+    },
+    {
+      "from": 7,
+      "to": 2
+    },
+    {
+      "from": 79,
+      "to": 117
+    },
+    {
+      "from": 49,
+      "to": 50
+    },
+    {
+      "from": 59,
+      "to": 68
+    },
+    {
+      "from": 80,
+      "to": 69
+    },
+    {
+      "from": 68,
+      "to": 79
+    },
+    {
+      "from": 30,
+      "to": 17
+    },
+    {
+      "from": 79,
+      "to": 115
+    },
+    {
+      "from": 69,
+      "to": 59
+    },
+    {
+      "from": 93,
+      "to": 105
+    },
+    {
+      "from": 59,
+      "to": 40
+    },
+    {
+      "from": 113,
+      "to": 118
+    },
+    {
+      "from": 4,
+      "to": 8
+    },
+    {
+      "from": 105,
+      "to": 113
+    },
+    {
+      "from": 50,
+      "to": 9
+    },
+    {
+      "from": 90,
+      "to": 103
+    },
+    {
+      "from": 17,
+      "to": 4
+    },
+    {
+      "from": 103,
+      "to": 112
+    }
+  ],
+  "result": {
+    "winner": 0,
+    "draw": null
+  },
+  "benchmark": {
+    "game": 1,
+    "seed": 20270118,
+    "openingSeed": 20270118,
+    "openingPlies": 8,
+    "fixture": null,
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "sideA": 0,
+    "levelA": 4,
+    "levelB": 4,
+    "challenger": "benchmarks/corridor-fast.cjs",
+    "baseline": "benchmarks/v14-rear-fast.cjs",
+    "budgetMs": 350,
+    "budgetBMs": 350,
+    "winner": "B",
+    "draw": null,
+    "plies": 98,
+    "goalCounts": [
+      8,
+      10
+    ],
+    "stats": {
+      "A": {
+        "moves": 45,
+        "meanMs": 329.57627333333295,
+        "maxMs": 351.5743000000002,
+        "meanDepth": 5.222222222222222,
+        "meanNodes": 104135.04444444444
+      },
+      "B": {
+        "moves": 45,
+        "meanMs": 327.43100666666635,
+        "maxMs": 352.33290000000125,
+        "meanDepth": 4.977777777777778,
+        "meanNodes": 100523.64444444445
+      }
+    },
+    "meanMs": 328.5036399999996,
+    "maxMs": 352.33290000000125,
+    "meanDepth": 5.1,
+    "elapsedSeconds": 29.5788461
+  }
+}

@@ -1,96 +1,23 @@
-name: Test and publish Starhop
+name: Test Starhop
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 permissions:
-  contents: write
-  pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  contents: read
 jobs:
-  publish:
+  test:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
-      - name: Verify and expand a newly reviewed source package
-        id: package
-        shell: bash
-        run: |
-          sha256sum --check source.sha256
-          python3 - <<'PY'
-          import hashlib, os, re, zipfile
-          from pathlib import Path, PurePosixPath
-          digest = hashlib.sha256(Path('source.zip').read_bytes()).hexdigest()
-          marker = Path('.published-source-sha256')
-          changed = not marker.exists() or marker.read_text().strip() != digest
-          if changed:
-              with zipfile.ZipFile('source.zip') as archive:
-                  if len(archive.infolist()) > 256 or sum(x.file_size for x in archive.infolist()) > 5000000:
-                      raise RuntimeError('Unexpected source package size')
-                  for item in archive.infolist():
-                      path = PurePosixPath(item.filename)
-                      if path.is_absolute() or '..' in path.parts or '\\' in item.filename:
-                          raise RuntimeError('Invalid source path')
-                      if item.filename.startswith('.github/') or item.filename in ('source.zip', 'source.sha256', '.published-source-sha256'):
-                          raise RuntimeError('Package may not replace publication controls')
-                      archive.extract(item, '.')
-              marker.write_text(digest + '\n')
-          import json
-          version = json.loads(Path('package.json').read_text(encoding='utf-8'))['version']
-          if not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?', version):
-              raise RuntimeError('Invalid version')
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
-              out.write(f'changed={str(changed).lower()}\nversion={version}\n')
-          PY
-      - name: Verify rules, analysis, search and offline worker
-        run: node --test tests/*.test.cjs
-      - name: Verify reproducible worker bundle
-        run: |
-          cp js/worker-bundle.js /tmp/starhop-worker-before.js
-          node scripts/build.cjs
-          cmp js/worker-bundle.js /tmp/starhop-worker-before.js
-      - name: Publish tested source and a new version tag
-        if: steps.package.outputs.changed == 'true'
-        env:
-          VERSION: ${{ steps.package.outputs.version }}
-        run: |
-          if git ls-remote --exit-code --tags origin "refs/tags/v$VERSION"; then
-            echo 'This version already exists. Bump package.json before publishing.'
-            exit 1
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "Release tested Starhop $VERSION source"
-          git push origin HEAD:main
-          git tag -a "v$VERSION" -m "Starhop $VERSION"
-          git push origin "v$VERSION"
-      - name: Create downloadable release
-        if: steps.package.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          VERSION: ${{ steps.package.outputs.version }}
-        run: |
-          args=()
-          if [[ "$VERSION" == *-* ]]; then args+=(--prerelease); fi
-          gh release create "v$VERSION" source.zip source.sha256 --title "星跃棋社 $VERSION" --notes-file docs/RELEASE_NOTES.md "${args[@]}"
-      - name: Configure Pages
-        uses: actions/configure-pages@v6
-      - name: Prepare static app
-        run: |
-          mkdir -p _site
-          cp index.html style.css LICENSE .nojekyll _site/
-          cp -R assets js _site/
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
+      - uses: actions/setup-node@v6
         with:
-          path: _site
-      - name: Deploy Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+          node-version: '24.21.0'
+      - run: npm test
+      - name: Verify reproducible offline worker
+        run: |
+          cp js/worker-bundle.js /tmp/starhop-worker.js
+          npm run build
+          cmp js/worker-bundle.js /tmp/starhop-worker.js
+      - run: python3 scripts/package.py

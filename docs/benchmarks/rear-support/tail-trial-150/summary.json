@@ -1,0 +1,183 @@
+{
+  "engineVersion": "1.2.0",
+  "generatedAt": "2026-10-10T13:55:43.695Z",
+  "note": "Internal engine benchmark; not a human rating or proof of champion strength.",
+  "results": [
+    {
+      "game": 1,
+      "seed": 20261010,
+      "openingSeed": 20261010,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 0,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "benchmarks/tail-fast.cjs",
+      "baseline": "arena-results/fast-cache-baseline.cjs",
+      "budgetMs": 150,
+      "budgetBMs": 150,
+      "winner": null,
+      "draw": "三次重复局面",
+      "plies": 91,
+      "goalCounts": [
+        6,
+        8
+      ],
+      "stats": {
+        "A": {
+          "moves": 42,
+          "meanMs": 151.2593857142858,
+          "maxMs": 154.48410000000013,
+          "meanDepth": 4.190476190476191,
+          "meanNodes": 25621.904761904763
+        },
+        "B": {
+          "moves": 41,
+          "meanMs": 151.0812219512196,
+          "maxMs": 154.3823000000002,
+          "meanDepth": 4.390243902439025,
+          "meanNodes": 25201.48780487805
+        }
+      },
+      "meanMs": 151.1713771084338,
+      "maxMs": 154.48410000000013,
+      "meanDepth": 4.289156626506024,
+      "elapsedSeconds": 12.5827557
+    },
+    {
+      "game": 2,
+      "seed": 20271010,
+      "openingSeed": 20261010,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 1,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "benchmarks/tail-fast.cjs",
+      "baseline": "arena-results/fast-cache-baseline.cjs",
+      "budgetMs": 150,
+      "budgetBMs": 150,
+      "winner": "A",
+      "draw": null,
+      "plies": 108,
+      "goalCounts": [
+        8,
+        10
+      ],
+      "stats": {
+        "A": {
+          "moves": 50,
+          "meanMs": 142.295614,
+          "maxMs": 154.5708999999988,
+          "meanDepth": 4.08,
+          "meanNodes": 25469.4
+        },
+        "B": {
+          "moves": 50,
+          "meanMs": 144.77358599999985,
+          "maxMs": 154.4403999999995,
+          "meanDepth": 4.28,
+          "meanNodes": 27575.06
+        }
+      },
+      "meanMs": 143.53459999999993,
+      "maxMs": 154.5708999999988,
+      "meanDepth": 4.18,
+      "elapsedSeconds": 14.3768806
+    },
+    {
+      "game": 3,
+      "seed": 20281010,
+      "openingSeed": 20271010,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 0,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "benchmarks/tail-fast.cjs",
+      "baseline": "arena-results/fast-cache-baseline.cjs",
+      "budgetMs": 150,
+      "budgetBMs": 150,
+      "winner": null,
+      "draw": "三次重复局面",
+      "plies": 131,
+      "goalCounts": [
+        9,
+        9
+      ],
+      "stats": {
+        "A": {
+          "moves": 62,
+          "meanMs": 151.02213548387067,
+          "maxMs": 154.27679999999964,
+          "meanDepth": 4.467741935483871,
+          "meanNodes": 29027.90322580645
+        },
+        "B": {
+          "moves": 61,
+          "meanMs": 151.36403606557343,
+          "maxMs": 155.98070000000007,
+          "meanDepth": 4.688524590163935,
+          "meanNodes": 29884
+        }
+      },
+      "meanMs": 151.19169593495903,
+      "maxMs": 155.98070000000007,
+      "meanDepth": 4.5772357723577235,
+      "elapsedSeconds": 18.6287803
+    },
+    {
+      "game": 4,
+      "seed": 20291010,
+      "openingSeed": 20271010,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 1,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "benchmarks/tail-fast.cjs",
+      "baseline": "arena-results/fast-cache-baseline.cjs",
+      "budgetMs": 150,
+      "budgetBMs": 150,
+      "winner": "A",
+      "draw": null,
+      "plies": 110,
+      "goalCounts": [
+        9,
+        10
+      ],
+      "stats": {
+        "A": {
+          "moves": 51,
+          "meanMs": 142.7736823529411,
+          "maxMs": 153.88729999999487,
+          "meanDepth": 3.823529411764706,
+          "meanNodes": 23797.725490196077
+        },
+        "B": {
+          "moves": 51,
+          "meanMs": 143.4408901960781,
+          "maxMs": 153.4053000000058,
+          "meanDepth": 4.078431372549019,
+          "meanNodes": 24450.039215686276
+        }
+      },
+      "meanMs": 143.10728627450962,
+      "maxMs": 153.88729999999487,
+      "meanDepth": 3.950980392156863,
+      "elapsedSeconds": 14.619709199999997
+    }
+  ]
+}

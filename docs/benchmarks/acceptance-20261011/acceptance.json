@@ -1,0 +1,14 @@
+{
+  "accepted": false,
+  "games": 10,
+  "wins": 4,
+  "losses": 6,
+  "draws": 0,
+  "meanSignedMargin": null,
+  "reasons": [
+    "Requires 10 wins, with no losses or draws.",
+    "Every finishing margin must be verified exactly.",
+    "Mean signed finishing margin must be at least 2 own turns."
+  ],
+  "definition": "Freeze the winning army after the game, then compute the minimum legal own turns for the loser to finish. Positive for candidate wins, negative for candidate losses. This is a reproducible benchmark margin, not a human rating."
+}

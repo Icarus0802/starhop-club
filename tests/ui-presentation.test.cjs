@@ -46,6 +46,7 @@ function surface(initialStorage={},options={}){
   const window={location:{hash:'#play'},matchMedia:()=>({matches:!!options.reducedMotion,addEventListener(){}}),addEventListener(){}};
   const context={window,location:window.location,document,Starhop:E,StarhopAI:A,Worker,performance,console,URL:{createObjectURL:()=> 'blob:presentation-test',revokeObjectURL(){}},Blob:class{},setTimeout:callback=>{timers.push(callback);return timers.length;},clearTimeout(){},localStorage:{getItem:key=>{if(options.blockStorage)throw Error('storage unavailable');return storage.get(key)??null;},setItem:(key,value)=>{if(options.blockStorage)throw Error('storage unavailable');storage.set(key,String(value));writes.push(key);}},MutationObserver:class{observe(){}disconnect(){}}};
   vm.createContext(context);
+  if(options.fetch){context.fetch=options.fetch;context.AbortController=AbortController;window.location.protocol='http:';}
   return {context,document,storage,writes,workers,timers,get:id=>document.getElementById(id),run:file=>vm.runInContext(fs.readFileSync(require.resolve('../'+file),'utf8'),context,{filename:file}),head:()=>{const script=html.match(/<head>[\s\S]*?<script>([\s\S]*?)<\/script>/i)?.[1];assert.ok(script,'early appearance initializer exists');vm.runInContext(script,context,{filename:'index-head-appearance.js'});}};
 }
 
@@ -148,4 +149,87 @@ test('theme controls reference the existing inline sun and moon symbols on both 
     }
     assert.equal(ui.workers.length,0);
   }
+});
+
+test('native fullscreen enters and exits without changing the chess record or focus preference',async()=>{
+  const session=JSON.stringify({record:require('./fixtures/user-game.json')}),ui=surface({'starhop-session':session});
+  ui.document.fullscreenEnabled=true;
+  ui.document.documentElement.requestFullscreen=async()=>{ui.document.fullscreenElement=ui.document.documentElement;ui.document.dispatchEvent({type:'fullscreenchange'});};
+  ui.document.exitFullscreen=async()=>{ui.document.fullscreenElement=null;ui.document.dispatchEvent({type:'fullscreenchange'});};
+  ui.run('js/presentation.js');await ui.get('fullscreen').onclick();
+  assert.ok(ui.document.fullscreenElement);assert.ok(ui.document.body.classList.contains('immersive'));
+  assert.equal(ui.get('fullscreen-label').textContent,'退出全屏');
+  await ui.get('fullscreen').onclick();assert.equal(ui.document.fullscreenElement,null);assert.equal(ui.document.body.classList.contains('immersive'),false);
+  assert.equal(ui.storage.get('starhop-session'),session);assert.equal(ui.storage.has('starhop-appearance'),false);
+});
+
+test('blocked native fullscreen fills the tab and Escape restores the page after a dialog closes',async()=>{
+  for(const reject of [false,true]){
+    const ui=surface();ui.document.fullscreenEnabled=reject;
+    ui.document.documentElement.requestFullscreen=async()=>{throw new Error('denied');};
+    ui.run('js/presentation.js');await ui.get('fullscreen').onclick();
+    assert.ok(ui.document.body.classList.contains('immersive'));assert.match(ui.get('display-notice').textContent,/已铺满当前网页/);
+    ui.get('appearance-dialog').showModal();ui.document.dispatchEvent({type:'keydown',key:'Escape'});assert.ok(ui.document.body.classList.contains('immersive'));
+    ui.get('appearance-dialog').close();ui.document.dispatchEvent({type:'keydown',key:'Escape'});
+    assert.equal(ui.document.body.classList.contains('immersive'),false);assert.equal(ui.get('fullscreen').getAttribute('aria-pressed'),'false');
+  }
+});
+
+test('native fullscreen Escape notification resets the button and analysis can close with keyboard focus restored',async()=>{
+  const ui=surface();ui.run('js/presentation.js');await ui.get('fullscreen').onclick();
+  ui.document.fullscreenElement=null;ui.document.dispatchEvent({type:'fullscreenchange'});
+  assert.equal(ui.get('fullscreen-label').textContent,'全屏');assert.equal(ui.document.body.classList.contains('immersive'),false);
+  ui.get('toggle-analysis').click();assert.equal(ui.get('toggle-analysis').getAttribute('aria-expanded'),'true');
+  ui.get('close-analysis').click();assert.equal(ui.get('toggle-analysis').getAttribute('aria-expanded'),'false');assert.equal(ui.document.activeElement,ui.get('toggle-analysis'));
+});
+
+test('room palettes and background dim persist independently of the active chess game',()=>{
+  const session=JSON.stringify({record:require('./fixtures/user-game.json')}),ui=surface({'starhop-session':session});
+  ui.run('js/presentation.js');ui.run('js/room-appearance.js');assert.equal(ui.document.body.dataset.room,'graphite');
+  ui.get('palette-midnight').click();assert.equal(ui.document.body.dataset.room,'midnight');
+  ui.get('palette-sand').click();assert.equal(ui.document.body.dataset.theme,'light');
+  ui.get('background-dim').value='70';ui.get('background-dim').oninput();
+  assert.equal(ui.get('background-dim-value').textContent,'70%');assert.equal(ui.document.body.style['--background-dim'],'0.7');
+  const reload=surface(Object.fromEntries(ui.storage));reload.run('js/presentation.js');reload.run('js/room-appearance.js');
+  assert.equal(reload.document.body.dataset.room,'sand');assert.equal(reload.document.body.dataset.theme,'light');assert.equal(reload.get('background-dim').value,'70');
+  assert.equal(reload.storage.get('starhop-session'),session);
+  reload.get('palette-graphite').click();assert.equal(reload.document.body.dataset.theme,'dark');
+});
+
+test('visible compact analysis follows replay and reports the real winner instead of a probability',()=>{
+  const record=require('./fixtures/user-loss-93.json'),ui=surface({'starhop-session':JSON.stringify({record})});
+  ui.context.StarhopAnalysis=require('../js/analysis.js');ui.run('js/analysis-ui.js');ui.context.StarhopAnalysisUI=ui.context.window.StarhopAnalysisUI;ui.run('js/app.js');
+  assert.equal(ui.get('compact-verdict').textContent,'已获胜');assert.equal(ui.get('compact-score').textContent,'');
+  assert.equal(ui.get('assessment-fill').style.width,'100%');assert.match(ui.get('assessment-meter').getAttribute('aria-label'),/非胜率/);
+  ui.get('first-move').click();assert.equal(ui.get('compact-verdict').textContent,'双方接近');assert.equal(ui.get('compact-score').textContent,'+0.0');
+  assert.equal(ui.get('assessment-fill').style.width,'50%');assert.equal(ui.get('history-index').textContent,'0 / 93');
+  assert.equal(ui.get('compact-engine').textContent,'复盘 · 第 0 手');assert.equal(ui.get('engine-status').textContent,'复盘中');
+});
+
+test('native hints show network output without inventing depth and paused replies cannot change the board',async()=>{
+  let finish,signal;const ui=surface({}, {fetch:async(url,options)=>{
+    if(url.endsWith('/status'))return {ok:true,json:async()=>({state:'ready'})};
+    signal=options.signal;return new Promise(resolve=>{finish=()=>resolve({ok:true,json:async()=>({result:{move:E.legalMoves(E.createGame().board,3,{jump:'short'})[0],native:true,time:300,depth:null,nodes:null,candidates:[]}})});});
+  }});
+  ui.run('js/app.js');await new Promise(resolve=>setImmediate(resolve));
+  assert.match(ui.get('profile-level').textContent,/本机神经网络/);
+  ui.get('hint').click();assert.equal(ui.workers.length,0);finish();await new Promise(resolve=>setImmediate(resolve));
+  assert.match(ui.get('compact-engine').textContent,/神经网络/);assert.equal(ui.get('search-depth').textContent,'—');assert.equal(ui.get('search-nodes').textContent,'—');
+  const before=ui.get('history-index').textContent;ui.get('hint').click();ui.get('pause').click();assert.equal(signal.aborted,true);finish();await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(ui.get('history-index').textContent,before);assert.equal(ui.workers.length,0);assert.match(ui.get('turn-message').textContent,/已暂停/);
+});
+
+test('an unavailable local search falls back to the browser worker',async()=>{
+  const ui=surface({}, {fetch:async url=>url.endsWith('/status')?{ok:true,json:async()=>({state:'ready'})}:{ok:false}});
+  ui.run('js/app.js');await new Promise(resolve=>setImmediate(resolve));ui.get('hint').click();await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(ui.workers.length,1);assert.equal(ui.workers[0].request.options.level,4);
+});
+
+test('first-run GPU tuning can finish after more than two minutes of polling',async()=>{
+  let calls=0;const ui=surface({}, {fetch:async()=>({ok:true,json:async()=>({state:++calls>=76?'ready':'loading'})})});
+  ui.run('js/app.js');await new Promise(resolve=>setImmediate(resolve));
+  assert.match(ui.get('compact-engine').textContent,/模型加载中/);
+  for(let i=0;i<75;i++){const callback=ui.timers.at(-1);const before=ui.timers.length;callback();await new Promise(resolve=>setImmediate(resolve));if(i<74)assert.ok(ui.timers.length>before);}
+  assert.match(ui.get('profile-level').textContent,/本机神经网络/);
+  assert.match(ui.get('compact-engine').textContent,/本机神经网络已就绪/);
 });

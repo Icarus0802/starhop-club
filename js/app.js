@@ -1,12 +1,14 @@
 (function(){
   'use strict';
   const E=Starhop,A=StarhopAI,$=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
-  const colors=['#d87569','#78a7c8','#a493ba','#599383','#cc8aa0','#d6ac59'];
-  const names=['珊瑚红','晴空蓝','丁香紫','松石绿','蔷薇粉','琥珀黄'];
+  const colors=['#caa873','#8eb4bc','#a99cca','#709be0','#c78ca4','#c5cbd7'];
+  const names=['香槟金','雾青','鸢尾紫','钴蓝','玫瑰灰','月光银'];
   const viewNames={play:'对弈大厅',lab:'AI 实验室',archive:'我的棋谱',rules:'规则与开源'};
   let config={players:2,jump:'short',goalLock:false,mode:'human-ai',humanSeat:0,level:4,secondLevel:4};
   let state=E.createGame(config),states=[state],moves=[],cursor=0,selected=null,targets=[],hintPath=null;
   let worker=null,workerURL=null,generation=0,busy=false,paused=false,flipped=false,coords=false,sound=false,lastSearch=null,timer=null,toastTimer;
+  let nativeReady=false,nativeController=null,nativeLoading=false;
+  function useNative(options){return nativeReady&&config.players===2&&config.jump==='short'&&!config.goalLock&&options.level===4&&(!options.time||options.time===350)&&options.algorithm==='auto';}
   let currentSavedId=null,ended=false,studySource=null;
   let boardStamp='',historyStamp='',replaySerial=0,searchProgress=null,replyStarted=0,keyboardCell=null;
   const prefs={algorithm:'auto',time:0,seed:20261010,pace:80};
@@ -22,7 +24,7 @@
     const defs=svg('defs',{},board);
     const wood=svg('linearGradient',{id:'wood',x1:0,y1:0,x2:'.7',y2:1},defs);svg('stop',{offset:'0%', 'stop-color':'var(--board-top)'},wood);svg('stop',{offset:'100%','stop-color':'var(--board-bottom)'},wood);
     const hole=svg('radialGradient',{id:'hole',cx:'.52',cy:'.55',r:'.65'},defs);svg('stop',{offset:'0%','stop-color':'var(--hole-center)'},hole);svg('stop',{offset:'74%','stop-color':'var(--hole-center)'},hole);svg('stop',{offset:'100%','stop-color':'var(--hole-edge)'},hole);
-    colors.forEach((color,p)=>{const grad=svg('radialGradient',{id:'piece'+p,cx:'.33',cy:'.23',r:'.88'},defs);svg('stop',{offset:'0%','stop-color':'#ffffff','stop-opacity':'.95'},grad);svg('stop',{offset:'25%','stop-color':color},grad);svg('stop',{offset:'72%','stop-color':color},grad);svg('stop',{offset:'100%','stop-color':'#102f2d'},grad);});
+    colors.forEach((color,p)=>{const grad=svg('radialGradient',{id:'piece'+p,cx:'.32',cy:'.22',r:'.9'},defs);svg('stop',{offset:'0%','stop-color':'#f4f0e9'},grad);svg('stop',{offset:'30%','stop-color':color},grad);svg('stop',{offset:'66%','stop-color':color},grad);svg('stop',{offset:'100%','stop-color':'#242938'},grad);});
     const arrow=svg('marker',{id:'move-arrow',viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:5,markerHeight:5,orient:'auto-start-reverse'},defs);svg('path',{d:'M 0 0 L 10 5 L 0 10 z',fill:'var(--route)'},arrow);
   }
   function drawBoard(){
@@ -37,7 +39,7 @@
     svg('polygon',{points:poly,fill:'url(#wood)',stroke:'var(--board-edge)','stroke-width':13,'stroke-linejoin':'round'},board);
     svg('polygon',{points:poly,fill:'none',stroke:'var(--board-rim)','stroke-width':1,'stroke-linejoin':'round'},board);
     const camps=[[0,12,3,9,3,15],[4,18,4,24,7,21],[9,21,12,18,12,24],[13,9,13,15,16,12],[9,3,12,0,12,6],[4,0,4,6,7,3]];
-    camps.forEach((a,p)=>{const pts=[point(E.at(a[0],a[1])),point(E.at(a[2],a[3])),point(E.at(a[4],a[5]))];svg('polygon',{points:pts.map(x=>x.join(',')).join(' '),fill:colors[p],'fill-opacity':shown.players.includes(p)?'.14':'.045',stroke:colors[p],'stroke-opacity':'.08','stroke-width':29,'stroke-linejoin':'round'},board);});
+    camps.forEach((a,p)=>{const pts=[point(E.at(a[0],a[1])),point(E.at(a[2],a[3])),point(E.at(a[4],a[5]))];svg('polygon',{points:pts.map(x=>x.join(',')).join(' '),fill:colors[p],'fill-opacity':shown.players.includes(p)?'.12':'0',stroke:colors[p],'stroke-opacity':shown.players.includes(p)?'.14':'0','stroke-width':29,'stroke-linejoin':'round'},board);});
     E.cells.forEach((_,i)=>{const [x,y]=point(i);for(const to of E.adjacent[i])if(to>i){const [tx,ty]=point(to);svg('line',{x1:x,y1:y,x2:tx,y2:ty,stroke:'var(--board-grid)','stroke-width':'.7','stroke-opacity':'.45'},board);}});
     const last=cursor>0?moves[cursor-1]:null, route=hintPath||(last?.path);
     E.cells.forEach((_,i)=>{
@@ -77,7 +79,9 @@
   function strip(element,p,shown){
     element.replaceChildren();const icon=document.createElement('span');icon.className='player-icon';icon.style.background=colors[p]+'20';icon.style.color=colors[p];icon.textContent=isHuman(p)?'◈':'✦';
     const info=document.createElement('div'),b=document.createElement('b'),small=document.createElement('small');b.textContent=playerName(p);small.textContent=isHuman(p)?'执'+names[p]+' · 移入对角营地':A.LEVELS[levelFor(p)].label+' · '+(shown.players.length===2?(prefs.algorithm==='mcts'?'MCTS':prefs.algorithm==='classic'?'经典搜索':prefs.algorithm==='pvs'||(prefs.algorithm!=='team'&&(levelFor(p)<2||levelFor(p)===4))||(prefs.algorithm!=='team'&&(shown.rules.jump==='long'||shown.rules.goalLock))?'快速搜索':'团队规划'):'MCTS');info.append(b,small);
-    const progress=document.createElement('span');progress.className='progress-badge';progress.textContent=E.progress(shown.board,p)+' / 10 到达';element.append(icon,info,progress);
+    const arrived=E.progress(shown.board,p),progress=document.createElement('span');progress.className='progress-badge';progress.textContent=arrived+' / 10 入营';
+    const meter=document.createElement('span');meter.className='arrival-meter';meter.setAttribute('aria-hidden','true');const fill=document.createElement('i');fill.style.width=arrived*10+'%';fill.style.background=colors[p];meter.append(fill);progress.append(meter);element.append(icon,info,progress);
+    element.setAttribute('data-current',String(shown.winner===null&&!shown.draw&&shown.players[shown.turn]===p));
   }
   function render(){
     const shown=states[cursor],p=shown.players[shown.turn],review=cursor<moves.length;
@@ -88,14 +92,16 @@
     $('last-action-path').textContent=last&&!last.pass?'完整路径：'+last.path.map(E.coord).join(' → ')+(last.path.length>2?' · '+(last.path.length-1)+' 连跳':''):'';
     $('record-source').hidden=!studySource;$('record-source').replaceChildren();if(studySource){
       const source=document.createElement('a');source.href=studySource.url;source.target='_blank';source.rel='noreferrer';source.textContent=studySource.title+' · 原始来源 ↗';$('record-source').append(source);
-      const note=document.createElement('small');note.textContent=studySource.branch?'从大师第 40 手续弈，之后的走法是本局新走法。':'华夏：原蓝色映射为绿色；九霄：原黄色映射为红色。原赛和棋（先手快一步算平），本软件按率先满营结束。';$('record-source').append(note);
+      const note=document.createElement('small');note.textContent=studySource.branch?'从大师第 40 手续弈，之后的走法是本局新走法。':'华夏执钴蓝，九霄执香槟金。原赛和棋（先手快一步算平），本软件按率先满营结束。';$('record-source').append(note);
     }
     const modeText={'human-ai':'人机练习',human:'同屏对弈','ai-ai':'AI 自战',mixed:'多人混战'};
     $('match-title').textContent=modeText[config.mode]+' · '+config.players+' 人';$('mode-badge').textContent=modeText[config.mode];
     const opponent=shown.players.find(s=>!isHuman(s)),profile=opponent===undefined?null:A.LEVELS[levelFor(opponent)];
     $('profile-name').textContent=profile?profile.name:'同屏对弈';
     $('profile-level').textContent=profile?profile.label+' · '+((prefs.time||profile.time)/1000)+' 秒':shown.players.length+' 人棋局';
-    $('profile-summary').textContent=profile?'整队推进，借力而行。':'面对面，一盘好棋。';
+    const nativeProfile=profile&&useNative({level:levelFor(opponent),time:prefs.time,algorithm:prefs.algorithm});
+    if(nativeProfile)$('profile-level').textContent='本机神经网络 · 0.35 秒';
+    $('profile-summary').textContent=nativeProfile?'本机模型规划整队推进与收官。':profile?'整队推进，借力而行。':'面对面，一盘好棋。';
     $('profile-status').textContent=review?'复盘第 '+cursor+' 手':shown.winner!==null||shown.draw?'本局已结束':paused?'对局已暂停':busy?'思考中':opponent===p?'轮到 AI':isHuman(p)?'等你落子':'轮到另一位 AI';
     $('rules-tag').textContent=config.jump==='long'?'等距长跳':'相邻跳';$('rule-info').textContent=(config.jump==='long'?'长跳':'相邻跳')+(config.goalLock?' · 营地锁定':'');$('ply-info').textContent=shown.ply;
     $('seats').replaceChildren();shown.players.forEach(s=>{
@@ -119,11 +125,15 @@
     renderSearch();if(window.StarhopAnalysisUI)StarhopAnalysisUI.update(states,cursor,shown.players[Math.min(config.humanSeat,shown.players.length-1)],to=>{cancelSearch();cursor=Math.max(0,Math.min(moves.length,to));selected=null;targets=[];hintPath=null;render();if(cursor===moves.length)schedule();});
   }
   function renderSearch(){
-    const s=busy?searchProgress:lastSearch;
-    $('engine-status').textContent=busy?(s?.algorithm||'搜索中'):s?s.algorithm:'待命';$('engine-status').classList.toggle('thinking',busy);
-    $('search-depth').textContent=s?(s.algorithm==='MCTS'?'MCTS':s.planning?s.depth+' 回合':s.depth+(s.selective?'*':'')):'—';
-    $('search-nodes').textContent=s?Intl.NumberFormat('zh-CN',{notation:'compact',maximumFractionDigits:1}).format(s.nodes):'—';$('search-time').textContent=s?((s.latency??s.time)/1000).toFixed(2):'—';
+    const reviewing=cursor<moves.length,s=reviewing?null:busy?searchProgress:lastSearch;
+    $('compact-engine').textContent=reviewing?'复盘 · 第 '+cursor+' 手':busy?'AI 思考中…':s?'AI '+(s.native?'神经网络':s.planning?s.depth+' 回合':s.depth+' 层')+' · '+((s.latency??s.time)/1000).toFixed(2)+' 秒':config.mode!=='human'&&useNative({level:config.level,time:prefs.time,algorithm:prefs.algorithm})?'本机神经网络已就绪':nativeLoading?'模型加载中 · 浏览器 AI 待命':'AI 待命';
+    $('engine-status').textContent=reviewing?'复盘中':busy?(s?.algorithm||'搜索中'):s?s.algorithm:'待命';$('engine-status').classList.toggle('thinking',busy&&!reviewing);
+    $('search-depth').textContent=s&&!s.native?(s.algorithm==='MCTS'?'MCTS':s.planning?s.depth+' 回合':s.depth+(s.selective?'*':'')):'—';
+    $('search-nodes').textContent=s&&Number.isFinite(s.nodes)?Intl.NumberFormat('zh-CN',{notation:'compact',maximumFractionDigits:1}).format(s.nodes):'—';$('search-time').textContent=s?((s.latency??s.time)/1000).toFixed(2):'—';
     $('search-summary').textContent=s?(s.solved?(s.score>=99900?'已找到终局获胜路线。':'搜索中发现对手可结束对局。'):s.algorithm==='MCTS'?'完成 '+s.simulations+' 次模拟。模拟评分用于排序。':s.planning?'已比较 '+s.depth+' 个自方回合的团队计划，含预测对手回复。':s.selective?'完成选择性深度 '+s.depth+'，部分次要分支减少搜索。':'完成深度 '+s.depth+'，命中 '+s.hits+' 次局面缓存。'):'选择棋子，浅色圆点是可落点。连跳会自动显示完整路径。';
+    if(reviewing)$('search-summary').textContent='局势评分对应当前复盘局面。可使用“比较各级 AI 的建议”重新分析这一手。';
+    else if(s?.native)$('search-summary').textContent='本机神经网络完成选子与落点搜索；局势栏继续显示独立的局面估计。';
+    else if(s?.nativeFallback)$('search-summary').textContent='本手使用通用搜索 · '+$('search-summary').textContent;
     $('candidates').replaceChildren();if(s)s.candidates?.slice(0,3).forEach((m,i)=>{const row=document.createElement('div');row.className='candidate';const left=document.createElement('span'),right=document.createElement('span');left.textContent=(i+1)+'. '+E.coord(m.from)+' → '+E.coord(m.to);right.textContent=s.solved&&m.bound!=='upper'&&Math.abs(m.score)>=99900?(m.score>0?'终局胜':'终局负'):s.algorithm==='MCTS'?(m.visits||0)+' 访问':(m.bound==='upper'?'≤ ':'')+m.score.toFixed(1);row.append(left,right);$('candidates').append(row);});
     $('search-plan').replaceChildren();if(s?.plan?.length){
       const title=document.createElement('summary');title.textContent='展开 AI 的预测计划';$('search-plan').append(title);
@@ -132,7 +142,7 @@
     }$('search-plan').hidden=!s?.plan?.length;
   }
   function disposeWorker(){if(worker)worker.terminate();if(workerURL)URL.revokeObjectURL(workerURL);worker=null;workerURL=null;}
-  function cancelSearch(){generation++;clearTimeout(timer);if(busy)disposeWorker();busy=false;searchProgress=null;replyStarted=0;}
+  function cancelSearch(){generation++;clearTimeout(timer);nativeController?.abort();nativeController=null;if(busy)disposeWorker();busy=false;searchProgress=null;replyStarted=0;}
   function repetitions(){const map=new Map();states.forEach(s=>{const k=E.key(s.board,s.turn);map.set(k,(map.get(k)||0)+1);});return [...map];}
   function persistSession(){storageSet('starhop-session',{record:record(),preferences:prefs});}
   function record(){return {format:'starhop-v1',options:{...config},moves:moves.map(m=>m.pass?{pass:true}:{from:m.from,to:m.to}),createdAt:new Date().toISOString(),result:{winner:state.winner,draw:state.draw},engineVersion:'1.2.0',...(studySource?{studySource}: {})};}
@@ -156,9 +166,7 @@
     if(!legal.length){toast('当前方无合法走法');return;}
     const replyTime=replyStarted||performance.now();cancelSearch();const id=generation;busy=true;searchProgress=null;render();
     const options={level:hint?Math.max(config.level,3):levelFor(player),time:prefs.time||undefined,algorithm:prefs.algorithm,seed:(Number(prefs.seed)+state.ply)>>>0,repetitions:repetitions()};
-    try{
-      if(!worker){workerURL=URL.createObjectURL(new Blob([window.STARHOP_WORKER_SOURCE],{type:'application/javascript'}));worker=new Worker(workerURL);}
-      worker.onmessage=({data})=>{if(id!==generation||data.id!==id)return;
+    const deliver=data=>{if(id!==generation||data.id!==id)return;
         if(data.progress){searchProgress=data.progress;renderSearch();return;}
         busy=false;searchProgress=null;
         if(data.error){disposeWorker();toast('AI 搜索失败：'+data.error);paused=true;render();return;}
@@ -167,9 +175,22 @@
         if(hint){hintPath=data.result.move.path;selected=data.result.move.from;targets=E.pieceMoves(state.board,selected,state.rules);render();toast('建议 '+E.coord(data.result.move.from)+' → '+E.coord(data.result.move.to));}
         else playMove(data.result.move,data.result);
       };
+    const startWorker=()=>{try{
+      if(id!==generation)return;
+      if(!worker){workerURL=URL.createObjectURL(new Blob([window.STARHOP_WORKER_SOURCE],{type:'application/javascript'}));worker=new Worker(workerURL);}
+      worker.onmessage=({data})=>deliver(data);
       worker.onerror=()=>{if(id!==generation)return;cancelSearch();paused=true;render();toast('浏览器无法启动 AI 工作线程，请使用启动脚本打开');};
       worker.postMessage({id,state,options});
-    }catch(error){cancelSearch();paused=true;render();toast('AI 工作线程不可用：'+error.message);}
+    }catch(error){cancelSearch();paused=true;render();toast('AI 工作线程不可用：'+error.message);}};
+    if(useNative(options)){
+      const controller=new AbortController();nativeController=controller;
+      const watchdog=setTimeout(()=>controller.abort(),1000);
+      fetch('/api/ai/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({state,options}),signal:controller.signal})
+        .then(response=>{if(!response.ok)throw Error('Local search unavailable');return response.json();})
+        .then(data=>{if(data.result?.native)data.result.algorithm='Kata · 神经网络';deliver({id,...data});})
+        .catch(()=>{if(id===generation)startWorker();})
+        .finally(()=>{clearTimeout(watchdog);if(nativeController===controller)nativeController=null;});
+    }else startWorker();
   }
   function onCell(i){
     if(cursor<moves.length||busy||state.winner!==null||state.draw)return;
@@ -241,4 +262,7 @@
   $('import-game').onclick=()=>$('file-input').click();$('file-input').onchange=async()=>{const file=$('file-input').files[0];if(!file)return;try{if(file.size>3*1024*1024)throw new Error('棋谱文件超过 3 MB');const item=JSON.parse(await file.text());E.replay(item);saveRecord(true);loadRecord(item);saveRecord(true);persistSession();}catch(error){toast('导入失败：'+error.message);}$('file-input').value='';};
   const session=storageGet('starhop-session',null);if(session){try{Object.assign(prefs,session.preferences);loadRecord(session.record,true);$('algorithm').value=prefs.algorithm;$('time-budget').value=prefs.time;$('seed').value=prefs.seed;$('pace').value=prefs.pace;}catch{state=E.createGame(config);states=[state];moves=[];cursor=0;}}
   window.addEventListener('beforeunload',()=>{cancelSearch();disposeWorker();});showView(viewNames[location.hash.slice(1)]?location.hash.slice(1):'play');render();
+  if(typeof fetch==='function'&&/^https?:$/.test(location.protocol)){
+    let checks=0;const discoverNative=()=>fetch('/api/ai/status').then(r=>r.ok?r.json():null).then(info=>{nativeLoading=info?.state==='loading';if(info?.state==='ready'){nativeReady=true;render();}else {render();if(nativeLoading&&++checks<150)setTimeout(discoverNative,2000);}}).catch(()=>{});discoverNative();
+  }
 })();

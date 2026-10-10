@@ -1,4 +1,4 @@
 $ErrorActionPreference = 'Stop'
-Set-Location -LiteralPath $PSScriptRoot
-Start-Process 'http://127.0.0.1:5173'
-node server.cjs
+$node = Join-Path $PSScriptRoot 'runtime/node.exe'
+if (-not (Test-Path -LiteralPath $node)) { $node = 'node' }
+& $node (Join-Path $PSScriptRoot 'scripts/launch.cjs')

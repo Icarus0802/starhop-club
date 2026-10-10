@@ -3,3 +3,6 @@ arena-results/
 
 release-package/
 _site/
+
+logs/
+runtime/

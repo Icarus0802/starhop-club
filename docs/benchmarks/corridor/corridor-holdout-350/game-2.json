@@ -1,0 +1,406 @@
+{
+  "format": "starhop-v1",
+  "options": {
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "mode": "ai-ai",
+    "humanSeat": 0,
+    "level": 4,
+    "secondLevel": 4
+  },
+  "moves": [
+    {
+      "from": 111,
+      "to": 103
+    },
+    {
+      "from": 6,
+      "to": 15
+    },
+    {
+      "from": 118,
+      "to": 91
+    },
+    {
+      "from": 8,
+      "to": 28
+    },
+    {
+      "from": 115,
+      "to": 104
+    },
+    {
+      "from": 3,
+      "to": 16
+    },
+    {
+      "from": 116,
+      "to": 105
+    },
+    {
+      "from": 5,
+      "to": 18
+    },
+    {
+      "from": 104,
+      "to": 92
+    },
+    {
+      "from": 16,
+      "to": 29
+    },
+    {
+      "from": 117,
+      "to": 79
+    },
+    {
+      "from": 0,
+      "to": 39
+    },
+    {
+      "from": 112,
+      "to": 69
+    },
+    {
+      "from": 29,
+      "to": 41
+    },
+    {
+      "from": 120,
+      "to": 81
+    },
+    {
+      "from": 7,
+      "to": 52
+    },
+    {
+      "from": 113,
+      "to": 68
+    },
+    {
+      "from": 1,
+      "to": 8
+    },
+    {
+      "from": 103,
+      "to": 59
+    },
+    {
+      "from": 2,
+      "to": 50
+    },
+    {
+      "from": 105,
+      "to": 80
+    },
+    {
+      "from": 4,
+      "to": 17
+    },
+    {
+      "from": 69,
+      "to": 30
+    },
+    {
+      "from": 15,
+      "to": 40
+    },
+    {
+      "from": 91,
+      "to": 70
+    },
+    {
+      "from": 17,
+      "to": 61
+    },
+    {
+      "from": 79,
+      "to": 62
+    },
+    {
+      "from": 9,
+      "to": 31
+    },
+    {
+      "from": 119,
+      "to": 117
+    },
+    {
+      "from": 8,
+      "to": 16
+    },
+    {
+      "from": 68,
+      "to": 58
+    },
+    {
+      "from": 41,
+      "to": 51
+    },
+    {
+      "from": 92,
+      "to": 49
+    },
+    {
+      "from": 18,
+      "to": 60
+    },
+    {
+      "from": 62,
+      "to": 18
+    },
+    {
+      "from": 51,
+      "to": 92
+    },
+    {
+      "from": 117,
+      "to": 106
+    },
+    {
+      "from": 92,
+      "to": 104
+    },
+    {
+      "from": 80,
+      "to": 69
+    },
+    {
+      "from": 60,
+      "to": 79
+    },
+    {
+      "from": 18,
+      "to": 9
+    },
+    {
+      "from": 28,
+      "to": 112
+    },
+    {
+      "from": 81,
+      "to": 5
+    },
+    {
+      "from": 50,
+      "to": 111
+    },
+    {
+      "from": 70,
+      "to": 7
+    },
+    {
+      "from": 31,
+      "to": 113
+    },
+    {
+      "from": 49,
+      "to": 6
+    },
+    {
+      "from": 16,
+      "to": 28
+    },
+    {
+      "from": 58,
+      "to": 18
+    },
+    {
+      "from": 28,
+      "to": 71
+    },
+    {
+      "from": 69,
+      "to": 28
+    },
+    {
+      "from": 39,
+      "to": 81
+    },
+    {
+      "from": 59,
+      "to": 50
+    },
+    {
+      "from": 52,
+      "to": 93
+    },
+    {
+      "from": 50,
+      "to": 39
+    },
+    {
+      "from": 61,
+      "to": 116
+    },
+    {
+      "from": 114,
+      "to": 94
+    },
+    {
+      "from": 112,
+      "to": 119
+    },
+    {
+      "from": 5,
+      "to": 2
+    },
+    {
+      "from": 71,
+      "to": 112
+    },
+    {
+      "from": 39,
+      "to": 3
+    },
+    {
+      "from": 104,
+      "to": 120
+    },
+    {
+      "from": 18,
+      "to": 0
+    },
+    {
+      "from": 93,
+      "to": 92
+    },
+    {
+      "from": 106,
+      "to": 83
+    },
+    {
+      "from": 81,
+      "to": 115
+    },
+    {
+      "from": 94,
+      "to": 73
+    },
+    {
+      "from": 40,
+      "to": 51
+    },
+    {
+      "from": 83,
+      "to": 64
+    },
+    {
+      "from": 92,
+      "to": 91
+    },
+    {
+      "from": 64,
+      "to": 63
+    },
+    {
+      "from": 51,
+      "to": 60
+    },
+    {
+      "from": 73,
+      "to": 53
+    },
+    {
+      "from": 60,
+      "to": 69
+    },
+    {
+      "from": 7,
+      "to": 4
+    },
+    {
+      "from": 69,
+      "to": 92
+    },
+    {
+      "from": 63,
+      "to": 17
+    },
+    {
+      "from": 79,
+      "to": 117
+    },
+    {
+      "from": 30,
+      "to": 1
+    },
+    {
+      "from": 92,
+      "to": 104
+    },
+    {
+      "from": 53,
+      "to": 42
+    },
+    {
+      "from": 113,
+      "to": 114
+    },
+    {
+      "from": 42,
+      "to": 31
+    },
+    {
+      "from": 91,
+      "to": 118
+    },
+    {
+      "from": 17,
+      "to": 8
+    },
+    {
+      "from": 104,
+      "to": 113
+    }
+  ],
+  "result": {
+    "winner": 0,
+    "draw": null
+  },
+  "benchmark": {
+    "game": 2,
+    "seed": 20280118,
+    "openingSeed": 20270118,
+    "openingPlies": 8,
+    "fixture": null,
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "sideA": 1,
+    "levelA": 4,
+    "levelB": 4,
+    "challenger": "benchmarks/corridor-fast.cjs",
+    "baseline": "benchmarks/v14-rear-fast.cjs",
+    "budgetMs": 350,
+    "budgetBMs": 350,
+    "winner": "A",
+    "draw": null,
+    "plies": 86,
+    "goalCounts": [
+      8,
+      10
+    ],
+    "stats": {
+      "A": {
+        "moves": 39,
+        "meanMs": 323.7529794871797,
+        "maxMs": 351.99099999999453,
+        "meanDepth": 4.923076923076923,
+        "meanNodes": 108765.48717948717
+      },
+      "B": {
+        "moves": 39,
+        "meanMs": 332.7895538461537,
+        "maxMs": 352.40780000000086,
+        "meanDepth": 5.205128205128205,
+        "meanNodes": 114581.58974358975
+      }
+    },
+    "meanMs": 328.2712666666667,
+    "maxMs": 352.40780000000086,
+    "meanDepth": 5.064102564102564,
+    "elapsedSeconds": 25.6114247
+  }
+}

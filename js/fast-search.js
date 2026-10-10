@@ -8,6 +8,17 @@
   const fallback=typeof module==='object'&&module.exports?require('./ai.js'):root.StarhopAI;
   const N=121, STRIDE=128, SIZE=1<<18, MASK=SIZE-1, MAXPLY=72, WIN=100000;
   const near=E.zones.map((_,p)=>Int8Array.from(E.cells.map((__,i)=>Math.min(...E.zones[(p+3)%6].map(g=>E.distances[i][g])))));
+  // A detour costs more the deeper it ends inside an unrelated triangle.
+  // Only the final landing is charged; useful multi-hop routes may cross one.
+  const center=E.cells.map((_,i)=>i).filter(i=>E.zoneOf[i]<0);
+  const sideDepth=E.zones.map((_,p)=>Int8Array.from(E.cells.map((__,i)=>E.zoneOf[i]<0||E.zoneOf[i]===p||E.zoneOf[i]===(p+3)%6?0:Math.min(...center.map(g=>E.distances[i][g])))));
+  const detourCost=E.zones.map((_,p)=>Float32Array.from(E.cells.map(({r,c},i)=>{
+    // Keep a three-hole-wide central route; gently charge its flanks as well
+    // as the four side camps. Home/goal triangles remain free to fill.
+    if(E.zoneOf[i]===p||E.zoneOf[i]===(p+3)%6)return 0;
+    const angle=p*Math.PI/3,lateral=Math.abs((c-12)/2*Math.cos(angle)+(r-8)*Math.sqrt(3)/2*Math.sin(angle));
+    return sideDepth[p][i]**2+.35*Math.max(0,lateral-1.5)**2;
+  })));
   const neighbours=Int16Array.from(E.adjacent.flat());
   const jumpTo=Int16Array.from(E.rays.flatMap(row=>row.map(ray=>ray[1]??-1)));
   const zsLo=new Uint32Array(N*6),zsHi=new Uint32Array(N*6),turnLo=new Uint32Array(2),turnHi=new Uint32Array(2);
@@ -17,6 +28,9 @@
   for(let i=0;i<2;i++){turnLo[i]=rnd();turnHi[i]=rnd();}
   const ttLo=new Uint32Array(SIZE),ttHi=new Uint32Array(SIZE),ttScore=new Float64Array(SIZE),ttMove=new Int16Array(SIZE),ttDepth=new Uint8Array(SIZE),ttFlag=new Uint8Array(SIZE);
   const cacheSize=1<<15,cacheLo=new Uint32Array(cacheSize),cacheHi=new Uint32Array(cacheSize),cacheValue=new Float64Array(cacheSize),cacheValid=new Uint8Array(cacheSize);
+  // Static evaluation depends on both armies (enemy marbles are bridges).
+  // Store player 0's perspective; side-to-move and repetition stay in search.
+  const evalSize=1<<16,evalLo=new Uint32Array(evalSize),evalHi=new Uint32Array(evalSize),evalValue=new Float64Array(evalSize),evalValid=new Uint8Array(evalSize);
   // A worker runs one synchronous search at a time. Reuse scratch pages across
   // turns, avoiding a fresh multi-megabyte allocation and GC on every reply.
   const moveLists=Array.from({length:MAXPLY},()=>[]),moveScores=Array.from({length:MAXPLY},()=>new Float32Array(STRIDE*STRIDE));
@@ -30,8 +44,8 @@
     }
     return a;
   });
-  let configuration='';
-  function clear(){ttDepth.fill(0);cacheValid.fill(0);configuration='';}
+  let configuration='',drawHistory='';
+  function clear(){ttDepth.fill(0);cacheValid.fill(0);evalValid.fill(0);configuration='';drawHistory='';}
   function search(state,options={}){
     if(state.winner!==null||state.draw)return {move:null,algorithm:'Fast PVS',depth:0,nodes:0,time:0,candidates:[],solved:state.winner!==null};
     if(state.players.length!==2||options.algorithm==='mcts'||Number(options.level)===0)return fallback.search(state,options);
@@ -46,9 +60,12 @@
       low^=zsLo[z];high^=zsHi[z];ownLo[s]^=zsLo[z];ownHi[s]^=zsHi[z];if(E.zoneOf[i]===(p+3)%6)goals[s]++;
     }
     if(counts[0]!==10||counts[1]!==10)throw new Error('每方必须有 10 枚棋子');
-    const weights={lag:Number(options.weights?.lag??.14),home:Number(options.weights?.home??2.2),done:Number(options.weights?.done??7),transport:Number(options.weights?.transport??1)};
-    const cfg=players.join(',')+':'+state.rules.jump+':'+!!state.rules.goalLock+':'+selective+':'+weights.lag+':'+weights.home+':'+weights.done+':'+weights.transport;
-    if(cfg!==configuration){ttDepth.fill(0);cacheValid.fill(0);configuration=cfg;}
+    // In standard challenge games, preserve an escort for the trailing men.
+    // Other profiles/rules retain their independently validated evaluation.
+    const rearSupport=level===4&&state.rules.jump==='short'&&!state.rules.goalLock;
+    const weights={lag:Number(options.weights?.lag??(rearSupport ? .32 : .14)),home:Number(options.weights?.home??2.2),done:Number(options.weights?.done??(rearSupport?4:7)),transport:Number(options.weights?.transport??1),isolation:Number(options.weights?.isolation??(rearSupport?5:0)),sideCamp:Number(options.weights?.sideCamp??(rearSupport?8:0))};
+    const cfg=players.join(',')+':'+state.rules.jump+':'+!!state.rules.goalLock+':'+selective+':'+weights.lag+':'+weights.home+':'+weights.done+':'+weights.transport+':'+weights.isolation+':'+weights.sideCamp;
+    if(cfg!==configuration){ttDepth.fill(0);cacheValid.fill(0);evalValid.fill(0);configuration=cfg;}
     const long=state.rules.jump==='long',locked=!!state.rules.goalLock;
     historyScores[0].fill(0);historyScores[1].fill(0);killer1.fill(-1);killer2.fill(-1);
     const past=new Map();
@@ -57,7 +74,11 @@
       for(let i=0;i<N;i++){const p=Number(values[i]);if(p>=0){const z=i*6+p;a^=zsLo[z];b^=zsHi[z];}}
       a>>>=0;b>>>=0;let row=past.get(a);if(!row){row=[];past.set(a,row);}row.push([b,count]);
     }
-    let nodes=0,hits=0,depth=0,value=0,expired=false,reductions=0,completedReductions=0,evals=0;
+    // Preserve useful bounds across ordinary turns. Invalidate when the set
+    // of positions that would cause an immediate repetition draw changes.
+    const nextDrawHistory=(options.repetitions||[]).filter(([,count])=>count>=2).map(([key])=>key).sort().join(';');
+    if(nextDrawHistory!==drawHistory){ttDepth.fill(0);drawHistory=nextDrawHistory;}
+    let nodes=0,hits=0,depth=0,value=0,expired=false,reductions=0,completedReductions=0,evals=0,evaluationHits=0;
     const STOP={};
     function check(){if(performance.now()>=deadline){expired=true;throw STOP;}}
     function generate(actor,ply,pv=-1){
@@ -100,14 +121,26 @@
     }
     function pop(code,actor){const reverse=(code&127)*STRIDE+(code>>>7);push(reverse,actor);}
     const u=new Float64Array(11),v=new Float64Array(11),match=new Int16Array(11),way=new Int16Array(11),minimum=new Float64Array(11),used=new Uint8Array(11);
+    const unmatchedPieces=new Int16Array(10),unmatchedHoles=new Int16Array(10);
     function matching(actor){
-      u.fill(0);v.fill(0);match.fill(0);const holes=E.zones[(players[actor]+3)%6],pcs=pieces[actor];
-      for(let i=1;i<=10;i++){
+      // Hex distance obeys the triangle inequality: a marble already on a goal
+      // can be matched to itself for zero cost without worsening the optimum.
+      // Remove these pairs before Hungarian matching, especially in endgames.
+      const p=players[actor],goal=(p+3)%6;let n=10,pcs=pieces[actor],holes=E.zones[goal];
+      if(goals[actor]){
+        n=0;let h=0;
+        for(let i=0;i<10;i++)if(E.zoneOf[pcs[i]]!==goal)unmatchedPieces[n++]=pcs[i];
+        for(let i=0;i<10;i++)if(board[holes[i]]!==p)unmatchedHoles[h++]=holes[i];
+        pcs=unmatchedPieces;holes=unmatchedHoles;
+        if(!n)return 0;
+      }
+      u.fill(0);v.fill(0);match.fill(0);
+      for(let i=1;i<=n;i++){
         match[0]=i;let j0=0;minimum.fill(Infinity);used.fill(0);
         do{
           used[j0]=1;const i0=match[j0];let delta=Infinity,j1=0;const dist=E.distances[pcs[i0-1]];
-          for(let j=1;j<=10;j++)if(!used[j]){const cur=dist[holes[j-1]]-u[i0]-v[j];if(cur<minimum[j]){minimum[j]=cur;way[j]=j0;}if(minimum[j]<delta){delta=minimum[j];j1=j;}}
-          for(let j=0;j<=10;j++)if(used[j]){u[match[j]]+=delta;v[j]-=delta;}else minimum[j]-=delta;
+          for(let j=1;j<=n;j++)if(!used[j]){const cur=dist[holes[j-1]]-u[i0]-v[j];if(cur<minimum[j]){minimum[j]=cur;way[j]=j0;}if(minimum[j]<delta){delta=minimum[j];j1=j;}}
+          for(let j=0;j<=n;j++)if(used[j]){u[match[j]]+=delta;v[j]-=delta;}else minimum[j]-=delta;
           j0=j1;
         }while(match[j0]!==0);
         do{const j1=way[j0];match[j0]=match[j1];j0=j1;}while(j0!==0);
@@ -118,12 +151,20 @@
       const p=players[actor],a=ownLo[actor]>>>0,b=ownHi[actor]>>>0,index=a&(cacheSize-1);let result;
       if(cacheValid[index]&&cacheLo[index]===a&&cacheHi[index]===b)result=cacheValue[index];
       else{
-        let lag=0,home=0,bridges=0;
+        let lag=0,home=0,bridges=0,isolation=0,detour=0;
         for(let slot=0;slot<10;slot++){
           const i=pieces[actor][slot],d=near[p][i];lag+=d*d;if(E.zoneOf[i]===p)home++;
+          detour+=detourCost[p][i];
           for(let dir=0;dir<6;dir++){const to=neighbours[i*6+dir];if(to>=0&&board[to]===p)bridges++;}
+          if(weights.isolation&&d>2){
+            // Only penalize a gap beyond a two-hole bridge. Target-camp pieces
+            // need not stay clustered; this term concerns the unfinished tail.
+            let gap=20;
+            for(let other=0;other<10;other++)if(other!==slot)gap=Math.min(gap,E.distances[i][pieces[actor][other]]);
+            isolation+=Math.max(0,gap-2)**2;
+          }
         }
-        result=-matching(actor)*10-lag*weights.lag-home*weights.home+goals[actor]*weights.done+Math.min(bridges,16)*.13;
+        result=-matching(actor)*10-lag*weights.lag-home*weights.home+goals[actor]*weights.done+Math.min(bridges,16)*.13-isolation*weights.isolation-detour*weights.sideCamp;
         cacheValid[index]=1;cacheLo[index]=a;cacheHi[index]=b;cacheValue[index]=result;
       }
       // Occupancy-sensitive transport, preserving the published 1.1 objective.
@@ -149,20 +190,32 @@
       }
       return result-cost*weights.transport;
     }
-    function evaluate(actor){evals++;return quality(actor)-quality(actor^1);}
+    function evaluate(actor){
+      const a=low>>>0,b=high>>>0,index=a&(evalSize-1);let score;
+      if(options.evaluationCache!==false&&evalValid[index]&&evalLo[index]===a&&evalHi[index]===b){
+        evaluationHits++;score=evalValue[index];
+      }else{
+        evals++;score=quality(0)-quality(1);
+        if(options.evaluationCache!==false){evalLo[index]=a;evalHi[index]=b;evalValue[index]=score;evalValid[index]=1;}
+      }
+      return actor===0?score:-score;
+    }
     function repetitions(a,b,ply){
       let repeat=0;const row=past.get(a);if(row)for(const item of row)if(item[0]===b){repeat+=item[1];break;}
-      for(let i=0;i<ply;i++)if(stackLo[i]===a&&stackHi[i]===b)repeat++;return repeat;
+      // The supplied game history already includes the root position. Count
+      // it from the search stack only when no history entry was supplied.
+      for(let i=0;i<ply;i++)if(stackLo[i]===a&&stackHi[i]===b&&(i!==0||repeat===0))repeat++;return repeat;
     }
     function ab(left,actor,alpha,beta,ply){
       nodes++;if((nodes&255)===0)check();
-      if(goals[actor]===10)return WIN;if(goals[actor^1]===10)return -WIN;
+      if(goals[actor]===10)return WIN-ply;if(goals[actor^1]===10)return -WIN+ply;
       const a=(low^turnLo[actor])>>>0,b=(high^turnHi[actor])>>>0,repeat=repetitions(a,b,ply);
-      if(repeat>=3)return 0;
+      // repeat counts earlier occurrences, before entering this node.
+      if(repeat>=2)return 0;
       if(left===0)return evaluate(actor);
       const index=a&MASK,known=ttDepth[index]&&ttLo[index]===a&&ttHi[index]===b,pv=known?ttMove[index]:-1,original=alpha;
       if(known&&ttDepth[index]>=left&&repeat<=1){
-        hits++;const val=ttScore[index],flag=ttFlag[index];if(flag===0||flag===1&&val>=beta||flag===2&&val<=alpha)return val;
+        hits++;const stored=ttScore[index],val=stored>WIN-MAXPLY?stored-ply:stored<-WIN+MAXPLY?stored+ply:stored,flag=ttFlag[index];if(flag===0||flag===1&&val>=beta||flag===2&&val<=alpha)return val;
       }
       const list=generate(actor,ply,pv);stackLo[ply]=a;stackHi[ply]=b;
       if(!list.length){if(!generate(actor^1,ply+1).length)return 0;return -ab(left-1,actor^1,-beta,-alpha,ply+1);}
@@ -182,7 +235,7 @@
         if(child>best){best=child;bestMove=code;}if(child>alpha)alpha=child;
         if(alpha>=beta){historyScores[actor][code]=Math.min(100000,historyScores[actor][code]+left*left);if(killer1[ply]!==code){killer2[ply]=killer1[ply];killer1[ply]=code;}break;}
       }
-      if(repeat<=1){ttLo[index]=a;ttHi[index]=b;ttMove[index]=bestMove;ttScore[index]=best;ttDepth[index]=left;ttFlag[index]=best<=original?2:best>=beta?1:0;}
+      if(repeat<=1){ttLo[index]=a;ttHi[index]=b;ttMove[index]=bestMove;ttScore[index]=best>WIN-MAXPLY?best+ply:best<-WIN+MAXPLY?best-ply:best;ttDepth[index]=left;ttFlag[index]=best<=original?2:best>=beta?1:0;}
       return best;
     }
     const actor=state.turn;let rootMoves=generate(actor,0).slice(),rootRestricted=false,rootAllowed=null;
@@ -213,12 +266,12 @@
         }
         best=chosen;value=v;depth=d;completedReductions=reductions;candidates=scored.sort((a,b)=>b.score-a.score).slice(0,5);
         if(typeof options.onIteration==='function')options.onIteration({depth,nodes,hits,time:performance.now()-start,score:value,selective,reductions:completedReductions});
-        if(Math.abs(v)>=WIN)break;
+        if(Math.abs(v)>WIN-MAXPLY)break;
       }
     }catch(error){if(error!==STOP)throw error;}
     const canonical=code=>E.pieceMoves(state.board,code>>>7,state.rules).find(m=>m.to===(code&127));
     const move=canonical(best);if(!move)throw new Error('Fast search produced an illegal move');
-    return {move,algorithm:selective?'Fast PVS · selective':'Fast PVS',nodes,depth,hits,simulations:0,time:performance.now()-start,score:value,candidates:candidates.map(c=>({...canonical(c.code),score:c.score,bound:c.bound})),expired,solved:!selective&&!rootRestricted&&Math.abs(value)>=WIN,selective,rootRestricted,reductions:completedReductions,evaluations:evals};
+    return {move,algorithm:selective?'Fast PVS · selective':'Fast PVS',nodes,depth,hits,simulations:0,time:performance.now()-start,score:value,candidates:candidates.map(c=>({...canonical(c.code),score:c.score,bound:c.bound})),expired,solved:!selective&&!rootRestricted&&Math.abs(value)>WIN-MAXPLY,selective,rootRestricted,reductions:completedReductions,evaluations:evals,evaluationHits};
   }
   // Test/debug interface returns endpoints only; production returns canonical
   // paths from engine.js. This deliberately keeps rules verification independent.

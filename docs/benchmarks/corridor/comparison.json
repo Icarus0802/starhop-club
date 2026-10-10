@@ -1,0 +1,65 @@
+{
+  "note": "A is corridor evaluation; B is previous rear-support evaluation. Six paired internal games, not a human rating. Timing depends on machine load.",
+  "games": [
+    {
+      "run": "corridor-lateral-350",
+      "game": 1,
+      "winner": "A",
+      "plies": 89,
+      "budget": 350
+    },
+    {
+      "run": "corridor-lateral-350",
+      "game": 2,
+      "winner": "A",
+      "plies": 100,
+      "budget": 350
+    },
+    {
+      "run": "corridor-lateral-350",
+      "game": 3,
+      "winner": "A",
+      "plies": 91,
+      "budget": 350
+    },
+    {
+      "run": "corridor-lateral-350",
+      "game": 4,
+      "winner": "A",
+      "plies": 100,
+      "budget": 350
+    },
+    {
+      "run": "corridor-holdout-350",
+      "game": 1,
+      "winner": "B",
+      "plies": 98,
+      "budget": 350
+    },
+    {
+      "run": "corridor-holdout-350",
+      "game": 2,
+      "winner": "A",
+      "plies": 86,
+      "budget": 350
+    }
+  ],
+  "totals": {
+    "A": {
+      "wins": 5,
+      "moves": 259,
+      "sideLandings": 0,
+      "sideOccupancy": 10,
+      "meanMs": 326.34211698841665,
+      "meanSideOccupancy": 0.03861003861003861
+    },
+    "B": {
+      "wins": 1,
+      "moves": 257,
+      "sideLandings": 2,
+      "sideOccupancy": 56,
+      "meanMs": 329.6313782101164,
+      "meanSideOccupancy": 0.2178988326848249
+    }
+  }
+}

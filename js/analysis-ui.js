@@ -12,9 +12,15 @@
     const data=resultFor(state,perspective),own=data.sides.find(s=>s.player===perspective);
     $('position-score').textContent=(data.score>=0?'+':'')+data.score.toFixed(1);
     $('position-verdict').textContent=data.draw?'对局结束 · '+data.draw:data.terminal?(data.score>0?'已获胜':'已结束，另一方获胜'):Math.abs(data.score)<25?'双方接近':data.score>0?'当前视角占优':'当前视角落后';
-    $('analysis-perspective').textContent='视角：'+['红','蓝','紫','绿','粉','黄'][perspective]+'方 · 第 '+cursor+' 手';
+    $('compact-verdict').textContent=data.draw?'和棋':data.terminal?(data.score>0?'已获胜':'对手获胜'):Math.abs(data.score)<25?'双方接近':data.score>0?'我方占优':'我方落后';
+    $('compact-score').textContent=data.terminal||data.draw?'':(data.score>=0?'+':'')+data.score.toFixed(1);
+    const share=data.draw?50:data.terminal?(data.score>0?100:0):50+45*Math.tanh(data.score/180);
+    $('assessment-fill').style.width=share+'%';
+    $('assessment-meter').setAttribute('aria-label',$('compact-verdict').textContent+'，'+data.scale);
+    $('assessment-meter').title='当前分析视角的局势强弱示意，不是获胜概率。';
+    $('analysis-perspective').textContent='视角：'+['金','青','紫','蓝','玫瑰','银'][perspective]+'方 · 第 '+cursor+' 手';
     $('analysis-details').replaceChildren();
-    for(const side of data.sides){const line=document.createElement('div');line.className='analysis-side';line.textContent=['红','蓝','紫','绿','粉','黄'][side.player]+'方：入营 '+side.arrived+'/10 · 匹配距离 '+side.matching+' · 后子最远 '+side.rear+' · 运输风险 '+side.tailCost.toFixed(1)+' · 出口/借力代价 '+side.escapeCost.toFixed(1);$('analysis-details').append(line);
+    for(const side of data.sides){const line=document.createElement('div');line.className='analysis-side';line.textContent=['金','青','紫','蓝','玫瑰','银'][side.player]+'方：入营 '+side.arrived+'/10 · 匹配距离 '+side.matching+' · 后子最远 '+side.rear+' · 运输风险 '+side.tailCost.toFixed(1)+' · 出口/借力代价 '+side.escapeCost.toFixed(1);$('analysis-details').append(line);
       if(side.risk.length){const risk=document.createElement('div');risk.className='analysis-blocked';risk.append('风险棋子：');for(const x of side.risk){const b=document.createElement('button');b.className='risk-link';b.textContent=x.coordinate+(x.isolated?' 孤子':' 后子');b.title='在棋盘定位 '+x.coordinate;b.onclick=()=>{const cell=$('board').querySelector('[data-i="'+x.cell+'"]');cell?.focus();cell?.scrollIntoView({block:'center',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};risk.append(b);}$('analysis-details').append(risk);}
       if(side.blocked.length){const risk=document.createElement('div');risk.className='analysis-blocked';risk.textContent='无向前落点：'+side.blocked.join('、');$('analysis-details').append(risk);}}
     const anchors=D.bridges(state,perspective);if(anchors.length){const line=document.createElement('div');line.className='analysis-side';line.textContent='当前关键桥梁：'+anchors.slice(0,3).map(x=>x.coordinate+' 支持 '+x.dependencies.map(d=>d.coordinate).join('、')).join('；')+'。撤走桥子时需另搭跳路。';$('analysis-details').append(line);}
