@@ -28,11 +28,24 @@ test('actual blocked 28-ply game exposes the red rear bottleneck, without claimi
   const rear=red.pieces.find(x=>x.coordinate==='C8');assert.equal(rear.distance,11);assert.ok(rear.isolated&&rear.stranded);assert.equal(rear.gain,1);
   assert.match(a.scale,/非胜率/);assert.ok(Number.isFinite(a.score));
 });
+test('bridge dependencies expose a rear teammate losing its real multi-hop route',()=>{
+  const s=E.createGame(),from=E.at(10,8),anchor=E.at(9,9),second=E.at(7,11);
+  for(const i of E.zones[3].slice(0,3))s.board[i]=-1;for(const i of [from,anchor,second])s.board[i]=3;
+  const copy=JSON.stringify(s),bridges=D.bridges(s,3),bridge=bridges.find(x=>x.cell===anchor);
+  assert.ok(bridge);assert.ok(bridge.dependencies.some(x=>x.cell===from&&x.lostGain>=2));assert.equal(JSON.stringify(s),copy);
+});
 test('bundled offline worker executes real search and streams three comparisons',()=>{
   const context={performance,window:{},self:{postMessage:m=>messages.push(m)}},messages=[];vm.createContext(context);
   vm.runInContext(fs.readFileSync(require.resolve('../js/worker-bundle.js'),'utf8'),context);vm.runInContext(context.window.STARHOP_WORKER_SOURCE,context);
   const s=E.createGame();context.self.onmessage({data:{id:7,state:s,options:{level:1,time:30,seed:1}}});
-  assert.equal(messages[0].id,7);assert.ok(E.legalMoves(s.board,3,s.rules).some(m=>m.from===messages[0].result.move.from&&m.to===messages[0].result.move.to));
+  const answer=messages.find(m=>m.result);assert.equal(answer.id,7);assert.ok(E.legalMoves(s.board,3,s.rules).some(m=>m.from===answer.result.move.from&&m.to===answer.result.move.to));
+  assert.ok(messages.some(m=>m.progress&&m.id===7));assert.ok(messages.filter(m=>m.progress).every(m=>m.progress.depth>=1&&m.progress.nodes>0));
   messages.length=0;context.self.onmessage({data:{id:8,type:'compare',state:s,options:{time:30,seed:1}}});
   assert.deepEqual(messages.filter(m=>m.result).map(m=>m.result.level),[1,2,3]);assert.ok(messages.at(-1).done);
+  messages.length=0;context.self.onmessage({data:{id:9,state:s,options:{level:3,time:60,seed:1}}});
+  const reply=messages.find(m=>m.result);assert.equal(reply.id,9);assert.ok(reply.result.planning);assert.ok(messages.filter(m=>m.progress).every(m=>m.id===9));
+  messages.length=0;context.self.onmessage({data:{id:10,state:s,options:{level:4,time:60,seed:1}}});
+  assert.ok(!messages.find(m=>m.result).result.planning);
+  messages.length=0;context.self.onmessage({data:{id:11,state:s,options:{level:1,algorithm:'team',time:30,seed:1}}});
+  assert.ok(messages.find(m=>m.result).result.move);
 });

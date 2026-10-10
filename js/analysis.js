@@ -35,5 +35,17 @@
     if(state.winner!==null)score=state.winner===perspective?1000:-1000;
     return {perspective,sides,score,terminal:state.winner!==null,draw:state.draw,scale:'启发式分数（非胜率、非等级分）',formula:'目标最小匹配×−10；后子距离平方和×−0.14；原营棋子×−2.2；入营棋子×7；减去当前借力与出口代价，以及最落后三子运输风险×2。未来对手配合并未固定，运输风险不是完成步数。多人对最领先对手。'};
   }
-  const api={side,analyze};if(typeof module==='object'&&module.exports)module.exports=api;else root.StarhopAnalysis=api;
+  function bridges(state,p){
+    const original=side(state,p),board=state.board.slice(),result=[];
+    for(const anchor of original.pieces){
+      board[anchor.cell]=-1;const dependencies=[];
+      for(const x of original.pieces){if(x.cell===anchor.cell||x.distance<4)continue;
+        const goal=E.zones[(p+3)%6],gain=Math.max(0,...E.pieceMoves(board,x.cell,state.rules).map(m=>x.distance-Math.min(...goal.map(g=>E.distances[m.to][g]))));
+        if(x.gain-gain>=2)dependencies.push({cell:x.cell,coordinate:x.coordinate,lostGain:x.gain-gain});
+      }board[anchor.cell]=p;
+      if(dependencies.length)result.push({cell:anchor.cell,coordinate:anchor.coordinate,dependencies,loss:dependencies.reduce((v,x)=>v+x.lostGain,0)});
+    }
+    return result.sort((a,b)=>b.loss-a.loss);
+  }
+  const api={side,analyze,bridges};if(typeof module==='object'&&module.exports)module.exports=api;else root.StarhopAnalysis=api;
 })(typeof globalThis==='object'?globalThis:this);

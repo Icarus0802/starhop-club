@@ -5,11 +5,11 @@
   'use strict';
   const E=typeof module==='object'&&module.exports?require('./engine.js'):root.Starhop;
   const LEVELS=[
-    {name:'小跳',label:'入门',time:100,depth:1,noise:0.7},
-    {name:'青竹',label:'基础',time:250,depth:2,noise:0.12},
-    {name:'飞跃',label:'进阶',time:500,depth:8,noise:0},
-    {name:'玄石',label:'高手',time:900,depth:12,noise:0},
-    {name:'星河',label:'挑战',time:1500,depth:20,noise:0}
+    {name:'小跳',label:'入门',time:60,depth:1,noise:0.7},
+    {name:'青竹',label:'基础',time:80,depth:2,noise:0.12},
+    {name:'飞跃',label:'进阶',time:120,depth:8,noise:0},
+    {name:'玄石',label:'高手',time:220,depth:12,noise:0},
+    {name:'星河',label:'挑战',time:350,depth:20,noise:0}
   ];
   const nearest=E.zones.map((_,p)=>E.cells.map((__,i)=>Math.min(...E.zones[(p+3)%6].map(g=>E.distances[i][g]))));
   // Cheap occupancy-sensitive escape evaluation. Enemy pieces are also bridges;
@@ -58,7 +58,7 @@
     return Math.max(0,-v[0]/10);
   }
   function seeded(seed){let x=seed>>>0;return()=>{x+=0x6D2B79F5;let t=x;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296;};}
-  function search(state,options={}){
+  function classicSearch(state,options={}){
     const start=performance.now(),level=Math.max(0,Math.min(4,Number(options.level??2))),profile=LEVELS[level];
     const budget=Math.max(30,Math.min(30000,Number(options.time)||profile.time)), deadline=start+budget;
     const rng=options.seed===undefined?Math.random:seeded(options.seed), player=state.players[state.turn];
@@ -193,5 +193,16 @@
     }
     return {move:{from:best.from,to:best.to,path:best.path},algorithm,nodes,depth,hits,simulations,time:performance.now()-start,score:value,candidates,expired,solved:Math.abs(value)>=99900};
   }
-  const api={LEVELS,assignment,search,seeded,transport};if(typeof module==='object'&&module.exports)module.exports=api;else root.StarhopAI=api;
+  function search(state,options={}){
+    const level=Math.max(0,Math.min(4,Number(options.level??2))),algorithm=options.algorithm||'auto';
+    if(state.players.length!==2||algorithm==='mcts'||algorithm==='classic'||level===0)return classicSearch(state,options);
+    const node=typeof module==='object'&&module.exports;
+    if(level>=2&&(algorithm==='team'||(level<4&&algorithm!=='pvs'&&state.rules.jump!=='long'&&!state.rules.goalLock))){
+      const planner=node?require('./team-planner.js'):root.StarhopTeamPlanner;
+      return {...planner.search(state,{...options,time:options.time||LEVELS[level].time,depth:options.depth||[1,2,4,6,8][level],width:[4,4,6,8,10][level]}),planning:true};
+    }
+    const fast=node?require('./fast-search.js'):root.StarhopFastAI;
+    return fast.search(state,options);
+  }
+  const api={LEVELS,assignment,search,classicSearch,seeded,transport};if(typeof module==='object'&&module.exports)module.exports=api;else root.StarhopAI=api;
 })(typeof globalThis==='object'?globalThis:this);

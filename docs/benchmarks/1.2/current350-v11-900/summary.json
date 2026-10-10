@@ -1,0 +1,183 @@
+{
+  "engineVersion": "1.1.0",
+  "generatedAt": "2026-10-10T05:06:54.622Z",
+  "note": "Internal engine benchmark; not a human rating or proof of champion strength.",
+  "results": [
+    {
+      "game": 1,
+      "seed": 870142,
+      "openingSeed": 870142,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 0,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "current",
+      "baseline": "v11",
+      "budgetMs": 350,
+      "budgetBMs": 900,
+      "winner": "A",
+      "draw": null,
+      "plies": 103,
+      "goalCounts": [
+        10,
+        9
+      ],
+      "stats": {
+        "A": {
+          "moves": 48,
+          "meanMs": 164.72212708333342,
+          "maxMs": 237.23779999999988,
+          "meanDepth": 7.395833333333333,
+          "meanNodes": 2726.4791666666665
+        },
+        "B": {
+          "moves": 47,
+          "meanMs": 850.2755170212771,
+          "maxMs": 900.790100000002,
+          "meanDepth": 4.531914893617022,
+          "meanNodes": 115419.06382978724
+        }
+      },
+      "meanMs": 503.8906463157897,
+      "maxMs": 900.790100000002,
+      "meanDepth": 5.978947368421053,
+      "elapsedSeconds": 47.881087900000004
+    },
+    {
+      "game": 2,
+      "seed": 880142,
+      "openingSeed": 870142,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 1,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "current",
+      "baseline": "v11",
+      "budgetMs": 350,
+      "budgetBMs": 900,
+      "winner": "B",
+      "draw": null,
+      "plies": 111,
+      "goalCounts": [
+        10,
+        8
+      ],
+      "stats": {
+        "A": {
+          "moves": 51,
+          "meanMs": 174.19958235293984,
+          "maxMs": 228.0306000000055,
+          "meanDepth": 8,
+          "meanNodes": 2982.6470588235293
+        },
+        "B": {
+          "moves": 52,
+          "meanMs": 851.7477865384618,
+          "maxMs": 921.6327999999921,
+          "meanDepth": 4.25,
+          "meanNodes": 107482.44230769231
+        }
+      },
+      "meanMs": 516.2627533980577,
+      "maxMs": 921.6327999999921,
+      "meanDepth": 6.106796116504855,
+      "elapsedSeconds": 53.1810458
+    },
+    {
+      "game": 3,
+      "seed": 890142,
+      "openingSeed": 880142,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 0,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "current",
+      "baseline": "v11",
+      "budgetMs": 350,
+      "budgetBMs": 900,
+      "winner": "B",
+      "draw": null,
+      "plies": 98,
+      "goalCounts": [
+        6,
+        10
+      ],
+      "stats": {
+        "A": {
+          "moves": 45,
+          "meanMs": 171.07007999999914,
+          "maxMs": 227.8570999999938,
+          "meanDepth": 8,
+          "meanNodes": 2847.9333333333334
+        },
+        "B": {
+          "moves": 45,
+          "meanMs": 844.4049044444455,
+          "maxMs": 900.5243999999948,
+          "meanDepth": 4.2,
+          "meanNodes": 107085.62222222223
+        }
+      },
+      "meanMs": 507.73749222222233,
+      "maxMs": 900.5243999999948,
+      "meanDepth": 6.1,
+      "elapsedSeconds": 45.701639899999996
+    },
+    {
+      "game": 4,
+      "seed": 900142,
+      "openingSeed": 880142,
+      "openingPlies": 8,
+      "fixture": null,
+      "players": 2,
+      "jump": "short",
+      "goalLock": false,
+      "sideA": 1,
+      "levelA": 4,
+      "levelB": 4,
+      "challenger": "current",
+      "baseline": "v11",
+      "budgetMs": 350,
+      "budgetBMs": 900,
+      "winner": "B",
+      "draw": null,
+      "plies": 101,
+      "goalCounts": [
+        10,
+        6
+      ],
+      "stats": {
+        "A": {
+          "moves": 46,
+          "meanMs": 184.74583913043645,
+          "maxMs": 237.4033000000054,
+          "meanDepth": 8,
+          "meanNodes": 3003.3695652173915
+        },
+        "B": {
+          "moves": 47,
+          "meanMs": 848.8366510638307,
+          "maxMs": 925.8495000000112,
+          "meanDepth": 4.1063829787234045,
+          "meanNodes": 103170.1914893617
+        }
+      },
+      "meanMs": 520.3616258064529,
+      "maxMs": 925.8495000000112,
+      "meanDepth": 6.032258064516129,
+      "elapsedSeconds": 48.399249499999975
+    }
+  ]
+}

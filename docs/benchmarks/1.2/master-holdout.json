@@ -1,0 +1,1786 @@
+{
+  "fixture": "master-huaxia-jiuxiao-2019-04-22-game2",
+  "source": "https://tiaoqi.top/thread-43.htm",
+  "date": "2026-10-10",
+  "interpretation": "These are held-out observed master positions. Different choices do not establish an error or best move; algorithm scores have different scales and are not compared as human Elo or win probability.",
+  "codeSha256": {
+    "js/team-planner.js": "29df92840a0c6bd186af32697c62b05956ac02f152dd1103feb01d8851057f89",
+    "js/fast-search.js": "b3d64632d49deae07f81c342bdd8856a94c964a0194a8b831fb84e89c5986b1b",
+    "benchmarks/planner-adversary.cjs": "69a8e1eb2cd27b147bb4ac85ffe42f5e00d43fc372c4d35b095b108de3b122c7",
+    "benchmarks/v11-ai.cjs": "0694971756c133754ad38c4a3d2d37c9afd64e54bb75b4856d4a0bd1cef29de3"
+  },
+  "positions": [
+    {
+      "afterPly": 20,
+      "toMove": 3,
+      "observedNextMasterMove": {
+        "from": "M7",
+        "to": "K6",
+        "path": [
+          "M7",
+          "K6"
+        ],
+        "ownAssignmentReduction": 2,
+        "opponentAssignmentReduction": 0,
+        "otherPiecesAccessBefore": {
+          "sumBestImmediateGain": 17,
+          "farPiecesWithoutTwoRowAccess": 4,
+          "rearPieces": [
+            {
+              "at": "P7",
+              "distance": 12,
+              "bestImmediateGain": 2
+            },
+            {
+              "at": "O8",
+              "distance": 11,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "L6",
+              "distance": 8,
+              "bestImmediateGain": 1
+            }
+          ]
+        },
+        "otherPiecesAccessAfter": {
+          "sumBestImmediateGain": 23,
+          "farPiecesWithoutTwoRowAccess": 2,
+          "rearPieces": [
+            {
+              "at": "P7",
+              "distance": 12,
+              "bestImmediateGain": 2
+            },
+            {
+              "at": "O8",
+              "distance": 11,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "L6",
+              "distance": 8,
+              "bestImmediateGain": 2
+            }
+          ]
+        },
+        "otherPiecesImmediateGainChange": 6,
+        "opponentAccessValueChange": 1.6835999999999984
+      },
+      "engines": [
+        {
+          "name": "Team planner",
+          "budgetMs": 350,
+          "elapsedMs": 238.44140000000002,
+          "depth": 8,
+          "nodes": 3143,
+          "score": 284.4375000000001,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "M7",
+            "to": "K6",
+            "path": [
+              "M7",
+              "K6"
+            ],
+            "ownAssignmentReduction": 2,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 17,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "P7",
+                  "distance": 12,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "O8",
+                  "distance": 11,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L6",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 23,
+              "farPiecesWithoutTwoRowAccess": 2,
+              "rearPieces": [
+                {
+                  "at": "P7",
+                  "distance": 12,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "O8",
+                  "distance": 11,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L6",
+                  "distance": 8,
+                  "bestImmediateGain": 2
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 6,
+            "opponentAccessValueChange": 1.6835999999999984
+          },
+          "predictedLine": [
+            {
+              "player": 3,
+              "from": "M7",
+              "to": "K6"
+            },
+            {
+              "player": 0,
+              "from": "H7",
+              "to": "L5"
+            },
+            {
+              "player": 3,
+              "from": "J8",
+              "to": "D7"
+            },
+            {
+              "player": 0,
+              "from": "D6",
+              "to": "H8"
+            },
+            {
+              "player": 3,
+              "from": "H6",
+              "to": "B7"
+            },
+            {
+              "player": 0,
+              "from": "G8",
+              "to": "I9"
+            },
+            {
+              "player": 3,
+              "from": "L6",
+              "to": "D8"
+            },
+            {
+              "player": 0,
+              "from": "H8",
+              "to": "J9"
+            },
+            {
+              "player": 3,
+              "from": "L7",
+              "to": "F6"
+            },
+            {
+              "player": 0,
+              "from": "I9",
+              "to": "K10"
+            },
+            {
+              "player": 3,
+              "from": "P7",
+              "to": "N8"
+            },
+            {
+              "player": 0,
+              "from": "J7",
+              "to": "L8"
+            }
+          ],
+          "sameEndpointsAsMaster": true
+        },
+        {
+          "name": "Fast PVS",
+          "budgetMs": 350,
+          "elapsedMs": 350.665,
+          "depth": 5,
+          "nodes": 155392,
+          "score": 62.940000000000055,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "M7",
+            "to": "K6",
+            "path": [
+              "M7",
+              "K6"
+            ],
+            "ownAssignmentReduction": 2,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 17,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "P7",
+                  "distance": 12,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "O8",
+                  "distance": 11,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L6",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 23,
+              "farPiecesWithoutTwoRowAccess": 2,
+              "rearPieces": [
+                {
+                  "at": "P7",
+                  "distance": 12,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "O8",
+                  "distance": 11,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L6",
+                  "distance": 8,
+                  "bestImmediateGain": 2
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 6,
+            "opponentAccessValueChange": 1.6835999999999984
+          },
+          "predictedLine": [],
+          "sameEndpointsAsMaster": true
+        },
+        {
+          "name": "Adversary candidate",
+          "budgetMs": 350,
+          "elapsedMs": 350.14149999999995,
+          "depth": 7,
+          "nodes": 7665,
+          "score": 207.0846,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "M7",
+            "to": "K6",
+            "path": [
+              "M7",
+              "K6"
+            ],
+            "ownAssignmentReduction": 2,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 17,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "P7",
+                  "distance": 12,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "O8",
+                  "distance": 11,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L6",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 23,
+              "farPiecesWithoutTwoRowAccess": 2,
+              "rearPieces": [
+                {
+                  "at": "P7",
+                  "distance": 12,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "O8",
+                  "distance": 11,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L6",
+                  "distance": 8,
+                  "bestImmediateGain": 2
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 6,
+            "opponentAccessValueChange": 1.6835999999999984
+          },
+          "predictedLine": [
+            {
+              "player": 3,
+              "from": "M7",
+              "to": "K6"
+            },
+            {
+              "player": 0,
+              "from": "H7",
+              "to": "L5"
+            },
+            {
+              "player": 3,
+              "from": "J8",
+              "to": "D7"
+            },
+            {
+              "player": 0,
+              "from": "D6",
+              "to": "H8"
+            },
+            {
+              "player": 3,
+              "from": "L7",
+              "to": "F6"
+            },
+            {
+              "player": 0,
+              "from": "G8",
+              "to": "I9"
+            },
+            {
+              "player": 3,
+              "from": "H6",
+              "to": "B7"
+            },
+            {
+              "player": 0,
+              "from": "H8",
+              "to": "J9"
+            },
+            {
+              "player": 3,
+              "from": "L6",
+              "to": "D8"
+            },
+            {
+              "player": 0,
+              "from": "I9",
+              "to": "K10"
+            },
+            {
+              "player": 3,
+              "from": "P7",
+              "to": "N8"
+            },
+            {
+              "player": 0,
+              "from": "J7",
+              "to": "L8"
+            }
+          ],
+          "sameEndpointsAsMaster": true
+        },
+        {
+          "name": "v1.1 strongest",
+          "budgetMs": 900,
+          "elapsedMs": 900.2057,
+          "depth": 4,
+          "nodes": 110080,
+          "score": 26.225000000000023,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "M7",
+            "to": "K6",
+            "path": [
+              "M7",
+              "K6"
+            ],
+            "ownAssignmentReduction": 2,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 17,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "P7",
+                  "distance": 12,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "O8",
+                  "distance": 11,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L6",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 23,
+              "farPiecesWithoutTwoRowAccess": 2,
+              "rearPieces": [
+                {
+                  "at": "P7",
+                  "distance": 12,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "O8",
+                  "distance": 11,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L6",
+                  "distance": 8,
+                  "bestImmediateGain": 2
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 6,
+            "opponentAccessValueChange": 1.6835999999999984
+          },
+          "predictedLine": [],
+          "sameEndpointsAsMaster": true
+        }
+      ]
+    },
+    {
+      "afterPly": 40,
+      "toMove": 3,
+      "observedNextMasterMove": {
+        "from": "G5",
+        "to": "E6",
+        "path": [
+          "G5",
+          "E6"
+        ],
+        "ownAssignmentReduction": 2,
+        "opponentAssignmentReduction": 0,
+        "otherPiecesAccessBefore": {
+          "sumBestImmediateGain": 15,
+          "farPiecesWithoutTwoRowAccess": 4,
+          "rearPieces": [
+            {
+              "at": "L7",
+              "distance": 8,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "L8",
+              "distance": 8,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "K6",
+              "distance": 7,
+              "bestImmediateGain": 0
+            }
+          ]
+        },
+        "otherPiecesAccessAfter": {
+          "sumBestImmediateGain": 15,
+          "farPiecesWithoutTwoRowAccess": 4,
+          "rearPieces": [
+            {
+              "at": "L7",
+              "distance": 8,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "L8",
+              "distance": 8,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "K6",
+              "distance": 7,
+              "bestImmediateGain": 0
+            }
+          ]
+        },
+        "otherPiecesImmediateGainChange": 0,
+        "opponentAccessValueChange": -2.9879999999999978
+      },
+      "engines": [
+        {
+          "name": "Team planner",
+          "budgetMs": 350,
+          "elapsedMs": 235.96720000000028,
+          "depth": 8,
+          "nodes": 3359,
+          "score": 92.78499999999993,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "G5",
+            "to": "F4",
+            "path": [
+              "G5",
+              "F4"
+            ],
+            "ownAssignmentReduction": 1,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 15,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "L7",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L8",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 0
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 17,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "L7",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L8",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 0
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 2,
+            "opponentAccessValueChange": -2.9879999999999978
+          },
+          "predictedLine": [
+            {
+              "player": 3,
+              "from": "G5",
+              "to": "F4"
+            },
+            {
+              "player": 0,
+              "from": "H5",
+              "to": "J4"
+            },
+            {
+              "player": 3,
+              "from": "J8",
+              "to": "F8"
+            },
+            {
+              "player": 0,
+              "from": "H7",
+              "to": "J8"
+            },
+            {
+              "player": 3,
+              "from": "G9",
+              "to": "E8"
+            },
+            {
+              "player": 0,
+              "from": "H8",
+              "to": "J9"
+            },
+            {
+              "player": 3,
+              "from": "H6",
+              "to": "D8"
+            },
+            {
+              "player": 0,
+              "from": "I5",
+              "to": "K4"
+            },
+            {
+              "player": 3,
+              "from": "F8",
+              "to": "D7"
+            },
+            {
+              "player": 0,
+              "from": "J5",
+              "to": "L6"
+            },
+            {
+              "player": 3,
+              "from": "E8",
+              "to": "C7"
+            },
+            {
+              "player": 0,
+              "from": "J6",
+              "to": "L5"
+            }
+          ],
+          "sameEndpointsAsMaster": false
+        },
+        {
+          "name": "Fast PVS",
+          "budgetMs": 350,
+          "elapsedMs": 350.5182,
+          "depth": 5,
+          "nodes": 120832,
+          "score": 58.094999999999914,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "J8",
+            "to": "F8",
+            "path": [
+              "J8",
+              "H9",
+              "F8"
+            ],
+            "ownAssignmentReduction": 4,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 13,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "L7",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L8",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 0
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 14,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "L7",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L8",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 0
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 1,
+            "opponentAccessValueChange": 1.8480000000000008
+          },
+          "predictedLine": [],
+          "sameEndpointsAsMaster": false
+        },
+        {
+          "name": "Adversary candidate",
+          "budgetMs": 350,
+          "elapsedMs": 350.1386000000002,
+          "depth": 7,
+          "nodes": 7619,
+          "score": 135.96450000000002,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "G5",
+            "to": "E6",
+            "path": [
+              "G5",
+              "E6"
+            ],
+            "ownAssignmentReduction": 2,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 15,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "L7",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L8",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 0
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 15,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "L7",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L8",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 0
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 0,
+            "opponentAccessValueChange": -2.9879999999999978
+          },
+          "predictedLine": [
+            {
+              "player": 3,
+              "from": "G5",
+              "to": "E6"
+            },
+            {
+              "player": 0,
+              "from": "H8",
+              "to": "J9"
+            },
+            {
+              "player": 3,
+              "from": "J8",
+              "to": "F8"
+            },
+            {
+              "player": 0,
+              "from": "H5",
+              "to": "J4"
+            },
+            {
+              "player": 3,
+              "from": "L8",
+              "to": "K8"
+            },
+            {
+              "player": 0,
+              "from": "J6",
+              "to": "L5"
+            },
+            {
+              "player": 3,
+              "from": "I7",
+              "to": "E7"
+            },
+            {
+              "player": 0,
+              "from": "G8",
+              "to": "I7"
+            },
+            {
+              "player": 3,
+              "from": "H6",
+              "to": "D6"
+            },
+            {
+              "player": 0,
+              "from": "H7",
+              "to": "J8"
+            },
+            {
+              "player": 3,
+              "from": "L7",
+              "to": "D7"
+            },
+            {
+              "player": 0,
+              "from": "J5",
+              "to": "L4"
+            }
+          ],
+          "sameEndpointsAsMaster": true
+        },
+        {
+          "name": "v1.1 strongest",
+          "budgetMs": 900,
+          "elapsedMs": 900.2350000000001,
+          "depth": 4,
+          "nodes": 95840,
+          "score": 13.039999999999964,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "J8",
+            "to": "F8",
+            "path": [
+              "J8",
+              "H9",
+              "F8"
+            ],
+            "ownAssignmentReduction": 4,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 13,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "L7",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L8",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 0
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 14,
+              "farPiecesWithoutTwoRowAccess": 4,
+              "rearPieces": [
+                {
+                  "at": "L7",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "L8",
+                  "distance": 8,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 0
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 1,
+            "opponentAccessValueChange": 1.8480000000000008
+          },
+          "predictedLine": [],
+          "sameEndpointsAsMaster": false
+        }
+      ]
+    },
+    {
+      "afterPly": 60,
+      "toMove": 3,
+      "observedNextMasterMove": {
+        "from": "K9",
+        "to": "G7",
+        "path": [
+          "K9",
+          "I8",
+          "G7"
+        ],
+        "ownAssignmentReduction": 4,
+        "opponentAssignmentReduction": 0,
+        "otherPiecesAccessBefore": {
+          "sumBestImmediateGain": 7,
+          "farPiecesWithoutTwoRowAccess": 3,
+          "rearPieces": [
+            {
+              "at": "K6",
+              "distance": 7,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "J8",
+              "distance": 6,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "I7",
+              "distance": 5,
+              "bestImmediateGain": 1
+            }
+          ]
+        },
+        "otherPiecesAccessAfter": {
+          "sumBestImmediateGain": 7,
+          "farPiecesWithoutTwoRowAccess": 3,
+          "rearPieces": [
+            {
+              "at": "K6",
+              "distance": 7,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "J8",
+              "distance": 6,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "I7",
+              "distance": 5,
+              "bestImmediateGain": 1
+            }
+          ]
+        },
+        "otherPiecesImmediateGainChange": 0,
+        "opponentAccessValueChange": 0
+      },
+      "engines": [
+        {
+          "name": "Team planner",
+          "budgetMs": 350,
+          "elapsedMs": 191.39120000000003,
+          "depth": 8,
+          "nodes": 3069,
+          "score": 0.36200000000000854,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "E8",
+            "to": "D8",
+            "path": [
+              "E8",
+              "D8"
+            ],
+            "ownAssignmentReduction": 1,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 10,
+              "farPiecesWithoutTwoRowAccess": 3,
+              "rearPieces": [
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K9",
+                  "distance": 7,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "J8",
+                  "distance": 6,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 10,
+              "farPiecesWithoutTwoRowAccess": 3,
+              "rearPieces": [
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K9",
+                  "distance": 7,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "J8",
+                  "distance": 6,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 0,
+            "opponentAccessValueChange": 0
+          },
+          "predictedLine": [
+            {
+              "player": 3,
+              "from": "E8",
+              "to": "D8"
+            },
+            {
+              "player": 0,
+              "from": "J6",
+              "to": "P7"
+            },
+            {
+              "player": 3,
+              "from": "K6",
+              "to": "J6"
+            },
+            {
+              "player": 0,
+              "from": "L8",
+              "to": "P6"
+            },
+            {
+              "player": 3,
+              "from": "K9",
+              "to": "G7"
+            },
+            {
+              "player": 0,
+              "from": "J7",
+              "to": "L6"
+            },
+            {
+              "player": 3,
+              "from": "G9",
+              "to": "F9"
+            },
+            {
+              "player": 0,
+              "from": "K7",
+              "to": "M6"
+            },
+            {
+              "player": 3,
+              "from": "I9",
+              "to": "A7"
+            },
+            {
+              "player": 0,
+              "from": "L6",
+              "to": "N5"
+            },
+            {
+              "player": 3,
+              "from": "G7",
+              "to": "F6"
+            },
+            {
+              "player": 0,
+              "from": "M6",
+              "to": "N6"
+            }
+          ],
+          "sameEndpointsAsMaster": false
+        },
+        {
+          "name": "Fast PVS",
+          "budgetMs": 350,
+          "elapsedMs": 350.3125,
+          "depth": 5,
+          "nodes": 141056,
+          "score": 47.960000000000036,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "G9",
+            "to": "F9",
+            "path": [
+              "G9",
+              "F9"
+            ],
+            "ownAssignmentReduction": 1,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 10,
+              "farPiecesWithoutTwoRowAccess": 3,
+              "rearPieces": [
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K9",
+                  "distance": 7,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "J8",
+                  "distance": 6,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 14,
+              "farPiecesWithoutTwoRowAccess": 3,
+              "rearPieces": [
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K9",
+                  "distance": 7,
+                  "bestImmediateGain": 5
+                },
+                {
+                  "at": "J8",
+                  "distance": 6,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 4,
+            "opponentAccessValueChange": 0
+          },
+          "predictedLine": [],
+          "sameEndpointsAsMaster": false
+        },
+        {
+          "name": "Adversary candidate",
+          "budgetMs": 350,
+          "elapsedMs": 294.27400000000034,
+          "depth": 8,
+          "nodes": 7914,
+          "score": -0.21450000000000458,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "E8",
+            "to": "D8",
+            "path": [
+              "E8",
+              "D8"
+            ],
+            "ownAssignmentReduction": 1,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 10,
+              "farPiecesWithoutTwoRowAccess": 3,
+              "rearPieces": [
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K9",
+                  "distance": 7,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "J8",
+                  "distance": 6,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 10,
+              "farPiecesWithoutTwoRowAccess": 3,
+              "rearPieces": [
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K9",
+                  "distance": 7,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "J8",
+                  "distance": 6,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 0,
+            "opponentAccessValueChange": 0
+          },
+          "predictedLine": [
+            {
+              "player": 3,
+              "from": "E8",
+              "to": "D8"
+            },
+            {
+              "player": 0,
+              "from": "J6",
+              "to": "P7"
+            },
+            {
+              "player": 3,
+              "from": "K6",
+              "to": "J6"
+            },
+            {
+              "player": 0,
+              "from": "L8",
+              "to": "P6"
+            },
+            {
+              "player": 3,
+              "from": "K9",
+              "to": "G7"
+            },
+            {
+              "player": 0,
+              "from": "J7",
+              "to": "L6"
+            },
+            {
+              "player": 3,
+              "from": "G9",
+              "to": "F9"
+            },
+            {
+              "player": 0,
+              "from": "K7",
+              "to": "M6"
+            },
+            {
+              "player": 3,
+              "from": "I9",
+              "to": "A7"
+            },
+            {
+              "player": 0,
+              "from": "L6",
+              "to": "N5"
+            },
+            {
+              "player": 3,
+              "from": "G7",
+              "to": "F6"
+            },
+            {
+              "player": 0,
+              "from": "M6",
+              "to": "N6"
+            }
+          ],
+          "sameEndpointsAsMaster": false
+        },
+        {
+          "name": "v1.1 strongest",
+          "budgetMs": 900,
+          "elapsedMs": 900.2984000000006,
+          "depth": 4,
+          "nodes": 89760,
+          "score": -38.35999999999996,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "G9",
+            "to": "F9",
+            "path": [
+              "G9",
+              "F9"
+            ],
+            "ownAssignmentReduction": 1,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 10,
+              "farPiecesWithoutTwoRowAccess": 3,
+              "rearPieces": [
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K9",
+                  "distance": 7,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "J8",
+                  "distance": 6,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 14,
+              "farPiecesWithoutTwoRowAccess": 3,
+              "rearPieces": [
+                {
+                  "at": "K6",
+                  "distance": 7,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "K9",
+                  "distance": 7,
+                  "bestImmediateGain": 5
+                },
+                {
+                  "at": "J8",
+                  "distance": 6,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 4,
+            "opponentAccessValueChange": 0
+          },
+          "predictedLine": [],
+          "sameEndpointsAsMaster": false
+        }
+      ]
+    },
+    {
+      "afterPly": 80,
+      "toMove": 3,
+      "observedNextMasterMove": {
+        "from": "I9",
+        "to": "G10",
+        "path": [
+          "I9",
+          "G10"
+        ],
+        "ownAssignmentReduction": 2,
+        "opponentAssignmentReduction": 0,
+        "otherPiecesAccessBefore": {
+          "sumBestImmediateGain": 9,
+          "farPiecesWithoutTwoRowAccess": 1,
+          "rearPieces": [
+            {
+              "at": "I7",
+              "distance": 5,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "H9",
+              "distance": 4,
+              "bestImmediateGain": 4
+            },
+            {
+              "at": "G9",
+              "distance": 3,
+              "bestImmediateGain": 1
+            }
+          ]
+        },
+        "otherPiecesAccessAfter": {
+          "sumBestImmediateGain": 9,
+          "farPiecesWithoutTwoRowAccess": 1,
+          "rearPieces": [
+            {
+              "at": "I7",
+              "distance": 5,
+              "bestImmediateGain": 1
+            },
+            {
+              "at": "H9",
+              "distance": 4,
+              "bestImmediateGain": 4
+            },
+            {
+              "at": "G9",
+              "distance": 3,
+              "bestImmediateGain": 1
+            }
+          ]
+        },
+        "otherPiecesImmediateGainChange": 0,
+        "opponentAccessValueChange": 0
+      },
+      "engines": [
+        {
+          "name": "Team planner",
+          "budgetMs": 350,
+          "elapsedMs": 166.79120000000057,
+          "depth": 8,
+          "nodes": 3063,
+          "score": 22.559999999999995,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "D6",
+            "to": "B7",
+            "path": [
+              "D6",
+              "B7"
+            ],
+            "ownAssignmentReduction": 2,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 11,
+              "farPiecesWithoutTwoRowAccess": 1,
+              "rearPieces": [
+                {
+                  "at": "I7",
+                  "distance": 5,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "I9",
+                  "distance": 5,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "H9",
+                  "distance": 4,
+                  "bestImmediateGain": 4
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 11,
+              "farPiecesWithoutTwoRowAccess": 1,
+              "rearPieces": [
+                {
+                  "at": "I7",
+                  "distance": 5,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "I9",
+                  "distance": 5,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "H9",
+                  "distance": 4,
+                  "bestImmediateGain": 4
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 0,
+            "opponentAccessValueChange": 0
+          },
+          "predictedLine": [
+            {
+              "player": 3,
+              "from": "D6",
+              "to": "B7"
+            },
+            {
+              "player": 0,
+              "from": "H7",
+              "to": "J6"
+            },
+            {
+              "player": 3,
+              "from": "I9",
+              "to": "G10"
+            },
+            {
+              "player": 0,
+              "from": "M8",
+              "to": "N7"
+            },
+            {
+              "player": 3,
+              "from": "H9",
+              "to": "B6"
+            },
+            {
+              "player": 0,
+              "from": "N6",
+              "to": "P7"
+            },
+            {
+              "player": 3,
+              "from": "E8",
+              "to": "D7"
+            },
+            {
+              "player": 0,
+              "from": "G8",
+              "to": "H7"
+            },
+            {
+              "player": 3,
+              "from": "I7",
+              "to": "C6"
+            },
+            {
+              "player": 0,
+              "from": "H7",
+              "to": "I7"
+            },
+            {
+              "player": 3,
+              "from": "G10",
+              "to": "C8"
+            },
+            {
+              "player": 0,
+              "from": "I7",
+              "to": "K6"
+            }
+          ],
+          "sameEndpointsAsMaster": false
+        },
+        {
+          "name": "Fast PVS",
+          "budgetMs": 350,
+          "elapsedMs": 350.46949999999924,
+          "depth": 5,
+          "nodes": 193024,
+          "score": -22.015000000000015,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "F7",
+            "to": "F9",
+            "path": [
+              "F7",
+              "H8",
+              "F9"
+            ],
+            "ownAssignmentReduction": 0,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 9,
+              "farPiecesWithoutTwoRowAccess": 1,
+              "rearPieces": [
+                {
+                  "at": "I7",
+                  "distance": 5,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "I9",
+                  "distance": 5,
+                  "bestImmediateGain": 2
+                },
+                {
+                  "at": "H9",
+                  "distance": 4,
+                  "bestImmediateGain": 4
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 12,
+              "farPiecesWithoutTwoRowAccess": 1,
+              "rearPieces": [
+                {
+                  "at": "I7",
+                  "distance": 5,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "I9",
+                  "distance": 5,
+                  "bestImmediateGain": 5
+                },
+                {
+                  "at": "H9",
+                  "distance": 4,
+                  "bestImmediateGain": 4
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 3,
+            "opponentAccessValueChange": 0
+          },
+          "predictedLine": [],
+          "sameEndpointsAsMaster": false
+        },
+        {
+          "name": "Adversary candidate",
+          "budgetMs": 350,
+          "elapsedMs": 265.4553999999998,
+          "depth": 8,
+          "nodes": 8322,
+          "score": 13.679999999999993,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "I9",
+            "to": "G10",
+            "path": [
+              "I9",
+              "G10"
+            ],
+            "ownAssignmentReduction": 2,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 9,
+              "farPiecesWithoutTwoRowAccess": 1,
+              "rearPieces": [
+                {
+                  "at": "I7",
+                  "distance": 5,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "H9",
+                  "distance": 4,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "G9",
+                  "distance": 3,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 9,
+              "farPiecesWithoutTwoRowAccess": 1,
+              "rearPieces": [
+                {
+                  "at": "I7",
+                  "distance": 5,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "H9",
+                  "distance": 4,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "G9",
+                  "distance": 3,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 0,
+            "opponentAccessValueChange": 0
+          },
+          "predictedLine": [
+            {
+              "player": 3,
+              "from": "I9",
+              "to": "G10"
+            },
+            {
+              "player": 0,
+              "from": "H7",
+              "to": "J6"
+            },
+            {
+              "player": 3,
+              "from": "H9",
+              "to": "B6"
+            },
+            {
+              "player": 0,
+              "from": "G8",
+              "to": "H8"
+            },
+            {
+              "player": 3,
+              "from": "G10",
+              "to": "C6"
+            },
+            {
+              "player": 0,
+              "from": "H8",
+              "to": "I8"
+            },
+            {
+              "player": 3,
+              "from": "I7",
+              "to": "H6"
+            },
+            {
+              "player": 0,
+              "from": "M8",
+              "to": "N7"
+            },
+            {
+              "player": 3,
+              "from": "F7",
+              "to": "D8"
+            },
+            {
+              "player": 0,
+              "from": "N6",
+              "to": "P7"
+            },
+            {
+              "player": 3,
+              "from": "E8",
+              "to": "D7"
+            },
+            {
+              "player": 0,
+              "from": "I8",
+              "to": "J7"
+            }
+          ],
+          "sameEndpointsAsMaster": true
+        },
+        {
+          "name": "v1.1 strongest",
+          "budgetMs": 900,
+          "elapsedMs": 900.1953999999996,
+          "depth": 4,
+          "nodes": 97664,
+          "score": -61.75999999999999,
+          "scoreInterpretation": "Uncalibrated algorithm-specific value; not directly comparable between engines.",
+          "move": {
+            "from": "I9",
+            "to": "G10",
+            "path": [
+              "I9",
+              "G10"
+            ],
+            "ownAssignmentReduction": 2,
+            "opponentAssignmentReduction": 0,
+            "otherPiecesAccessBefore": {
+              "sumBestImmediateGain": 9,
+              "farPiecesWithoutTwoRowAccess": 1,
+              "rearPieces": [
+                {
+                  "at": "I7",
+                  "distance": 5,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "H9",
+                  "distance": 4,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "G9",
+                  "distance": 3,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesAccessAfter": {
+              "sumBestImmediateGain": 9,
+              "farPiecesWithoutTwoRowAccess": 1,
+              "rearPieces": [
+                {
+                  "at": "I7",
+                  "distance": 5,
+                  "bestImmediateGain": 1
+                },
+                {
+                  "at": "H9",
+                  "distance": 4,
+                  "bestImmediateGain": 4
+                },
+                {
+                  "at": "G9",
+                  "distance": 3,
+                  "bestImmediateGain": 1
+                }
+              ]
+            },
+            "otherPiecesImmediateGainChange": 0,
+            "opponentAccessValueChange": 0
+          },
+          "predictedLine": [],
+          "sameEndpointsAsMaster": true
+        }
+      ]
+    }
+  ]
+}
