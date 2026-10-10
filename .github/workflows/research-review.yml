@@ -1,0 +1,66 @@
+name: Verify research PR source
+on:
+  push:
+    branches: [research/step-gap-and-learned-value]
+    paths:
+      - research-source.zip
+      - research-source.sha256
+      - .github/workflows/research-review.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: starhop-research-review
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.repository == 'Icarus0802/starhop-club' && github.ref == 'refs/heads/research/step-gap-and-learned-value'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Expand only the reviewed research source
+        run: |
+          python3 - <<'PY'
+          import hashlib, re, zipfile
+          from pathlib import Path, PurePosixPath
+          digest = hashlib.sha256(Path('research-source.zip').read_bytes()).hexdigest()
+          checksum = Path('research-source.sha256').read_text(encoding='utf-8')
+          if not re.fullmatch(r'[0-9a-f]{64}  research-source\.zip\n', checksum) or checksum[:64] != digest:
+              raise RuntimeError('Invalid research source checksum')
+          roots = {'assets', 'js', 'tests', 'benchmarks', 'docs', 'scripts', 'vendor'}
+          files = {'index.html', 'style.css', 'LICENSE', 'THIRD_PARTY.md', 'README.md',
+                   'CHANGELOG.md', 'package.json', 'server.cjs', '启动跳棋.cmd', '启动服务.ps1',
+                   '.nojekyll', '.gitignore', '.gitattributes'}
+          with zipfile.ZipFile('research-source.zip') as archive:
+              entries = archive.infolist()
+              if len(entries) > 256 or sum(x.file_size for x in entries) > 5000000:
+                  raise RuntimeError('Unexpected source package size')
+              names = set()
+              for item in entries:
+                  path = PurePosixPath(item.filename)
+                  if path.is_absolute() or '..' in path.parts or '\\' in item.filename or item.filename in names:
+                      raise RuntimeError('Invalid or duplicate source path')
+                  if item.filename not in files and (not path.parts or path.parts[0] not in roots):
+                      raise RuntimeError('Package may not replace GitHub or publication controls')
+                  if (item.external_attr >> 16) & 0o170000 == 0o120000:
+                      raise RuntimeError('Symlinks are forbidden')
+                  names.add(item.filename)
+                  archive.extract(item, '.')
+          Path('.research-source-sha256').write_text(digest + '\n')
+          PY
+      - name: Verify rules, UI, experimental search and learned model
+        run: node --test --test-concurrency=1 tests/*.test.cjs
+      - name: Verify worker reproducibility
+        run: |
+          cp js/worker-bundle.js /tmp/starhop-research-worker.js
+          node scripts/build.cjs
+          cmp js/worker-bundle.js /tmp/starhop-research-worker.js
+      - name: Expose tested source as reviewable text diffs on this branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets js tests benchmarks docs scripts vendor index.html style.css LICENSE THIRD_PARTY.md README.md CHANGELOG.md package.json server.cjs '启动跳棋.cmd' '启动服务.ps1' .nojekyll .gitignore .gitattributes .research-source-sha256
+          if ! git diff --cached --quiet; then
+            git commit -m "Expand tested research source for pull request review"
+            git push origin HEAD:research/step-gap-and-learned-value
+          fi
