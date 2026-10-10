@@ -1,0 +1,406 @@
+{
+  "format": "starhop-v1",
+  "options": {
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "mode": "human-ai",
+    "humanSeat": 0,
+    "level": 4,
+    "secondLevel": 4
+  },
+  "moves": [
+    {
+      "from": 114,
+      "to": 105
+    },
+    {
+      "from": 6,
+      "to": 15
+    },
+    {
+      "from": 119,
+      "to": 92
+    },
+    {
+      "from": 1,
+      "to": 28
+    },
+    {
+      "from": 115,
+      "to": 81
+    },
+    {
+      "from": 5,
+      "to": 39
+    },
+    {
+      "from": 81,
+      "to": 71
+    },
+    {
+      "from": 7,
+      "to": 29
+    },
+    {
+      "from": 120,
+      "to": 81
+    },
+    {
+      "from": 0,
+      "to": 41
+    },
+    {
+      "from": 113,
+      "to": 91
+    },
+    {
+      "from": 2,
+      "to": 50
+    },
+    {
+      "from": 117,
+      "to": 79
+    },
+    {
+      "from": 3,
+      "to": 18
+    },
+    {
+      "from": 118,
+      "to": 70
+    },
+    {
+      "from": 4,
+      "to": 38
+    },
+    {
+      "from": 116,
+      "to": 61
+    },
+    {
+      "from": 9,
+      "to": 48
+    },
+    {
+      "from": 111,
+      "to": 93
+    },
+    {
+      "from": 38,
+      "to": 57
+    },
+    {
+      "from": 112,
+      "to": 103
+    },
+    {
+      "from": 15,
+      "to": 40
+    },
+    {
+      "from": 103,
+      "to": 80
+    },
+    {
+      "from": 18,
+      "to": 30
+    },
+    {
+      "from": 71,
+      "to": 51
+    },
+    {
+      "from": 28,
+      "to": 67
+    },
+    {
+      "from": 92,
+      "to": 69
+    },
+    {
+      "from": 67,
+      "to": 77
+    },
+    {
+      "from": 80,
+      "to": 59
+    },
+    {
+      "from": 30,
+      "to": 88
+    },
+    {
+      "from": 69,
+      "to": 30
+    },
+    {
+      "from": 48,
+      "to": 89
+    },
+    {
+      "from": 105,
+      "to": 80
+    },
+    {
+      "from": 39,
+      "to": 60
+    },
+    {
+      "from": 70,
+      "to": 52
+    },
+    {
+      "from": 8,
+      "to": 17
+    },
+    {
+      "from": 30,
+      "to": 8
+    },
+    {
+      "from": 41,
+      "to": 62
+    },
+    {
+      "from": 93,
+      "to": 70
+    },
+    {
+      "from": 29,
+      "to": 30
+    },
+    {
+      "from": 91,
+      "to": 68
+    },
+    {
+      "from": 17,
+      "to": 42
+    },
+    {
+      "from": 81,
+      "to": 71
+    },
+    {
+      "from": 30,
+      "to": 53
+    },
+    {
+      "from": 51,
+      "to": 28
+    },
+    {
+      "from": 53,
+      "to": 92
+    },
+    {
+      "from": 71,
+      "to": 30
+    },
+    {
+      "from": 77,
+      "to": 102
+    },
+    {
+      "from": 52,
+      "to": 29
+    },
+    {
+      "from": 89,
+      "to": 111
+    },
+    {
+      "from": 29,
+      "to": 16
+    },
+    {
+      "from": 62,
+      "to": 52
+    },
+    {
+      "from": 80,
+      "to": 69
+    },
+    {
+      "from": 102,
+      "to": 115
+    },
+    {
+      "from": 69,
+      "to": 49
+    },
+    {
+      "from": 57,
+      "to": 58
+    },
+    {
+      "from": 8,
+      "to": 4
+    },
+    {
+      "from": 60,
+      "to": 104
+    },
+    {
+      "from": 28,
+      "to": 1
+    },
+    {
+      "from": 40,
+      "to": 51
+    },
+    {
+      "from": 59,
+      "to": 40
+    },
+    {
+      "from": 115,
+      "to": 118
+    },
+    {
+      "from": 49,
+      "to": 39
+    },
+    {
+      "from": 51,
+      "to": 90
+    },
+    {
+      "from": 68,
+      "to": 69
+    },
+    {
+      "from": 92,
+      "to": 112
+    },
+    {
+      "from": 79,
+      "to": 18
+    },
+    {
+      "from": 50,
+      "to": 51
+    },
+    {
+      "from": 69,
+      "to": 60
+    },
+    {
+      "from": 51,
+      "to": 67
+    },
+    {
+      "from": 70,
+      "to": 2
+    },
+    {
+      "from": 88,
+      "to": 89
+    },
+    {
+      "from": 60,
+      "to": 41
+    },
+    {
+      "from": 58,
+      "to": 120
+    },
+    {
+      "from": 61,
+      "to": 51
+    },
+    {
+      "from": 67,
+      "to": 78
+    },
+    {
+      "from": 51,
+      "to": 8
+    },
+    {
+      "from": 78,
+      "to": 116
+    },
+    {
+      "from": 18,
+      "to": 9
+    },
+    {
+      "from": 89,
+      "to": 113
+    },
+    {
+      "from": 41,
+      "to": 3
+    },
+    {
+      "from": 104,
+      "to": 115
+    },
+    {
+      "from": 39,
+      "to": 0
+    },
+    {
+      "from": 42,
+      "to": 61
+    },
+    {
+      "from": 40,
+      "to": 29
+    },
+    {
+      "from": 52,
+      "to": 70
+    },
+    {
+      "from": 8,
+      "to": 7
+    },
+    {
+      "from": 90,
+      "to": 91
+    },
+    {
+      "from": 30,
+      "to": 6
+    },
+    {
+      "from": 61,
+      "to": 103
+    },
+    {
+      "from": 29,
+      "to": 28
+    },
+    {
+      "from": 112,
+      "to": 119
+    },
+    {
+      "from": 28,
+      "to": 8
+    },
+    {
+      "from": 103,
+      "to": 112
+    },
+    {
+      "from": 16,
+      "to": 5
+    }
+  ],
+  "engineVersion": "1.2.0",
+  "capture": {
+    "source": "Rendered current official-game move list, manually transcribed and fully replay-validated",
+    "date": "2026-10-10",
+    "preferences": "Not captured; displayed algorithm Fast PVS selective",
+    "finalGreen": "A7 B6 B7 C6 C7 C8 D5 D6 D7 D8",
+    "finalRed": "J7 L6 N5 N6 N7 O6 O7 P6 P7 Q7"
+  },
+  "result": {
+    "winner": 3,
+    "draw": null
+  }
+}

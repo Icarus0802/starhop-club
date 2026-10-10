@@ -1,0 +1,441 @@
+{
+  "format": "starhop-public-selfplay-evidence-v1",
+  "date": "2026-10-10",
+  "note": "Complete original JSON files copied byte-for-byte. Includes failures, draws and unknown minimum gaps. No searches or game-record changes.",
+  "runs": [
+    {
+      "id": "candidate-a-equal350",
+      "games": 8,
+      "budgetMs": 350
+    },
+    {
+      "id": "candidate-b-screen100",
+      "games": 4,
+      "budgetMs": 100
+    },
+    {
+      "id": "candidate-b-heldout350",
+      "games": 8,
+      "budgetMs": 350
+    },
+    {
+      "id": "candidate-c-screen100",
+      "games": 4,
+      "budgetMs": 100
+    },
+    {
+      "id": "candidate-c-heldout350",
+      "games": 8,
+      "budgetMs": 350
+    },
+    {
+      "id": "candidate-d-screen100",
+      "games": 4,
+      "budgetMs": 100
+    },
+    {
+      "id": "candidate-e-screen100",
+      "games": 4,
+      "budgetMs": 100
+    },
+    {
+      "id": "candidate-e-confirm350",
+      "games": 8,
+      "budgetMs": 350
+    },
+    {
+      "id": "candidate-h-screen100",
+      "games": 4,
+      "budgetMs": 100
+    },
+    {
+      "id": "candidate-i-screen100",
+      "games": 4,
+      "budgetMs": 100
+    },
+    {
+      "id": "candidate-i-confirm350",
+      "games": 8,
+      "budgetMs": 350
+    }
+  ],
+  "files": [
+    {
+      "file": "candidate-a-equal350/summary.json",
+      "bytes": 19252,
+      "sha256": "b38bad5f70191808ae0ff94d660dfe2b57f3edba9474d018e6fcb1192c3536b9"
+    },
+    {
+      "file": "candidate-a-equal350/game-1.json",
+      "bytes": 30521,
+      "sha256": "6870fa8c3b42acdbe4237652f3b7cfb7213922e971c8e3e24ef37e460f8f9228"
+    },
+    {
+      "file": "candidate-a-equal350/game-2.json",
+      "bytes": 31703,
+      "sha256": "fd203ddecd25996bc71c8c07b71445cbdfc4dd060c3b7b533c77ebd81df2d06c"
+    },
+    {
+      "file": "candidate-a-equal350/game-3.json",
+      "bytes": 31411,
+      "sha256": "1afb329613d0bca48b3c306ef9f2d9f4d2872e9a9814c1f3bcdc14d911d271cc"
+    },
+    {
+      "file": "candidate-a-equal350/game-4.json",
+      "bytes": 32667,
+      "sha256": "d770b2010d49555517adf66ac823f0ceea583c778ae17dcaf13aeea487988beb"
+    },
+    {
+      "file": "candidate-a-equal350/game-5.json",
+      "bytes": 28428,
+      "sha256": "ef81c53b907013a820c114a1840e0ce834b1b2f702e00a487423e6a32054a7ec"
+    },
+    {
+      "file": "candidate-a-equal350/game-6.json",
+      "bytes": 36609,
+      "sha256": "67528d39464e5cf73399bcc53098520f7dbd5820f6b3076e9b29998491f50946"
+    },
+    {
+      "file": "candidate-a-equal350/game-7.json",
+      "bytes": 33586,
+      "sha256": "8c4ae909a7968e745fcc91d942d0616a3c19306aa41aadcaaf6ba8f54016ac11"
+    },
+    {
+      "file": "candidate-a-equal350/game-8.json",
+      "bytes": 29660,
+      "sha256": "290265ce41b2230b17703882dce02c812cc14e284325a96152af8ebe489e8cfd"
+    },
+    {
+      "file": "candidate-b-screen100/summary.json",
+      "bytes": 12206,
+      "sha256": "ece26bcf847817babc269d6a3b155a10efd2b89675949f73145cc5d87dcb0c52"
+    },
+    {
+      "file": "candidate-b-screen100/game-1.json",
+      "bytes": 39499,
+      "sha256": "40204a577d9ff9354adacd055b3f4283f8cce4d9b49b304392d41f482da19b32"
+    },
+    {
+      "file": "candidate-b-screen100/game-2.json",
+      "bytes": 35984,
+      "sha256": "a51cc0b2d065b7f2f7e3d02da1cb3c7b7cae260e5d4c1c3a54c179405080a26b"
+    },
+    {
+      "file": "candidate-b-screen100/game-3.json",
+      "bytes": 35235,
+      "sha256": "579f26075305c7f98f9c1ed49045cc7534d77916373e8533fe2e4d969dfba0f5"
+    },
+    {
+      "file": "candidate-b-screen100/game-4.json",
+      "bytes": 37354,
+      "sha256": "ee0255c0d1d55352a3a5c3905babb02c96bf7e12432602177ce72af624508b90"
+    },
+    {
+      "file": "candidate-b-heldout350/summary.json",
+      "bytes": 20550,
+      "sha256": "89bee3a2d02ae74eea4ca7e9d95a8dc00c030b46f8c8fd7eadf7a69e6b7d809f"
+    },
+    {
+      "file": "candidate-b-heldout350/game-1.json",
+      "bytes": 36585,
+      "sha256": "7f53644aeb942d0600a758135e28dd3ef5437594438036dac105086ba25f9340"
+    },
+    {
+      "file": "candidate-b-heldout350/game-2.json",
+      "bytes": 35161,
+      "sha256": "7a1edede5eb03ed56d481bde359b45c8f091277161e814ef48527a4d73486dfb"
+    },
+    {
+      "file": "candidate-b-heldout350/game-3.json",
+      "bytes": 32901,
+      "sha256": "8af482daa74e4509247f8f1fb88ebde89c3af5f295bce7134c7cc75669de7d27"
+    },
+    {
+      "file": "candidate-b-heldout350/game-4.json",
+      "bytes": 38541,
+      "sha256": "ae1b149b29362f9739345ef8f6b6a4b48bff570d47ede80e669091dc5779b2ed"
+    },
+    {
+      "file": "candidate-b-heldout350/game-5.json",
+      "bytes": 35888,
+      "sha256": "a49839b1de080d4538cb654d9cc3c76d38e532c7aca599e1112bdff2e4b2b3fb"
+    },
+    {
+      "file": "candidate-b-heldout350/game-6.json",
+      "bytes": 33456,
+      "sha256": "d292f9557c5098a22e4073ce6e5f4b9e66666ec124e70a1a5ece1857e406c2f0"
+    },
+    {
+      "file": "candidate-b-heldout350/game-7.json",
+      "bytes": 36685,
+      "sha256": "e9f42dcb05c651d27eea1c962dfbef3844c1f059c30a7f5c529395bd43323d63"
+    },
+    {
+      "file": "candidate-b-heldout350/game-8.json",
+      "bytes": 35480,
+      "sha256": "14c08826f714a72939b241c38f26bfbcb6c57c13d6f20d7e070a8494a1e57bc3"
+    },
+    {
+      "file": "candidate-c-screen100/summary.json",
+      "bytes": 11990,
+      "sha256": "856be734018db733465c101625b01111c7be4b85c60024c767bdcd1edde9f8ab"
+    },
+    {
+      "file": "candidate-c-screen100/game-1.json",
+      "bytes": 41904,
+      "sha256": "891c547f38845362286196ed2cb5b877ea1b8174eae1fede0c6f371ec5657353"
+    },
+    {
+      "file": "candidate-c-screen100/game-2.json",
+      "bytes": 37826,
+      "sha256": "4aa865ac5d50347d4ec1c3918887d5584d578faa9d4fbc531d835b03df0f91f5"
+    },
+    {
+      "file": "candidate-c-screen100/game-3.json",
+      "bytes": 34351,
+      "sha256": "7e3d03ff24b1f0e06adcb0cb7ac37aad75e28f6869464db591462e4d2e7de2d4"
+    },
+    {
+      "file": "candidate-c-screen100/game-4.json",
+      "bytes": 36341,
+      "sha256": "ff592c5c70a3c52f39c0a9e88f3d0998cd02a153293a5196062817b05f4139af"
+    },
+    {
+      "file": "candidate-c-heldout350/summary.json",
+      "bytes": 20308,
+      "sha256": "9abc796fda69f4ddff12b3d4d9b14e9f4e924d111ed01347e5cb407622bb4831"
+    },
+    {
+      "file": "candidate-c-heldout350/game-1.json",
+      "bytes": 32758,
+      "sha256": "419c18a0b04ab80470cb4b2a4928b25c540f0f90bc942d3049b86ad37ae1896d"
+    },
+    {
+      "file": "candidate-c-heldout350/game-2.json",
+      "bytes": 32060,
+      "sha256": "a6eafc93088a7857480b02b01fbd5b7b7ef6d2f187fb7c202177350c9f9cece0"
+    },
+    {
+      "file": "candidate-c-heldout350/game-3.json",
+      "bytes": 39462,
+      "sha256": "55e660df4bf4cb5827d07b42f23cf68ff0f5629d7f5c21a7ee2ac5edc1c705ae"
+    },
+    {
+      "file": "candidate-c-heldout350/game-4.json",
+      "bytes": 38582,
+      "sha256": "b292c5ebff70c493cb5e76d020a1b17afb1615e4ce19421bad778a5b2c91516d"
+    },
+    {
+      "file": "candidate-c-heldout350/game-5.json",
+      "bytes": 34932,
+      "sha256": "0f5e4822d4f7964a5452621b6fa999f1460414fb1798a6b9d31fe2874576e69e"
+    },
+    {
+      "file": "candidate-c-heldout350/game-6.json",
+      "bytes": 35320,
+      "sha256": "6fc05b4cde088f54829aa4f6d513f0726f08cef2c2a4bf01009af10a5b418429"
+    },
+    {
+      "file": "candidate-c-heldout350/game-7.json",
+      "bytes": 30550,
+      "sha256": "b2afb72f77d84b267c94e6a6a46d394624466b34e1adce4d01663c207796c5b8"
+    },
+    {
+      "file": "candidate-c-heldout350/game-8.json",
+      "bytes": 33453,
+      "sha256": "3c337d847e60a4a8fc14880d2de10654028a3b7268dea0ff1aa9dd7ba400cc63"
+    },
+    {
+      "file": "candidate-d-screen100/summary.json",
+      "bytes": 11852,
+      "sha256": "431e0831322ff69590f87cf8dea0f25e6f764bf14f1190816d5688a12ef0c57c"
+    },
+    {
+      "file": "candidate-d-screen100/game-1.json",
+      "bytes": 40324,
+      "sha256": "168da7720f078100155cbd35dfddb736ce51be215fd4ef76a0463afb85e1be84"
+    },
+    {
+      "file": "candidate-d-screen100/game-2.json",
+      "bytes": 35631,
+      "sha256": "17e3063e5770bed2aa899489ca257b6a500a63f3f146491cea49e8ae42573327"
+    },
+    {
+      "file": "candidate-d-screen100/game-3.json",
+      "bytes": 34599,
+      "sha256": "e44b5d7581597a8ff4adfc85590c2d0670a997202b66b813d486eca952e34b25"
+    },
+    {
+      "file": "candidate-d-screen100/game-4.json",
+      "bytes": 35393,
+      "sha256": "bce2d4bcc4bc3b5028f5634ab6a8e3eb26187dd88e24a89bd9c9b93cda1587e0"
+    },
+    {
+      "file": "candidate-e-screen100/summary.json",
+      "bytes": 12087,
+      "sha256": "670cdf23e1e4e4f83943b2e6e9ce372409c66f03dfd8f1f4d3dafa8d143dce7d"
+    },
+    {
+      "file": "candidate-e-screen100/game-1.json",
+      "bytes": 36494,
+      "sha256": "fcaf33aff4b5d11af923fa65703186b6a7624f40b2e47176d6c3f1b4a897813d"
+    },
+    {
+      "file": "candidate-e-screen100/game-2.json",
+      "bytes": 38040,
+      "sha256": "d16ca2f1dedf65fea551ed10d64d57908495ab63ca74e656d5146ce46860d714"
+    },
+    {
+      "file": "candidate-e-screen100/game-3.json",
+      "bytes": 36933,
+      "sha256": "797da37dc3d823a050dc9cf1edf1affb13391bb987543a65ab4530450acf11fd"
+    },
+    {
+      "file": "candidate-e-screen100/game-4.json",
+      "bytes": 35716,
+      "sha256": "9ce871f1c574cd8351149f776fe28ed51479483d3b0726ae7935f7f47837fa32"
+    },
+    {
+      "file": "candidate-e-confirm350/summary.json",
+      "bytes": 20198,
+      "sha256": "562e016951c5fbc7d60ad8f13df944b397506a8a574f840e143f464eac975fdf"
+    },
+    {
+      "file": "candidate-e-confirm350/game-1.json",
+      "bytes": 31981,
+      "sha256": "9b9b7f3c0e356adf2d05a349cec5b243bd0f04e9761de2f968f5f03f107b425e"
+    },
+    {
+      "file": "candidate-e-confirm350/game-2.json",
+      "bytes": 111097,
+      "sha256": "a75e52ad731f29a9d5834129e7148dbc139f5d826388a1a83eafbf5ed37456c2"
+    },
+    {
+      "file": "candidate-e-confirm350/game-3.json",
+      "bytes": 31604,
+      "sha256": "4acae73d863a8e7f3a58af9faec197a5ac94a317b0ff45be697147cd7893073e"
+    },
+    {
+      "file": "candidate-e-confirm350/game-4.json",
+      "bytes": 32230,
+      "sha256": "0a61ee923b24cbea9e795a61053d4e7bff859aff055e721a8de1c383f6d53054"
+    },
+    {
+      "file": "candidate-e-confirm350/game-5.json",
+      "bytes": 34251,
+      "sha256": "a3e012e7895a54e75f8842c47528af7caff81cda9f793fe9fd1684c9ef0ff786"
+    },
+    {
+      "file": "candidate-e-confirm350/game-6.json",
+      "bytes": 35014,
+      "sha256": "daf31f2745ff25a04adb82bc0826f7617b3323bb681189857af55cac7eb08074"
+    },
+    {
+      "file": "candidate-e-confirm350/game-7.json",
+      "bytes": 35782,
+      "sha256": "d9ac7f364a17a6b4e45209b98d7010bed16badc6622dfb600b8541a23686f774"
+    },
+    {
+      "file": "candidate-e-confirm350/game-8.json",
+      "bytes": 31965,
+      "sha256": "70459833f74161c56d8088cfcf7fa5b48e80927e96958778230eff5a3ba04189"
+    },
+    {
+      "file": "candidate-h-screen100/summary.json",
+      "bytes": 11683,
+      "sha256": "1f802bcac80d5c5213e7e8e14f1087a870d2d2cbfd14b302c19139a32c2e5759"
+    },
+    {
+      "file": "candidate-h-screen100/game-1.json",
+      "bytes": 40201,
+      "sha256": "b9a3bc4014c230eab332f6a052ad44a2db31bc6265b9a82d91b5e6736128975f"
+    },
+    {
+      "file": "candidate-h-screen100/game-2.json",
+      "bytes": 111333,
+      "sha256": "c76b09269ce2681fafd411e6ce77221f2bd22e8b36d4a4a04c870778a703ab4f"
+    },
+    {
+      "file": "candidate-h-screen100/game-3.json",
+      "bytes": 38969,
+      "sha256": "4ea1b98debaed6f3b8f9e8120fce077c636b38b1b4f1c6609ef15f16a594f284"
+    },
+    {
+      "file": "candidate-h-screen100/game-4.json",
+      "bytes": 39093,
+      "sha256": "8ac5f18e45dbf44ba9f46ed70fede29565af35f335c22931315e6ae9dcca0ae2"
+    },
+    {
+      "file": "candidate-i-screen100/summary.json",
+      "bytes": 12107,
+      "sha256": "0989bba02ae37637b5935f84d11e1b9e8297a4447820a87f300479459cbf8c48"
+    },
+    {
+      "file": "candidate-i-screen100/game-1.json",
+      "bytes": 36350,
+      "sha256": "0c7ebcba06527ebe4f13050bdd5ae236315373afd3bbb8bb35743dfcdf50fccf"
+    },
+    {
+      "file": "candidate-i-screen100/game-2.json",
+      "bytes": 40467,
+      "sha256": "842b632633776e587a24594d83eb4d4cc814bd98139378cef5229cf7762aacb8"
+    },
+    {
+      "file": "candidate-i-screen100/game-3.json",
+      "bytes": 31392,
+      "sha256": "920e6bd553e1956dd85e64e7cd8055572da8c14169b307eca3bc573ac5115c87"
+    },
+    {
+      "file": "candidate-i-screen100/game-4.json",
+      "bytes": 38871,
+      "sha256": "c7440a38de0913a0e0a6623e0e73b955971b698c5d683bfa79d1ccda97200878"
+    },
+    {
+      "file": "candidate-i-confirm350/summary.json",
+      "bytes": 19880,
+      "sha256": "cb6adb1becbe95966be6ac5ff4c3d2784a7329a3526417345479f289df24194a"
+    },
+    {
+      "file": "candidate-i-confirm350/game-1.json",
+      "bytes": 111193,
+      "sha256": "aae2296307d9dabaf050cf5862a39b8fcc69e21929fc6b0fde5b8a99c4580f0b"
+    },
+    {
+      "file": "candidate-i-confirm350/game-2.json",
+      "bytes": 35502,
+      "sha256": "a03df6b0488f932fd326db39b694aa6edc222c7d8391f0b63029dc6d9f053c00"
+    },
+    {
+      "file": "candidate-i-confirm350/game-3.json",
+      "bytes": 37307,
+      "sha256": "eb8b80f2fe595a9b3693bc2a1878a8d10e1282eb3259fde9cdb6a12e431bb548"
+    },
+    {
+      "file": "candidate-i-confirm350/game-4.json",
+      "bytes": 33488,
+      "sha256": "7d3ba185219901d127633f08802a61ca25ddd5e259b7cfca4e8b0d3fe893e907"
+    },
+    {
+      "file": "candidate-i-confirm350/game-5.json",
+      "bytes": 103122,
+      "sha256": "48ca421f52912e6177c37944766cce6d8e278fad3ca775c4139fd4a6108c876f"
+    },
+    {
+      "file": "candidate-i-confirm350/game-6.json",
+      "bytes": 33465,
+      "sha256": "b3a0399666100f4194c62a1a6eb8a3afce57da4a457febb0e1282cf2887609a0"
+    },
+    {
+      "file": "candidate-i-confirm350/game-7.json",
+      "bytes": 31467,
+      "sha256": "b2ae2e973b0a167012b9e031c090c759119f3abbf3b375c98f4357acebb631b9"
+    },
+    {
+      "file": "candidate-i-confirm350/game-8.json",
+      "bytes": 30448,
+      "sha256": "748054a1080425d9199c95481cfa5fb4d560cd8955f01432e2edd21cdf62705a"
+    }
+  ],
+  "originalFileCount": 75,
+  "originalBytes": 2716728
+}

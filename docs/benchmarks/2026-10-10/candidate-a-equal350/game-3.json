@@ -1,0 +1,1958 @@
+{
+  "format": "starhop-v1",
+  "options": {
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "mode": "ai-ai",
+    "humanSeat": 0,
+    "level": 4,
+    "secondLevel": 4
+  },
+  "moves": [
+    {
+      "from": 117,
+      "to": 106,
+      "path": [
+        117,
+        106
+      ]
+    },
+    {
+      "from": 6,
+      "to": 14,
+      "path": [
+        6,
+        14
+      ]
+    },
+    {
+      "from": 116,
+      "to": 105,
+      "path": [
+        116,
+        105
+      ]
+    },
+    {
+      "from": 8,
+      "to": 26,
+      "path": [
+        8,
+        6,
+        26
+      ]
+    },
+    {
+      "from": 115,
+      "to": 102,
+      "path": [
+        115,
+        102
+      ]
+    },
+    {
+      "from": 4,
+      "to": 38,
+      "path": [
+        4,
+        15,
+        13,
+        38
+      ]
+    },
+    {
+      "from": 120,
+      "to": 104,
+      "path": [
+        120,
+        115,
+        104
+      ]
+    },
+    {
+      "from": 1,
+      "to": 6,
+      "path": [
+        1,
+        6
+      ]
+    },
+    {
+      "from": 113,
+      "to": 93,
+      "path": [
+        113,
+        93
+      ]
+    },
+    {
+      "from": 14,
+      "to": 15,
+      "path": [
+        14,
+        15
+      ]
+    },
+    {
+      "from": 119,
+      "to": 116,
+      "path": [
+        119,
+        116
+      ]
+    },
+    {
+      "from": 7,
+      "to": 48,
+      "path": [
+        7,
+        27,
+        48
+      ]
+    },
+    {
+      "from": 118,
+      "to": 91,
+      "path": [
+        118,
+        113,
+        91
+      ]
+    },
+    {
+      "from": 3,
+      "to": 58,
+      "path": [
+        3,
+        14,
+        37,
+        58
+      ]
+    },
+    {
+      "from": 106,
+      "to": 81,
+      "path": [
+        106,
+        81
+      ]
+    },
+    {
+      "from": 5,
+      "to": 8,
+      "path": [
+        5,
+        8
+      ]
+    },
+    {
+      "from": 114,
+      "to": 71,
+      "path": [
+        114,
+        92,
+        71
+      ]
+    },
+    {
+      "from": 0,
+      "to": 39,
+      "path": [
+        0,
+        5,
+        16,
+        14,
+        37,
+        39
+      ]
+    },
+    {
+      "from": 116,
+      "to": 61,
+      "path": [
+        116,
+        103,
+        80,
+        82,
+        61
+      ]
+    },
+    {
+      "from": 6,
+      "to": 67,
+      "path": [
+        6,
+        28,
+        49,
+        67
+      ]
+    },
+    {
+      "from": 93,
+      "to": 52,
+      "path": [
+        93,
+        70,
+        52
+      ]
+    },
+    {
+      "from": 9,
+      "to": 50,
+      "path": [
+        9,
+        7,
+        27,
+        50
+      ]
+    },
+    {
+      "from": 111,
+      "to": 70,
+      "path": [
+        111,
+        113,
+        93,
+        70
+      ]
+    },
+    {
+      "from": 26,
+      "to": 51,
+      "path": [
+        26,
+        49,
+        51
+      ]
+    },
+    {
+      "from": 105,
+      "to": 80,
+      "path": [
+        105,
+        103,
+        80
+      ]
+    },
+    {
+      "from": 39,
+      "to": 60,
+      "path": [
+        39,
+        60
+      ]
+    },
+    {
+      "from": 112,
+      "to": 69,
+      "path": [
+        112,
+        92,
+        69
+      ]
+    },
+    {
+      "from": 38,
+      "to": 78,
+      "path": [
+        38,
+        57,
+        78
+      ]
+    },
+    {
+      "from": 80,
+      "to": 38,
+      "path": [
+        80,
+        59,
+        57,
+        38
+      ]
+    },
+    {
+      "from": 67,
+      "to": 112,
+      "path": [
+        67,
+        90,
+        92,
+        112
+      ]
+    },
+    {
+      "from": 102,
+      "to": 103,
+      "path": [
+        102,
+        103
+      ]
+    },
+    {
+      "from": 51,
+      "to": 90,
+      "path": [
+        51,
+        49,
+        67,
+        90
+      ]
+    },
+    {
+      "from": 103,
+      "to": 40,
+      "path": [
+        103,
+        80,
+        59,
+        40
+      ]
+    },
+    {
+      "from": 15,
+      "to": 16,
+      "path": [
+        15,
+        16
+      ]
+    },
+    {
+      "from": 69,
+      "to": 26,
+      "path": [
+        69,
+        51,
+        49,
+        26
+      ]
+    },
+    {
+      "from": 48,
+      "to": 89,
+      "path": [
+        48,
+        68,
+        89
+      ]
+    },
+    {
+      "from": 81,
+      "to": 41,
+      "path": [
+        81,
+        62,
+        41
+      ]
+    },
+    {
+      "from": 8,
+      "to": 67,
+      "path": [
+        8,
+        28,
+        51,
+        49,
+        67
+      ]
+    },
+    {
+      "from": 71,
+      "to": 8,
+      "path": [
+        71,
+        51,
+        28,
+        8
+      ]
+    },
+    {
+      "from": 16,
+      "to": 28,
+      "path": [
+        16,
+        28
+      ]
+    },
+    {
+      "from": 41,
+      "to": 0,
+      "path": [
+        41,
+        39,
+        16,
+        5,
+        0
+      ]
+    },
+    {
+      "from": 28,
+      "to": 71,
+      "path": [
+        28,
+        51,
+        71
+      ]
+    },
+    {
+      "from": 104,
+      "to": 77,
+      "path": [
+        104,
+        79,
+        77
+      ]
+    },
+    {
+      "from": 78,
+      "to": 116,
+      "path": [
+        78,
+        103,
+        116
+      ]
+    },
+    {
+      "from": 52,
+      "to": 41,
+      "path": [
+        52,
+        41
+      ]
+    },
+    {
+      "from": 90,
+      "to": 92,
+      "path": [
+        90,
+        92
+      ]
+    },
+    {
+      "from": 70,
+      "to": 29,
+      "path": [
+        70,
+        52,
+        29
+      ]
+    },
+    {
+      "from": 60,
+      "to": 117,
+      "path": [
+        60,
+        62,
+        81,
+        104,
+        115,
+        117
+      ]
+    },
+    {
+      "from": 40,
+      "to": 4,
+      "path": [
+        40,
+        17,
+        4
+      ]
+    },
+    {
+      "from": 67,
+      "to": 68,
+      "path": [
+        67,
+        68
+      ]
+    },
+    {
+      "from": 91,
+      "to": 79,
+      "path": [
+        91,
+        79
+      ]
+    },
+    {
+      "from": 50,
+      "to": 59,
+      "path": [
+        50,
+        59
+      ]
+    },
+    {
+      "from": 79,
+      "to": 78,
+      "path": [
+        79,
+        78
+      ]
+    },
+    {
+      "from": 89,
+      "to": 102,
+      "path": [
+        89,
+        102
+      ]
+    },
+    {
+      "from": 61,
+      "to": 51,
+      "path": [
+        61,
+        51
+      ]
+    },
+    {
+      "from": 71,
+      "to": 81,
+      "path": [
+        71,
+        81
+      ]
+    },
+    {
+      "from": 78,
+      "to": 76,
+      "path": [
+        78,
+        76
+      ]
+    },
+    {
+      "from": 59,
+      "to": 78,
+      "path": [
+        59,
+        78
+      ]
+    },
+    {
+      "from": 41,
+      "to": 5,
+      "path": [
+        41,
+        16,
+        5
+      ]
+    },
+    {
+      "from": 117,
+      "to": 119,
+      "path": [
+        117,
+        119
+      ]
+    },
+    {
+      "from": 77,
+      "to": 66,
+      "path": [
+        77,
+        66
+      ]
+    },
+    {
+      "from": 81,
+      "to": 80,
+      "path": [
+        81,
+        80
+      ]
+    },
+    {
+      "from": 76,
+      "to": 57,
+      "path": [
+        76,
+        57
+      ]
+    },
+    {
+      "from": 58,
+      "to": 120,
+      "path": [
+        58,
+        79,
+        81,
+        104,
+        115,
+        117,
+        120
+      ]
+    },
+    {
+      "from": 66,
+      "to": 27,
+      "path": [
+        66,
+        48,
+        27
+      ]
+    },
+    {
+      "from": 68,
+      "to": 118,
+      "path": [
+        68,
+        89,
+        111,
+        113,
+        118
+      ]
+    },
+    {
+      "from": 38,
+      "to": 15,
+      "path": [
+        38,
+        15
+      ]
+    },
+    {
+      "from": 78,
+      "to": 79,
+      "path": [
+        78,
+        79
+      ]
+    },
+    {
+      "from": 26,
+      "to": 6,
+      "path": [
+        26,
+        28,
+        6
+      ]
+    },
+    {
+      "from": 79,
+      "to": 115,
+      "path": [
+        79,
+        81,
+        104,
+        115
+      ]
+    },
+    {
+      "from": 51,
+      "to": 41,
+      "path": [
+        51,
+        41
+      ]
+    },
+    {
+      "from": 2,
+      "to": 7,
+      "path": [
+        2,
+        7
+      ]
+    },
+    {
+      "from": 41,
+      "to": 3,
+      "path": [
+        41,
+        16,
+        3
+      ]
+    },
+    {
+      "from": 80,
+      "to": 105,
+      "path": [
+        80,
+        105
+      ]
+    },
+    {
+      "from": 4,
+      "to": 2,
+      "path": [
+        4,
+        2
+      ]
+    },
+    {
+      "from": 92,
+      "to": 114,
+      "path": [
+        92,
+        114
+      ]
+    },
+    {
+      "from": 15,
+      "to": 4,
+      "path": [
+        15,
+        4
+      ]
+    },
+    {
+      "from": 102,
+      "to": 111,
+      "path": [
+        102,
+        111
+      ]
+    },
+    {
+      "from": 6,
+      "to": 1,
+      "path": [
+        6,
+        1
+      ]
+    },
+    {
+      "from": 105,
+      "to": 113,
+      "path": [
+        105,
+        113
+      ]
+    },
+    {
+      "from": 57,
+      "to": 48,
+      "path": [
+        57,
+        48
+      ]
+    },
+    {
+      "from": 113,
+      "to": 117,
+      "path": [
+        113,
+        117
+      ]
+    },
+    {
+      "from": 48,
+      "to": 38,
+      "path": [
+        48,
+        38
+      ]
+    },
+    {
+      "from": 7,
+      "to": 15,
+      "path": [
+        7,
+        15
+      ]
+    },
+    {
+      "from": 29,
+      "to": 17,
+      "path": [
+        29,
+        17
+      ]
+    },
+    {
+      "from": 111,
+      "to": 113,
+      "path": [
+        111,
+        113
+      ]
+    },
+    {
+      "from": 17,
+      "to": 9,
+      "path": [
+        17,
+        9
+      ]
+    },
+    {
+      "from": 112,
+      "to": 111,
+      "path": [
+        112,
+        111
+      ]
+    },
+    {
+      "from": 27,
+      "to": 7,
+      "path": [
+        27,
+        7
+      ]
+    },
+    {
+      "from": 15,
+      "to": 6,
+      "path": [
+        15,
+        6
+      ]
+    },
+    {
+      "from": 38,
+      "to": 26,
+      "path": [
+        38,
+        26
+      ]
+    },
+    {
+      "from": 113,
+      "to": 112,
+      "path": [
+        113,
+        112
+      ]
+    },
+    {
+      "from": 26,
+      "to": 14,
+      "path": [
+        26,
+        14
+      ]
+    },
+    {
+      "from": 111,
+      "to": 113,
+      "path": [
+        111,
+        113
+      ]
+    },
+    {
+      "from": 14,
+      "to": 15,
+      "path": [
+        14,
+        15
+      ]
+    },
+    {
+      "from": 112,
+      "to": 111,
+      "path": [
+        112,
+        111
+      ]
+    },
+    {
+      "from": 15,
+      "to": 27,
+      "path": [
+        15,
+        27
+      ]
+    },
+    {
+      "from": 114,
+      "to": 112,
+      "path": [
+        114,
+        112
+      ]
+    },
+    {
+      "from": 27,
+      "to": 26,
+      "path": [
+        27,
+        26
+      ]
+    },
+    {
+      "from": 113,
+      "to": 114,
+      "path": [
+        113,
+        114
+      ]
+    },
+    {
+      "from": 26,
+      "to": 14,
+      "path": [
+        26,
+        14
+      ]
+    },
+    {
+      "from": 111,
+      "to": 113,
+      "path": [
+        111,
+        113
+      ]
+    },
+    {
+      "from": 14,
+      "to": 15,
+      "path": [
+        14,
+        15
+      ]
+    },
+    {
+      "from": 112,
+      "to": 111,
+      "path": [
+        112,
+        111
+      ]
+    },
+    {
+      "from": 15,
+      "to": 27,
+      "path": [
+        15,
+        27
+      ]
+    },
+    {
+      "from": 114,
+      "to": 112,
+      "path": [
+        114,
+        112
+      ]
+    },
+    {
+      "from": 27,
+      "to": 15,
+      "path": [
+        27,
+        15
+      ]
+    },
+    {
+      "from": 112,
+      "to": 114,
+      "path": [
+        112,
+        114
+      ]
+    }
+  ],
+  "result": {
+    "winner": null,
+    "draw": "三次重复局面"
+  },
+  "benchmark": {
+    "game": 3,
+    "pair": 2,
+    "newSeat": 0,
+    "openingSeed": 20271010,
+    "openingPlies": 8,
+    "budgetMs": 350,
+    "newLevel": 4,
+    "oldLevel": 4,
+    "winner": null,
+    "draw": "三次重复局面",
+    "reason": null,
+    "terminalPly": 108,
+    "ownTurnsAtTerminal": {
+      "new": 54,
+      "old": 54
+    },
+    "pieceMovesAtTerminal": {
+      "new": 54,
+      "old": 54
+    },
+    "unfinishedPiecesAtTerminal": {
+      "new": 1,
+      "old": 1
+    },
+    "timing": {
+      "new": {
+        "searches": 50,
+        "meanMs": 350.0734900000006,
+        "p95Ms": 350.1106,
+        "maxMs": 350.1535999999978
+      },
+      "old": {
+        "searches": 50,
+        "meanMs": 350.3930240000003,
+        "p95Ms": 350.9544999999998,
+        "maxMs": 351.1020999999964
+      }
+    },
+    "exactFinishGap": null,
+    "policyFinishGap": null,
+    "exactCompletion": {
+      "status": "unknown",
+      "remainingOwnTurns": null,
+      "ownTurnsAtCompletion": null,
+      "signedOwnTurnGap": null,
+      "winnerOwnTurnLead": null,
+      "turnIndexGap": null,
+      "clearlySeparated": null
+    },
+    "policyCompletion": {
+      "status": "unknown",
+      "remainingOwnTurns": null,
+      "ownTurnsAtCompletion": null,
+      "signedOwnTurnGap": null,
+      "winnerOwnTurnLead": null,
+      "turnIndexGap": null,
+      "clearlySeparated": null
+    },
+    "exactStatus": null,
+    "exactReason": null,
+    "continuationStatus": null,
+    "continuationReason": null,
+    "elapsedSeconds": 35.029670200000005
+  },
+  "searchLog": [
+    {
+      "ply": 9,
+      "engine": "new",
+      "elapsedMs": 350.09569999999803,
+      "reportedMs": 350.08150000000023,
+      "depth": 6,
+      "nodes": 126109
+    },
+    {
+      "ply": 10,
+      "engine": "old",
+      "elapsedMs": 350.129399999998,
+      "reportedMs": 350.11559999999736,
+      "depth": 6,
+      "nodes": 182016
+    },
+    {
+      "ply": 11,
+      "engine": "new",
+      "elapsedMs": 350.08580000000075,
+      "reportedMs": 350.0645999999979,
+      "depth": 5,
+      "nodes": 130315
+    },
+    {
+      "ply": 12,
+      "engine": "old",
+      "elapsedMs": 350.40209999999934,
+      "reportedMs": 350.3856999999989,
+      "depth": 6,
+      "nodes": 168192
+    },
+    {
+      "ply": 13,
+      "engine": "new",
+      "elapsedMs": 350.10059999999794,
+      "reportedMs": 350.0809999999983,
+      "depth": 5,
+      "nodes": 109750
+    },
+    {
+      "ply": 14,
+      "engine": "old",
+      "elapsedMs": 350.6070000000036,
+      "reportedMs": 350.59330000000045,
+      "depth": 6,
+      "nodes": 154880
+    },
+    {
+      "ply": 15,
+      "engine": "new",
+      "elapsedMs": 350.09909999999945,
+      "reportedMs": 350.0820999999996,
+      "depth": 5,
+      "nodes": 90505
+    },
+    {
+      "ply": 16,
+      "engine": "old",
+      "elapsedMs": 350.3041000000012,
+      "reportedMs": 350.28689999999915,
+      "depth": 6,
+      "nodes": 163840
+    },
+    {
+      "ply": 17,
+      "engine": "new",
+      "elapsedMs": 350.08550000000105,
+      "reportedMs": 350.0688999999984,
+      "depth": 5,
+      "nodes": 92922
+    },
+    {
+      "ply": 18,
+      "engine": "old",
+      "elapsedMs": 350.2302999999956,
+      "reportedMs": 350.2108999999982,
+      "depth": 5,
+      "nodes": 151296
+    },
+    {
+      "ply": 19,
+      "engine": "new",
+      "elapsedMs": 350.1106,
+      "reportedMs": 350.0908000000054,
+      "depth": 5,
+      "nodes": 82329
+    },
+    {
+      "ply": 20,
+      "engine": "old",
+      "elapsedMs": 350.7551999999996,
+      "reportedMs": 350.7324000000008,
+      "depth": 5,
+      "nodes": 110336
+    },
+    {
+      "ply": 21,
+      "engine": "new",
+      "elapsedMs": 350.1535999999978,
+      "reportedMs": 350.1296999999977,
+      "depth": 5,
+      "nodes": 78178
+    },
+    {
+      "ply": 22,
+      "engine": "old",
+      "elapsedMs": 350.89650000000256,
+      "reportedMs": 350.8755999999994,
+      "depth": 5,
+      "nodes": 115968
+    },
+    {
+      "ply": 23,
+      "engine": "new",
+      "elapsedMs": 350.1226000000024,
+      "reportedMs": 350.0770000000048,
+      "depth": 4,
+      "nodes": 75637
+    },
+    {
+      "ply": 24,
+      "engine": "old",
+      "elapsedMs": 351.1020999999964,
+      "reportedMs": 351.08490000000165,
+      "depth": 5,
+      "nodes": 120320
+    },
+    {
+      "ply": 25,
+      "engine": "new",
+      "elapsedMs": 350.06289999999717,
+      "reportedMs": 350.0468000000037,
+      "depth": 5,
+      "nodes": 84994
+    },
+    {
+      "ply": 26,
+      "engine": "old",
+      "elapsedMs": 350.5786999999982,
+      "reportedMs": 350.55740000000515,
+      "depth": 5,
+      "nodes": 105984
+    },
+    {
+      "ply": 27,
+      "engine": "new",
+      "elapsedMs": 350.0708999999988,
+      "reportedMs": 350.04909999999654,
+      "depth": 5,
+      "nodes": 73069
+    },
+    {
+      "ply": 28,
+      "engine": "old",
+      "elapsedMs": 350.815499999997,
+      "reportedMs": 350.7998000000007,
+      "depth": 5,
+      "nodes": 100352
+    },
+    {
+      "ply": 29,
+      "engine": "new",
+      "elapsedMs": 350.078499999996,
+      "reportedMs": 350.0596000000005,
+      "depth": 5,
+      "nodes": 66061
+    },
+    {
+      "ply": 30,
+      "engine": "old",
+      "elapsedMs": 351.03519999999844,
+      "reportedMs": 351.0155999999988,
+      "depth": 5,
+      "nodes": 115456
+    },
+    {
+      "ply": 31,
+      "engine": "new",
+      "elapsedMs": 350.0796999999948,
+      "reportedMs": 350.0518000000011,
+      "depth": 4,
+      "nodes": 73618
+    },
+    {
+      "ply": 32,
+      "engine": "old",
+      "elapsedMs": 350.53629999999976,
+      "reportedMs": 350.5158999999985,
+      "depth": 5,
+      "nodes": 111872
+    },
+    {
+      "ply": 33,
+      "engine": "new",
+      "elapsedMs": 350.0723999999973,
+      "reportedMs": 350.0541999999987,
+      "depth": 4,
+      "nodes": 71202
+    },
+    {
+      "ply": 34,
+      "engine": "old",
+      "elapsedMs": 350.18849999999657,
+      "reportedMs": 350.1654999999955,
+      "depth": 5,
+      "nodes": 107776
+    },
+    {
+      "ply": 35,
+      "engine": "new",
+      "elapsedMs": 350.07800000000134,
+      "reportedMs": 350.0604000000021,
+      "depth": 4,
+      "nodes": 73397
+    },
+    {
+      "ply": 36,
+      "engine": "old",
+      "elapsedMs": 350.9544999999998,
+      "reportedMs": 350.9337000000014,
+      "depth": 5,
+      "nodes": 124928
+    },
+    {
+      "ply": 37,
+      "engine": "new",
+      "elapsedMs": 350.0677999999971,
+      "reportedMs": 350.0483999999997,
+      "depth": 4,
+      "nodes": 72297
+    },
+    {
+      "ply": 38,
+      "engine": "old",
+      "elapsedMs": 350.59530000000086,
+      "reportedMs": 350.5755999999965,
+      "depth": 5,
+      "nodes": 122112
+    },
+    {
+      "ply": 39,
+      "engine": "new",
+      "elapsedMs": 350.0671999999977,
+      "reportedMs": 350.0480000000025,
+      "depth": 4,
+      "nodes": 69115
+    },
+    {
+      "ply": 40,
+      "engine": "old",
+      "elapsedMs": 350.3554000000004,
+      "reportedMs": 350.33490000000165,
+      "depth": 5,
+      "nodes": 121600
+    },
+    {
+      "ply": 41,
+      "engine": "new",
+      "elapsedMs": 350.0699999999997,
+      "reportedMs": 350.04990000000544,
+      "depth": 4,
+      "nodes": 69302
+    },
+    {
+      "ply": 42,
+      "engine": "old",
+      "elapsedMs": 350.3393000000069,
+      "reportedMs": 350.3179999999993,
+      "depth": 5,
+      "nodes": 132864
+    },
+    {
+      "ply": 43,
+      "engine": "new",
+      "elapsedMs": 350.071299999996,
+      "reportedMs": 350.05029999998806,
+      "depth": 5,
+      "nodes": 79715
+    },
+    {
+      "ply": 44,
+      "engine": "old",
+      "elapsedMs": 350.18069999999716,
+      "reportedMs": 350.1609000000026,
+      "depth": 5,
+      "nodes": 133376
+    },
+    {
+      "ply": 45,
+      "engine": "new",
+      "elapsedMs": 350.06149999999616,
+      "reportedMs": 350.0429000000004,
+      "depth": 5,
+      "nodes": 77578
+    },
+    {
+      "ply": 46,
+      "engine": "old",
+      "elapsedMs": 350.4511000000057,
+      "reportedMs": 350.435799999992,
+      "depth": 5,
+      "nodes": 129792
+    },
+    {
+      "ply": 47,
+      "engine": "new",
+      "elapsedMs": 350.06269999999495,
+      "reportedMs": 350.04469999999856,
+      "depth": 5,
+      "nodes": 80042
+    },
+    {
+      "ply": 48,
+      "engine": "old",
+      "elapsedMs": 350.0746999999974,
+      "reportedMs": 350.05289999999513,
+      "depth": 5,
+      "nodes": 146176
+    },
+    {
+      "ply": 49,
+      "engine": "new",
+      "elapsedMs": 350.07010000001173,
+      "reportedMs": 350.0494000000035,
+      "depth": 5,
+      "nodes": 86079
+    },
+    {
+      "ply": 50,
+      "engine": "old",
+      "elapsedMs": 350.6970000000001,
+      "reportedMs": 350.67089999999735,
+      "depth": 5,
+      "nodes": 158720
+    },
+    {
+      "ply": 51,
+      "engine": "new",
+      "elapsedMs": 350.0920000000042,
+      "reportedMs": 350.0486000000092,
+      "depth": 5,
+      "nodes": 82055
+    },
+    {
+      "ply": 52,
+      "engine": "old",
+      "elapsedMs": 350.1276999999973,
+      "reportedMs": 350.1051000000007,
+      "depth": 5,
+      "nodes": 164608
+    },
+    {
+      "ply": 53,
+      "engine": "new",
+      "elapsedMs": 350.06299999999464,
+      "reportedMs": 350.0433000000048,
+      "depth": 5,
+      "nodes": 92187
+    },
+    {
+      "ply": 54,
+      "engine": "old",
+      "elapsedMs": 350.2700000000041,
+      "reportedMs": 350.22939999999653,
+      "depth": 5,
+      "nodes": 171264
+    },
+    {
+      "ply": 55,
+      "engine": "new",
+      "elapsedMs": 350.0618000000104,
+      "reportedMs": 350.04739999999583,
+      "depth": 5,
+      "nodes": 97344
+    },
+    {
+      "ply": 56,
+      "engine": "old",
+      "elapsedMs": 350.5313999999926,
+      "reportedMs": 350.51549999999406,
+      "depth": 5,
+      "nodes": 179712
+    },
+    {
+      "ply": 57,
+      "engine": "new",
+      "elapsedMs": 350.0770000000048,
+      "reportedMs": 350.0477000000101,
+      "depth": 5,
+      "nodes": 96348
+    },
+    {
+      "ply": 58,
+      "engine": "old",
+      "elapsedMs": 350.8654000000097,
+      "reportedMs": 350.8503000000055,
+      "depth": 5,
+      "nodes": 188672
+    },
+    {
+      "ply": 59,
+      "engine": "new",
+      "elapsedMs": 350.072800000009,
+      "reportedMs": 350.05740000000515,
+      "depth": 5,
+      "nodes": 111108
+    },
+    {
+      "ply": 60,
+      "engine": "old",
+      "elapsedMs": 350.40529999999853,
+      "reportedMs": 350.3833000000013,
+      "depth": 5,
+      "nodes": 198656
+    },
+    {
+      "ply": 61,
+      "engine": "new",
+      "elapsedMs": 350.0627999999997,
+      "reportedMs": 350.0523000000103,
+      "depth": 5,
+      "nodes": 117586
+    },
+    {
+      "ply": 62,
+      "engine": "old",
+      "elapsedMs": 350.4655000000057,
+      "reportedMs": 350.4210000000021,
+      "depth": 5,
+      "nodes": 191232
+    },
+    {
+      "ply": 63,
+      "engine": "new",
+      "elapsedMs": 350.0755999999965,
+      "reportedMs": 350.05809999999474,
+      "depth": 5,
+      "nodes": 127450
+    },
+    {
+      "ply": 64,
+      "engine": "old",
+      "elapsedMs": 350.78340000000026,
+      "reportedMs": 350.7659999999887,
+      "depth": 5,
+      "nodes": 185600
+    },
+    {
+      "ply": 65,
+      "engine": "new",
+      "elapsedMs": 350.0665000000008,
+      "reportedMs": 350.0518000000011,
+      "depth": 5,
+      "nodes": 131405
+    },
+    {
+      "ply": 66,
+      "engine": "old",
+      "elapsedMs": 350.2459999999992,
+      "reportedMs": 350.2069999999949,
+      "depth": 6,
+      "nodes": 229888
+    },
+    {
+      "ply": 67,
+      "engine": "new",
+      "elapsedMs": 350.09130000000005,
+      "reportedMs": 350.0532999999996,
+      "depth": 5,
+      "nodes": 132097
+    },
+    {
+      "ply": 68,
+      "engine": "old",
+      "elapsedMs": 350.43360000000393,
+      "reportedMs": 350.4176000000007,
+      "depth": 6,
+      "nodes": 247544
+    },
+    {
+      "ply": 69,
+      "engine": "new",
+      "elapsedMs": 350.0558000000019,
+      "reportedMs": 350.0414000000019,
+      "depth": 5,
+      "nodes": 139076
+    },
+    {
+      "ply": 70,
+      "engine": "old",
+      "elapsedMs": 350.2021999999997,
+      "reportedMs": 350.1889999999985,
+      "depth": 6,
+      "nodes": 268032
+    },
+    {
+      "ply": 71,
+      "engine": "new",
+      "elapsedMs": 350.06579999999667,
+      "reportedMs": 350.04929999999877,
+      "depth": 6,
+      "nodes": 156655
+    },
+    {
+      "ply": 72,
+      "engine": "old",
+      "elapsedMs": 350.2140999999974,
+      "reportedMs": 350.1734999999899,
+      "depth": 7,
+      "nodes": 297216
+    },
+    {
+      "ply": 73,
+      "engine": "new",
+      "elapsedMs": 350.06080000000657,
+      "reportedMs": 350.0482000000047,
+      "depth": 6,
+      "nodes": 155728
+    },
+    {
+      "ply": 74,
+      "engine": "old",
+      "elapsedMs": 350.2566000000079,
+      "reportedMs": 350.2456999999995,
+      "depth": 7,
+      "nodes": 292608
+    },
+    {
+      "ply": 75,
+      "engine": "new",
+      "elapsedMs": 350.0630999999994,
+      "reportedMs": 350.0488000000041,
+      "depth": 6,
+      "nodes": 187650
+    },
+    {
+      "ply": 76,
+      "engine": "old",
+      "elapsedMs": 350.65250000001106,
+      "reportedMs": 350.6365000000078,
+      "depth": 7,
+      "nodes": 311040
+    },
+    {
+      "ply": 77,
+      "engine": "new",
+      "elapsedMs": 350.06170000000566,
+      "reportedMs": 350.04709999999614,
+      "depth": 5,
+      "nodes": 192784
+    },
+    {
+      "ply": 78,
+      "engine": "old",
+      "elapsedMs": 350.27670000000217,
+      "reportedMs": 350.2627999999968,
+      "depth": 7,
+      "nodes": 371968
+    },
+    {
+      "ply": 79,
+      "engine": "new",
+      "elapsedMs": 350.07730000000447,
+      "reportedMs": 350.0555999999924,
+      "depth": 5,
+      "nodes": 190838
+    },
+    {
+      "ply": 80,
+      "engine": "old",
+      "elapsedMs": 350.148199999996,
+      "reportedMs": 350.1290000000008,
+      "depth": 7,
+      "nodes": 325376
+    },
+    {
+      "ply": 81,
+      "engine": "new",
+      "elapsedMs": 350.06660000000556,
+      "reportedMs": 350.0515000000014,
+      "depth": 6,
+      "nodes": 188103
+    },
+    {
+      "ply": 82,
+      "engine": "old",
+      "elapsedMs": 350.15179999999236,
+      "reportedMs": 350.13730000000214,
+      "depth": 8,
+      "nodes": 395264
+    },
+    {
+      "ply": 83,
+      "engine": "new",
+      "elapsedMs": 350.05560000000696,
+      "reportedMs": 350.04559999999765,
+      "depth": 6,
+      "nodes": 203811
+    },
+    {
+      "ply": 84,
+      "engine": "old",
+      "elapsedMs": 350.2647999999899,
+      "reportedMs": 350.25450000001,
+      "depth": 8,
+      "nodes": 409600
+    },
+    {
+      "ply": 85,
+      "engine": "new",
+      "elapsedMs": 350.0820999999996,
+      "reportedMs": 350.0573999999906,
+      "depth": 6,
+      "nodes": 225202
+    },
+    {
+      "ply": 86,
+      "engine": "old",
+      "elapsedMs": 350.2529000000068,
+      "reportedMs": 350.24229999999807,
+      "depth": 8,
+      "nodes": 423936
+    },
+    {
+      "ply": 87,
+      "engine": "new",
+      "elapsedMs": 350.065499999997,
+      "reportedMs": 350.0471000000107,
+      "depth": 6,
+      "nodes": 223504
+    },
+    {
+      "ply": 88,
+      "engine": "old",
+      "elapsedMs": 350.247000000003,
+      "reportedMs": 350.2305000000051,
+      "depth": 8,
+      "nodes": 430592
+    },
+    {
+      "ply": 89,
+      "engine": "new",
+      "elapsedMs": 350.09219999999914,
+      "reportedMs": 350.0801999999967,
+      "depth": 6,
+      "nodes": 226957
+    },
+    {
+      "ply": 90,
+      "engine": "old",
+      "elapsedMs": 350.18700000000536,
+      "reportedMs": 350.1777999999904,
+      "depth": 8,
+      "nodes": 414976
+    },
+    {
+      "ply": 91,
+      "engine": "new",
+      "elapsedMs": 350.0679999999993,
+      "reportedMs": 350.0584999999992,
+      "depth": 6,
+      "nodes": 253021
+    },
+    {
+      "ply": 92,
+      "engine": "old",
+      "elapsedMs": 350.100099999996,
+      "reportedMs": 350.0859999999957,
+      "depth": 8,
+      "nodes": 401152
+    },
+    {
+      "ply": 93,
+      "engine": "new",
+      "elapsedMs": 350.06690000000526,
+      "reportedMs": 350.0506000000023,
+      "depth": 6,
+      "nodes": 222525
+    },
+    {
+      "ply": 94,
+      "engine": "old",
+      "elapsedMs": 350.20329999999376,
+      "reportedMs": 350.1935000000085,
+      "depth": 9,
+      "nodes": 404224
+    },
+    {
+      "ply": 95,
+      "engine": "new",
+      "elapsedMs": 350.05010000000766,
+      "reportedMs": 350.03740000000107,
+      "depth": 7,
+      "nodes": 245486
+    },
+    {
+      "ply": 96,
+      "engine": "old",
+      "elapsedMs": 350.09440000000177,
+      "reportedMs": 350.079899999997,
+      "depth": 9,
+      "nodes": 438528
+    },
+    {
+      "ply": 97,
+      "engine": "new",
+      "elapsedMs": 350.0610000000015,
+      "reportedMs": 350.0483000000095,
+      "depth": 7,
+      "nodes": 250049
+    },
+    {
+      "ply": 98,
+      "engine": "old",
+      "elapsedMs": 350.16029999998864,
+      "reportedMs": 350.14979999999923,
+      "depth": 8,
+      "nodes": 407040
+    },
+    {
+      "ply": 99,
+      "engine": "new",
+      "elapsedMs": 350.0506999999925,
+      "reportedMs": 350.03459999999905,
+      "depth": 6,
+      "nodes": 236926
+    },
+    {
+      "ply": 100,
+      "engine": "old",
+      "elapsedMs": 350.1542000000045,
+      "reportedMs": 350.1388999999908,
+      "depth": 9,
+      "nodes": 441344
+    },
+    {
+      "ply": 101,
+      "engine": "new",
+      "elapsedMs": 350.0411000000022,
+      "reportedMs": 350.0317000000068,
+      "depth": 7,
+      "nodes": 191476
+    },
+    {
+      "ply": 102,
+      "engine": "old",
+      "elapsedMs": 350.2195000000065,
+      "reportedMs": 350.2085999999981,
+      "depth": 9,
+      "nodes": 436480
+    },
+    {
+      "ply": 103,
+      "engine": "new",
+      "elapsedMs": 350.052199999991,
+      "reportedMs": 350.0399999999936,
+      "depth": 7,
+      "nodes": 215149
+    },
+    {
+      "ply": 104,
+      "engine": "old",
+      "elapsedMs": 350.1782000000094,
+      "reportedMs": 350.16419999999925,
+      "depth": 9,
+      "nodes": 427520
+    },
+    {
+      "ply": 105,
+      "engine": "new",
+      "elapsedMs": 350.0527000000002,
+      "reportedMs": 350.03869999999006,
+      "depth": 7,
+      "nodes": 231927
+    },
+    {
+      "ply": 106,
+      "engine": "old",
+      "elapsedMs": 350.2091999999975,
+      "reportedMs": 350.199099999998,
+      "depth": 9,
+      "nodes": 416256
+    },
+    {
+      "ply": 107,
+      "engine": "new",
+      "elapsedMs": 350.0560000000114,
+      "reportedMs": 350.0402000000031,
+      "depth": 7,
+      "nodes": 208942
+    },
+    {
+      "ply": 108,
+      "engine": "old",
+      "elapsedMs": 350.1209999999992,
+      "reportedMs": 350.1107999999949,
+      "depth": 9,
+      "nodes": 405248
+    }
+  ],
+  "terminalState": {
+    "board": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      3,
+      3,
+      3,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      3,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "players": [
+      3,
+      0
+    ],
+    "turn": 0,
+    "ply": 108,
+    "winner": null,
+    "draw": "三次重复局面",
+    "rules": {
+      "jump": "short",
+      "goalLock": false
+    }
+  },
+  "exactFrozenCompletion": null,
+  "continuation": null
+}

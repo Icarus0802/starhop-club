@@ -1,0 +1,444 @@
+{
+  "format": "starhop-step-match-v1",
+  "version": "1.3.0",
+  "generatedAt": "2026-10-10T09:07:20.961Z",
+  "conventions": {
+    "ownTurns": "Every scheduled turn counts, including a legal pass. Counts include fixture and opening turns.",
+    "turnIndex": "The first seat acts at one-based slots 1,3,5,...; the second seat at 2,4,6,... . After the win, frozen winner slots are virtual inactive slots, not illegal recorded passes.",
+    "completionGap": "old total own turns to fill its camp minus new total own turns; positive favors new. A proven exact gap >2 own turns is the requested clear-gap threshold. Policy continuation gaps are reported separately.",
+    "exact": "A* shortest frozen completion is primary only when solved AND proven. It is a minimum from this terminal board with the winner frozen, not a claim of optimal whole-game play.",
+    "continuation": "The losing version continues at the same per-search budget with the winner frozen. Actual policy moves are measured; this is not a theoretical minimum.",
+    "timing": "Per-search wall time; input verification, module loading and opening generation are excluded. p95 is nearest rank of pooled measured samples, never a mean of per-game p95s.",
+    "censoring": "Repeated positions, wall-time/own-turn caps or no legal move give unknown remaining turns and unknown completion gaps. Unfinished pieces are reported separately and never converted to turns."
+  },
+  "engines": {
+    "new": {
+      "file": "D:\\tp\\？？？杂项\\跳棋\\benchmarks\\candidate-history-e.cjs",
+      "sourceSha256": "fc100f9e3fd46d18d4b5efa7396da98138194a5572bec7d7c2e8a466e49dfcfc",
+      "frozenPlayer": null,
+      "modules": [
+        {
+          "file": "benchmarks/candidate-history-e.cjs",
+          "sourceSha256": "fc100f9e3fd46d18d4b5efa7396da98138194a5572bec7d7c2e8a466e49dfcfc",
+          "adapter": "normal-unmodified"
+        }
+      ]
+    },
+    "old": {
+      "file": "D:\\tp\\？？？杂项\\跳棋\\benchmarks\\v13-fast.cjs",
+      "sourceSha256": "9880aa3f34bc89c9e16fd052a00e8768ec3ca51cf398b59f3a577f5105801299",
+      "frozenPlayer": null,
+      "modules": [
+        {
+          "file": "benchmarks/v13-fast.cjs",
+          "sourceSha256": "9880aa3f34bc89c9e16fd052a00e8768ec3ca51cf398b59f3a577f5105801299",
+          "adapter": "normal-unmodified"
+        }
+      ]
+    }
+  },
+  "options": {
+    "newFile": "benchmarks/candidate-history-e.cjs",
+    "oldFile": "benchmarks/v13-fast.cjs",
+    "time": 100,
+    "games": 4,
+    "opening": 8,
+    "seed": 20261010,
+    "jump": "short",
+    "goalLock": false,
+    "fixture": null,
+    "maxPlies": 400,
+    "continuationMax": 30,
+    "continuationMaxMs": 6000,
+    "newLevel": 4,
+    "oldLevel": 4,
+    "exactTime": 400,
+    "exactMaxStates": 100000,
+    "skipExact": false,
+    "completionOnly": null,
+    "newOptions": {},
+    "oldOptions": {},
+    "algorithm": "auto",
+    "output": "D:\\tp\\？？？杂项\\跳棋\\arena-results\\candidate-e-screen100"
+  },
+  "results": [
+    {
+      "game": 1,
+      "pair": 1,
+      "newSeat": 0,
+      "openingSeed": 20261010,
+      "openingPlies": 8,
+      "budgetMs": 100,
+      "newLevel": 4,
+      "oldLevel": 4,
+      "rules": {
+        "jump": "short",
+        "goalLock": false
+      },
+      "winner": "new",
+      "draw": null,
+      "reason": null,
+      "terminalPly": 111,
+      "ownTurnsAtTerminal": {
+        "new": 56,
+        "old": 55
+      },
+      "pieceMovesAtTerminal": {
+        "new": 56,
+        "old": 55
+      },
+      "unfinishedPiecesAtTerminal": {
+        "new": 0,
+        "old": 2
+      },
+      "timing": {
+        "new": {
+          "searches": 52,
+          "meanMs": 94.89980961538467,
+          "p95Ms": 100.13290000000052,
+          "maxMs": 100.5743
+        },
+        "old": {
+          "searches": 51,
+          "meanMs": 94.70216862745103,
+          "p95Ms": 100.7074,
+          "maxMs": 100.74420000000009
+        }
+      },
+      "exactFinishGap": 2,
+      "policyFinishGap": 2,
+      "exactCompletion": {
+        "status": "proven-minimum",
+        "remainingOwnTurns": 3,
+        "ownTurnsAtCompletion": {
+          "new": 56,
+          "old": 58
+        },
+        "signedOwnTurnGap": 2,
+        "winnerOwnTurnLead": 2,
+        "turnIndexGap": 5,
+        "finishTurnIndex": {
+          "new": 111,
+          "old": 116
+        },
+        "clearlySeparated": false
+      },
+      "policyCompletion": {
+        "status": "measured-policy",
+        "remainingOwnTurns": 3,
+        "ownTurnsAtCompletion": {
+          "new": 56,
+          "old": 58
+        },
+        "signedOwnTurnGap": 2,
+        "winnerOwnTurnLead": 2,
+        "turnIndexGap": 5,
+        "finishTurnIndex": {
+          "new": 111,
+          "old": 116
+        },
+        "clearlySeparated": false
+      },
+      "exactStatus": "solved",
+      "exactReason": null,
+      "continuationStatus": "complete",
+      "continuationReason": "filled-camp",
+      "elapsedSeconds": 9.803853599999998
+    },
+    {
+      "game": 2,
+      "pair": 1,
+      "newSeat": 1,
+      "openingSeed": 20261010,
+      "openingPlies": 8,
+      "budgetMs": 100,
+      "newLevel": 4,
+      "oldLevel": 4,
+      "rules": {
+        "jump": "short",
+        "goalLock": false
+      },
+      "winner": "new",
+      "draw": null,
+      "reason": null,
+      "terminalPly": 118,
+      "ownTurnsAtTerminal": {
+        "new": 59,
+        "old": 59
+      },
+      "pieceMovesAtTerminal": {
+        "new": 59,
+        "old": 59
+      },
+      "unfinishedPiecesAtTerminal": {
+        "old": 1,
+        "new": 0
+      },
+      "timing": {
+        "new": {
+          "searches": 55,
+          "meanMs": 95.0022527272726,
+          "p95Ms": 100.11880000000019,
+          "maxMs": 100.18379999999888
+        },
+        "old": {
+          "searches": 55,
+          "meanMs": 95.18598909090893,
+          "p95Ms": 101.00540000000001,
+          "maxMs": 101.115600000001
+        }
+      },
+      "exactFinishGap": 2,
+      "policyFinishGap": 2,
+      "exactCompletion": {
+        "status": "proven-minimum",
+        "remainingOwnTurns": 2,
+        "ownTurnsAtCompletion": {
+          "new": 59,
+          "old": 61
+        },
+        "signedOwnTurnGap": 2,
+        "winnerOwnTurnLead": 2,
+        "turnIndexGap": 3,
+        "finishTurnIndex": {
+          "new": 118,
+          "old": 121
+        },
+        "clearlySeparated": false
+      },
+      "policyCompletion": {
+        "status": "measured-policy",
+        "remainingOwnTurns": 2,
+        "ownTurnsAtCompletion": {
+          "new": 59,
+          "old": 61
+        },
+        "signedOwnTurnGap": 2,
+        "winnerOwnTurnLead": 2,
+        "turnIndexGap": 3,
+        "finishTurnIndex": {
+          "new": 118,
+          "old": 121
+        },
+        "clearlySeparated": false
+      },
+      "exactStatus": "solved",
+      "exactReason": null,
+      "continuationStatus": "complete",
+      "continuationReason": "filled-camp",
+      "elapsedSeconds": 10.4754061
+    },
+    {
+      "game": 3,
+      "pair": 2,
+      "newSeat": 0,
+      "openingSeed": 20271010,
+      "openingPlies": 8,
+      "budgetMs": 100,
+      "newLevel": 4,
+      "oldLevel": 4,
+      "rules": {
+        "jump": "short",
+        "goalLock": false
+      },
+      "winner": "new",
+      "draw": null,
+      "reason": null,
+      "terminalPly": 109,
+      "ownTurnsAtTerminal": {
+        "new": 55,
+        "old": 54
+      },
+      "pieceMovesAtTerminal": {
+        "new": 55,
+        "old": 54
+      },
+      "unfinishedPiecesAtTerminal": {
+        "new": 0,
+        "old": 1
+      },
+      "timing": {
+        "new": {
+          "searches": 51,
+          "meanMs": 94.24143725490178,
+          "p95Ms": 100.1001000000033,
+          "maxMs": 100.27430000000095
+        },
+        "old": {
+          "searches": 50,
+          "meanMs": 95.65089000000008,
+          "p95Ms": 100.86909999999989,
+          "maxMs": 100.87930000000051
+        }
+      },
+      "exactFinishGap": 4,
+      "policyFinishGap": 4,
+      "exactCompletion": {
+        "status": "proven-minimum",
+        "remainingOwnTurns": 5,
+        "ownTurnsAtCompletion": {
+          "new": 55,
+          "old": 59
+        },
+        "signedOwnTurnGap": 4,
+        "winnerOwnTurnLead": 4,
+        "turnIndexGap": 9,
+        "finishTurnIndex": {
+          "new": 109,
+          "old": 118
+        },
+        "clearlySeparated": true
+      },
+      "policyCompletion": {
+        "status": "measured-policy",
+        "remainingOwnTurns": 5,
+        "ownTurnsAtCompletion": {
+          "new": 55,
+          "old": 59
+        },
+        "signedOwnTurnGap": 4,
+        "winnerOwnTurnLead": 4,
+        "turnIndexGap": 9,
+        "finishTurnIndex": {
+          "new": 109,
+          "old": 118
+        },
+        "clearlySeparated": true
+      },
+      "exactStatus": "solved",
+      "exactReason": null,
+      "continuationStatus": "complete",
+      "continuationReason": "filled-camp",
+      "elapsedSeconds": 9.8226045
+    },
+    {
+      "game": 4,
+      "pair": 2,
+      "newSeat": 1,
+      "openingSeed": 20271010,
+      "openingPlies": 8,
+      "budgetMs": 100,
+      "newLevel": 4,
+      "oldLevel": 4,
+      "rules": {
+        "jump": "short",
+        "goalLock": false
+      },
+      "winner": "old",
+      "draw": null,
+      "reason": null,
+      "terminalPly": 105,
+      "ownTurnsAtTerminal": {
+        "new": 52,
+        "old": 53
+      },
+      "pieceMovesAtTerminal": {
+        "new": 52,
+        "old": 53
+      },
+      "unfinishedPiecesAtTerminal": {
+        "old": 0,
+        "new": 2
+      },
+      "timing": {
+        "new": {
+          "searches": 48,
+          "meanMs": 95.97211249999971,
+          "p95Ms": 100.10539999999673,
+          "maxMs": 100.20810000000347
+        },
+        "old": {
+          "searches": 49,
+          "meanMs": 94.20325918367442,
+          "p95Ms": 100.63990000000194,
+          "maxMs": 101.02080000000569
+        }
+      },
+      "exactFinishGap": null,
+      "policyFinishGap": -6,
+      "exactCompletion": {
+        "status": "unknown",
+        "remainingOwnTurns": null,
+        "ownTurnsAtCompletion": null,
+        "signedOwnTurnGap": null,
+        "winnerOwnTurnLead": null,
+        "turnIndexGap": null,
+        "clearlySeparated": null
+      },
+      "policyCompletion": {
+        "status": "measured-policy",
+        "remainingOwnTurns": 7,
+        "ownTurnsAtCompletion": {
+          "new": 59,
+          "old": 53
+        },
+        "signedOwnTurnGap": -6,
+        "winnerOwnTurnLead": 6,
+        "turnIndexGap": 13,
+        "finishTurnIndex": {
+          "old": 105,
+          "new": 118
+        },
+        "clearlySeparated": true
+      },
+      "exactStatus": "unknown",
+      "exactReason": "time-limit",
+      "continuationStatus": "complete",
+      "continuationReason": "filled-camp",
+      "elapsedSeconds": 10.064691599999998
+    }
+  ],
+  "aggregate": {
+    "games": 4,
+    "newWins": 3,
+    "oldWins": 1,
+    "draws": 0,
+    "newWinRate": 0.75,
+    "decisiveWinRate": 0.75,
+    "provenExactGaps": 3,
+    "unknownExactGaps": 1,
+    "measuredPolicyGaps": 4,
+    "unknownPolicyGaps": 0,
+    "meanExactSignedOwnTurnGap": 2.6666666666666665,
+    "meanPolicySignedOwnTurnGap": 0.5,
+    "newClearGapWins": 1,
+    "oldClearGapWins": 0,
+    "allCompletedPairsClearlyFavorNew": false,
+    "pairs": [
+      {
+        "pair": 1,
+        "games": 2,
+        "sameOpening": true,
+        "swappedSeats": true,
+        "newWins": 2,
+        "oldWins": 0,
+        "bothExactGapsKnown": true,
+        "bothNewLeadsGreaterThanTwo": false
+      },
+      {
+        "pair": 2,
+        "games": 2,
+        "sameOpening": true,
+        "swappedSeats": true,
+        "newWins": 1,
+        "oldWins": 1,
+        "bothExactGapsKnown": false,
+        "bothNewLeadsGreaterThanTwo": false
+      }
+    ],
+    "timing": {
+      "new": {
+        "searches": 206,
+        "meanMs": 95.01402281553385,
+        "p95Ms": 100.10980000000018,
+        "maxMs": 100.5743
+      },
+      "old": {
+        "searches": 205,
+        "meanMs": 94.94411804878071,
+        "p95Ms": 100.74420000000009,
+        "maxMs": 101.115600000001
+      }
+    }
+  }
+}

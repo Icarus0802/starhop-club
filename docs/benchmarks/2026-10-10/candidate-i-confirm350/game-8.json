@@ -1,0 +1,1900 @@
+{
+  "format": "starhop-v1",
+  "options": {
+    "players": 2,
+    "jump": "short",
+    "goalLock": false,
+    "mode": "ai-ai",
+    "humanSeat": 0,
+    "level": 4,
+    "secondLevel": 4
+  },
+  "moves": [
+    {
+      "from": 117,
+      "to": 106,
+      "path": [
+        117,
+        106
+      ]
+    },
+    {
+      "from": 6,
+      "to": 14,
+      "path": [
+        6,
+        14
+      ]
+    },
+    {
+      "from": 120,
+      "to": 104,
+      "path": [
+        120,
+        117,
+        104
+      ]
+    },
+    {
+      "from": 1,
+      "to": 26,
+      "path": [
+        1,
+        6,
+        26
+      ]
+    },
+    {
+      "from": 112,
+      "to": 92,
+      "path": [
+        112,
+        92
+      ]
+    },
+    {
+      "from": 4,
+      "to": 38,
+      "path": [
+        4,
+        15,
+        13,
+        38
+      ]
+    },
+    {
+      "from": 116,
+      "to": 80,
+      "path": [
+        116,
+        105,
+        80
+      ]
+    },
+    {
+      "from": 5,
+      "to": 16,
+      "path": [
+        5,
+        16
+      ]
+    },
+    {
+      "from": 113,
+      "to": 70,
+      "path": [
+        113,
+        91,
+        70
+      ]
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "path": [
+        3,
+        4
+      ]
+    },
+    {
+      "from": 104,
+      "to": 60,
+      "path": [
+        104,
+        81,
+        60
+      ]
+    },
+    {
+      "from": 16,
+      "to": 28,
+      "path": [
+        16,
+        28
+      ]
+    },
+    {
+      "from": 111,
+      "to": 103,
+      "path": [
+        111,
+        103
+      ]
+    },
+    {
+      "from": 7,
+      "to": 15,
+      "path": [
+        7,
+        15
+      ]
+    },
+    {
+      "from": 70,
+      "to": 61,
+      "path": [
+        70,
+        61
+      ]
+    },
+    {
+      "from": 9,
+      "to": 48,
+      "path": [
+        9,
+        7,
+        27,
+        48
+      ]
+    },
+    {
+      "from": 118,
+      "to": 50,
+      "path": [
+        118,
+        111,
+        91,
+        70,
+        50
+      ]
+    },
+    {
+      "from": 0,
+      "to": 58,
+      "path": [
+        0,
+        5,
+        16,
+        39,
+        37,
+        58
+      ]
+    },
+    {
+      "from": 119,
+      "to": 118,
+      "path": [
+        119,
+        118
+      ]
+    },
+    {
+      "from": 2,
+      "to": 29,
+      "path": [
+        2,
+        7,
+        27,
+        29
+      ]
+    },
+    {
+      "from": 92,
+      "to": 49,
+      "path": [
+        92,
+        69,
+        51,
+        49
+      ]
+    },
+    {
+      "from": 4,
+      "to": 17,
+      "path": [
+        4,
+        17
+      ]
+    },
+    {
+      "from": 60,
+      "to": 5,
+      "path": [
+        60,
+        39,
+        16,
+        5
+      ]
+    },
+    {
+      "from": 14,
+      "to": 37,
+      "path": [
+        14,
+        37
+      ]
+    },
+    {
+      "from": 118,
+      "to": 52,
+      "path": [
+        118,
+        111,
+        91,
+        70,
+        52
+      ]
+    },
+    {
+      "from": 8,
+      "to": 16,
+      "path": [
+        8,
+        16
+      ]
+    },
+    {
+      "from": 115,
+      "to": 111,
+      "path": [
+        115,
+        111
+      ]
+    },
+    {
+      "from": 15,
+      "to": 57,
+      "path": [
+        15,
+        40,
+        59,
+        57
+      ]
+    },
+    {
+      "from": 52,
+      "to": 42,
+      "path": [
+        52,
+        42
+      ]
+    },
+    {
+      "from": 26,
+      "to": 47,
+      "path": [
+        26,
+        47
+      ]
+    },
+    {
+      "from": 111,
+      "to": 31,
+      "path": [
+        111,
+        91,
+        70,
+        52,
+        31
+      ]
+    },
+    {
+      "from": 48,
+      "to": 68,
+      "path": [
+        48,
+        68
+      ]
+    },
+    {
+      "from": 50,
+      "to": 27,
+      "path": [
+        50,
+        48,
+        27
+      ]
+    },
+    {
+      "from": 17,
+      "to": 40,
+      "path": [
+        17,
+        40
+      ]
+    },
+    {
+      "from": 31,
+      "to": 18,
+      "path": [
+        31,
+        18
+      ]
+    },
+    {
+      "from": 38,
+      "to": 78,
+      "path": [
+        38,
+        59,
+        78
+      ]
+    },
+    {
+      "from": 103,
+      "to": 91,
+      "path": [
+        103,
+        91
+      ]
+    },
+    {
+      "from": 29,
+      "to": 66,
+      "path": [
+        29,
+        50,
+        48,
+        66
+      ]
+    },
+    {
+      "from": 91,
+      "to": 2,
+      "path": [
+        91,
+        70,
+        52,
+        31,
+        9,
+        2
+      ]
+    },
+    {
+      "from": 16,
+      "to": 29,
+      "path": [
+        16,
+        29
+      ]
+    },
+    {
+      "from": 61,
+      "to": 52,
+      "path": [
+        61,
+        52
+      ]
+    },
+    {
+      "from": 37,
+      "to": 77,
+      "path": [
+        37,
+        56,
+        77
+      ]
+    },
+    {
+      "from": 2,
+      "to": 0,
+      "path": [
+        2,
+        0
+      ]
+    },
+    {
+      "from": 47,
+      "to": 90,
+      "path": [
+        47,
+        67,
+        90
+      ]
+    },
+    {
+      "from": 106,
+      "to": 105,
+      "path": [
+        106,
+        105
+      ]
+    },
+    {
+      "from": 90,
+      "to": 92,
+      "path": [
+        90,
+        67,
+        69,
+        92
+      ]
+    },
+    {
+      "from": 80,
+      "to": 70,
+      "path": [
+        80,
+        70
+      ]
+    },
+    {
+      "from": 92,
+      "to": 104,
+      "path": [
+        92,
+        104
+      ]
+    },
+    {
+      "from": 114,
+      "to": 92,
+      "path": [
+        114,
+        92
+      ]
+    },
+    {
+      "from": 104,
+      "to": 112,
+      "path": [
+        104,
+        112
+      ]
+    },
+    {
+      "from": 52,
+      "to": 2,
+      "path": [
+        52,
+        31,
+        9,
+        2
+      ]
+    },
+    {
+      "from": 29,
+      "to": 50,
+      "path": [
+        29,
+        50
+      ]
+    },
+    {
+      "from": 105,
+      "to": 61,
+      "path": [
+        105,
+        80,
+        61
+      ]
+    },
+    {
+      "from": 28,
+      "to": 90,
+      "path": [
+        28,
+        51,
+        71,
+        69,
+        67,
+        90
+      ]
+    },
+    {
+      "from": 92,
+      "to": 81,
+      "path": [
+        92,
+        81
+      ]
+    },
+    {
+      "from": 78,
+      "to": 67,
+      "path": [
+        78,
+        67
+      ]
+    },
+    {
+      "from": 2,
+      "to": 1,
+      "path": [
+        2,
+        1
+      ]
+    },
+    {
+      "from": 40,
+      "to": 103,
+      "path": [
+        40,
+        59,
+        78,
+        103
+      ]
+    },
+    {
+      "from": 81,
+      "to": 14,
+      "path": [
+        81,
+        60,
+        39,
+        14
+      ]
+    },
+    {
+      "from": 58,
+      "to": 115,
+      "path": [
+        58,
+        79,
+        102,
+        104,
+        115
+      ]
+    },
+    {
+      "from": 27,
+      "to": 38,
+      "path": [
+        27,
+        38
+      ]
+    },
+    {
+      "from": 66,
+      "to": 118,
+      "path": [
+        66,
+        89,
+        91,
+        111,
+        118
+      ]
+    },
+    {
+      "from": 49,
+      "to": 6,
+      "path": [
+        49,
+        26,
+        6
+      ]
+    },
+    {
+      "from": 50,
+      "to": 59,
+      "path": [
+        50,
+        59
+      ]
+    },
+    {
+      "from": 70,
+      "to": 2,
+      "path": [
+        70,
+        52,
+        31,
+        9,
+        2
+      ]
+    },
+    {
+      "from": 103,
+      "to": 111,
+      "path": [
+        103,
+        111
+      ]
+    },
+    {
+      "from": 2,
+      "to": 4,
+      "path": [
+        2,
+        4
+      ]
+    },
+    {
+      "from": 57,
+      "to": 116,
+      "path": [
+        57,
+        78,
+        103,
+        116
+      ]
+    },
+    {
+      "from": 61,
+      "to": 52,
+      "path": [
+        61,
+        52
+      ]
+    },
+    {
+      "from": 116,
+      "to": 117,
+      "path": [
+        116,
+        117
+      ]
+    },
+    {
+      "from": 52,
+      "to": 2,
+      "path": [
+        52,
+        31,
+        9,
+        2
+      ]
+    },
+    {
+      "from": 59,
+      "to": 116,
+      "path": [
+        59,
+        78,
+        103,
+        116
+      ]
+    },
+    {
+      "from": 14,
+      "to": 3,
+      "path": [
+        14,
+        3
+      ]
+    },
+    {
+      "from": 115,
+      "to": 120,
+      "path": [
+        115,
+        120
+      ]
+    },
+    {
+      "from": 42,
+      "to": 31,
+      "path": [
+        42,
+        31
+      ]
+    },
+    {
+      "from": 67,
+      "to": 78,
+      "path": [
+        67,
+        78
+      ]
+    },
+    {
+      "from": 31,
+      "to": 9,
+      "path": [
+        31,
+        9
+      ]
+    },
+    {
+      "from": 77,
+      "to": 104,
+      "path": [
+        77,
+        79,
+        102,
+        115,
+        104
+      ]
+    },
+    {
+      "from": 38,
+      "to": 27,
+      "path": [
+        38,
+        27
+      ]
+    },
+    {
+      "from": 68,
+      "to": 113,
+      "path": [
+        68,
+        89,
+        91,
+        113
+      ]
+    },
+    {
+      "from": 27,
+      "to": 15,
+      "path": [
+        27,
+        15
+      ]
+    },
+    {
+      "from": 104,
+      "to": 115,
+      "path": [
+        104,
+        115
+      ]
+    },
+    {
+      "from": 15,
+      "to": 7,
+      "path": [
+        15,
+        7
+      ]
+    },
+    {
+      "from": 116,
+      "to": 119,
+      "path": [
+        116,
+        119
+      ]
+    },
+    {
+      "from": 9,
+      "to": 8,
+      "path": [
+        9,
+        8
+      ]
+    },
+    {
+      "from": 78,
+      "to": 116,
+      "path": [
+        78,
+        103,
+        116
+      ]
+    },
+    {
+      "from": 18,
+      "to": 9,
+      "path": [
+        18,
+        9
+      ]
+    }
+  ],
+  "result": {
+    "winner": 3,
+    "draw": null
+  },
+  "benchmark": {
+    "game": 8,
+    "pair": 4,
+    "newSeat": 1,
+    "openingSeed": 20435010,
+    "openingPlies": 8,
+    "budgetMs": 350,
+    "newLevel": 4,
+    "oldLevel": 4,
+    "rules": {
+      "jump": "short",
+      "goalLock": false
+    },
+    "winner": "old",
+    "draw": null,
+    "reason": null,
+    "terminalPly": 87,
+    "ownTurnsAtTerminal": {
+      "new": 43,
+      "old": 44
+    },
+    "pieceMovesAtTerminal": {
+      "new": 43,
+      "old": 44
+    },
+    "unfinishedPiecesAtTerminal": {
+      "old": 0,
+      "new": 1
+    },
+    "timing": {
+      "new": {
+        "searches": 39,
+        "meanMs": 332.2600897435899,
+        "p95Ms": 350.17660000000615,
+        "maxMs": 350.26329999999143
+      },
+      "old": {
+        "searches": 40,
+        "meanMs": 318.91910250000075,
+        "p95Ms": 350.76289999997243,
+        "maxMs": 351.0969000000041
+      }
+    },
+    "exactFinishGap": -2,
+    "policyFinishGap": -2,
+    "exactCompletion": {
+      "status": "proven-minimum",
+      "remainingOwnTurns": 3,
+      "ownTurnsAtCompletion": {
+        "new": 46,
+        "old": 44
+      },
+      "signedOwnTurnGap": -2,
+      "winnerOwnTurnLead": 2,
+      "turnIndexGap": 5,
+      "finishTurnIndex": {
+        "old": 87,
+        "new": 92
+      },
+      "clearlySeparated": false
+    },
+    "policyCompletion": {
+      "status": "measured-policy",
+      "remainingOwnTurns": 3,
+      "ownTurnsAtCompletion": {
+        "new": 46,
+        "old": 44
+      },
+      "signedOwnTurnGap": -2,
+      "winnerOwnTurnLead": 2,
+      "turnIndexGap": 5,
+      "finishTurnIndex": {
+        "old": 87,
+        "new": 92
+      },
+      "clearlySeparated": false
+    },
+    "exactStatus": "solved",
+    "exactReason": null,
+    "continuationStatus": "complete",
+    "continuationReason": "filled-camp",
+    "elapsedSeconds": 25.754202899999974
+  },
+  "searchLog": [
+    {
+      "ply": 9,
+      "engine": "old",
+      "elapsedMs": 350.2297999999719,
+      "reportedMs": 350.21649999998044,
+      "depth": 6,
+      "nodes": 177408
+    },
+    {
+      "ply": 10,
+      "engine": "new",
+      "elapsedMs": 350.26329999999143,
+      "reportedMs": 350.23340000002645,
+      "depth": 5,
+      "nodes": 159584
+    },
+    {
+      "ply": 11,
+      "engine": "old",
+      "elapsedMs": 350.3603000000003,
+      "reportedMs": 350.34560000000056,
+      "depth": 6,
+      "nodes": 183808
+    },
+    {
+      "ply": 12,
+      "engine": "new",
+      "elapsedMs": 350.0630999999703,
+      "reportedMs": 350.0500999999931,
+      "depth": 5,
+      "nodes": 142773
+    },
+    {
+      "ply": 13,
+      "engine": "old",
+      "elapsedMs": 350.75190000003204,
+      "reportedMs": 350.7331000000122,
+      "depth": 5,
+      "nodes": 161792
+    },
+    {
+      "ply": 14,
+      "engine": "new",
+      "elapsedMs": 350.05869999999413,
+      "reportedMs": 350.0390999999945,
+      "depth": 5,
+      "nodes": 133244
+    },
+    {
+      "ply": 15,
+      "engine": "old",
+      "elapsedMs": 350.1120000000228,
+      "reportedMs": 350.09659999998985,
+      "depth": 5,
+      "nodes": 165376
+    },
+    {
+      "ply": 16,
+      "engine": "new",
+      "elapsedMs": 350.09049999999115,
+      "reportedMs": 350.0635000000475,
+      "depth": 5,
+      "nodes": 130906
+    },
+    {
+      "ply": 17,
+      "engine": "old",
+      "elapsedMs": 350.1628999999957,
+      "reportedMs": 350.1453000000329,
+      "depth": 5,
+      "nodes": 142336
+    },
+    {
+      "ply": 18,
+      "engine": "new",
+      "elapsedMs": 350.06770000001416,
+      "reportedMs": 350.05349999998,
+      "depth": 5,
+      "nodes": 104951
+    },
+    {
+      "ply": 19,
+      "engine": "old",
+      "elapsedMs": 350.7037999999593,
+      "reportedMs": 350.6757000000216,
+      "depth": 5,
+      "nodes": 141312
+    },
+    {
+      "ply": 20,
+      "engine": "new",
+      "elapsedMs": 350.071100000001,
+      "reportedMs": 350.0536999999895,
+      "depth": 5,
+      "nodes": 99008
+    },
+    {
+      "ply": 21,
+      "engine": "old",
+      "elapsedMs": 350.81630000000587,
+      "reportedMs": 350.79470000002766,
+      "depth": 5,
+      "nodes": 126208
+    },
+    {
+      "ply": 22,
+      "engine": "new",
+      "elapsedMs": 350.0774000000092,
+      "reportedMs": 350.05809999996563,
+      "depth": 5,
+      "nodes": 101255
+    },
+    {
+      "ply": 23,
+      "engine": "old",
+      "elapsedMs": 350.5034999999916,
+      "reportedMs": 350.48649999999907,
+      "depth": 5,
+      "nodes": 150784
+    },
+    {
+      "ply": 24,
+      "engine": "new",
+      "elapsedMs": 350.07240000000456,
+      "reportedMs": 350.0546000000322,
+      "depth": 5,
+      "nodes": 100035
+    },
+    {
+      "ply": 25,
+      "engine": "old",
+      "elapsedMs": 350.26480000000447,
+      "reportedMs": 350.2446999999811,
+      "depth": 5,
+      "nodes": 128512
+    },
+    {
+      "ply": 26,
+      "engine": "new",
+      "elapsedMs": 350.11839999997756,
+      "reportedMs": 350.0881999999983,
+      "depth": 5,
+      "nodes": 77861
+    },
+    {
+      "ply": 27,
+      "engine": "old",
+      "elapsedMs": 350.15259999997215,
+      "reportedMs": 350.1327000000165,
+      "depth": 5,
+      "nodes": 144384
+    },
+    {
+      "ply": 28,
+      "engine": "new",
+      "elapsedMs": 350.08170000003884,
+      "reportedMs": 350.06380000000354,
+      "depth": 5,
+      "nodes": 96421
+    },
+    {
+      "ply": 29,
+      "engine": "old",
+      "elapsedMs": 350.4971999999834,
+      "reportedMs": 350.4811000000336,
+      "depth": 5,
+      "nodes": 115200
+    },
+    {
+      "ply": 30,
+      "engine": "new",
+      "elapsedMs": 350.07579999999143,
+      "reportedMs": 350.0595999999787,
+      "depth": 5,
+      "nodes": 93782
+    },
+    {
+      "ply": 31,
+      "engine": "old",
+      "elapsedMs": 350.2618000000366,
+      "reportedMs": 350.2488000000012,
+      "depth": 5,
+      "nodes": 126976
+    },
+    {
+      "ply": 32,
+      "engine": "new",
+      "elapsedMs": 350.0697999999975,
+      "reportedMs": 350.05239999998594,
+      "depth": 5,
+      "nodes": 95276
+    },
+    {
+      "ply": 33,
+      "engine": "old",
+      "elapsedMs": 350.20510000002105,
+      "reportedMs": 350.18780000001425,
+      "depth": 5,
+      "nodes": 125696
+    },
+    {
+      "ply": 34,
+      "engine": "new",
+      "elapsedMs": 350.0677999999607,
+      "reportedMs": 350.04979999997886,
+      "depth": 5,
+      "nodes": 94601
+    },
+    {
+      "ply": 35,
+      "engine": "old",
+      "elapsedMs": 350.2866999999969,
+      "reportedMs": 350.2713999999687,
+      "depth": 5,
+      "nodes": 126976
+    },
+    {
+      "ply": 36,
+      "engine": "new",
+      "elapsedMs": 350.0915999999852,
+      "reportedMs": 350.0725000000093,
+      "depth": 5,
+      "nodes": 93284
+    },
+    {
+      "ply": 37,
+      "engine": "old",
+      "elapsedMs": 350.23379999998724,
+      "reportedMs": 350.21549999999115,
+      "depth": 5,
+      "nodes": 136960
+    },
+    {
+      "ply": 38,
+      "engine": "new",
+      "elapsedMs": 350.0696000000462,
+      "reportedMs": 350.04879999998957,
+      "depth": 5,
+      "nodes": 104993
+    },
+    {
+      "ply": 39,
+      "engine": "old",
+      "elapsedMs": 350.32790000003297,
+      "reportedMs": 350.30890000000363,
+      "depth": 5,
+      "nodes": 127744
+    },
+    {
+      "ply": 40,
+      "engine": "new",
+      "elapsedMs": 350.0749000000069,
+      "reportedMs": 350.0541000000085,
+      "depth": 4,
+      "nodes": 99512
+    },
+    {
+      "ply": 41,
+      "engine": "old",
+      "elapsedMs": 350.30180000001565,
+      "reportedMs": 350.2834000000148,
+      "depth": 5,
+      "nodes": 132352
+    },
+    {
+      "ply": 42,
+      "engine": "new",
+      "elapsedMs": 350.069599999988,
+      "reportedMs": 350.0533999999752,
+      "depth": 5,
+      "nodes": 107305
+    },
+    {
+      "ply": 43,
+      "engine": "old",
+      "elapsedMs": 351.0969000000041,
+      "reportedMs": 351.08359999995446,
+      "depth": 5,
+      "nodes": 142336
+    },
+    {
+      "ply": 44,
+      "engine": "new",
+      "elapsedMs": 350.0722999999998,
+      "reportedMs": 350.05530000000726,
+      "depth": 5,
+      "nodes": 115468
+    },
+    {
+      "ply": 45,
+      "engine": "old",
+      "elapsedMs": 350.1542999999947,
+      "reportedMs": 350.139199999976,
+      "depth": 5,
+      "nodes": 145920
+    },
+    {
+      "ply": 46,
+      "engine": "new",
+      "elapsedMs": 350.0828999999794,
+      "reportedMs": 350.0571999999811,
+      "depth": 5,
+      "nodes": 103835
+    },
+    {
+      "ply": 47,
+      "engine": "old",
+      "elapsedMs": 350.19510000001173,
+      "reportedMs": 350.1689999999944,
+      "depth": 5,
+      "nodes": 154112
+    },
+    {
+      "ply": 48,
+      "engine": "new",
+      "elapsedMs": 350.0705999999773,
+      "reportedMs": 350.0499000000418,
+      "depth": 4,
+      "nodes": 99017
+    },
+    {
+      "ply": 49,
+      "engine": "old",
+      "elapsedMs": 350.703199999989,
+      "reportedMs": 350.68329999997513,
+      "depth": 5,
+      "nodes": 143104
+    },
+    {
+      "ply": 50,
+      "engine": "new",
+      "elapsedMs": 350.08640000002924,
+      "reportedMs": 350.06790000002366,
+      "depth": 5,
+      "nodes": 89013
+    },
+    {
+      "ply": 51,
+      "engine": "old",
+      "elapsedMs": 350.4724999999744,
+      "reportedMs": 350.4568999999901,
+      "depth": 5,
+      "nodes": 143616
+    },
+    {
+      "ply": 52,
+      "engine": "new",
+      "elapsedMs": 350.0678000000189,
+      "reportedMs": 350.05550000001676,
+      "depth": 5,
+      "nodes": 97030
+    },
+    {
+      "ply": 53,
+      "engine": "old",
+      "elapsedMs": 350.1357999999891,
+      "reportedMs": 350.1160999999847,
+      "depth": 5,
+      "nodes": 145664
+    },
+    {
+      "ply": 54,
+      "engine": "new",
+      "elapsedMs": 350.08299999998417,
+      "reportedMs": 350.0579999999609,
+      "depth": 5,
+      "nodes": 98851
+    },
+    {
+      "ply": 55,
+      "engine": "old",
+      "elapsedMs": 350.5708999999915,
+      "reportedMs": 350.5444000000134,
+      "depth": 5,
+      "nodes": 150528
+    },
+    {
+      "ply": 56,
+      "engine": "new",
+      "elapsedMs": 350.07240000000456,
+      "reportedMs": 350.0542000000132,
+      "depth": 5,
+      "nodes": 97942
+    },
+    {
+      "ply": 57,
+      "engine": "old",
+      "elapsedMs": 350.6701999999932,
+      "reportedMs": 350.6521000000066,
+      "depth": 5,
+      "nodes": 142592
+    },
+    {
+      "ply": 58,
+      "engine": "new",
+      "elapsedMs": 350.10210000001825,
+      "reportedMs": 350.0783999999985,
+      "depth": 5,
+      "nodes": 106572
+    },
+    {
+      "ply": 59,
+      "engine": "old",
+      "elapsedMs": 350.76289999997243,
+      "reportedMs": 350.7451000000001,
+      "depth": 5,
+      "nodes": 175360
+    },
+    {
+      "ply": 60,
+      "engine": "new",
+      "elapsedMs": 350.07420000003185,
+      "reportedMs": 350.05729999998584,
+      "depth": 5,
+      "nodes": 115275
+    },
+    {
+      "ply": 61,
+      "engine": "old",
+      "elapsedMs": 350.5261000000173,
+      "reportedMs": 350.50459999998566,
+      "depth": 5,
+      "nodes": 183552
+    },
+    {
+      "ply": 62,
+      "engine": "new",
+      "elapsedMs": 350.0708999999915,
+      "reportedMs": 350.0552000000025,
+      "depth": 5,
+      "nodes": 119001
+    },
+    {
+      "ply": 63,
+      "engine": "old",
+      "elapsedMs": 350.38140000001295,
+      "reportedMs": 350.3654000000097,
+      "depth": 5,
+      "nodes": 214272
+    },
+    {
+      "ply": 64,
+      "engine": "new",
+      "elapsedMs": 350.0720999999903,
+      "reportedMs": 350.0524999999907,
+      "depth": 5,
+      "nodes": 131381
+    },
+    {
+      "ply": 65,
+      "engine": "old",
+      "elapsedMs": 350.42519999999786,
+      "reportedMs": 350.4098000000231,
+      "depth": 6,
+      "nodes": 216576
+    },
+    {
+      "ply": 66,
+      "engine": "new",
+      "elapsedMs": 350.17660000000615,
+      "reportedMs": 350.15239999996265,
+      "depth": 5,
+      "nodes": 136048
+    },
+    {
+      "ply": 67,
+      "engine": "old",
+      "elapsedMs": 350.31280000001425,
+      "reportedMs": 350.29940000001807,
+      "depth": 7,
+      "nodes": 236032
+    },
+    {
+      "ply": 68,
+      "engine": "new",
+      "elapsedMs": 350.0712000000058,
+      "reportedMs": 350.0556000000215,
+      "depth": 5,
+      "nodes": 147165
+    },
+    {
+      "ply": 69,
+      "engine": "old",
+      "elapsedMs": 350.1201000000001,
+      "reportedMs": 350.101800000004,
+      "depth": 7,
+      "nodes": 258048
+    },
+    {
+      "ply": 70,
+      "engine": "new",
+      "elapsedMs": 350.06569999997737,
+      "reportedMs": 350.0510999999824,
+      "depth": 5,
+      "nodes": 159634
+    },
+    {
+      "ply": 71,
+      "engine": "old",
+      "elapsedMs": 350.2130999999936,
+      "reportedMs": 350.1970000000438,
+      "depth": 7,
+      "nodes": 270848
+    },
+    {
+      "ply": 72,
+      "engine": "new",
+      "elapsedMs": 350.0712000000058,
+      "reportedMs": 350.05690000002505,
+      "depth": 5,
+      "nodes": 216499
+    },
+    {
+      "ply": 73,
+      "engine": "old",
+      "elapsedMs": 350.13669999997364,
+      "reportedMs": 350.1238000000012,
+      "depth": 7,
+      "nodes": 314112
+    },
+    {
+      "ply": 74,
+      "engine": "new",
+      "elapsedMs": 350.06609999999637,
+      "reportedMs": 350.0524999999907,
+      "depth": 6,
+      "nodes": 229723
+    },
+    {
+      "ply": 75,
+      "engine": "old",
+      "elapsedMs": 350.41049999999814,
+      "reportedMs": 350.3996000000043,
+      "depth": 7,
+      "nodes": 326912
+    },
+    {
+      "ply": 76,
+      "engine": "new",
+      "elapsedMs": 350.06969999999274,
+      "reportedMs": 350.0537999999942,
+      "depth": 5,
+      "nodes": 211108
+    },
+    {
+      "ply": 77,
+      "engine": "old",
+      "elapsedMs": 350.33720000000903,
+      "reportedMs": 350.29509999998845,
+      "depth": 7,
+      "nodes": 333312
+    },
+    {
+      "ply": 78,
+      "engine": "new",
+      "elapsedMs": 350.06910000002244,
+      "reportedMs": 350.0561999999918,
+      "depth": 5,
+      "nodes": 245325
+    },
+    {
+      "ply": 79,
+      "engine": "old",
+      "elapsedMs": 350.2497999999905,
+      "reportedMs": 350.23669999995036,
+      "depth": 8,
+      "nodes": 355328
+    },
+    {
+      "ply": 80,
+      "engine": "new",
+      "elapsedMs": 350.0705999999773,
+      "reportedMs": 350.05629999999655,
+      "depth": 5,
+      "nodes": 267322
+    },
+    {
+      "ply": 81,
+      "engine": "old",
+      "elapsedMs": 134.85700000001816,
+      "reportedMs": 134.84309999999823,
+      "depth": 7,
+      "nodes": 166190
+    },
+    {
+      "ply": 82,
+      "engine": "new",
+      "elapsedMs": 350.06080000003567,
+      "reportedMs": 350.04729999997653,
+      "depth": 5,
+      "nodes": 278347
+    },
+    {
+      "ply": 83,
+      "engine": "old",
+      "elapsedMs": 6.590200000035111,
+      "reportedMs": 6.57909999997355,
+      "depth": 5,
+      "nodes": 11063
+    },
+    {
+      "ply": 84,
+      "engine": "new",
+      "elapsedMs": 4.50089999998454,
+      "reportedMs": 4.491099999984726,
+      "depth": 4,
+      "nodes": 4258
+    },
+    {
+      "ply": 85,
+      "engine": "old",
+      "elapsedMs": 0.814600000041537,
+      "reportedMs": 0.8076000000000931,
+      "depth": 3,
+      "nodes": 636
+    },
+    {
+      "ply": 86,
+      "engine": "new",
+      "elapsedMs": 0.5835000000079162,
+      "reportedMs": 0.5756999999866821,
+      "depth": 2,
+      "nodes": 98
+    },
+    {
+      "ply": 87,
+      "engine": "old",
+      "elapsedMs": 0.45539999997708946,
+      "reportedMs": 0.45480000000679865,
+      "depth": 1,
+      "nodes": 23
+    }
+  ],
+  "terminalState": {
+    "board": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "players": [
+      3,
+      0
+    ],
+    "turn": 1,
+    "ply": 87,
+    "winner": 3,
+    "draw": null,
+    "rules": {
+      "jump": "short",
+      "goalLock": false
+    }
+  },
+  "exactFrozenCompletion": {
+    "status": "solved",
+    "solved": true,
+    "proven": true,
+    "steps": 3,
+    "plan": [
+      {
+        "from": 112,
+        "to": 114,
+        "path": [
+          112,
+          114
+        ]
+      },
+      {
+        "from": 90,
+        "to": 103,
+        "path": [
+          90,
+          103
+        ]
+      },
+      {
+        "from": 103,
+        "to": 112,
+        "path": [
+          103,
+          112
+        ]
+      }
+    ],
+    "reason": null,
+    "timeout": false,
+    "frozenOpponents": true,
+    "forcedGameWin": false,
+    "player": 0,
+    "rules": {
+      "jump": "short",
+      "goalLock": false
+    },
+    "expanded": 12,
+    "generated": 278,
+    "uniqueStates": 198,
+    "popped": 13,
+    "duplicateOrStale": 81,
+    "expandedByF": {
+      "1": 1,
+      "2": 10,
+      "3": 1
+    },
+    "minOpenF": 3,
+    "timeMs": 0.48230000003241,
+    "proof": "All legal actions; A* with admissible, consistent h=outside-goal piece count; lowest-g occupancy transpositions; geometric rank is only a tie breaker."
+  },
+  "continuation": {
+    "format": "starhop-frozen-policy-v1",
+    "adapter": {
+      "file": "D:\\tp\\？？？杂项\\跳棋\\benchmarks\\candidate-learned-i.cjs",
+      "sourceSha256": "e160893b13a58c15ff4e6c28c2386c5bb807b9293b4b594025368de7086c7652",
+      "frozenPlayer": 3,
+      "modules": [
+        {
+          "file": "js/ai.js",
+          "sourceSha256": "82124fea9f50e54a2718ffcc29e10b71b3c673c14c172632d52d0c0831b2de62",
+          "adapter": "frozen-rules-proxy"
+        },
+        {
+          "file": "benchmarks/candidate-learned-i.cjs",
+          "sourceSha256": "e160893b13a58c15ff4e6c28c2386c5bb807b9293b4b594025368de7086c7652",
+          "adapter": "frozen-rules-proxy+Fast-terminal-ignore+virtual-pass"
+        }
+      ]
+    },
+    "status": "complete",
+    "reason": "filled-camp",
+    "remainingOwnTurns": 3,
+    "attemptedOwnTurns": 3,
+    "remainingPieces": 0,
+    "elapsedMs": 29.473200000007637,
+    "timing": {
+      "searches": 3,
+      "meanMs": 9.764466666674707,
+      "p95Ms": 27.053499999979977,
+      "maxMs": 27.053499999979977
+    },
+    "moves": [
+      {
+        "from": 112,
+        "to": 114,
+        "path": [
+          112,
+          114
+        ],
+        "ownTurn": 1,
+        "virtualTurnIndex": 88,
+        "elapsedMs": 27.053499999979977,
+        "reportedMs": 27.025699999998324,
+        "depth": 5,
+        "nodes": 25277
+      },
+      {
+        "from": 90,
+        "to": 103,
+        "path": [
+          90,
+          103
+        ],
+        "ownTurn": 2,
+        "virtualTurnIndex": 90,
+        "elapsedMs": 2.1671000000205822,
+        "reportedMs": 2.1567999999970198,
+        "depth": 3,
+        "nodes": 743
+      },
+      {
+        "from": 103,
+        "to": 112,
+        "path": [
+          103,
+          112
+        ],
+        "ownTurn": 3,
+        "virtualTurnIndex": 92,
+        "elapsedMs": 0.07280000002356246,
+        "reportedMs": 0.06609999999636784,
+        "depth": 1,
+        "nodes": 25
+      }
+    ],
+    "frozenPlayer": 3,
+    "player": 0,
+    "terminalPly": 87,
+    "virtualFinishTurnIndex": 92,
+    "finalBoard": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
