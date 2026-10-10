@@ -20,6 +20,13 @@ test('isolated rear piece gains a jump route when a bridge is supplied',()=>{
   const spare=s.board.findIndex((v,i)=>v===0&&i!==bridge);s.board[spare]=-1;s.board[bridge]=0;
   const after=D.side(s,p).pieces.find(x=>x.cell===from);
   assert.ok(after.gain>before.gain);assert.ok(after.support>before.support);
+  assert.ok(D.side(s,p).escapeCost < D.side({...s,board:(()=>{const b=s.board.slice();b[bridge]=-1;b[spare]=0;return b;})()},p).escapeCost);
+});
+test('actual blocked 28-ply game exposes the red rear bottleneck, without claiming a win probability',()=>{
+  const s=E.replay(require('./fixtures/user-blockade-28.json')).state,a=D.analyze(s,3),green=a.sides.find(x=>x.player===3),red=a.sides.find(x=>x.player===0);
+  assert.ok(a.score>0);assert.ok(red.escapeCost>green.escapeCost);assert.ok(red.tailCost>green.tailCost);
+  const rear=red.pieces.find(x=>x.coordinate==='C8');assert.equal(rear.distance,11);assert.ok(rear.isolated&&rear.stranded);assert.equal(rear.gain,1);
+  assert.match(a.scale,/非胜率/);assert.ok(Number.isFinite(a.score));
 });
 test('bundled offline worker executes real search and streams three comparisons',()=>{
   const context={performance,window:{},self:{postMessage:m=>messages.push(m)}},messages=[];vm.createContext(context);

@@ -48,3 +48,7 @@ test('Hungarian goal assignment agrees with brute-force matching in sparse endga
   const outsiders=[E.at(4,8),E.at(5,9),E.at(6,10)];outsiders.forEach(i=>b[i]=3);const goals=E.zones[0].slice(0,3);
   const perms=[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]];const min=Math.min(...perms.map(p=>p.reduce((sum,j,i)=>sum+E.distance(outsiders[i],goals[j]),0)));assert.equal(A.assignment(b,3),min);
 });
+test('narrow-window PVS agrees with ordinary full-width alpha-beta at completed depth',()=>{
+  const positions=[E.createGame(),E.replay(require('./fixtures/user-game.json')).state,E.replay(require('./fixtures/user-blockade-28.json')).states[12]];
+  for(const s of positions){const copy=JSON.stringify(s),a=A.search(s,{level:4,time:10000,depth:3}),b=A.search(s,{level:4,time:10000,depth:3,pvs:false});assert.equal(a.depth,3);assert.equal(b.depth,3);assert.ok(Math.abs(a.score-b.score)<.00001);assert.equal(JSON.stringify(s),copy);}
+});

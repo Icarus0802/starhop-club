@@ -1,2 +1,5 @@
 arena-results/
 *.log
+
+release-package/
+_site/

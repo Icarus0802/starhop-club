@@ -19,8 +19,13 @@
       jumpRoutes+=moves.filter(m=>m.path.length>2||E.distance(m.from,m.to)>1).length;
     }
     const matching=A.assignment(state.board,p),risk=pieces.filter(x=>x.stranded||x.isolated);
-    const quality=-matching*10-lag*.14-home*2.2+arrived*7;
-    return {player:p,matching,lag,home,arrived,mobility,jumpRoutes,quality,risk,pieces,rear:Math.max(...pieces.map(x=>x.distance))};
+    const escapeCost=A.transport(state.board,p,state.rules);
+    const blocked=pieces.filter(x=>x.distance>2&&x.gain===0),trailing=pieces.slice().sort((a,b)=>b.distance-a.distance).slice(0,3);
+    // Multi-hop opportunities concern the whole current board, including enemy
+    // bridges. Weight the rear three pieces: total distance can hide a bottleneck.
+    const tailCost=trailing.reduce((v,x)=>v+Math.max(0,x.distance-3)/Math.max(1,x.gain),0);
+    const quality=-matching*10-lag*.14-home*2.2+arrived*7-escapeCost-tailCost*2;
+    return {player:p,matching,lag,home,arrived,mobility,jumpRoutes,quality,risk,pieces,escapeCost,tailCost,blocked:blocked.map(x=>x.coordinate),rear:Math.max(...pieces.map(x=>x.distance))};
   }
   function analyze(state,perspective=state.players[0]){
     const sides=state.players.map(p=>side(state,p)),own=sides.find(x=>x.player===perspective);
@@ -28,7 +33,7 @@
     const opponents=sides.filter(x=>x!==own),rival=opponents.reduce((a,b)=>a.quality>b.quality?a:b);
     let score=own.quality-rival.quality;
     if(state.winner!==null)score=state.winner===perspective?1000:-1000;
-    return {perspective,sides,score,terminal:state.winner!==null,draw:state.draw,scale:'启发式分数（非胜率、非等级分）',formula:'目标最小匹配×−10；后子距离平方和×−0.14；原营棋子×−2.2；入营棋子×7。多人对最领先对手。'};
+    return {perspective,sides,score,terminal:state.winner!==null,draw:state.draw,scale:'启发式分数（非胜率、非等级分）',formula:'目标最小匹配×−10；后子距离平方和×−0.14；原营棋子×−2.2；入营棋子×7；减去当前借力与出口代价，以及最落后三子运输风险×2。未来对手配合并未固定，运输风险不是完成步数。多人对最领先对手。'};
   }
   const api={side,analyze};if(typeof module==='object'&&module.exports)module.exports=api;else root.StarhopAnalysis=api;
 })(typeof globalThis==='object'?globalThis:this);

@@ -24,6 +24,9 @@
   const zoneOf = Array(121).fill(-1);
   zones.forEach((z,p)=>z.forEach(i=>zoneOf[i]=p));
   const adjacent = cells.map(({r,c})=>DIRS.map(([dr,dc])=>at(r+dr,c+dc)));
+  // Precompute straight rays once. Search visits thousands of boards; geometry
+  // and string-key lookups must not be rebuilt for every jump.
+  const rays=cells.map(({r,c})=>DIRS.map(([dr,dc])=>{const ray=[];for(let n=1;;n++){const i=at(r+dr*n,c+dc*n);if(i<0)break;ray.push(i);}return ray;}));
   const distance = (a,b) => {
     const dr=cells[a].r-cells[b].r, dq=(cells[a].c-cells[b].c-dr)/2;
     return (Math.abs(dr)+Math.abs(dq)+Math.abs(dr+dq))/2;
@@ -42,23 +45,23 @@
     if(player<0 || player===undefined) return [];
     const goal=(player+3)%6;
     const allowed=(a,b)=>!rules.goalLock || zoneOf[a]!==goal || zoneOf[b]===goal;
-    const paths=new Map(), visited=new Set([from]);
+    const paths=new Map(), visited=new Uint8Array(121);visited[from]=1;
     for(const to of adjacent[from]) if(to>=0 && board[to]===-1 && allowed(from,to)) paths.set(to,[from,to]);
     const queue=[[from,[from]]];
     const value=i=>i===from?-1:board[i];
     for(let head=0;head<queue.length;head++) {
-      const [here,path]=queue[head], {r,c}=cells[here];
-      for(const [dr,dc] of DIRS) {
-        let stride=1, mid=at(r+dr,c+dc);
+      const [here,path]=queue[head];
+      for(const ray of rays[here]) {
+        let stride=1, mid=ray[0]??-1;
         if(rules.jump==='long') {
-          while(mid>=0 && value(mid)===-1) {stride++;mid=at(r+dr*stride,c+dc*stride);}
+          while(mid>=0 && value(mid)===-1) {stride++;mid=ray[stride-1]??-1;}
         }
         if(mid<0 || value(mid)<0) continue;
         let clear=true;
-        for(let t=stride+1;t<2*stride;t++) {const k=at(r+dr*t,c+dc*t);if(k<0 || value(k)!==-1){clear=false;break;}}
-        const to=at(r+dr*stride*2,c+dc*stride*2);
-        if(!clear || to<0 || value(to)!==-1 || visited.has(to) || !allowed(here,to)) continue;
-        visited.add(to);
+        for(let t=stride+1;t<2*stride;t++) {const k=ray[t-1]??-1;if(k<0 || value(k)!==-1){clear=false;break;}}
+        const to=ray[stride*2-1]??-1;
+        if(!clear || to<0 || value(to)!==-1 || visited[to] || !allowed(here,to)) continue;
+        visited[to]=1;
         const next=path.concat(to); paths.set(to,next);queue.push([to,next]);
       }
     }
@@ -103,6 +106,6 @@
     return {state,states,moves};
   }
   function coord(i) { const {r,c}=cells[i];return String.fromCharCode(65+r)+(Math.floor(c/2)+1); }
-  const api={DIRS,cells,zones,zoneOf,adjacent,distances,orders,at,distance,createGame,pieceMoves,legalMoves,isWinner,progress,key,applyMove,replay,coord};
+  const api={DIRS,cells,zones,zoneOf,adjacent,rays,distances,orders,at,distance,createGame,pieceMoves,legalMoves,isWinner,progress,key,applyMove,replay,coord};
   if(typeof module==='object'&&module.exports) module.exports=api;else root.Starhop=api;
 })(typeof globalThis==='object'?globalThis:this);

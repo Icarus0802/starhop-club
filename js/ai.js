@@ -7,10 +7,33 @@
   const LEVELS=[
     {name:'小跳',label:'入门',time:100,depth:1,noise:0.7},
     {name:'青竹',label:'基础',time:250,depth:2,noise:0.12},
-    {name:'飞跃',label:'标准搜索',time:2000,depth:8,noise:0},
-    {name:'玄石',label:'深入搜索',time:6000,depth:12,noise:0},
-    {name:'星河',label:'研究搜索',time:15000,depth:20,noise:0}
+    {name:'飞跃',label:'进阶',time:500,depth:8,noise:0},
+    {name:'玄石',label:'高手',time:900,depth:12,noise:0},
+    {name:'星河',label:'挑战',time:1500,depth:20,noise:0}
   ];
+  const nearest=E.zones.map((_,p)=>E.cells.map((__,i)=>Math.min(...E.zones[(p+3)%6].map(g=>E.distances[i][g]))));
+  // Cheap occupancy-sensitive escape evaluation. Enemy pieces are also bridges;
+  // a stationary rear piece is costly even when its geometric distance is small.
+  function transport(board,p,rules={}){
+    let cost=0;
+    for(let i=0;i<121;i++)if(board[i]===p){
+      const d=nearest[p][i];if(d<=2)continue;
+      let gain=0,forward=0,exit=0;
+      for(let dir=0;dir<6;dir++){
+        const a=E.adjacent[i][dir];if(a>=0&&board[a]<0){exit++;if(nearest[p][a]<d)forward++;}
+        const ray=E.rays[i][dir];let n=0;
+        if(rules.jump==='long')while(n<ray.length&&board[ray[n]]<0)n++;
+        const mid=ray[n],to=ray[2*n+1];if(mid===undefined||to===undefined||board[mid]<0||board[to]>=0)continue;
+        let clear=true;for(let k=n+1;k<2*n+1;k++)if(board[ray[k]]>=0){clear=false;break;}
+        if(clear)gain=Math.max(gain,d-nearest[p][to]);
+      }
+      if(gain===0)cost+=d*d*.045;
+      if(!forward&&gain===0)cost+=d*.65;
+      if(!exit&&gain===0)cost+=d*.9;
+      cost-=Math.min(gain,4)*.7;
+    }
+    return cost;
+  }
   // Hungarian algorithm: exact minimum-cost matching to ALL ten goal holes.
   // Unlike tip-distance alone, this remains informative in crowded endgames.
   function assignment(board,p){
@@ -45,15 +68,16 @@
     function check(){if(performance.now()>=deadline){expired=true;throw STOP;}}
     function quality(board,p){
       const pieces=[];let home=0,done=0,lag=0,bridges=0;
-      const goal=(p+3)%6,goals=E.zones[goal];
+      const goal=(p+3)%6;
       for(let i=0;i<121;i++)if(board[i]===p){
         pieces.push(i);if(E.zoneOf[i]===p)home++;if(E.zoneOf[i]===goal)done++;
-        let nearest=Infinity;for(const g of goals)nearest=Math.min(nearest,E.distances[i][g]);lag+=nearest*nearest;
+        const d=nearest[p][i];lag+=d*d;
         for(const near of E.adjacent[i])if(near>=0&&board[near]===p)bridges++;
       }
-      const cacheKey=p+':'+pieces.join('.');if(evalCache.has(cacheKey))return evalCache.get(cacheKey);
-      const value=-assignment(board,p)*10-lag*0.14-home*2.2+done*7+Math.min(bridges,16)*0.13;
-      if(evalCache.size>80000)evalCache.clear();evalCache.set(cacheKey,value);return value;
+      const cacheKey=p+':'+pieces.join('.');let value=evalCache.get(cacheKey);
+      if(value===undefined){value=-assignment(board,p)*10-lag*0.14-home*2.2+done*7+Math.min(bridges,16)*0.13;
+        if(evalCache.size>80000)evalCache.clear();evalCache.set(cacheKey,value);}
+      return value-transport(board,p,state.rules);
     }
     function evaluate(board){const other=state.players.find(p=>p!==player);return quality(board,player)-quality(board,other);}
     function ordered(board,p,pv,remaining=0){
@@ -87,7 +111,7 @@
         const old=table.get(k),origA=alpha,origB=beta;
         // Repeated nodes are path-dependent: do not reuse their table bounds.
         if(old&&old.depth>=plyLeft&&repeat<=1){hits++;if(old.flag===0)return old.value;if(old.flag===1)alpha=Math.max(alpha,old.value);else beta=Math.min(beta,old.value);if(alpha>=beta)return old.value;}
-        const p=state.players[turn],max=p===player,moves=ordered(board,p,old?.move,plyLeft);
+        const p=state.players[turn],max=p===player,moves=old?.moves?old.moves.slice():ordered(board,p,old?.move,plyLeft);
         if(!moves.length){
           if(state.players.every(s=>!E.legalMoves(board,s,state.rules).length))return 0;
           return ab(plyLeft-1,(turn+1)%state.players.length,alpha,beta);
@@ -95,12 +119,19 @@
         let v=max?-Infinity:Infinity,chosen=moves[0];
         path.set(k,(path.get(k)||0)+1);
         try{
-          for(const m of moves){
-            push(board,m,p);let child;try{child=ab(plyLeft-1,(turn+1)%state.players.length,alpha,beta);}finally{pop(board,m,p);}
+          for(let mi=0;mi<moves.length;mi++){
+            const m=moves[mi];push(board,m,p);let child;
+            try{
+              // Principal variation search: other moves first get a narrow
+              // window, then a full search if they can improve the best line.
+              if(mi===0||options.pvs===false)child=ab(plyLeft-1,(turn+1)%state.players.length,alpha,beta);
+              else if(max){child=ab(plyLeft-1,(turn+1)%state.players.length,alpha,Math.min(beta,alpha+.001));if(child>alpha&&child<beta)child=ab(plyLeft-1,(turn+1)%state.players.length,alpha,beta);}
+              else{child=ab(plyLeft-1,(turn+1)%state.players.length,Math.max(alpha,beta-.001),beta);if(child<beta&&child>alpha)child=ab(plyLeft-1,(turn+1)%state.players.length,alpha,beta);}
+            }finally{pop(board,m,p);}
             if(max?child>v:child<v){v=child;chosen=m;}if(max)alpha=Math.max(alpha,v);else beta=Math.min(beta,v);if(alpha>=beta){const mk=p+':'+m.from+':'+m.to;moveHistory.set(mk,(moveHistory.get(mk)||0)+plyLeft*plyLeft);killers.set(plyLeft,mk);break;}
           }
         }finally{const n=path.get(k)-1;if(n)path.set(k,n);else path.delete(k);}
-        if(repeat<=1){if(table.size>120000)table.clear();table.set(k,{depth:plyLeft,value:v,move:chosen,flag:v<=origA?2:v>=origB?1:0});}
+        if(repeat<=1){if(table.size>120000)table.clear();if(chosen!==moves[0]){const at=moves.indexOf(chosen);moves.splice(at,1);moves.unshift(chosen);}table.set(k,{depth:plyLeft,value:v,move:chosen,moves,flag:v<=origA?2:v>=origB?1:0});}
         return v;
       }
       try{
@@ -162,5 +193,5 @@
     }
     return {move:{from:best.from,to:best.to,path:best.path},algorithm,nodes,depth,hits,simulations,time:performance.now()-start,score:value,candidates,expired,solved:Math.abs(value)>=99900};
   }
-  const api={LEVELS,assignment,search,seeded};if(typeof module==='object'&&module.exports)module.exports=api;else root.StarhopAI=api;
+  const api={LEVELS,assignment,search,seeded,transport};if(typeof module==='object'&&module.exports)module.exports=api;else root.StarhopAI=api;
 })(typeof globalThis==='object'?globalThis:this);

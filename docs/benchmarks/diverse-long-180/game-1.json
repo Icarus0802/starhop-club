@@ -1,0 +1,290 @@
+{
+  "format": "starhop-v1",
+  "options": {
+    "players": 2,
+    "jump": "long",
+    "mode": "ai-ai",
+    "humanSeat": 0,
+    "level": 4,
+    "secondLevel": 4
+  },
+  "moves": [
+    {
+      "from": 117,
+      "to": 106
+    },
+    {
+      "from": 6,
+      "to": 14
+    },
+    {
+      "from": 120,
+      "to": 108
+    },
+    {
+      "from": 4,
+      "to": 13
+    },
+    {
+      "from": 111,
+      "to": 102
+    },
+    {
+      "from": 3,
+      "to": 16
+    },
+    {
+      "from": 115,
+      "to": 104
+    },
+    {
+      "from": 2,
+      "to": 27
+    },
+    {
+      "from": 118,
+      "to": 66
+    },
+    {
+      "from": 7,
+      "to": 48
+    },
+    {
+      "from": 113,
+      "to": 91
+    },
+    {
+      "from": 0,
+      "to": 58
+    },
+    {
+      "from": 114,
+      "to": 6
+    },
+    {
+      "from": 14,
+      "to": 115
+    },
+    {
+      "from": 112,
+      "to": 90
+    },
+    {
+      "from": 8,
+      "to": 88
+    },
+    {
+      "from": 104,
+      "to": 0
+    },
+    {
+      "from": 5,
+      "to": 104
+    },
+    {
+      "from": 116,
+      "to": 15
+    },
+    {
+      "from": 16,
+      "to": 77
+    },
+    {
+      "from": 102,
+      "to": 79
+    },
+    {
+      "from": 1,
+      "to": 26
+    },
+    {
+      "from": 66,
+      "to": 57
+    },
+    {
+      "from": 48,
+      "to": 68
+    },
+    {
+      "from": 91,
+      "to": 48
+    },
+    {
+      "from": 88,
+      "to": 112
+    },
+    {
+      "from": 90,
+      "to": 47
+    },
+    {
+      "from": 58,
+      "to": 120
+    },
+    {
+      "from": 106,
+      "to": 3
+    },
+    {
+      "from": 68,
+      "to": 118
+    },
+    {
+      "from": 108,
+      "to": 37
+    },
+    {
+      "from": 13,
+      "to": 36
+    },
+    {
+      "from": 37,
+      "to": 25
+    },
+    {
+      "from": 26,
+      "to": 37
+    },
+    {
+      "from": 119,
+      "to": 90
+    },
+    {
+      "from": 27,
+      "to": 38
+    },
+    {
+      "from": 25,
+      "to": 26
+    },
+    {
+      "from": 9,
+      "to": 17
+    },
+    {
+      "from": 47,
+      "to": 28
+    },
+    {
+      "from": 36,
+      "to": 116
+    },
+    {
+      "from": 48,
+      "to": 7
+    },
+    {
+      "from": 38,
+      "to": 105
+    },
+    {
+      "from": 15,
+      "to": 4
+    },
+    {
+      "from": 17,
+      "to": 29
+    },
+    {
+      "from": 28,
+      "to": 16
+    },
+    {
+      "from": 37,
+      "to": 47
+    },
+    {
+      "from": 79,
+      "to": 18
+    },
+    {
+      "from": 105,
+      "to": 113
+    },
+    {
+      "from": 3,
+      "to": 5
+    },
+    {
+      "from": 112,
+      "to": 119
+    },
+    {
+      "from": 57,
+      "to": 56
+    },
+    {
+      "from": 47,
+      "to": 37
+    },
+    {
+      "from": 56,
+      "to": 57
+    },
+    {
+      "from": 37,
+      "to": 47
+    },
+    {
+      "from": 57,
+      "to": 56
+    },
+    {
+      "from": 47,
+      "to": 37
+    },
+    {
+      "from": 56,
+      "to": 57
+    },
+    {
+      "from": 37,
+      "to": 47
+    }
+  ],
+  "result": {
+    "winner": null,
+    "draw": "三次重复局面"
+  },
+  "benchmark": {
+    "game": 1,
+    "seed": 20261010,
+    "openingSeed": 20261010,
+    "openingPlies": 8,
+    "players": 2,
+    "jump": "long",
+    "sideA": 0,
+    "levelA": 4,
+    "levelB": 4,
+    "baseline": "v1",
+    "budgetMs": 180,
+    "budgetBMs": 180,
+    "winner": null,
+    "draw": "三次重复局面",
+    "plies": 58,
+    "goalCounts": [
+      5,
+      6
+    ],
+    "stats": {
+      "A": {
+        "moves": 25,
+        "meanMs": 180.53856800000005,
+        "maxMs": 183.6931000000004,
+        "meanDepth": 3.04,
+        "meanNodes": 18497.08
+      },
+      "B": {
+        "moves": 25,
+        "meanMs": 180.3213319999999,
+        "maxMs": 180.78439999999955,
+        "meanDepth": 3,
+        "meanNodes": 18616.16
+      }
+    },
+    "meanMs": 180.42995,
+    "maxMs": 183.6931000000004,
+    "meanDepth": 3.02,
+    "elapsedSeconds": 9.026420900000002
+  }
+}
