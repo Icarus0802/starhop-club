@@ -32,7 +32,7 @@
     {
       "path": "README.md",
       "scope": "new-modifications-only; prior material retains its license",
-      "sha256": "9248a30f3caed3bebfef617ab5f532910a8f45ba0d1a781f37e6fe30b10f90e1"
+      "sha256": "171abfd4c87d34c3468cb100c91ee86e27eaa964afadc5104ab35a68ab379136"
     },
     {
       "path": "THIRD_PARTY.md",
@@ -78,6 +78,36 @@
       "path": "benchmarks/rule-aware-deep-native.cjs",
       "scope": "new-authorized-expression-only",
       "sha256": "515c6efc1de583c3e95ff53ef0d5b594a25120deb844f7e841f3686c17718eec"
+    },
+    {
+      "path": "desktop/.gitignore",
+      "scope": "new-authorized-expression-only",
+      "sha256": "051f7bf7a2f3007f4637f9559b0b622f9737872ed526c3a0842efaa3117a0050"
+    },
+    {
+      "path": "desktop/README.md",
+      "scope": "new-authorized-expression-only",
+      "sha256": "f5ae8e3e4fd34e28ee43c806f3b5dc8d95245e576fc3bc5b6034fc60f52a269e"
+    },
+    {
+      "path": "desktop/main.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "09d911e1c6e4caaa3303f09a3f83ea14626e85d0b3d359e004ba6116069ebe78"
+    },
+    {
+      "path": "desktop/package-lock.json",
+      "scope": "new-authorized-expression-only",
+      "sha256": "37d05e0ba3a195ba5aa3665c2bb460406a07f2e1bd472d996973c95b623e755c"
+    },
+    {
+      "path": "desktop/package.json",
+      "scope": "new-authorized-expression-only",
+      "sha256": "3d76f4291f7237cc7aeee8d45e8eae1160ee28a00f4fab8d5f8cb7d4b17128d1"
+    },
+    {
+      "path": "desktop/prepare.py",
+      "scope": "new-authorized-expression-only",
+      "sha256": "8f229d4c3a5632080cca802011e47e18a8bc558dfa7cf12bc8f4e827c277cba0"
     },
     {
       "path": "docs/RELEASE_NOTES.md",
@@ -300,7 +330,7 @@
       "sha256": "ca86acd57b00a410db78ad518173908278f94ef0e32669964d3b97e7f1119c4c"
     },
     {
-      "path": "开始使用.txt",
+      "path": "��ʼʹ��.txt",
       "scope": "new-modifications-only; prior material retains its license",
       "sha256": "d8d9f959007e6e4090e366c00f1512aa6aa133354dc796913fa1910675a6728a"
     }

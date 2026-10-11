@@ -1,0 +1,34 @@
+{
+  "name": "starhop-club-desktop",
+  "productName": "��Ծ����",
+  "version": "2.2.0",
+  "description": "��Ծ������������ �� �����ˣ�١ѩӣ",
+  "author": "١ѩӣ",
+  "license": "SEE LICENSE IN ../LICENSE",
+  "private": true,
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "club.starhop.desktop",
+    "productName": "��Ծ����",
+    "copyright": "�����ˣ�١ѩӣ���������������ԭ����",
+    "asar": true,
+    "directories": { "output": "../release-package/2.2.0/desktop-build" },
+    "files": ["main.cjs", "package.json", "icon.ico"],
+    "extraResources": [{ "from": "payload", "to": "game", "filter": ["**/*"] }],
+    "win": {
+      "target": ["portable"],
+      "icon": "icon.ico",
+      "signAndEditExecutable": true,
+      "artifactName": "Starhop-Club-${version}-Windows-x64.exe"
+    },
+    "portable": { "requestExecutionLevel": "user" }
+  }
+}
