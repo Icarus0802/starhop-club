@@ -2,9 +2,10 @@
 const http=require('node:http'),fs=require('node:fs'),path=require('node:path');
 const root=__dirname,port=Number(process.env.PORT)||5173;
 const version=require('./package.json').version;
-const {verifiedInstallation,createNativeApi}=require('./scripts/native-ai-server.cjs');
-const nativeEnabled=verifiedInstallation();
-const nativeApi=createNativeApi({enabled:nativeEnabled,engine:nativeEnabled?require('./benchmarks/kata-native.cjs'):null});
+const {verifiedRelease,createNativeApi}=require('./scripts/native-ai-server.cjs');
+const nativeEnabled=verifiedRelease();
+if(nativeEnabled)process.env.STARHOP_THREADS='8';
+const nativeApi=createNativeApi({enabled:nativeEnabled,budgetMs:15000,engineName:'星河 2.2 · 深度收官',engine:nativeEnabled?require('./benchmarks/challenge-15-deep-native.cjs'):null});
 const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.json':'application/json; charset=utf-8','.md':'text/plain; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
   const localHosts=new Set(['127.0.0.1:'+port,'localhost:'+port]);

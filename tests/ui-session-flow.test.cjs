@@ -2,7 +2,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const E=require('../js/engine.js'),A=require('../js/ai.js'),D=require('../js/analysis.js');
 class Element{
-  constructor(tag='div'){this.tag=tag;this.children=[];this.attributes={};this.dataset={};this.style={};this.value='';this.textContent='';this.disabled=false;this.hidden=false;this.classList={add(){},remove(){},toggle(){}};}
+  constructor(tag='div'){this.tag=tag;this.children=[];this.attributes={};this.dataset={};this.style={setProperty(key,value){this[key]=value;}};this.value='';this.textContent='';this.disabled=false;this.hidden=false;this.classList={add(){},remove(){},toggle(){}};}
   append(...children){this.children.push(...children);}
   replaceChildren(...children){this.children=children;this.textContent='';}
   setAttribute(key,value){this.attributes[key]=value;}
@@ -20,10 +20,31 @@ function surface(){
     terminate(){this.terminated=true;}
   }
   const window={location:{hash:'#archive'},matchMedia:()=>({matches:true}),addEventListener(){}};
-  const context={window,location:window.location,document:{getElementById:get,querySelectorAll:()=>[],createElement:tag=>new Element(tag),createElementNS:(_,tag)=>new Element(tag)},Starhop:E,StarhopAI:A,StarhopAnalysis:D,Worker,performance,URL:{createObjectURL:()=> 'blob:ui-test',revokeObjectURL(){}},Blob:class{},setTimeout:callback=>{timers.push(callback);return timers.length;},clearTimeout(){},localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value)}};
+  const context={window,location:window.location,document:{getElementById:get,querySelectorAll:()=>[],createElement:tag=>new Element(tag),createElementNS:(_,tag)=>new Element(tag)},Starhop:E,StarhopAI:A,StarhopRepetition:require('../js/repetition-rule.js'),StarhopAnalysis:D,Worker,performance,URL:{createObjectURL:()=> 'blob:ui-test',revokeObjectURL(){}},Blob:class{},setTimeout:callback=>{timers.push(callback);return timers.length;},clearTimeout(){},localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value)}};
+  context.document.body=new Element('body');
   vm.createContext(context);return {context,get,workers,storage,timers};
 }
 function allButtons(node){return [node,...node.children.filter(x=>x instanceof Element).flatMap(allButtons)].filter(x=>x.tag==='button');}
+test('reloading an adjudicated game displays the real repetition loss and undo rebuilds it',()=>{
+  const R=require('../js/repetition-rule.js'),original=require('./fixtures/user-repetition-46.json');
+  const record={...original,options:{...original.options,repetitionRule:R.RULE}};
+  const ui=surface();ui.storage.set('starhop-session',JSON.stringify({record,preferences:{}}));
+  vm.runInContext(fs.readFileSync(require.resolve('../js/app.js'),'utf8'),ui.context);
+  assert.match(ui.get('turn-message').textContent,/你.*获胜.*AI 三次重复，判负/);assert.equal(ui.get('pause').disabled,true);
+  assert.doesNotMatch(ui.get('turn-message').textContent,/全部棋子/);
+  ui.get('undo').onclick();const saved=JSON.parse(ui.storage.get('starhop-session')).record;
+  assert.equal(saved.moves.length,44);assert.equal(R.replay(saved).state.winner,null);assert.equal(saved.result.adjudication,null);
+  assert.match(ui.get('repetition-warning').textContent,/重复两次/);
+});
+test('AI comparison receives only repetition history up to the reviewed ply',()=>{
+  const R=require('../js/repetition-rule.js'),original=require('./fixtures/user-repetition-46.json');
+  const {states}=R.replay({...original,options:{...original.options,repetitionRule:R.RULE}}),ui=surface();
+  vm.runInContext(fs.readFileSync(require.resolve('../js/analysis-ui.js'),'utf8'),ui.context);
+  ui.context.window.StarhopAnalysisUI.update(states,41,3,()=>{});ui.get('compare-levels').onclick();
+  const options=ui.workers[0].request.options;
+  assert.equal(new Map(options.ownRepetitions).get(R.position(states[38].board,0)),1);
+  assert.deepEqual(JSON.parse(JSON.stringify(options.ownRepetitions)),R.searchOptions(states.slice(0,42)).ownRepetitions);
+});
 test('opening archives and branching a master game preserve the previous session and reset new-game attribution',()=>{
   const ui=surface(),original={...require('./fixtures/user-blockade-28.json'),id:'in-progress-28',options:{...require('./fixtures/user-blockade-28.json').options,mode:'human',level:4}},target={...require('./fixtures/user-game.json'),id:'archive-24',savedAt:'2026-10-10T00:00:00Z'};
   ui.storage.set('starhop-session',JSON.stringify({record:original,preferences:{}}));ui.storage.set('starhop-archive',JSON.stringify([target]));

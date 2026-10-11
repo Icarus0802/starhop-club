@@ -1,0 +1,260 @@
+{
+  "round": 1,
+  "createdAt": "2026-10-11T09:42:31.761Z",
+  "openings": [
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 111,
+          "to": 103,
+          "sourceFrame": 1
+        },
+        {
+          "from": 9,
+          "to": 17,
+          "sourceFrame": 2
+        },
+        {
+          "from": 118,
+          "to": 91,
+          "sourceFrame": 3
+        },
+        {
+          "from": 2,
+          "to": 29,
+          "sourceFrame": 4
+        },
+        {
+          "from": 117,
+          "to": 79,
+          "sourceFrame": 5
+        },
+        {
+          "from": 3,
+          "to": 41,
+          "sourceFrame": 6
+        },
+        {
+          "from": 112,
+          "to": 69,
+          "sourceFrame": 7
+        },
+        {
+          "from": 8,
+          "to": 51,
+          "sourceFrame": 8
+        }
+      ],
+      "metadata": {
+        "source": "master-huaxia-jiuxiao-2017",
+        "prefixPlies": 8
+      }
+    },
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 113,
+          "to": 105,
+          "sourceFrame": 1
+        },
+        {
+          "from": 9,
+          "to": 17,
+          "sourceFrame": 2
+        },
+        {
+          "from": 111,
+          "to": 93,
+          "sourceFrame": 3
+        },
+        {
+          "from": 2,
+          "to": 29,
+          "sourceFrame": 4
+        },
+        {
+          "from": 115,
+          "to": 81,
+          "sourceFrame": 5
+        },
+        {
+          "from": 3,
+          "to": 41,
+          "sourceFrame": 6
+        },
+        {
+          "from": 114,
+          "to": 71,
+          "sourceFrame": 7
+        },
+        {
+          "from": 8,
+          "to": 51,
+          "sourceFrame": 8
+        }
+      ],
+      "metadata": {
+        "source": "master-huaxia-jiuxiao-2019",
+        "prefixPlies": 8
+      }
+    },
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 114,
+          "to": 105
+        },
+        {
+          "from": 7,
+          "to": 15
+        },
+        {
+          "from": 119,
+          "to": 92
+        },
+        {
+          "from": 2,
+          "to": 27
+        },
+        {
+          "from": 115,
+          "to": 81
+        },
+        {
+          "from": 3,
+          "to": 39
+        },
+        {
+          "from": 81,
+          "to": 71
+        },
+        {
+          "from": 39,
+          "to": 49
+        }
+      ],
+      "metadata": {
+        "source": "user-loss-79",
+        "prefixPlies": 8
+      }
+    },
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 114,
+          "to": 105
+        },
+        {
+          "from": 6,
+          "to": 15
+        },
+        {
+          "from": 119,
+          "to": 92
+        },
+        {
+          "from": 1,
+          "to": 28
+        },
+        {
+          "from": 115,
+          "to": 81
+        },
+        {
+          "from": 5,
+          "to": 39
+        },
+        {
+          "from": 81,
+          "to": 71
+        },
+        {
+          "from": 7,
+          "to": 29
+        }
+      ],
+      "metadata": {
+        "source": "user-loss-93",
+        "prefixPlies": 8
+      }
+    },
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 114,
+          "to": 105
+        },
+        {
+          "from": 6,
+          "to": 15
+        },
+        {
+          "from": 119,
+          "to": 92
+        },
+        {
+          "from": 1,
+          "to": 28
+        },
+        {
+          "from": 115,
+          "to": 81
+        },
+        {
+          "from": 5,
+          "to": 39
+        },
+        {
+          "from": 81,
+          "to": 71
+        },
+        {
+          "from": 7,
+          "to": 29
+        },
+        {
+          "from": 120,
+          "to": 81
+        },
+        {
+          "from": 0,
+          "to": 41
+        }
+      ],
+      "metadata": {
+        "source": "user-loss-99",
+        "prefixPlies": 10
+      }
+    }
+  ]
+}

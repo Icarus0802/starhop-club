@@ -1,4 +1,5 @@
 arena-results/
+docs/benchmarks/current-211-20261011/arena-results/
 *.log
 
 release-package/

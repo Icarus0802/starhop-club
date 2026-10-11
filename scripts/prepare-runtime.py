@@ -19,8 +19,8 @@ if hashlib.sha256((cache/'node.exe').read_bytes()).hexdigest() != checks['win-x6
     raise RuntimeError('Official Node checksum mismatch')
 
 download('https://github.com/hzyhhzy/KataGomo_fork/releases/download/20240406/Kata_TiaoQi_20220313.zip', cache / 'kata.zip')
-protocol = json.loads((root/'docs/benchmarks/kata-acceptance-20261011/protocol.json').read_text())
-runtime = root / 'arena-results/external-kata/runtime'
+protocol = json.loads((root/'docs/release-manifest.json').read_text())
+runtime = root / 'arena-results/current-challenge/runtime'
 runtime.mkdir(parents=True, exist_ok=True)
 with zipfile.ZipFile(cache/'kata.zip') as archive:
     for item in protocol['nativeFiles']:

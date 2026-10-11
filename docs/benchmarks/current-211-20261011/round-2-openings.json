@@ -1,0 +1,340 @@
+{
+  "round": 2,
+  "createdAt": "2026-10-11T09:42:31.775Z",
+  "openings": [
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 114,
+          "to": 105
+        },
+        {
+          "from": 6,
+          "to": 15
+        },
+        {
+          "from": 119,
+          "to": 92
+        },
+        {
+          "from": 1,
+          "to": 28
+        },
+        {
+          "from": 115,
+          "to": 81
+        },
+        {
+          "from": 5,
+          "to": 39
+        },
+        {
+          "from": 81,
+          "to": 71
+        },
+        {
+          "from": 7,
+          "to": 50
+        },
+        {
+          "from": 120,
+          "to": 62
+        },
+        {
+          "from": 39,
+          "to": 60
+        },
+        {
+          "from": 62,
+          "to": 52
+        },
+        {
+          "from": 0,
+          "to": 39
+        }
+      ],
+      "metadata": {
+        "source": "user-endgame-106",
+        "prefixPlies": 12
+      }
+    },
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 114,
+          "to": 105
+        },
+        {
+          "from": 6,
+          "to": 14
+        },
+        {
+          "from": 119,
+          "to": 92
+        },
+        {
+          "from": 1,
+          "to": 26
+        },
+        {
+          "from": 115,
+          "to": 81
+        },
+        {
+          "from": 5,
+          "to": 16
+        },
+        {
+          "from": 81,
+          "to": 70
+        },
+        {
+          "from": 7,
+          "to": 29
+        },
+        {
+          "from": 120,
+          "to": 60
+        },
+        {
+          "from": 4,
+          "to": 40
+        },
+        {
+          "from": 117,
+          "to": 81
+        },
+        {
+          "from": 8,
+          "to": 51
+        }
+      ],
+      "metadata": {
+        "source": "user-game",
+        "prefixPlies": 12
+      }
+    },
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 114,
+          "to": 105
+        },
+        {
+          "from": 7,
+          "to": 15
+        },
+        {
+          "from": 119,
+          "to": 92
+        },
+        {
+          "from": 2,
+          "to": 27
+        },
+        {
+          "from": 115,
+          "to": 81
+        },
+        {
+          "from": 3,
+          "to": 39
+        },
+        {
+          "from": 81,
+          "to": 71
+        },
+        {
+          "from": 39,
+          "to": 49
+        },
+        {
+          "from": 120,
+          "to": 62
+        },
+        {
+          "from": 15,
+          "to": 59
+        },
+        {
+          "from": 62,
+          "to": 52
+        },
+        {
+          "from": 0,
+          "to": 60
+        }
+      ],
+      "metadata": {
+        "source": "user-loss-79",
+        "prefixPlies": 12
+      }
+    },
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 111,
+          "to": 103,
+          "sourceFrame": 1
+        },
+        {
+          "from": 9,
+          "to": 17,
+          "sourceFrame": 2
+        },
+        {
+          "from": 118,
+          "to": 91,
+          "sourceFrame": 3
+        },
+        {
+          "from": 2,
+          "to": 29,
+          "sourceFrame": 4
+        },
+        {
+          "from": 117,
+          "to": 79,
+          "sourceFrame": 5
+        },
+        {
+          "from": 3,
+          "to": 41,
+          "sourceFrame": 6
+        },
+        {
+          "from": 112,
+          "to": 69,
+          "sourceFrame": 7
+        },
+        {
+          "from": 8,
+          "to": 51,
+          "sourceFrame": 8
+        },
+        {
+          "from": 114,
+          "to": 92,
+          "sourceFrame": 9
+        },
+        {
+          "from": 6,
+          "to": 28,
+          "sourceFrame": 10
+        },
+        {
+          "from": 120,
+          "to": 81,
+          "sourceFrame": 11
+        },
+        {
+          "from": 0,
+          "to": 39,
+          "sourceFrame": 12
+        }
+      ],
+      "metadata": {
+        "source": "master-huaxia-jiuxiao-2017",
+        "prefixPlies": 12
+      }
+    },
+    {
+      "format": "starhop-v1",
+      "options": {
+        "players": 2,
+        "jump": "short",
+        "goalLock": false
+      },
+      "moves": [
+        {
+          "from": 113,
+          "to": 105,
+          "sourceFrame": 1
+        },
+        {
+          "from": 9,
+          "to": 17,
+          "sourceFrame": 2
+        },
+        {
+          "from": 111,
+          "to": 93,
+          "sourceFrame": 3
+        },
+        {
+          "from": 2,
+          "to": 29,
+          "sourceFrame": 4
+        },
+        {
+          "from": 115,
+          "to": 81,
+          "sourceFrame": 5
+        },
+        {
+          "from": 3,
+          "to": 41,
+          "sourceFrame": 6
+        },
+        {
+          "from": 114,
+          "to": 71,
+          "sourceFrame": 7
+        },
+        {
+          "from": 8,
+          "to": 51,
+          "sourceFrame": 8
+        },
+        {
+          "from": 105,
+          "to": 40,
+          "sourceFrame": 9
+        },
+        {
+          "from": 41,
+          "to": 60,
+          "sourceFrame": 10
+        },
+        {
+          "from": 93,
+          "to": 50,
+          "sourceFrame": 11
+        },
+        {
+          "from": 0,
+          "to": 39,
+          "sourceFrame": 12
+        }
+      ],
+      "metadata": {
+        "source": "master-huaxia-jiuxiao-2019",
+        "prefixPlies": 12
+      }
+    }
+  ]
+}

@@ -1,17 +1,19 @@
 (function(){
   'use strict';
-  const E=Starhop,A=StarhopAI,$=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
+  const E=Starhop,A=StarhopAI,R=StarhopRepetition,$=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
   const colors=['#caa873','#8eb4bc','#a99cca','#709be0','#c78ca4','#c5cbd7'];
   const names=['香槟金','雾青','鸢尾紫','钴蓝','玫瑰灰','月光银'];
-  const viewNames={play:'对弈大厅',lab:'AI 实验室',archive:'我的棋谱',rules:'规则与开源'};
-  let config={players:2,jump:'short',goalLock:false,mode:'human-ai',humanSeat:0,level:4,secondLevel:4};
-  let state=E.createGame(config),states=[state],moves=[],cursor=0,selected=null,targets=[],hintPath=null;
-  let worker=null,workerURL=null,generation=0,busy=false,paused=false,flipped=false,coords=false,sound=false,lastSearch=null,timer=null,toastTimer;
-  let nativeReady=false,nativeController=null,nativeLoading=false;
-  function useNative(options){return nativeReady&&config.players===2&&config.jump==='short'&&!config.goalLock&&options.level===4&&(!options.time||options.time===350)&&options.algorithm==='auto';}
+  const viewNames={play:'对弈大厅',lab:'AI 实验室',archive:'我的棋谱',rules:'规则与署名'};
+  let config={repetitionRule:R.RULE,players:2,jump:'short',goalLock:false,mode:'human-ai',humanSeat:0,level:4,secondLevel:4};
+  let state=createMatch(config),states=[state],moves=[],cursor=0,selected=null,targets=[],hintPath=null;
+  let worker=null,workerURL=null,generation=0,busy=false,paused=false,flipped=false,coords=false,lastSearch=null,timer=null,toastTimer;
+  let nativeReady=false,nativeController=null,nativeLoading=false,nativeBudget=350,nativeLabel='本机神经网络';
+  function useNative(options){return nativeReady&&config.players===2&&config.jump==='short'&&!config.goalLock&&options.level===4&&options.algorithm==='auto';}
   let currentSavedId=null,ended=false,studySource=null;
+  const finished=s=>s.winner!==null||!!s.draw||!!s.stopped;
   let boardStamp='',historyStamp='',replaySerial=0,searchProgress=null,replyStarted=0,keyboardCell=null;
   const prefs={algorithm:'auto',time:0,seed:20261010,pace:80};
+  function createMatch(options){const s=E.createGame(options);if(options.players===2&&options.repetitionRule===R.RULE)s.rules.repetitionRule=R.RULE;return s;}
   function toast(text){$('toast').textContent=text;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2800);}
   function storageGet(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
   function storageSet(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{toast('浏览器存储不可用，请导出棋谱文件备份');return false;}}
@@ -23,12 +25,19 @@
   function makeDefs(board){
     const defs=svg('defs',{},board);
     const wood=svg('linearGradient',{id:'wood',x1:0,y1:0,x2:'.7',y2:1},defs);svg('stop',{offset:'0%', 'stop-color':'var(--board-top)'},wood);svg('stop',{offset:'100%','stop-color':'var(--board-bottom)'},wood);
-    const hole=svg('radialGradient',{id:'hole',cx:'.52',cy:'.55',r:'.65'},defs);svg('stop',{offset:'0%','stop-color':'var(--hole-center)'},hole);svg('stop',{offset:'74%','stop-color':'var(--hole-center)'},hole);svg('stop',{offset:'100%','stop-color':'var(--hole-edge)'},hole);
-    colors.forEach((color,p)=>{const grad=svg('radialGradient',{id:'piece'+p,cx:'.32',cy:'.22',r:'.9'},defs);svg('stop',{offset:'0%','stop-color':'#f4f0e9'},grad);svg('stop',{offset:'30%','stop-color':color},grad);svg('stop',{offset:'66%','stop-color':color},grad);svg('stop',{offset:'100%','stop-color':'#242938'},grad);});
+    const bevel=svg('linearGradient',{id:'board-bevel',x1:0,y1:0,x2:'.65',y2:1},defs);svg('stop',{offset:'0%','stop-color':'var(--board-rim)'},bevel);svg('stop',{offset:'48%','stop-color':'var(--board-top)'},bevel);svg('stop',{offset:'100%','stop-color':'var(--board-edge)'},bevel);
+    const light=svg('radialGradient',{id:'board-light',cx:'.27',cy:'.14',r:'.88'},defs);svg('stop',{offset:'0%','stop-color':'#fff8ed','stop-opacity':'.27'},light);svg('stop',{offset:'50%','stop-color':'#fff8ed','stop-opacity':'0'},light);svg('stop',{offset:'100%','stop-color':'#362036','stop-opacity':'.16'},light);
+    const shadow=svg('filter',{id:'board-shadow',x:'-25%',y:'-25%',width:'150%',height:'160%'},defs);svg('feGaussianBlur',{stdDeviation:8},shadow);
+    const grain=svg('pattern',{id:'board-grain',width:78,height:56,patternUnits:'userSpaceOnUse'},defs);
+    svg('path',{d:'M-8 12 Q18 4 39 15 T86 12 M-8 15 Q18 7 39 18 T86 15 M-8 43 Q22 31 46 42 T86 40',fill:'none',stroke:'var(--grain-color,#fff)','stroke-width':'.6'},grain);
+    svg('circle',{cx:18,cy:33,r:'.6',fill:'var(--grain-color,#fff)'},grain);
+    const sheen=svg('linearGradient',{id:'board-sheen',x1:0,y1:0,x2:1,y2:1},defs);svg('stop',{offset:'0%','stop-color':'#fff','stop-opacity':'.32'},sheen);svg('stop',{offset:'40%','stop-color':'#fff','stop-opacity':'0'},sheen);svg('stop',{offset:'70%','stop-color':'#fff','stop-opacity':'.13'},sheen);svg('stop',{offset:'100%','stop-color':'#fff','stop-opacity':'0'},sheen);
+    const hole=svg('linearGradient',{id:'hole',x1:0,y1:0,x2:'.2',y2:1},defs);svg('stop',{offset:'0%','stop-color':'var(--hole-center)'},hole);svg('stop',{offset:'42%','stop-color':'var(--hole-center)'},hole);svg('stop',{offset:'100%','stop-color':'var(--hole-edge)'},hole);
+    colors.forEach((color,p)=>{const grad=svg('radialGradient',{id:'piece'+p,cx:'.34',cy:'.24',r:'.8'},defs);svg('stop',{offset:'0%','stop-color':'#fff8e9'},grad);svg('stop',{offset:'23%','stop-color':color},grad);svg('stop',{offset:'58%','stop-color':color},grad);svg('stop',{offset:'100%','stop-color':'#252c3b'},grad);});
     const arrow=svg('marker',{id:'move-arrow',viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:5,markerHeight:5,orient:'auto-start-reverse'},defs);svg('path',{d:'M 0 0 L 10 5 L 0 10 z',fill:'var(--route)'},arrow);
   }
   function drawBoard(){
-    const stamp=[cursor,flipped,coords,selected,targets.map(m=>m.to).join('.'),hintPath?.join('.'),moves[cursor-1]?.path?.join('.'),states[cursor].board.join('.')].join('|');
+    const stamp=[cursor,flipped,coords,selected,colors.join(),targets.map(m=>m.to).join('.'),hintPath?.join('.'),moves[cursor-1]?.path?.join('.'),states[cursor].board.join('.')].join('|');
     if(stamp===boardStamp)return;boardStamp=stamp;
     const shown=states[cursor],board=$('board'),focused=document.activeElement?.closest?.('[data-i]');
     if(focused?.dataset?.i!==undefined)keyboardCell=Number(focused.dataset.i);
@@ -36,8 +45,13 @@
     board.replaceChildren();makeDefs(board);
     const outline=[[0,12],[4,16],[4,24],[8,20],[12,24],[12,16],[16,12],[12,8],[12,0],[8,4],[4,0],[4,8]].map(([r,c])=>point(E.at(r,c)));
     const poly=outline.map(p=>p.join(',')).join(' ');
-    svg('polygon',{points:poly,fill:'url(#wood)',stroke:'var(--board-edge)','stroke-width':13,'stroke-linejoin':'round'},board);
-    svg('polygon',{points:poly,fill:'none',stroke:'var(--board-rim)','stroke-width':1,'stroke-linejoin':'round'},board);
+    svg('polygon',{points:poly,transform:'translate(2 13)',fill:'#10101e','fill-opacity':'.5',filter:'url(#board-shadow)','pointer-events':'none'},board);
+    svg('polygon',{points:poly,transform:'translate(0 6)',fill:'var(--board-edge)',stroke:'var(--board-edge)','stroke-width':23,'stroke-linejoin':'round'},board);
+    svg('polygon',{points:poly,fill:'url(#wood)',stroke:'url(#board-bevel)','stroke-width':20,'stroke-linejoin':'round'},board);
+    svg('polygon',{points:poly,fill:'none',stroke:'var(--board-edge)','stroke-width':1,'stroke-opacity':'.6','stroke-linejoin':'round'},board);
+    svg('polygon',{points:poly,fill:'url(#board-light)','pointer-events':'none'},board);
+    svg('polygon',{points:poly,fill:'url(#board-grain)','class':'board-grain','pointer-events':'none'},board);
+    svg('polygon',{points:poly,fill:'url(#board-sheen)','class':'board-sheen','pointer-events':'none'},board);
     const camps=[[0,12,3,9,3,15],[4,18,4,24,7,21],[9,21,12,18,12,24],[13,9,13,15,16,12],[9,3,12,0,12,6],[4,0,4,6,7,3]];
     camps.forEach((a,p)=>{const pts=[point(E.at(a[0],a[1])),point(E.at(a[2],a[3])),point(E.at(a[4],a[5]))];svg('polygon',{points:pts.map(x=>x.join(',')).join(' '),fill:colors[p],'fill-opacity':shown.players.includes(p)?'.12':'0',stroke:colors[p],'stroke-opacity':shown.players.includes(p)?'.14':'0','stroke-width':29,'stroke-linejoin':'round'},board);});
     E.cells.forEach((_,i)=>{const [x,y]=point(i);for(const to of E.adjacent[i])if(to>i){const [tx,ty]=point(to);svg('line',{x1:x,y1:y,x2:tx,y2:ty,stroke:'var(--board-grid)','stroke-width':'.7','stroke-opacity':'.45'},board);}});
@@ -47,7 +61,8 @@
       const g=svg('g',{'class':'hole'+(p>=0?' occupied':'')+(target?' legal-target':''),'data-i':i,role:'button',tabindex:i===keyboardCell?'0':'-1','aria-pressed':selected===i?'true':'false','aria-label':E.coord(i)+' '+(p<0?(target?'可落点':'空孔'):names[p]+'棋子')},board);
       const title=svg('title',{},g);title.textContent=E.coord(i)+(p>=0?' · '+names[p]:'');
       svg('circle',{cx:x,cy:y,r:20,fill:'transparent'},g);
-      svg('circle',{cx:x,cy:y+1,r:13,fill:'url(#hole)',stroke:'var(--hole-rim)','stroke-width':1},g);
+      svg('circle',{cx:x,cy:y+1.8,r:12.8,fill:'var(--hole-edge)','fill-opacity':'.9'},g);
+      svg('circle',{cx:x,cy:y,r:12.3,fill:'url(#hole)',stroke:'var(--hole-rim)','stroke-width':'.7'},g);
       if(p>=0){
         svg('circle',{cx:x,cy:y+2,r:12.4,fill:'#000','fill-opacity':'.38'},g);
         svg('circle',{cx:x,cy:y-1,r:12,fill:'url(#piece'+p+')',stroke:colors[p],'stroke-width':1},g);
@@ -59,16 +74,17 @@
       if(coords){const text=svg('text',{x,y:y+23,'text-anchor':'middle','font-size':8,fill:'var(--color-label)','pointer-events':'none'},g);text.textContent=E.coord(i);}
     });
     if(route?.length>1){
-      const layer=svg('g',{'class':'last-route','pointer-events':'none','aria-hidden':'true'},board),points=route.map(i=>point(i).join(',')).join(' '),color=hintPath?'var(--accent)':'var(--route)';
+      const layer=svg('g',{'class':hintPath?'last-route hint-route':'last-route','pointer-events':'none','aria-hidden':'true'},board),points=route.map(i=>point(i).join(',')).join(' '),color=hintPath?'var(--accent)':'var(--route)';
       svg('polyline',{points,fill:'none',stroke:'var(--route-underlay)','stroke-width':6,'stroke-opacity':'.85','stroke-linejoin':'round'},layer);
       svg('polyline',{points,fill:'none',stroke:color,'stroke-width':2.8,'stroke-opacity':'.8','stroke-linejoin':'round','marker-end':'url(#move-arrow)'},layer);
       route.forEach((i,n)=>{const [x,y]=point(i);if(n===0||n===route.length-1){svg('circle',{cx:x,cy:y,r:17,fill:'none',stroke:'var(--route-underlay)','stroke-width':5},layer);svg('circle',{cx:x,cy:y,r:17,fill:'none',stroke:color,'stroke-width':2.5,'stroke-dasharray':n===0?'4 3':'none'},layer);}
-        const bx=x+15,by=y-17;svg('circle',{cx:bx,cy:by,r:9,fill:color,stroke:'#fff','stroke-width':1.5},layer);svg('text',{x:bx,y:by+3.5,'text-anchor':'middle',fill:'#fff','font-size':10,'font-weight':700},layer).textContent=n===0?'起':n===route.length-1?'落':String(n);
+        const bx=x+15,by=y-17;svg('circle',{cx:bx,cy:by,r:9,fill:color,stroke:'var(--route-underlay)','stroke-width':1.5},layer);svg('text',{x:bx,y:by+3.5,'text-anchor':'middle',fill:'var(--route-label)','font-size':10,'font-weight':700},layer).textContent=n===0?'起':n===route.length-1?'落':String(n);
       });
     }
     if(focused?.dataset?.i!==undefined)board.querySelector('[data-i="'+keyboardCell+'"]')?.focus();
   }
   function replayLast(){
+    if(window.StarhopRoom?.effects().style==='none'||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     const m=cursor>0?moves[cursor-1]:null;if(!m||m.pass)return;
     $('board').querySelector('.replay-marble')?.remove();const p=states[cursor-1].players[states[cursor-1].turn],g=svg('g',{'class':'replay-marble','pointer-events':'none'},$('board'));
     svg('circle',{r:14,fill:colors[p],stroke:'#fff','stroke-width':3},g);
@@ -77,14 +93,21 @@
     const serial=++replaySerial;setTimeout(()=>{if(serial===replaySerial)g.remove();},1800);
   }
   function strip(element,p,shown){
+    element.style.setProperty('--player-color',colors[p]);
     element.replaceChildren();const icon=document.createElement('span');icon.className='player-icon';icon.style.background=colors[p]+'20';icon.style.color=colors[p];icon.textContent=isHuman(p)?'◈':'✦';
-    const info=document.createElement('div'),b=document.createElement('b'),small=document.createElement('small');b.textContent=playerName(p);small.textContent=isHuman(p)?'执'+names[p]+' · 移入对角营地':A.LEVELS[levelFor(p)].label+' · '+(shown.players.length===2?(prefs.algorithm==='mcts'?'MCTS':prefs.algorithm==='classic'?'经典搜索':prefs.algorithm==='pvs'||(prefs.algorithm!=='team'&&(levelFor(p)<2||levelFor(p)===4))||(prefs.algorithm!=='team'&&(shown.rules.jump==='long'||shown.rules.goalLock))?'快速搜索':'团队规划'):'MCTS');info.append(b,small);
+    const info=document.createElement('div'),b=document.createElement('b'),small=document.createElement('small');b.textContent=playerName(p);info.append(b,small);
     const arrived=E.progress(shown.board,p),progress=document.createElement('span');progress.className='progress-badge';progress.textContent=arrived+' / 10 入营';
-    const meter=document.createElement('span');meter.className='arrival-meter';meter.setAttribute('aria-hidden','true');const fill=document.createElement('i');fill.style.width=arrived*10+'%';fill.style.background=colors[p];meter.append(fill);progress.append(meter);element.append(icon,info,progress);
-    element.setAttribute('data-current',String(shown.winner===null&&!shown.draw&&shown.players[shown.turn]===p));
+    small.textContent=isHuman(p)?'执'+names[p]:A.LEVELS[levelFor(p)].label+' · '+(useNative({level:levelFor(p),algorithm:prefs.algorithm})?'神经网络':'搜索引擎');
+    const meter=document.createElement('span');meter.className='arrival-meter';meter.setAttribute('aria-hidden','true');for(let i=0;i<10;i++){const pip=document.createElement('i');pip.className=i<arrived?'arrived':'';meter.append(pip);}progress.append(meter);element.append(icon,info,progress);
+    element.setAttribute('data-current',String(!finished(shown)&&shown.players[shown.turn]===p));
   }
   function render(){
     const shown=states[cursor],p=shown.players[shown.turn],review=cursor<moves.length;
+    const pieceAppearance=window.StarhopRoom?.pieces(shown.players,config.humanSeat);
+    if(pieceAppearance){colors.splice(0,6,...pieceAppearance.colors);names.splice(0,6,...pieceAppearance.names);}
+    document.body.classList.toggle('game-ended',!review&&finished(shown));
+    document.body.classList.toggle('game-review',review);
+    $('new-game-inline').hidden=review||!finished(shown);$('return-live-board').hidden=!review;
     drawBoard();strip($('opponent-strip'),shown.players[1],shown);strip($('human-strip'),shown.players[0],shown);
     const last=cursor>0?moves[cursor-1]:null,lastPlayer=cursor>0?states[cursor-1].players[states[cursor-1].turn]:null;
     $('last-action').hidden=!last;$('replay-last').disabled=!last||!!last.pass;
@@ -100,39 +123,44 @@
     $('profile-name').textContent=profile?profile.name:'同屏对弈';
     $('profile-level').textContent=profile?profile.label+' · '+((prefs.time||profile.time)/1000)+' 秒':shown.players.length+' 人棋局';
     const nativeProfile=profile&&useNative({level:levelFor(opponent),time:prefs.time,algorithm:prefs.algorithm});
-    if(nativeProfile)$('profile-level').textContent='本机神经网络 · 0.35 秒';
+    if(nativeProfile)$('profile-level').textContent=nativeLabel+' · '+((prefs.time||nativeBudget)/1000)+' 秒';
     $('profile-summary').textContent=nativeProfile?'本机模型规划整队推进与收官。':profile?'整队推进，借力而行。':'面对面，一盘好棋。';
-    $('profile-status').textContent=review?'复盘第 '+cursor+' 手':shown.winner!==null||shown.draw?'本局已结束':paused?'对局已暂停':busy?'思考中':opponent===p?'轮到 AI':isHuman(p)?'等你落子':'轮到另一位 AI';
+    $('profile-status').textContent=review?'复盘第 '+cursor+' 手':finished(shown)?'本局已结束':paused?'对局已暂停':busy?'思考中':opponent===p?'轮到 AI':isHuman(p)?'等你落子':'轮到另一位 AI';
     $('rules-tag').textContent=config.jump==='long'?'等距长跳':'相邻跳';$('rule-info').textContent=(config.jump==='long'?'长跳':'相邻跳')+(config.goalLock?' · 营地锁定':'');$('ply-info').textContent=shown.ply;
     $('seats').replaceChildren();shown.players.forEach(s=>{
-      const row=document.createElement('div');row.className='seat'+(s===p&&!shown.draw&&shown.winner===null?' current':'');
+      const row=document.createElement('div');row.className='seat'+(s===p&&!finished(shown)?' current':'');
       const icon=document.createElement('span');icon.className='seat-avatar';icon.style.color=colors[s];icon.style.background=colors[s]+'15';icon.textContent=isHuman(s)?'◈':'✦';
       const text=document.createElement('div'),name=document.createElement('div'),detail=document.createElement('div');name.className='seat-name';detail.className='seat-detail';name.textContent=playerName(s);detail.textContent=names[s]+' · '+(isHuman(s)?'人类棋手':A.LEVELS[levelFor(s)].label+'难度');text.append(name,detail);
       const prog=document.createElement('div');prog.className='seat-progress';prog.textContent=E.progress(shown.board,s)+' / 10';const small=document.createElement('small');small.textContent='进入目标';prog.append(small);row.append(icon,text,prog);$('seats').append(row);
     });
-    let message=review?'复盘中 · 第 '+cursor+' 手':shown.winner!==null?playerName(shown.winner)+' 获胜，全部棋子已到达目标':shown.draw?'对局结束 · '+shown.draw:paused?'对局已暂停':busy?'AI 正在规划下一步…':isHuman(p)?'轮到 '+playerName(p)+' · 选择一颗棋子开始':'轮到 '+playerName(p);
+    let message=review?'复盘中 · 第 '+cursor+' 手':shown.winner!==null?playerName(shown.winner)+(shown.adjudication?' 获胜 · '+playerName(shown.adjudication.loser)+' 三次重复，判负':' 获胜，全部棋子已到达目标'):shown.stopped?'对局已手动结束 · 未判胜负':shown.draw?'对局结束 · '+shown.draw:paused?'对局已暂停':busy?'AI 正在规划下一步…':isHuman(p)?'轮到 '+playerName(p)+' · 选择一颗棋子开始':'轮到 '+playerName(p);
+    const repeated=R.enabled(shown)&&!finished(shown)?[...R.history(states.slice(0,cursor+1))].filter(([key,plies])=>plies.length===2&&shown.players.some(p=>R.position(shown.board,p)===key)).map(([key])=>Number(key.split(':')[0])):[];
+    $('repetition-warning').hidden=!repeated.length;$('repetition-warning').textContent=repeated.map(p=>playerName(p)+' 当前阵形已重复两次，再次回到该阵形将判负').join('；');
     $('turn-message').textContent=message;$('turn-message').style.color=shown.winner!==null?'var(--green)':'';
-    $('pause').hidden=config.mode==='human';$('pause').textContent=paused?'▶ 继续':'Ⅱ 暂停';$('pause').disabled=!!state.draw||state.winner!==null;
-    $('undo').disabled=!moves.length||review;$('hint').disabled=busy||review||state.winner!==null||!!state.draw||!isHuman(state.players[state.turn]);$('resign').disabled=review||state.winner!==null||!!state.draw;
+    $('pause').hidden=config.mode==='human';$('pause').textContent=paused?'▶ 继续':'Ⅱ 暂停';$('pause').disabled=finished(state);
+    $('undo').disabled=!moves.length||review;$('hint').disabled=busy||review||finished(state)||!isHuman(state.players[state.turn]);$('resign').disabled=review||finished(state);
     $('history-index').textContent=cursor+' / '+moves.length;$('first-move').disabled=cursor===0;$('prev-move').disabled=cursor===0;$('next-move').disabled=cursor===moves.length;$('last-move').disabled=cursor===moves.length;$('return-live').hidden=!review;
-    const hs=moves.length+':'+cursor;if(hs!==historyStamp){historyStamp=hs;
+    const hs=moves.length+':'+cursor+':'+colors.join();if(hs!==historyStamp){historyStamp=hs;
     $('move-list').replaceChildren();if(!moves.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='棋局刚刚开始 · 每一步都会留在这里';$('move-list').append(empty);}
     moves.forEach((m,i)=>{const row=document.createElement('button');row.className='move-row'+(cursor===i+1?' selected':'');row.dataset.ply=i+1;
       const num=document.createElement('small');num.textContent=i+1;const dot=document.createElement('span');dot.className='color-dot';dot.style.background=colors[states[i].players[states[i].turn]];
       const notation=document.createElement('span');notation.textContent=m.pass?'无合法走法 · 跳过':E.coord(m.from)+' → '+E.coord(m.to);const jump=document.createElement('span');jump.className='jump-count';jump.textContent=m.path.length>2?(m.path.length-1)+' 连跳':'';row.append(num,dot,notation,jump);$('move-list').append(row);
     });
-    if(!review)$('move-list').scrollTop=$('move-list').scrollHeight;}
-    renderSearch();if(window.StarhopAnalysisUI)StarhopAnalysisUI.update(states,cursor,shown.players[Math.min(config.humanSeat,shown.players.length-1)],to=>{cancelSearch();cursor=Math.max(0,Math.min(moves.length,to));selected=null;targets=[];hintPath=null;render();if(cursor===moves.length)schedule();});
+    const list=$('move-list'),activeRow=list.querySelector('.selected');
+    if(!review)list.scrollTop=list.scrollHeight;
+    else list.scrollTop=activeRow?Math.max(0,activeRow.offsetTop-list.clientHeight/2+activeRow.offsetHeight/2):0;}
+    renderSearch();if(window.StarhopAnalysisUI)StarhopAnalysisUI.update(states,cursor,shown.players[Math.min(config.humanSeat,shown.players.length-1)],to=>{window.StarhopSound?.stop();cancelSearch();cursor=Math.max(0,Math.min(moves.length,to));selected=null;targets=[];hintPath=null;render();if(cursor===moves.length)schedule();},pieceAppearance);
   }
   function renderSearch(){
     const reviewing=cursor<moves.length,s=reviewing?null:busy?searchProgress:lastSearch;
-    $('compact-engine').textContent=reviewing?'复盘 · 第 '+cursor+' 手':busy?'AI 思考中…':s?'AI '+(s.native?'神经网络':s.planning?s.depth+' 回合':s.depth+' 层')+' · '+((s.latency??s.time)/1000).toFixed(2)+' 秒':config.mode!=='human'&&useNative({level:config.level,time:prefs.time,algorithm:prefs.algorithm})?'本机神经网络已就绪':nativeLoading?'模型加载中 · 浏览器 AI 待命':'AI 待命';
+    $('compact-engine').textContent=reviewing?'复盘 · 第 '+cursor+' 手':busy?'AI 思考中…':s?'AI '+(Number.isFinite(s.finishTurns)?'收官 '+s.finishTurns+' 步':s.native?'神经网络':s.planning?s.depth+' 回合':s.depth+' 层')+' · '+((s.latency??s.time)/1000).toFixed(2)+' 秒':config.mode!=='human'&&useNative({level:config.level,time:prefs.time,algorithm:prefs.algorithm})?nativeLabel+'已就绪 · '+(nativeBudget/1000)+' 秒':nativeLoading?'模型加载中 · 浏览器 AI 待命':'AI 待命';
     $('engine-status').textContent=reviewing?'复盘中':busy?(s?.algorithm||'搜索中'):s?s.algorithm:'待命';$('engine-status').classList.toggle('thinking',busy&&!reviewing);
-    $('search-depth').textContent=s&&!s.native?(s.algorithm==='MCTS'?'MCTS':s.planning?s.depth+' 回合':s.depth+(s.selective?'*':'')):'—';
+    $('search-depth').textContent=s&&Number.isFinite(s.finishTurns)?s.finishTurns+' 步':s&&!s.native?(s.algorithm==='MCTS'?'MCTS':s.planning?s.depth+' 回合':s.depth+(s.selective?'*':'')):'—';
     $('search-nodes').textContent=s&&Number.isFinite(s.nodes)?Intl.NumberFormat('zh-CN',{notation:'compact',maximumFractionDigits:1}).format(s.nodes):'—';$('search-time').textContent=s?((s.latency??s.time)/1000).toFixed(2):'—';
     $('search-summary').textContent=s?(s.solved?(s.score>=99900?'已找到终局获胜路线。':'搜索中发现对手可结束对局。'):s.algorithm==='MCTS'?'完成 '+s.simulations+' 次模拟。模拟评分用于排序。':s.planning?'已比较 '+s.depth+' 个自方回合的团队计划，含预测对手回复。':s.selective?'完成选择性深度 '+s.depth+'，部分次要分支减少搜索。':'完成深度 '+s.depth+'，命中 '+s.hits+' 次局面缓存。'):'选择棋子，浅色圆点是可落点。连跳会自动显示完整路径。';
     if(reviewing)$('search-summary').textContent='局势评分对应当前复盘局面。可使用“比较各级 AI 的建议”重新分析这一手。';
-    else if(s?.native)$('search-summary').textContent='本机神经网络完成选子与落点搜索；局势栏继续显示独立的局面估计。';
+    else if(Number.isFinite(s?.finishTurns))$('search-summary').textContent=s.finishSource?'已验证 '+s.finishTurns+' 步收官路线；每次对手落子后重新检查，不依赖对手留桥。':'已找到 '+s.finishTurns+' 步收官方案（固定对方棋子）。对方继续走动可能改变路线。';
+    else if(s?.native)$('search-summary').textContent=Number.isFinite(s.finishTurns)?'已找到 '+s.finishTurns+' 步收官方案（固定对方棋子）。对方继续走动可能改变路线。':'本机神经网络完成选子与落点搜索；局势栏显示独立估计与可计算的收官步数。';
     else if(s?.nativeFallback)$('search-summary').textContent='本手使用通用搜索 · '+$('search-summary').textContent;
     $('candidates').replaceChildren();if(s)s.candidates?.slice(0,3).forEach((m,i)=>{const row=document.createElement('div');row.className='candidate';const left=document.createElement('span'),right=document.createElement('span');left.textContent=(i+1)+'. '+E.coord(m.from)+' → '+E.coord(m.to);right.textContent=s.solved&&m.bound!=='upper'&&Math.abs(m.score)>=99900?(m.score>0?'终局胜':'终局负'):s.algorithm==='MCTS'?(m.visits||0)+' 访问':(m.bound==='upper'?'≤ ':'')+m.score.toFixed(1);row.append(left,right);$('candidates').append(row);});
     $('search-plan').replaceChildren();if(s?.plan?.length){
@@ -145,34 +173,39 @@
   function cancelSearch(){generation++;clearTimeout(timer);nativeController?.abort();nativeController=null;if(busy)disposeWorker();busy=false;searchProgress=null;replyStarted=0;}
   function repetitions(){const map=new Map();states.forEach(s=>{const k=E.key(s.board,s.turn);map.set(k,(map.get(k)||0)+1);});return [...map];}
   function persistSession(){storageSet('starhop-session',{record:record(),preferences:prefs});}
-  function record(){return {format:'starhop-v1',options:{...config},moves:moves.map(m=>m.pass?{pass:true}:{from:m.from,to:m.to}),createdAt:new Date().toISOString(),result:{winner:state.winner,draw:state.draw},engineVersion:'1.2.0',...(studySource?{studySource}: {})};}
-  function checkDraw(next){const k=E.key(next.board,next.turn),n=states.filter(s=>E.key(s.board,s.turn)===k).length+1;if(next.winner===null&&n>=3)next.draw='三次重复局面';if(next.winner===null&&next.ply>=600)next.draw='达到 600 手上限';}
+  function record(){return {format:'starhop-v1',options:{...config},moves:moves.map(m=>m.pass?{pass:true}:{from:m.from,to:m.to}),createdAt:new Date().toISOString(),result:{winner:state.winner,draw:state.draw,stopped:state.stopped||null,adjudication:state.adjudication||null},engineVersion:'2.2.0',softwareOrigin:{name:'星跃棋社',creator:'佟雪樱',url:'https://github.com/Icarus0802/starhop-club'},...(studySource?{studySource}: {})};}
+  function checkDraw(next){if(R.enabled(next)){if(next.winner===null&&!next.draw&&next.ply>=600)next.draw='达到 600 手上限';return;}const k=E.key(next.board,next.turn),n=states.filter(s=>E.key(s.board,s.turn)===k).length+1;if(next.winner===null&&n>=3)next.draw='三次重复局面';if(next.winner===null&&next.ply>=600)next.draw='达到 600 手上限';}
   function playMove(move,searchResult=null){
-    const result=E.applyMove(state,move);state=result.state;checkDraw(state);moves.push(result.move);states.push(state);cursor=moves.length;selected=null;targets=[];hintPath=null;if(searchResult)lastSearch=searchResult;
-    playTone();persistSession();render();if(searchResult&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)replayLast();
+    const result=E.applyMove(state,move);state=R.adjudicate(states,result.state);checkDraw(state);moves.push(result.move);states.push(state);cursor=moves.length;selected=null;targets=[];hintPath=null;if(searchResult)lastSearch=searchResult;
+    persistSession();render();
+    const effects=window.StarhopRoom?.effects(),animate=!!searchResult&&effects?.autoReplay!==false&&effects?.style!=='none'&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hops=Math.max(1,(result.move.path?.length||2)-1),finish=state.winner!==null?(config.mode==='human'||config.mode==='ai-ai'?'finish':isHuman(state.winner)?'win':'loss'):state.draw?'draw':null;
+    if(!result.move.pass)soundCue('move',{hops,duration:animate?Math.min(1.5,.35*hops):0,finish});else if(finish)soundCue(finish);
+    if(animate)replayLast();
     if(!searchResult&&config.mode==='human-ai')replyStarted=performance.now();
-    if(state.winner!==null||state.draw){saveRecord(true);ended=true;return;}schedule();
+    if(finished(state)){saveRecord(true);ended=true;return;}schedule();
   }
   function schedule(){
-    if(ended||paused||cursor<moves.length||state.winner!==null||state.draw||busy)return;
+    if(ended||paused||cursor<moves.length||finished(state)||busy)return;
     const player=state.players[state.turn];
     if(!E.legalMoves(state.board,player,state.rules).length){timer=setTimeout(()=>{toast(playerName(player)+' 无合法走法，自动跳过');playMove({pass:true});},prefs.pace);return;}
     if(isHuman(player))return;
     clearTimeout(timer);timer=setTimeout(()=>requestSearch(false),config.mode==='ai-ai'?prefs.pace:0);
   }
   function requestSearch(hint){
-    if(busy||state.winner!==null||state.draw)return;
+    if(busy||finished(state))return;
     const player=state.players[state.turn],legal=E.legalMoves(state.board,player,state.rules);
     if(!legal.length){toast('当前方无合法走法');return;}
     const replyTime=replyStarted||performance.now();cancelSearch();const id=generation;busy=true;searchProgress=null;render();
-    const options={level:hint?Math.max(config.level,3):levelFor(player),time:prefs.time||undefined,algorithm:prefs.algorithm,seed:(Number(prefs.seed)+state.ply)>>>0,repetitions:repetitions()};
+    const options=R.prepareOptions(state,{...R.searchOptions(states),level:hint?Math.max(config.level,3):levelFor(player),time:prefs.time||undefined,algorithm:prefs.algorithm,seed:(Number(prefs.seed)+state.ply)>>>0,repetitions:repetitions()});
     const deliver=data=>{if(id!==generation||data.id!==id)return;
         if(data.progress){searchProgress=data.progress;renderSearch();return;}
         busy=false;searchProgress=null;
         if(data.error){disposeWorker();toast('AI 搜索失败：'+data.error);paused=true;render();return;}
+        data.result=R.guardResult(state,options,data.result);
         data.result.latency=performance.now()-replyTime;
         lastSearch=data.result;if(!data.result.move){toast('没有合法走法');render();return;}
-        if(hint){hintPath=data.result.move.path;selected=data.result.move.from;targets=E.pieceMoves(state.board,selected,state.rules);render();toast('建议 '+E.coord(data.result.move.from)+' → '+E.coord(data.result.move.to));}
+        if(hint){soundCue('hint');hintPath=data.result.move.path;selected=data.result.move.from;targets=E.pieceMoves(state.board,selected,state.rules);render();toast('建议 '+E.coord(data.result.move.from)+' → '+E.coord(data.result.move.to));}
         else playMove(data.result.move,data.result);
       };
     const startWorker=()=>{try{
@@ -183,27 +216,27 @@
       worker.postMessage({id,state,options});
     }catch(error){cancelSearch();paused=true;render();toast('AI 工作线程不可用：'+error.message);}};
     if(useNative(options)){
-      const controller=new AbortController();nativeController=controller;
-      const watchdog=setTimeout(()=>controller.abort(),1000);
-      fetch('/api/ai/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({state,options}),signal:controller.signal})
+      const controller=new AbortController(),time=options.time||nativeBudget;nativeController=controller;
+      const watchdog=setTimeout(()=>controller.abort(),Math.max(1000,time+1000));
+      fetch('/api/ai/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({state,options:{...options,time}}),signal:controller.signal})
         .then(response=>{if(!response.ok)throw Error('Local search unavailable');return response.json();})
-        .then(data=>{if(data.result?.native)data.result.algorithm='Kata · 神经网络';deliver({id,...data});})
+        .then(data=>{if(data.result?.native){data.result.algorithm=Number.isFinite(data.result.finishTurns)?'收官规划':'Kata · 神经网络';if(!Number.isFinite(data.result.finishTurns)){data.result.depth=null;data.result.nodes=null;}}deliver({id,...data});})
         .catch(()=>{if(id===generation)startWorker();})
         .finally(()=>{clearTimeout(watchdog);if(nativeController===controller)nativeController=null;});
     }else startWorker();
   }
   function onCell(i){
-    if(cursor<moves.length||busy||state.winner!==null||state.draw)return;
+    if(cursor<moves.length||busy||finished(state))return;
     const p=state.players[state.turn];if(!isHuman(p))return;
-    if(state.board[i]===p){selected=selected===i?null:i;targets=selected===null?[]:E.pieceMoves(state.board,selected,state.rules);hintPath=null;drawBoard();return;}
+    if(state.board[i]===p){selected=selected===i?null:i;targets=selected===null?[]:E.pieceMoves(state.board,selected,state.rules);hintPath=null;if(selected!==null)soundCue('select');drawBoard();return;}
     const move=targets.find(m=>m.to===i);if(move)playMove(move);else{selected=null;targets=[];hintPath=null;drawBoard();}
   }
   function undo(){
-    if(!moves.length)return;cancelSearch();let cut=moves.length-1;
+    if(!moves.length)return;window.StarhopSound?.stop();soundCue('undo');cancelSearch();let cut=moves.length-1;
     if(config.mode!=='human'&&config.mode!=='ai-ai'){while(cut>0&&!isHuman(states[cut].players[states[cut].turn]))cut--;}
     states=states.slice(0,cut+1);moves=moves.slice(0,cut);state=states.at(-1);cursor=moves.length;selected=null;targets=[];hintPath=null;ended=false;lastSearch=null;currentSavedId=null;persistSession();render();schedule();
   }
-  function review(to){cancelSearch();cursor=Math.max(0,Math.min(moves.length,to));selected=null;targets=[];hintPath=null;render();if(cursor===moves.length)schedule();}
+  function review(to){window.StarhopSound?.stop();cancelSearch();cursor=Math.max(0,Math.min(moves.length,to));selected=null;targets=[];hintPath=null;render();if(cursor===moves.length)schedule();}
   function showView(name){document.querySelectorAll('.view').forEach(e=>e.classList.toggle('active',e.id==='view-'+name));document.querySelectorAll('.nav-item').forEach(e=>{e.classList.toggle('active',e.dataset.view===name);e.setAttribute('aria-current',e.dataset.view===name?'page':'false');});$('page-name').textContent=viewNames[name];if(document.body)document.body.dataset.view=name;if(name==='archive')renderArchive();window.location.hash=name;}
   function saveRecord(quiet=false){
     if(!moves.length){if(!quiet)toast('落子后即可保存棋谱');return;}
@@ -224,22 +257,27 @@
     }
     const list=storageGet('starhop-archive',[]);$('archive-list').replaceChildren();
     if(!list.length){const empty=document.createElement('section');empty.className='panel empty';empty.textContent='这里还没有棋谱。下完一局，点击“保存棋谱”，或导入已有对局。';$('archive-list').append(empty);return;}
-    list.forEach(item=>{const card=document.createElement('section');card.className='panel archive-card';const tag=document.createElement('span');tag.className='eyebrow';tag.textContent=new Date(item.savedAt).toLocaleString('zh-CN');const title=document.createElement('h2');title.textContent=item.options.players+' 人 · '+(item.options.jump==='long'?'等距长跳':'相邻跳');const desc=document.createElement('p');desc.textContent=item.moves.length+' 手 · '+(item.result?.winner!==null&&item.result?.winner!==undefined?names[item.result.winner]+'胜':item.result?.draw||'未结束');const actions=document.createElement('div');actions.className='archive-actions';
+    list.forEach(item=>{const card=document.createElement('section');card.className='panel archive-card';const tag=document.createElement('span');tag.className='eyebrow';tag.textContent=new Date(item.savedAt).toLocaleString('zh-CN');const title=document.createElement('h2');title.textContent=item.options.players+' 人 · '+(item.options.jump==='long'?'等距长跳':'相邻跳');const desc=document.createElement('p');desc.textContent=item.moves.length+' 手 · '+(item.result?.winner!==null&&item.result?.winner!==undefined?names[item.result.winner]+'胜':item.result?.stopped?'手动结束 · 未判胜负':item.result?.draw==='手动结束'?'手动结束 · 未判胜负':item.result?.draw||'未结束');const actions=document.createElement('div');actions.className='archive-actions';
       const open=document.createElement('button');open.textContent='打开复盘 →';open.onclick=()=>{saveRecord(true);loadRecord(storageGet('starhop-archive',[]).find(saved=>saved.id===item.id)||item);persistSession();};const exp=document.createElement('button');exp.textContent='导出';exp.onclick=()=>download(item,item.id+'.json');actions.append(open,exp);card.append(tag,title,desc,actions);$('archive-list').append(card);});
   }
   function loadRecord(item,quiet=false){
-    const loaded=E.replay(item);cancelSearch();config={...config,...item.options,mode:['human-ai','human','ai-ai','mixed'].includes(item.options.mode)?item.options.mode:'human',humanSeat:Math.max(0,Math.min(loaded.state.players.length-1,Math.floor(Number(item.options.humanSeat)||0))),level:Math.max(0,Math.min(4,Math.floor(Number(item.options.level)||0))),secondLevel:Math.max(0,Math.min(4,Math.floor(Number(item.options.secondLevel)||0)))};
-    state=loaded.state;states=loaded.states;moves=loaded.moves;cursor=moves.length;selected=null;targets=[];hintPath=null;lastSearch=null;paused=true;ended=false;currentSavedId=item.id||null;historyStamp='';studySource=null;
+    const loaded=R.replay(item);cancelSearch();config={...config,...item.options,repetitionRule:item.options.repetitionRule||null,mode:['human-ai','human','ai-ai','mixed'].includes(item.options.mode)?item.options.mode:'human',humanSeat:Math.max(0,Math.min(loaded.state.players.length-1,Math.floor(Number(item.options.humanSeat)||0))),level:Math.max(0,Math.min(4,Math.floor(Number(item.options.level)||0))),secondLevel:Math.max(0,Math.min(4,Math.floor(Number(item.options.secondLevel)||0)))};
+    window.StarhopSound?.stop();state=loaded.state;states=loaded.states;moves=loaded.moves;cursor=moves.length;selected=null;targets=[];hintPath=null;lastSearch=null;paused=true;ended=false;currentSavedId=item.id||null;historyStamp='';studySource=null;
     if(item.studySource&&/^https:\/\/tiaoqi\.top\/thread-\d+\.htm$/.test(item.studySource.url)){studySource={title:String(item.studySource.title).slice(0,120),url:item.studySource.url,branch:!!item.studySource.branch};}
-    if(item.result?.draw&&state.winner===null)state.draw=String(item.result.draw).slice(0,80);render();if(!quiet){showView('play');toast('已载入棋谱 · 用复盘按钮逐手查看');}
+    if(state.winner===null){
+      if(item.result?.stopped||item.result?.draw==='手动结束'){state.stopped='手动结束';state.draw=null;ended=true;}
+      else if(item.result?.draw)state.draw=String(item.result.draw).slice(0,80);
+    }render();if(!quiet){showView('play');toast('已载入棋谱 · 用复盘按钮逐手查看');}
   }
   function openDialog(forceMode){$('mode').value=forceMode||config.mode;$('player-count').value=config.players;$('jump-rule').value=config.jump;$('goal-lock').checked=config.goalLock;$('difficulty').value=config.level;$('difficulty-second').value=config.secondLevel;syncForm();$('human-seat').value=config.humanSeat;$('match-dialog').showModal();}
   function syncForm(){const seat=$('human-seat').value,mode=$('mode').value;if(mode==='human-ai')$('player-count').value='2';$('player-count').disabled=mode==='human-ai';const count=Number($('player-count').value);$('human-seat').replaceChildren();for(let i=0;i<count;i++){const opt=document.createElement('option');opt.value=i;opt.textContent=i===0?'先手座位':'第 '+(i+1)+' 座位';$('human-seat').append(opt);}$('human-seat').value=Math.min(Number(seat)||0,count-1);$('human-seat').disabled=mode==='ai-ai'||mode==='human';$('difficulty').disabled=mode==='human';$('second-level-label').hidden=mode!=='ai-ai';}
-  function newGame(event){event.preventDefault();saveRecord(true);cancelSearch();config={players:Number($('player-count').value),mode:$('mode').value,humanSeat:Number($('human-seat').value),level:Number($('difficulty').value),secondLevel:Number($('difficulty-second').value),jump:$('jump-rule').value,goalLock:$('goal-lock').checked};state=E.createGame(config);states=[state];moves=[];cursor=0;selected=null;targets=[];hintPath=null;paused=false;ended=false;currentSavedId=null;lastSearch=null;studySource=null;$('match-dialog').close();persistSession();showView('play');render();schedule();}
-  function playTone(){if(!sound)return;try{const audio=new(window.AudioContext||window.webkitAudioContext)(),osc=audio.createOscillator(),gain=audio.createGain();osc.connect(gain);gain.connect(audio.destination);osc.frequency.value=650;gain.gain.setValueAtTime(.06,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.11);osc.start();osc.stop(audio.currentTime+.12);osc.onended=()=>audio.close();}catch{}}
-  function exportTraining(){const result=state.winner!==null?state.winner:state.draw?'draw':null;const rows=moves.map((move,i)=>{const s=states[i],p=s.players[s.turn];return {format:'starhop-training-v1',board:s.board,players:s.players,player:p,rules:s.rules,legal:E.legalMoves(s.board,p,s.rules).map(({from,to})=>({from,to})),policyMove:{from:move.from,to:move.to},outcome:result===null?null:result==='draw'?0:result===p?1:-1,engineVersion:'1.2.0'};});download(rows.map(x=>JSON.stringify(x)).join('\n'),'starhop-training-'+Date.now()+'.jsonl','application/x-ndjson');toast(rows.length+' 个局面已导出；未结束对局的结果标签为空');}
-  A.LEVELS.forEach((level,i)=>{for(const id of ['difficulty','difficulty-second']){const opt=document.createElement('option');opt.value=i;opt.textContent=level.name+' · '+level.label+' ('+(level.time/1000)+'s)';$(id).append(opt);}});
+  function newGame(event){event.preventDefault();window.StarhopSound?.stop();soundCue('start');saveRecord(true);cancelSearch();config={repetitionRule:R.RULE,players:Number($('player-count').value),mode:$('mode').value,humanSeat:Number($('human-seat').value),level:Number($('difficulty').value),secondLevel:Number($('difficulty-second').value),jump:$('jump-rule').value,goalLock:$('goal-lock').checked};state=createMatch(config);states=[state];moves=[];cursor=0;selected=null;targets=[];hintPath=null;paused=false;ended=false;currentSavedId=null;lastSearch=null;studySource=null;$('match-dialog').close();persistSession();showView('play');render();schedule();}
+  function soundCue(kind,options){window.StarhopSound?.play(kind,options);}
+  function exportTraining(){const result=state.winner!==null?state.winner:state.stopped?null:state.draw?'draw':null;const rows=moves.map((move,i)=>{const s=states[i],p=s.players[s.turn];return {format:'starhop-training-v1',board:s.board,players:s.players,player:p,rules:s.rules,legal:E.legalMoves(s.board,p,s.rules).map(({from,to})=>({from,to})),policyMove:{from:move.from,to:move.to},outcome:result===null?null:result==='draw'?0:result===p?1:-1,engineVersion:'2.2.0',softwareOrigin:{name:'星跃棋社',creator:'佟雪樱',url:'https://github.com/Icarus0802/starhop-club'}};});download(rows.map(x=>JSON.stringify(x)).join('\n'),'starhop-training-'+Date.now()+'.jsonl','application/x-ndjson');toast(rows.length+' 个局面已导出；未结束对局的结果标签为空');}
+  A.LEVELS.forEach((level,i)=>{for(const id of ['difficulty','difficulty-second']){const opt=document.createElement('option');opt.value=i;opt.textContent=level.name+' · '+level.label+(i===4?'':' ('+(level.time/1000)+'s)');$(id).append(opt);}});
   document.querySelectorAll('.nav-item').forEach(b=>b.onclick=()=>showView(b.dataset.view));$('quick-lab').onclick=()=>showView('lab');$('help').onclick=()=>showView('rules');$('new-game').onclick=()=>openDialog();$('lab-match').onclick=()=>openDialog('ai-ai');$('close-dialog').onclick=()=>$('match-dialog').close();$('mode').onchange=syncForm;$('player-count').onchange=syncForm;$('match-form').onsubmit=newGame;
+  $('new-game-inline').onclick=()=>openDialog();$('return-live-board').onclick=()=>review(moves.length);
+  window.StarhopRoom?.onPiecesChange(()=>{boardStamp='';historyStamp='';render();});
   $('board').addEventListener('click',event=>{const cell=event.target.closest('[data-i]');if(cell){keyboardCell=Number(cell.dataset.i);onCell(keyboardCell);}});
   $('board').addEventListener('focusin',event=>{
     const cell=event.target.closest('[data-i]');if(!cell)return;
@@ -254,15 +292,15 @@
     const next=E.adjacent[from].map(i=>{const [tx,ty]=point(i),dx=tx-x,dy=ty-y,along=dx*vx+dy*vy;return {i,along,error:Math.abs(dx*vy-dy*vx)/Math.max(1,along)};}).filter(n=>n.along>0).sort((a,b)=>a.error-b.error||a.i-b.i)[0];
     if(next){$('board').querySelector('[tabindex="0"]')?.setAttribute('tabindex','-1');cell.setAttribute('tabindex','-1');keyboardCell=next.i;const target=$('board').querySelector('[data-i="'+next.i+'"]');target?.setAttribute('tabindex','0');target?.focus();}
   });
-  $('coordinates').onclick=()=>{coords=!coords;$('coordinates').classList.toggle('active',coords);$('coordinates').setAttribute('aria-pressed',String(coords));drawBoard();};$('flip').onclick=()=>{flipped=!flipped;$('flip').setAttribute('aria-pressed',String(flipped));drawBoard();};$('sound').onclick=()=>{sound=!sound;$('sound').classList.toggle('active',sound);$('sound').setAttribute('aria-pressed',String(sound));$('sound').setAttribute('aria-label',sound?'关闭音效':'开启音效');playTone();};
-  $('undo').onclick=undo;$('hint').onclick=()=>requestSearch(true);$('pause').onclick=()=>{paused=!paused;if(paused)cancelSearch();render();schedule();};$('resign').onclick=()=>{cancelSearch();state={...state,draw:'手动结束'};states[states.length-1]=state;ended=true;saveRecord(true);persistSession();render();toast('对局已结束并保存棋谱');};
+  $('coordinates').onclick=()=>{coords=!coords;$('coordinates').classList.toggle('active',coords);$('coordinates').setAttribute('aria-pressed',String(coords));drawBoard();};$('flip').onclick=()=>{flipped=!flipped;$('flip').setAttribute('aria-pressed',String(flipped));drawBoard();};
+  $('undo').onclick=undo;$('hint').onclick=()=>requestSearch(true);$('pause').onclick=()=>{window.StarhopSound?.stop();paused=!paused;if(paused)cancelSearch();render();schedule();};$('resign').onclick=()=>{window.StarhopSound?.stop();cancelSearch();state={...state,draw:null,stopped:'手动结束'};states[states.length-1]=state;ended=true;saveRecord(true);persistSession();render();toast('对局已结束并保存棋谱');};
   $('replay-last').onclick=replayLast;
   $('save-game').onclick=()=>saveRecord();$('export-game').onclick=()=>download(record(),'starhop-'+Date.now()+'.json');$('first-move').onclick=()=>review(0);$('prev-move').onclick=()=>review(cursor-1);$('next-move').onclick=()=>review(cursor+1);$('last-move').onclick=()=>review(moves.length);$('return-live').onclick=()=>review(moves.length);$('move-list').onclick=event=>{const row=event.target.closest('[data-ply]');if(row)review(Number(row.dataset.ply));};
   $('algorithm').onchange=()=>{prefs.algorithm=$('algorithm').value;persistSession();};$('time-budget').onchange=()=>{prefs.time=Number($('time-budget').value);persistSession();};$('seed').onchange=()=>{prefs.seed=Number($('seed').value)>>>0;persistSession();};$('pace').onchange=()=>{prefs.pace=Number($('pace').value);persistSession();};$('export-training').onclick=exportTraining;
-  $('import-game').onclick=()=>$('file-input').click();$('file-input').onchange=async()=>{const file=$('file-input').files[0];if(!file)return;try{if(file.size>3*1024*1024)throw new Error('棋谱文件超过 3 MB');const item=JSON.parse(await file.text());E.replay(item);saveRecord(true);loadRecord(item);saveRecord(true);persistSession();}catch(error){toast('导入失败：'+error.message);}$('file-input').value='';};
-  const session=storageGet('starhop-session',null);if(session){try{Object.assign(prefs,session.preferences);loadRecord(session.record,true);$('algorithm').value=prefs.algorithm;$('time-budget').value=prefs.time;$('seed').value=prefs.seed;$('pace').value=prefs.pace;}catch{state=E.createGame(config);states=[state];moves=[];cursor=0;}}
+  $('import-game').onclick=()=>$('file-input').click();$('file-input').onchange=async()=>{const file=$('file-input').files[0];if(!file)return;try{if(file.size>3*1024*1024)throw new Error('棋谱文件超过 3 MB');const item=JSON.parse(await file.text());R.replay(item);saveRecord(true);loadRecord(item);saveRecord(true);persistSession();}catch(error){toast('导入失败：'+error.message);}$('file-input').value='';};
+  const session=storageGet('starhop-session',null);if(session){try{Object.assign(prefs,session.preferences);loadRecord(session.record,true);$('algorithm').value=prefs.algorithm;$('time-budget').value=prefs.time;$('seed').value=prefs.seed;$('pace').value=prefs.pace;}catch{state=createMatch(config);states=[state];moves=[];cursor=0;}}
   window.addEventListener('beforeunload',()=>{cancelSearch();disposeWorker();});showView(viewNames[location.hash.slice(1)]?location.hash.slice(1):'play');render();
   if(typeof fetch==='function'&&/^https?:$/.test(location.protocol)){
-    let checks=0;const discoverNative=()=>fetch('/api/ai/status').then(r=>r.ok?r.json():null).then(info=>{nativeLoading=info?.state==='loading';if(info?.state==='ready'){nativeReady=true;render();}else {render();if(nativeLoading&&++checks<150)setTimeout(discoverNative,2000);}}).catch(()=>{});discoverNative();
+    let checks=0;const discoverNative=()=>fetch('/api/ai/status').then(r=>r.ok?r.json():null).then(info=>{nativeLoading=info?.state==='loading';if(info?.state==='ready'){nativeReady=true;nativeBudget=[350,1500,2500,15000].includes(info.budgetMs)?info.budgetMs:350;nativeLabel=info.engine?.startsWith('星河 2.2')?'星河 2.2':'本机神经网络';render();}else {render();if(nativeLoading&&++checks<150)setTimeout(discoverNative,2000);}}).catch(()=>{});discoverNative();
   }
 })();

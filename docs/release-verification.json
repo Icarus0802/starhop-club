@@ -1,0 +1,37 @@
+{
+  "version": "2.2.0",
+  "tests": {
+    "total": 134,
+    "passed": 134,
+    "failed": 0
+  },
+  "earlierExtractedRun": {
+    "passed": 133,
+    "failed": 1,
+    "failure": "12ms cold-start finishing estimate returned unknown instead of 4",
+    "fix": "Production analysis budget 40ms and cache of proved results; original tests and real clocks unchanged"
+  },
+  "portableSmoke": {
+    "version": "2.2.0",
+    "extractedWindows": true,
+    "status": {
+      "state": "ready",
+      "engine": "星河 2.2 · 深度收官",
+      "budgetMs": 15000,
+      "preview": false
+    },
+    "legalMove": {
+      "from": 111,
+      "to": 103,
+      "path": [
+        111,
+        103
+      ]
+    },
+    "native": true,
+    "elapsedMs": 14973
+  },
+  "watermarkFullscreenVerified": true,
+  "strengthGatePassed": false,
+  "packaging": "curated-file-allowlist; no user caches, logs, development runs or unused candidates"
+}

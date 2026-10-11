@@ -1,0 +1,308 @@
+{
+  "version": "2.2.0",
+  "baseline": "ceb942df5708a9c7c4164c6b0277dc5f38968a92",
+  "baselineURL": "https://github.com/Icarus0802/starhop-club/tree/ceb942df5708a9c7c4164c6b0277dc5f38968a92",
+  "notice": "Only newly contributed expression for which the project can grant rights. Historical MIT, third-party components, ideas, user records and user uploads are excluded. File listing does not relicense prior portions.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "3773386d14177cd5ccd627124901cb536c18063e19da7b2d6fd52db27fa886fc"
+    },
+    {
+      "path": ".gitignore",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "122238e91e91758552c730c22ab16be32344fa274bcd17be0ef31f542b25a79f"
+    },
+    {
+      "path": "ATTRIBUTION.md",
+      "scope": "new-authorized-expression-only",
+      "sha256": "7f30626bf37eb01ee607adb3dfe7e24370a35bc0f4163a38b04fbd041ecb7b7e"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "37aa7345bebee00197bb3a02f785433862385cbde68f64dfa707ee51f5820ad9"
+    },
+    {
+      "path": "LICENSE",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "4c783b008f803ad0605d172490d4d4be1cf6a082f05cabe985726f0b5a9c184a"
+    },
+    {
+      "path": "README.md",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "9248a30f3caed3bebfef617ab5f532910a8f45ba0d1a781f37e6fe30b10f90e1"
+    },
+    {
+      "path": "THIRD_PARTY.md",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "449d628f55f18a22fd0c0da18b9a40b6e6d904859bb9501efb28869eb4a98108"
+    },
+    {
+      "path": "assets/themes/README.md",
+      "scope": "new-authorized-expression-only",
+      "sha256": "c04cad8f17037f30cc8e6725a394983ee3c8c88e5b7d61473fedf130653dbcba"
+    },
+    {
+      "path": "assets/themes/starlit-garden.png",
+      "scope": "new-authorized-expression-only",
+      "sha256": "e806a2ba721f8173999096b59167502984a02814c42459b4e65263647a1a5c5e"
+    },
+    {
+      "path": "benchmarks/challenge-15-deep-native.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "93283d8bf19463e48c8a31c76b4d1095124288fe371a411125d21645ba644892"
+    },
+    {
+      "path": "benchmarks/finish-book-v2.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "bab8d814a61825b17c4e44a086f70e7c23041c66f5a140bbec1e6220e0e862a2"
+    },
+    {
+      "path": "benchmarks/finish-policy-deep.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "7ccec8a1456ee04de77604386c0aebf0a6f4d9ea57ab0fcd2ebe2781ac581aab"
+    },
+    {
+      "path": "benchmarks/finish-v2.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "e679f35e94101114cada5294567e0497aa2eab1337cd9d0a969fd3c37296bfb8"
+    },
+    {
+      "path": "benchmarks/reuse-native.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "1d79addd88880bb4e9ddef98cc630ae36601d332de1fc31242e3ee69992c5784"
+    },
+    {
+      "path": "benchmarks/rule-aware-deep-native.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "515c6efc1de583c3e95ff53ef0d5b594a25120deb844f7e841f3686c17718eec"
+    },
+    {
+      "path": "docs/RELEASE_NOTES.md",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "0c55123abe3ab6c57892365915f85c87398d8d164691213c4054084a8da62597"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "1809d245fc58ab0cce26fea4a7e4f96f2ff9e085a26eb8451642712f5d9de4b3"
+    },
+    {
+      "path": "docs/release-manifest.json",
+      "scope": "new-authorized-expression-only",
+      "sha256": "77913e8e696629d8bd3cb5c50645a3914605ed373db3de9362d0ccc88223a410"
+    },
+    {
+      "path": "docs/screenshots/release-2.2.png",
+      "scope": "new-authorized-expression-only",
+      "sha256": "27a31ed9c87d82e5a1743f662bb25126b1cddff20a9f9690548937d8862d7a20"
+    },
+    {
+      "path": "index.html",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "2327cae1e89f87e2947a4808fa86fd42f4577f28a38574d8a45fba80e539b1bb"
+    },
+    {
+      "path": "js/analysis-ui.js",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "be9b352e0c83363ee9f5b155dba10dcbe2fed0a5f5dc1d960efd9a5d042b909f"
+    },
+    {
+      "path": "js/analysis.js",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "a7513e9136f660c66cbc896c6b77d009ffa30a1f5c2bfaa286d5a0fc6e674763"
+    },
+    {
+      "path": "js/app.js",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "c5dac126ddadcc7dc426c0a640a9001193784981342eb4f083b4c5b51bb37f37"
+    },
+    {
+      "path": "js/finish-policy.js",
+      "scope": "new-authorized-expression-only",
+      "sha256": "2ba2e52cc5a3ef20ccd516767b697f4b14f5f6014e7911442c48422fc24dd5b7"
+    },
+    {
+      "path": "js/friendly-finish.js",
+      "scope": "new-authorized-expression-only",
+      "sha256": "4923befe27834f8f2cf5e543df2a406f5d0aca0d79be021344207e872203ff76"
+    },
+    {
+      "path": "js/repetition-rule.js",
+      "scope": "new-authorized-expression-only",
+      "sha256": "cbe799792f4be189149ab78e1f3cec1107efda4403984429a44db783bd23d4b4"
+    },
+    {
+      "path": "js/room-appearance.js",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "92fdc0a8d9c840d4bd1d8b131ec77f44c551472ecb46cd714ffa3d7b3a991cb1"
+    },
+    {
+      "path": "js/sound.js",
+      "scope": "new-authorized-expression-only",
+      "sha256": "f82c21d5ea7244a3b0c5a781831fe1a7604dd076559b22805ab1b8317cd2f156"
+    },
+    {
+      "path": "js/worker-bundle.js",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "041050b4263a366b5cb850f005432bd7a34ce42008cf7f12ae61ec68b326a320"
+    },
+    {
+      "path": "js/worker.js",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "f8a78f3a447b88ba45a010a9ba68d87eeb1f4dba4c980653bb03a603fb3e7db1"
+    },
+    {
+      "path": "package.json",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "7461b09b02aa7a6f246f6c32662d5336d8ab88b8917e9348d1b982a93a446096"
+    },
+    {
+      "path": "scripts/ai-fingerprint.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "5fe2d686aca8d1fe21f04b48a566031087edf765af82ea9f354cc257f6753fac"
+    },
+    {
+      "path": "scripts/arena-native.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "dc7020733dae1c4a8630d4a6ab5e492c0bb2ed74c4e19bc2e22a1437eaa5c105"
+    },
+    {
+      "path": "scripts/assess-current-challenge.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "5e6917738277631baeefb7f194246a927592df00c486cc87aedf3420f7385fc5"
+    },
+    {
+      "path": "scripts/assess-current-round.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "0e279bb0401e24174948795ddd5205d5519bb3011ca5a06bacfc8a932a683644"
+    },
+    {
+      "path": "scripts/build.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "f7249e41112e2942c93a88fd3573029882d571bf4fc8d31049f3a320d5ef6c5c"
+    },
+    {
+      "path": "scripts/challenge-verdict.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "32fedef4456437612d8ca3ffaa239c40f39f2ab6049deb82f8c32fd71b6a4476"
+    },
+    {
+      "path": "scripts/find-finish-certificate.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "793e5ef581ee6fdbdc494f3938197af019d1bd58a3ef777f537b33bd5bf9e42f"
+    },
+    {
+      "path": "scripts/native-ai-server.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "8349f6d67130a578726ef6980988921207876744e04b5edecf4b24c56d24e672"
+    },
+    {
+      "path": "scripts/package.py",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "449798c7f47471d83eeed5f2061f9a6cd27295e2d7c96442874a84cd02b537f0"
+    },
+    {
+      "path": "scripts/prepare-runtime.py",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "d7455571272a1862158f4cf2bec623308c8e922670227808e05485afcad99149"
+    },
+    {
+      "path": "server.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "12ad46a27e1cc7cf82e0c9d4e58be0147591c941569e22383b0258624454ca04"
+    },
+    {
+      "path": "style-board.css",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "1e7289624d8eee2dbb21f94315324a2e30742bb71c5fb4a624dca19415b8660b"
+    },
+    {
+      "path": "style-themes.css",
+      "scope": "new-authorized-expression-only",
+      "sha256": "5c150390331b7da2cd4838c530546103a888bbea07229e649eed42e60cd01bee"
+    },
+    {
+      "path": "style.css",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "b20a333861ca950f716624ac5c9f5b96f14d8dd28b5c708ed421e5a89727cede"
+    },
+    {
+      "path": "tests/analysis.test.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "1b57be5159c8445ccbc2ad79843d721e966ddf73196133ea8dafb5f669b49ba1"
+    },
+    {
+      "path": "tests/current-challenge-gate.test.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "7e2e97a31497958971ed0a46dde54a3fef452915d525004210429b857a094777"
+    },
+    {
+      "path": "tests/deep-finish.test.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "d446441ca77ded9cb4d4fe38c70c19a1bdec5dc5db6a6eca546ffabb632c01a7"
+    },
+    {
+      "path": "tests/finish-certificate.test.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "30a54d1e9014a169172f0d67dd8a281b4ef9e0aec52839b98c3fa5d6c7c578e8"
+    },
+    {
+      "path": "tests/finish-policy.test.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "fb286227ac407b3b8aeb4e9e1632fdbfee717a7a40f24ff3b64de13598e1ca67"
+    },
+    {
+      "path": "tests/finish-v2.test.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "d88076f01744fce1d9141ffe0bd5eb5cdf6a2e6a0ac7c6879ac957beb47f592c"
+    },
+    {
+      "path": "tests/launcher.test.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "2f4c86284918ca7610fb454ef982cf5b5cb04219e0586af7d65266e38d635098"
+    },
+    {
+      "path": "tests/native-server.test.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "363863464d29a06e46815fc35020fbb16cf5b361d8bff0a8a0ecc8ff606128aa"
+    },
+    {
+      "path": "tests/repetition-rule.test.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "9d84ff8816671508d8357f1a788aa91e7446e064fcc98a844ea04c90cb6de9e7"
+    },
+    {
+      "path": "tests/reuse-native.test.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "cc66e4e5ccf91e8ac9c6d0d96e25fa60c1b939e795757e752b37ba875e80f9b0"
+    },
+    {
+      "path": "tests/room-appearance.test.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "025443965637059d44c68c73cb5f79e25de0d02803cfdcb652588cdaaf48a5bf"
+    },
+    {
+      "path": "tests/sound.test.cjs",
+      "scope": "new-authorized-expression-only",
+      "sha256": "6dc117f599fc53cd3d24eb47b234ead1b5109f531edc942d2d1d62bfbca25a80"
+    },
+    {
+      "path": "tests/ui-presentation.test.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "73d03d7727624d0819340c1b3ce0f74577c856cfca13094a523745a2484e03bb"
+    },
+    {
+      "path": "tests/ui-session-flow.test.cjs",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "ca86acd57b00a410db78ad518173908278f94ef0e32669964d3b97e7f1119c4c"
+    },
+    {
+      "path": "开始使用.txt",
+      "scope": "new-modifications-only; prior material retains its license",
+      "sha256": "d8d9f959007e6e4090e366c00f1512aa6aa133354dc796913fa1910675a6728a"
+    }
+  ]
+}

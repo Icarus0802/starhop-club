@@ -1,21 +1,31 @@
-MIT License
+星跃棋社非商业署名许可 1.0
+Starhop Noncommercial Attribution License 1.0
+发布日期：2026-10-11    制作人：佟雪樱
+项目来源：https://github.com/Icarus0802/starhop-club
 
-Copyright (c) 2022 arthur-x
+1. 适用范围
+本许可仅适用于 2.2.0 版本相对于已经公开的 2.0.0 版本新增的、或修改中新增的本项目有权授权的原创表达。文件范围及基线见 docs/LICENSING_SCOPE.json。列出一个修改文件不表示其中的旧代码或第三方代码受本许可限制。本许可不主张游戏规则、思想、算法原理、用户棋谱或用户上传图片的所有权；生成素材仅在依法存在可授予权利的范围内适用。
+此前已按 MIT 等许可分发的版本和部分，继续享有原许可，不追溯撤销，也不以本许可限制其既有权利。vendor/ 中的上游代码、Node.js、Kata 引擎和权重及其依赖按各自原许可使用，详见 THIRD_PARTY.md 和 vendor/ 下的许可证。
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+2. 非商业使用授权
+在遵守本许可时，允许免费获取、阅读、运行、复制、研究、修改及再次分发适用材料，用于个人娱乐、学习、非商业研究和无偿分享。允许公开派生作品的源代码，但必须保留本许可和所需声明。
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+3. 必须注明使用位置和修改
+凡向他人提供包含适用材料的软件、源代码、网页、服务或衍生作品，必须在其 README 或第三方声明中明确写明：
+（a）星跃棋社（Starhop Club），制作人：佟雪樱；
+（b）项目来源 https://github.com/Icarus0802/starhop-club 及所使用版本/提交；
+（c）具体使用的文件、模块、图片、界面组件或功能，以及在你作品中的使用位置；
+（d）是否作出修改，并概述修改内容。
+提供用户界面的作品，还必须在用户可见的“关于/鸣谢”中展示上述制作人、来源及使用模块。分发本软件完整界面或其改版时，必须保留棋盘的可见制作人署名，允许调整样式但不能隐去或造成无法辨认。只复用独立模块无需添加无关棋盘水印，仍须明确标注该模块来源。署名示例见 ATTRIBUTION.md。
+禁止删除版权、许可和来源信息，禁止把适用材料宣称为自己的独立原创，禁止暗示佟雪樱或本项目认可、赞助或制作了未经授权的派生产品。可以如实署名自己的新增贡献。
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+4. 禁止商业盈利使用
+未经制作人另行书面授权，不得将适用材料用于直接或间接商业盈利，包括收费销售或转售、付费下载、订阅/会员/内购、广告变现、付费托管/API、商业产品或服务的组成部分、收费定制交付，以及为上述商业用途提供使用权。不能通过免费入口、改名、包装或拆分收费规避。需要商业使用时，请通过原项目联系制作人取得单独授权。
+
+5. 分发与终止
+再次分发须附带本许可及全部适用第三方声明，不得授予与本许可冲突的权利。违反本许可时，对适用材料的本许可授权终止；停止违规并取得权利人恢复授权后方可继续使用。未明确授予的权利予以保留。
+
+6. 无担保
+软件按现状提供，不对适销性、特定用途适用性或不侵权作出保证。在适用法律允许的范围内，作者及贡献者不对使用或无法使用软件引起的损失承担责任。
+
+这是源码公开的非商业许可；由于限制商业用途，不属于 OSI 定义的开源许可证。上述限制只覆盖第 1 条界定的适用材料，不改变第三方许可及历史版本权利。

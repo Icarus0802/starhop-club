@@ -1,2 +1,6 @@
 * text=auto eol=lf
 *.cmd text eol=crlf
+
+# Preserve exact AI bytes used by the release integrity manifest.
+*.cjs -text
+js/*.js -text
